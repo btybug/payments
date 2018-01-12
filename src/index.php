@@ -1,3 +1,3 @@
 <?php
-addProvider('BtyBugHook\Membership\Providers\ModuleServiceProvider');
+addProvider('BtyBugHook\Payments\Providers\ModuleServiceProvider');
 

@@ -9,10 +9,9 @@
  *
  */
 
-namespace BtyBugHook\Membership\Providers;
+namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
-use BtyBugHook\Membership\Models\User;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -27,64 +26,33 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \Config::set('services.stripe', [
-            'model'  => User::class,
-            'key' =>'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
-            'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
-        ]);
-        $this->loadTranslationsFrom(__DIR__ . '/../views', 'mbshp');
-        $this->loadViewsFrom(__DIR__ . '/../views', 'mbshp');
+        $this->loadTranslationsFrom(__DIR__ . '/../views', 'payments');
+        $this->loadViewsFrom(__DIR__ . '/../views', 'payments');
 
         \Eventy::action('admin.menus', [
-            "title" => "Membership",
+            "title" => "Payments",
             "custom-link" => "#",
             "icon" => "fa fa-users",
             "is_core" => "yes",
             "children" => [
                 [
-                    "title" => "Membership Types",
-                    "custom-link" => "/admin/membership/membership-types",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
-                ], [
-                    "title" => "Members",
-                    "custom-link" => "/admin/membership/members",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
-                ],[
-                    "title" => "Plans",
-                    "custom-link" => "/admin/membership/plans",
+                    "title" => "Settings",
+                    "custom-link" => "/admin/payments/settings",
                     "icon" => "fa fa-angle-right",
                     "is_core" => "yes"
                 ], [
                     "title" => "Payments",
-                    "custom-link" => "/admin/membership/payments",
+                    "custom-link" => "/admin/payments",
                     "icon" => "fa fa-angle-right",
                     "is_core" => "yes"
-                ], [
-                    "title" => "Settings",
-                    "custom-link" => "/admin/membership/settings",
-                    "icon" => "fa fa-cog",
+                ],[
+                    "title" => "Shopping cart",
+                    "custom-link" => "/admin/payments/shopping-cart",
+                    "icon" => "fa fa-angle-right",
                     "is_core" => "yes"
                 ]
             ]]);
-        $tubs = [
-            'mb_settings' => [
-                [
-                    'title' => 'General',
-                    'url' => '/admin/membership/settings',
-                    'icon' => 'fa fa-cub'
-                ],
-                [
-                    'title' => 'Membership Status',
-                    'url' => '/admin/membership/settings/membership-status',
-                    'icon' => 'fa fa-cub'
-                ],
-            ]
-        ];
-
-        \Eventy::action('my.tab', $tubs);
-        Routes::registerPages('sahak.avatar/membership');
+        Routes::registerPages('sahak.avatar/payments');
     }
 
 

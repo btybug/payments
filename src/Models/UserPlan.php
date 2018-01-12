@@ -1,4 +1,4 @@
-<?php namespace BtyBugHook\Membership\Models;
+<?php namespace BtyBugHook\Payments\Models;
 
 use Btybug\User\User;
 use Illuminate\Database\Eloquent\Model;

@@ -6,7 +6,7 @@
  * Time: 13:30
  */
 
-namespace BtyBugHook\Membership\Models;
+namespace BtyBugHook\Payments\Models;
 
 
 use Laravel\Cashier\Billable;
@@ -17,6 +17,6 @@ class User extends \Btybug\User\User
 
     public function membership()
     {
-       return $this->belongsTo(MembershipTypes::class,'membership_id');
+       return $this->belongsTo(PaymentsTypes::class,'membership_id');
     }
 }

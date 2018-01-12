@@ -1,19 +1,23 @@
 <?php
 
-namespace BtyBugHook\Membership\Http\Controllers;
+namespace BtyBugHook\Payments\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
 class IndexConroller extends Controller
 {
 
-    public function getPlans()
+    public function getSettings()
     {
-        return view('mbshp::plans.index');
+        return view('payments::settings.index');
     }
     public function getPayments()
     {
-        return view('mbshp::payments.index');
+        return view('payments::payments.index');
+    }
+    public function getShoppingCatr()
+    {
+        return view('payments::sopping.index');
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace BtyBugHook\Membership;
+namespace BtyBugHook\Payments;
 use Illuminate\Support\Facades\Schema;
 
 /**

@@ -6,12 +6,12 @@
  * Time: 23:03
  */
 
-namespace BtyBugHook\Membership\Models;
+namespace BtyBugHook\Payments\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserMembership extends Model
+class UserPayments extends Model
 {
 
     protected $table = 'user_membership';
@@ -25,11 +25,11 @@ class UserMembership extends Model
 
     public function membership_type()
     {
-        return $this->belongsTo(MembershipTypes::class, 'membership_type_id');
+        return $this->belongsTo(PaymentsTypes::class, 'membership_type_id');
     }
 
     public function status()
     {
-        return $this->belongsTo(MembershipStatuses::class, 'status_id');
+        return $this->belongsTo(PaymentsStatuses::class, 'status_id');
     }
 }

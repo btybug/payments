@@ -1,4 +1,4 @@
-<?php namespace BtyBugHook\Membership\Models;
+<?php namespace BtyBugHook\Payments\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Time: 23:10
  */
 
-class MembershipStatuses extends Model
+class PaymentsStatuses extends Model
 {
 
     protected $table='membership_statuses';
