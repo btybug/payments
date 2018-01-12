@@ -1,6 +1,5 @@
-@extends('btybug::layouts.mTabs',['index'=>'mb_settings'])
-<!-- Nav tabs -->
-@section('tab')
+@extends('btybug::layouts.admin')
+@section('content')
     <div class="main_lay_cont">
         {!! 'settings' !!}
     </div>
