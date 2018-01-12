@@ -1,0 +1,23 @@
+{
+  "name": "sahak.avatar/membership",
+  "description": "Membership package description",
+  "type": "plugin",
+  "authors": [
+    {
+      "name": "Hakobyan",
+      "email": "hakobyan.sahak88@gmail.com"
+    }
+  ],
+  "route": "membership",
+  "require": {
+    "laravel/cashier":"~7.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "BtyBugHook\\Membership\\": "src/"
+    },
+    "files": [
+      "src/index.php"
+    ]
+  }
+}
