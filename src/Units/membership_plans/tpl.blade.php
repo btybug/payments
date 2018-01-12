@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     <div class="text-center">
-                        <button class="btn select-plan">select plan</button>
+                        <button class="btn select-plan">Add To Cart</button>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                             <sub>{!! $plan->intrval_count.' '.$plan->interval !!}</sub>
                         </div>
                         <div class="buy btn">
-                            buy
+                            Add To Cart
                         </div>
                     </div>
                 </div>
