@@ -10,7 +10,7 @@
   ],
   "route": "payments",
   "require": {
-
+    "gloudemans/shoppingcart" : "2.4.0"
   },
   "autoload": {
     "psr-4": {
