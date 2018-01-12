@@ -16,5 +16,5 @@
     "membership","plans","products",
     "frontend"
   ],
-  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/shopping_cart"
+  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/membership_plans"
 }
