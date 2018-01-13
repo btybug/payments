@@ -79,6 +79,17 @@ class ModuleServiceProvider extends ServiceProvider
             "is_core" => "yes",
             "children" => [
                 [
+                    "title" => "Dashboard",
+                    "custom-link" => "/admin/payments/dashboard",
+                    "icon" => "fa fa-angle-right",
+                    "is_core" => "yes"
+                ],[
+                    "title" => "User payments",
+                    "custom-link" => "/admin/payments/user-payments",
+                    "icon" => "fa fa-angle-right",
+                    "is_core" => "yes"
+                ],
+                [
                     "title" => "Settings",
                     "custom-link" => "/admin/payments/settings",
                     "icon" => "fa fa-angle-right",

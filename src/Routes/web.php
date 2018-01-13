@@ -23,6 +23,19 @@ Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
 });
+
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/', 'DashboardConroller@getIndex', true)->name('payments_dashboard');
+});
+
+Route::group(['prefix' => 'user-payments'], function () {
+    Route::get('/', 'UserPaymentsConroller@getIndex', true)->name('payments_user_payments');
+});
+
+Route::group(['prefix' => 'shopping-cart'], function () {
+    Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
+});
+
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', 'PaymentSettingsConroller@getSettings', true)->name('payments_settings');
     Route::get('/general', 'PaymentSettingsConroller@getGeneral', true)->name('payments_settings_general');
