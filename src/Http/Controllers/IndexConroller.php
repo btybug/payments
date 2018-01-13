@@ -13,6 +13,7 @@ class IndexConroller extends Controller
     }
     public function getPayments()
     {
+
         return view('payments::payments.index');
     }
     public function getShoppingCatr()

@@ -19,7 +19,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
 Route::group(['prefix' => 'payments'], function () {
     Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
 });
