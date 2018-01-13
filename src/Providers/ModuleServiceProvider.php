@@ -52,6 +52,10 @@ class ModuleServiceProvider extends ServiceProvider
                     'title' => 'Payment gateways',
                     'url' => '/admin/payments/settings/payment-gateways',
                     'icon' => 'fa fa-cub'
+                ],[
+                    'title' => 'Checkout',
+                    'url' => '/admin/payments/settings/checkout',
+                    'icon' => 'fa fa-cub'
                 ],
             ]
         ];
