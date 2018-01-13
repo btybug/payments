@@ -1,5 +1,5 @@
 {
-  "title": "Membership Plans",
+  "title": "Product Page",
   "author": "Sahak",
   "site": "http:\/\/bootydev.co.uk",
   "version": "1.0",
@@ -7,14 +7,14 @@
   "description": "",
   "have_setting": 1,
   "image": "screenshot.png",
-  "slug": "membership_plans",
-  "folder": "membership_plans",
+  "slug": "products",
+  "folder": "products",
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
   "tags": [
-    "membership","plans","products",
+    "plans","product",
     "frontend"
   ],
-  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/membership_plans"
+  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/products"
 }
