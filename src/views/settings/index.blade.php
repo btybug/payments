@@ -21,6 +21,11 @@
                     <h3>Checkout</h3>
                     <h2><i class="fa fa-television" aria-hidden="true"></i></h2>
                 </a>
+            </div><div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 items_links">
+                <a href="{!! url('/admin/payments/settings/shopping-card') !!}" class="ly_items">
+                    <h3>Shopping card</h3>
+                    <h2><i class="fa fa-television" aria-hidden="true"></i></h2>
+                </a>
             </div>
         </div>
     </div>
