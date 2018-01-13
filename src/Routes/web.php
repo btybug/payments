@@ -20,13 +20,12 @@
 |
 */
 Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
-Route::group(['prefix' => 'payments'], function () {
-    Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
-});
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
 });
 Route::group(['prefix' => 'settings'], function () {
-    Route::get('/', 'IndexConroller@getSettings', true)->name('payments_settings');
+    Route::get('/', 'PaymentSettingsConroller@getSettings', true)->name('payments_settings');
+    Route::get('/stripe', 'PaymentSettingsConroller@getStripe', true)->name('payments_settings_stripe');
+    Route::get('/paypal', 'PaymentSettingsConroller@getPaypal', true)->name('payments_settings_paypal');
 });
 

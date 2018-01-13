@@ -41,6 +41,22 @@ class ModuleServiceProvider extends ServiceProvider
             ],
         ]);
 
+        $tabs = [
+            'payment_settings' => [
+                [
+                    'title' => 'Stripe',
+                    'url' => '/admin/payments/settings/stripe',
+                    'icon' => 'fa fa-cub'
+                ],
+                [
+                    'title' => 'Paypal',
+                    'url' => '/admin/payments/settings/paypal',
+                    'icon' => 'fa fa-cub'
+                ],
+            ]
+        ];
+        \Eventy::action('my.tab', $tabs);
+
         $this->loadTranslationsFrom(__DIR__ . '/../views', 'payments');
         $this->loadViewsFrom(__DIR__ . '/../views', 'payments');
 

@@ -6,11 +6,6 @@ use App\Http\Controllers\Controller;
 
 class IndexConroller extends Controller
 {
-
-    public function getSettings()
-    {
-        return view('payments::settings.index');
-    }
     public function getPayments()
     {
 
