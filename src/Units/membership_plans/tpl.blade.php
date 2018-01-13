@@ -27,6 +27,7 @@
                     </div>
                     <div class="text-center">
                         <button class="btn select-plan">Add To Cart</button>
+                        <button class="btn select-plan">View Product</button>
                     </div>
                 </div>
             </div>
@@ -60,9 +61,12 @@
                             <sup><b>00</b></sup>
                             <sub>{!! $plan->intrval_count.' '.$plan->interval !!}</sub>
                         </div>
-                        <div class="buy btn">
+                        <a href="#" class="buy btn">
                             Add To Cart
-                        </div>
+                        </a>
+                        <a href="#" class="buy btn">
+                            View Product
+                        </a>
                     </div>
                 </div>
             @endforeach
