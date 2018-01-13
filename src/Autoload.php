@@ -1,6 +1,7 @@
 <?php
 
 namespace BtyBugHook\Payments;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -32,6 +33,15 @@ class Autoload
             $table->timestamp('trial_ends_at')->nullable();
             $table->timestamp('ends_at')->nullable();
             $table->timestamps();
+        });
+
+        Schema::create(config('cart.database.table'), function (Blueprint $table) {
+            $table->string('identifier');
+            $table->string('instance');
+            $table->longText('content');
+            $table->nullableTimestamps();
+
+            $table->primary(['identifier', 'instance']);
         });
     }
     // this function will called only uninstall time

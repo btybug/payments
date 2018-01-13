@@ -12,6 +12,7 @@
 namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
 
@@ -26,6 +27,20 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Config::set('cart', [
+            'tax' => 21,
+            'database' => [
+                'connection' => null,
+                'table' => 'shoppingcart',
+            ],
+            'destroy_on_logout' => false,
+            'format' => [
+                'decimals' => 2,
+                'decimal_point' => '.',
+                'thousand_seperator' => ','
+            ],
+        ]);
+
         $this->loadTranslationsFrom(__DIR__ . '/../views', 'payments');
         $this->loadViewsFrom(__DIR__ . '/../views', 'payments');
 

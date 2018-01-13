@@ -17,7 +17,7 @@ class IndexConroller extends Controller
     }
     public function getShoppingCatr()
     {
-        return view('payments::sopping.index');
+        return view('payments::shopping.index');
     }
 
 }
