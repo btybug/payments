@@ -29,5 +29,6 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/payment-gateways', 'PaymentSettingsConroller@getPaymentGateways', true)->name('payments_settings_gatewys');
     Route::get('/checkout', 'PaymentSettingsConroller@getCheckout', true)->name('payments_settings_checkout');
     Route::get('/shopping-card', 'PaymentSettingsConroller@getShoppingCard', true)->name('payments_settings_shopping_card');
+    Route::get('/price', 'PaymentSettingsConroller@getPrice', true)->name('payments_settings_price');
 });
 

@@ -27,6 +27,11 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.shopping_card');
     }
 
+    public function getPrice()
+    {
+        return view('payments::settings.price');
+    }
+
     public function getPaymentGateways()
     {
         $stripe = \Config::get('services.stripe');
