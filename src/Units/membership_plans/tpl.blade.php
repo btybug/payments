@@ -27,7 +27,7 @@
                     </div>
                     <div class="text-center">
                         <button class="btn select-plan">Add To Cart</button>
-                        <a href="{!! url('products',$plan->id) !!}" class="btn select-plan">View Product</a>
+                        <a href="{!! url('product',$plan->id) !!}" class="btn select-plan">View Product</a>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                         <a href="#" class="buy btn">
                             Add To Cart
                         </a>
-                        <a href="{!! url('products',$plan->id) !!}" class="buy btn">
+                        <a href="{!! url('product',$plan->id) !!}" class="buy btn">
                             View Product
                         </a>
                     </div>
