@@ -2,8 +2,8 @@
     $membershipTypesRepository=new \BtyBugHook\Membership\Repository\PlansRepository();
     $plans=$membershipTypesRepository->findAllByMultiple(['is_active'=>1]);
 @endphp
-@if((isset($settings['grid_system']) && $settings['grid_system']!=2 ) || $settings['grid_system']==1)
-<section id="starter">
+@if((!isset($settings['grid_system']) || $settings['grid_system']!=2 ) || (isset($settings['grid_system']) && $settings['grid_system']==1 ))
+    <section id="starter">
     <div class="container">
         <div class="row">
             @foreach($plans as $plan)
