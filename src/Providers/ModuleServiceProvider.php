@@ -44,13 +44,13 @@ class ModuleServiceProvider extends ServiceProvider
         $tabs = [
             'payment_settings' => [
                 [
-                    'title' => 'Stripe',
-                    'url' => '/admin/payments/settings/stripe',
+                    'title' => 'General',
+                    'url' => '/admin/payments/settings/general',
                     'icon' => 'fa fa-cub'
                 ],
                 [
-                    'title' => 'Paypal',
-                    'url' => '/admin/payments/settings/paypal',
+                    'title' => 'Payment gateways',
+                    'url' => '/admin/payments/settings/payment-gateways',
                     'icon' => 'fa fa-cub'
                 ],
             ]

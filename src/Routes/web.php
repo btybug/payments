@@ -25,7 +25,7 @@ Route::group(['prefix' => 'shopping-cart'], function () {
 });
 Route::group(['prefix' => 'settings'], function () {
     Route::get('/', 'PaymentSettingsConroller@getSettings', true)->name('payments_settings');
-    Route::get('/stripe', 'PaymentSettingsConroller@getStripe', true)->name('payments_settings_stripe');
-    Route::get('/paypal', 'PaymentSettingsConroller@getPaypal', true)->name('payments_settings_paypal');
+    Route::get('/general', 'PaymentSettingsConroller@getGeneral', true)->name('payments_settings_general');
+    Route::get('/payment-gateways', 'PaymentSettingsConroller@getPaymentGateways', true)->name('payments_settings_gatewys');
 });
 

@@ -6,14 +6,14 @@
         </div>
         <div class="row layouts_row">
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 items_links">
-                <a href="{!! url('/admin/payments/settings/stripe') !!}" class="ly_items">
-                    <h3>Stripe</h3>
+                <a href="{!! url('/admin/payments/settings/general') !!}" class="ly_items">
+                    <h3>General</h3>
                     <h2><i class="fa fa-columns" aria-hidden="true"></i></h2>
                 </a>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 items_links">
-                <a href="{!! url('/admin/payments/settings/paypal') !!}" class="ly_items">
-                    <h3>Paypal</h3>
+                <a href="{!! url('/admin/payments/settings/payment-gateways') !!}" class="ly_items">
+                    <h3>Payment Gateways</h3>
                     <h2><i class="fa fa-television" aria-hidden="true"></i></h2>
                 </a>
             </div>

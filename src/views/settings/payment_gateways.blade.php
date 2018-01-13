@@ -1,7 +1,9 @@
 @extends('btybug::layouts.mTabs',['index'=>'payment_settings'])
 <!-- Nav tabs -->
 @section('tab')
-    Paypal
+   <div class="col-md-12 m-t-15">
+
+   </div>
 @stop
 @section('CSS')
 @stop

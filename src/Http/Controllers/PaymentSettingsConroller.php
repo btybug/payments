@@ -11,13 +11,13 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.index');
     }
 
-    public function getStripe()
+    public function getGeneral()
     {
-        return view('payments::settings.stripe');
+        return view('payments::settings.general');
     }
 
-    public function getPaypal()
+    public function getPaymentGateways()
     {
-        return view('payments::settings.paypal');
+        return view('payments::settings.payment_gateways');
     }
 }
