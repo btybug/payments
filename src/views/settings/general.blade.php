@@ -9,7 +9,7 @@
                     <h4 class="panel-title">Defaults</h4>
                 </div>
                 <div class="panel-body">
-                    {!! Form::model(null,[]) !!}
+                    {!! Form::model(null,['class' => 'form-horizontal']) !!}
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-12 m-b-10">
