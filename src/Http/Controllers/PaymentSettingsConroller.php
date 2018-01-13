@@ -3,6 +3,7 @@
 namespace BtyBugHook\Payments\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use BtyBugHook\Membership\Models\User;
 
 class PaymentSettingsConroller extends Controller
 {
@@ -18,6 +19,16 @@ class PaymentSettingsConroller extends Controller
 
     public function getPaymentGateways()
     {
-        return view('payments::settings.payment_gateways');
+        $stripe = \Config::get('services.stripe');
+        return view('payments::settings.payment_gateways',compact('stripe'));
+    }
+
+    public function saveStripe ()
+    {
+        \Config::set('services.stripe', [
+            'model'  => User::class,
+            'key' =>'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
+            'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
+        ]);
     }
 }
