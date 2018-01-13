@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <h2>Payment Gateways</h2>
         <div class="col-md-12">
-            <div class="panel">
+            <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="urlManager">
                     <h4 class="panel-title">Stripe</h4>
                 </div>
