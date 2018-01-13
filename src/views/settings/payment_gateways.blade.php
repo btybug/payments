@@ -5,8 +5,11 @@
         <h2>Payment Gateways</h2>
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="urlManager">
+                <div class="panel-heading" role="tab">
                     <h4 class="panel-title">Stripe</h4>
+                    <span class="pull-right">
+                        Active {!! Form::checkbox('stripe_activate',1) !!}
+                    </span>
                 </div>
                 <div class="panel-body">
                     {!! Form::model($stripe,[]) !!}
@@ -29,6 +32,21 @@
                     <div class="form-group">
                         {!! Form::submit("Save",['class' => 'btn settingBtn pull-right']) !!}
                     </div>
+                    {!! Form::close() !!}
+
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" >
+                    <h4 class="panel-title">Cash payment</h4>
+                    <span class="pull-right">
+                        Active {!! Form::checkbox('cash_paymant_activate',1) !!}
+                    </span>
+                </div>
+                <div class="panel-body">
+                    {!! Form::model(null,[]) !!}
+
                     {!! Form::close() !!}
 
                 </div>
