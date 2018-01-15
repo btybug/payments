@@ -13,7 +13,9 @@ namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
+
 
 
 class ModuleServiceProvider extends ServiceProvider
@@ -27,6 +29,8 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
+      //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
         \Config::set('cart', [
             'tax' => 21,
             'database' => [
@@ -52,15 +56,15 @@ class ModuleServiceProvider extends ServiceProvider
                     'title' => 'Payment gateways',
                     'url' => '/admin/payments/settings/payment-gateways',
                     'icon' => 'fa fa-cub'
-                ],[
+                ], [
                     'title' => 'Checkout',
                     'url' => '/admin/payments/settings/checkout',
                     'icon' => 'fa fa-cub'
-                ],[
+                ], [
                     'title' => 'Attributes',
                     'url' => '/admin/payments/settings/attributes',
                     'icon' => 'fa fa-cub'
-                ],[
+                ], [
                     'title' => 'Price',
                     'url' => '/admin/payments/settings/price',
                     'icon' => 'fa fa-cub'
@@ -83,7 +87,7 @@ class ModuleServiceProvider extends ServiceProvider
                     "custom-link" => "/admin/payments/dashboard",
                     "icon" => "fa fa-angle-right",
                     "is_core" => "yes"
-                ],[
+                ], [
                     "title" => "User payments",
                     "custom-link" => "/admin/payments/user-payments",
                     "icon" => "fa fa-angle-right",
@@ -99,7 +103,7 @@ class ModuleServiceProvider extends ServiceProvider
                     "custom-link" => "/admin/payments",
                     "icon" => "fa fa-angle-right",
                     "is_core" => "yes"
-                ],[
+                ], [
                     "title" => "Shopping cart",
                     "custom-link" => "/admin/payments/shopping-cart",
                     "icon" => "fa fa-angle-right",
@@ -107,7 +111,7 @@ class ModuleServiceProvider extends ServiceProvider
                 ]
             ]]);
 
-        \Config::set('painter.PAINTERSPATHS',array_merge( \Config::get('painter.PAINTERSPATHS'),['app'.DS.'Plugins'.DS.'vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'Units']));
+        \Config::set('painter.PAINTERSPATHS', array_merge(\Config::get('painter.PAINTERSPATHS'), ['app' . DS . 'Plugins' . DS . 'vendor' . DS . 'sahak.avatar' . DS . 'payments' . DS . 'src' . DS . 'Units']));
 
         Routes::registerPages('sahak.avatar/payments');
     }
