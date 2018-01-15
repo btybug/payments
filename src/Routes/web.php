@@ -41,12 +41,24 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/general', 'PaymentSettingsConroller@getGeneral', true)->name('payments_settings_general');
     Route::get('/payment-gateways', 'PaymentSettingsConroller@getPaymentGateways', true)->name('payments_settings_gatewys');
     Route::get('/checkout', 'PaymentSettingsConroller@getCheckout', true)->name('payments_settings_checkout');
-    Route::get('/attributes', 'PaymentSettingsConroller@getAttributes', true)->name('payments_settings_attributes');
     Route::get('/price', 'PaymentSettingsConroller@getPrice', true)->name('payments_settings_price');
+
+    Route::group(['prefix' => 'attributes'], function () {
+        Route::get('/', 'AttributesController@getAttributes', true)->name('payments_settings_attributes');
+        Route::get('/create', 'AttributesController@getAttributesCreate', true)->name('payments_settings_attributes_create');
+        Route::post('/create', 'AttributesController@postAttributesCreate')->name('payments_settings_post_attributes_create');
+
+        Route::group(['prefix' => '{id}'], function () {
+            Route::get('/', 'AttributesController@getAttributesEdit', true);
+            Route::get('/edit', 'AttributesController@getAttributesEdit', true)->name('payments_settings_attributes_edit');
+            Route::get('/delete', 'AttributesController@getAttributesDelete', true)->name('payments_settings_attributes_delete');
+            Route::patch('/edit', 'AttributesController@postAttributesEdit')->name('payments_settings_post_attributes_edit');
+        });
+    });
 });
 
 
-Route::group(['prefix'=>'datatable'],function (){
-    Route::get('get-attributes','DataTablesConroller@getAttributes')->name('pym_attributes_list');
-    Route::get('get-attribute-terms','DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
+Route::group(['prefix' => 'datatable'], function () {
+    Route::get('get-attributes', 'DataTablesConroller@getAttributes')->name('pym_attributes_list');
+    Route::get('get-attribute-terms', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
 });

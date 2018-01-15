@@ -11,12 +11,13 @@ class DataTablesConroller extends Controller
     public function getAttributes()
     {
         return DataTables::of(Attributes::query())->addColumn('actions', function ($attr) {
-            $url= url("admin/payments/settings/attributes",$attr->id);
-            $settings_url= url("admin/payments/settings/attributes/terms",$attr->slug);
+            $url= url("admin/payments/settings/attributes/{$attr->id}/edit");
+            $settings_url= url("admin/payments/settings/attributes/{$attr->id}/terms");
+            $delete_url= url("admin/payments/settings/attributes/{$attr->id}/delete");
             return "<a href='$url' class='btn btn-warning'><i class='fa fa-edit'></i></a>
-                    <a href='$settings_url' class='btn btn-primary'><i class='fa fa-eye'></i></a>";
-        },2)->addColumn('terms', function ($post) {
-
+                    <a href='$settings_url' class='btn btn-primary'><i class='fa fa-eye'></i></a>
+                    <a href='$delete_url' class='btn btn-danger'><i class='fa fa-trash'></i></a>";
+        },2)->editColumn('terms', function ($attr) {
             return null;
         })->rawColumns(['actions'])->make(true);
   }

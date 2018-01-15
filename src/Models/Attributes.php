@@ -13,4 +13,5 @@ class Attributes extends Model
     protected $table='pym_attributes';
 
     protected $guarded=['id'];
+
 }

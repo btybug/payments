@@ -32,7 +32,7 @@
                     }, {
                         text: 'Create New',
                         action: function (e, dt, node, config) {
-
+                            window.location = '/admin/payments/settings/attributes/create'
                         }
                     }
                 ],
