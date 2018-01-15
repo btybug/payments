@@ -4,7 +4,7 @@ namespace BtyBugHook\Payments\Http\Requests;
 
 use Btybug\btybug\Http\Requests\Request;
 
-class AttributesRequest extends Request
+class AttributeTermsRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -34,19 +34,20 @@ class AttributesRequest extends Request
                 {
                     return [
                         'name' => 'required',
-                        'type' => 'required',
-                        'slug' => 'required|unique:pym_attributes,id'
+                        'attribute_id' => 'required|exists:pym_attributes,id',
+                        'slug' => 'required|unique:pym_attribute_terms,id'
                     ];
                 }
             case 'PUT':
             case 'PATCH':
                 {
-                    $id = $this->route('id');
+                    $attr_id = $this->route('id');
+                    $term_id = $this->route('term_id');
                     return [
-                        'id' => 'required|exists:pym_attributes,id',
+                        'id' => 'required|exists:pym_attribute_terms,id',
                         'name' => 'required',
-                        'type' => 'required',
-                        'slug' => 'required|unique:pym_attributes,id,'.$id
+                        'attribute_id' => 'required|exists:pym_attributes,id',
+                        'slug' => 'required|unique:pym_attribute_terms,id,'.$term_id
                     ];
                 }
             default:break;

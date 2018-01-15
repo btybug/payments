@@ -14,4 +14,9 @@ class AttributesRepository extends GeneralRepository
     {
         return new Attributes();
     }
+
+    public function terms(){
+        return $this->model()->terms;
+    }
+
 }

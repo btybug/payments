@@ -53,6 +53,17 @@ Route::group(['prefix' => 'settings'], function () {
             Route::get('/edit', 'AttributesController@getAttributesEdit', true)->name('payments_settings_attributes_edit');
             Route::get('/delete', 'AttributesController@getAttributesDelete', true)->name('payments_settings_attributes_delete');
             Route::patch('/edit', 'AttributesController@postAttributesEdit')->name('payments_settings_post_attributes_edit');
+            Route::group(['prefix' => 'terms'], function () {
+                Route::get('/', 'AttributesController@getTerms', true)->name('payments_settings_attributes_terms');
+                Route::post('/', 'AttributesController@postTermCreate')->name('payments_settings_post_attributes_create');
+                Route::group(['prefix' => '{term_id}'], function () {
+                    Route::get('/', 'AttributesController@getTermEdit', true)->name('payments_settings_attributes_terms_edit');
+                    Route::get('/edit', 'AttributesController@getTermEdit', true)->name('payments_settings_attributes_terms_edit');
+                    Route::get('/delete', 'AttributesController@getTermDelete', true)->name('payments_settings_attributes_terms_delete');
+                    Route::patch('/edit', 'AttributesController@postTermEdit', true)->name('payments_settings_attributes_terms_edit_post');
+
+                });
+            });
         });
     });
 });
@@ -60,5 +71,5 @@ Route::group(['prefix' => 'settings'], function () {
 
 Route::group(['prefix' => 'datatable'], function () {
     Route::get('get-attributes', 'DataTablesConroller@getAttributes')->name('pym_attributes_list');
-    Route::get('get-attribute-terms', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
+    Route::get('get-attribute-terms/{id}', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
 });
