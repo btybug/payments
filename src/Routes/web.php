@@ -45,3 +45,8 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/price', 'PaymentSettingsConroller@getPrice', true)->name('payments_settings_price');
 });
 
+
+Route::group(['prefix'=>'datatable'],function (){
+    Route::get('get-attributes','DataTablesConroller@getAttributes')->name('pym_attributes_list');
+    Route::get('get-attribute-terms','DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
+});
