@@ -57,8 +57,8 @@ class ModuleServiceProvider extends ServiceProvider
                     'url' => '/admin/payments/settings/checkout',
                     'icon' => 'fa fa-cub'
                 ],[
-                    'title' => 'Shopping card',
-                    'url' => '/admin/payments/settings/shopping-card',
+                    'title' => 'Attributes',
+                    'url' => '/admin/payments/settings/attributes',
                     'icon' => 'fa fa-cub'
                 ],[
                     'title' => 'Price',

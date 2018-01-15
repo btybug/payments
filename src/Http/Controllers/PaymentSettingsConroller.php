@@ -22,9 +22,9 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.checkout');
     }
 
-    public function getShoppingCard()
+    public function getAttributes()
     {
-        return view('payments::settings.shopping_card');
+        return view('payments::settings.attributes');
     }
 
     public function getPrice()
