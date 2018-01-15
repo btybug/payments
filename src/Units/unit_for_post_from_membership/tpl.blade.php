@@ -8,38 +8,60 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 right-product">
-                <div class="product-title">
-                    <h1>SAMSUNG GALAXY S4 I337 16GB 4G LTE UNLOCKED GSM ANDROID CELL PHONE</h1>
-                </div>
-                <div class="product-name">
-                    <p>vendido por <a href="#">Samsung</a> ·
-                        <small>(5054 ventas)</small>
-                    </p>
-                </div>
-                <div class="product-price">
-                    <span>$399</span>
-                </div>
+                @if(isset($settings["area1"]))
+                    <h1>{{$settings["area1"]}}</h1>
+                @else
+                    <div class="product-title">
+                        <h1>SAMSUNG GALAXY S4 I337 16GB 4G LTE UNLOCKED GSM ANDROID CELL PHONE</h1>
+                    </div>
+                    <div class="product-name">
+                        <p>vendido por <a href="#">Samsung</a> ·
+                            <small>(5054 ventas)</small>
+                        </p>
+                    </div>
+                @endif
+
+                @if(isset($settings["area2"]))
+                    <div class="product-price">
+                        <span>{{$settings["area2"]}}</span>
+                    </div>
+                @else
+                    <div class="product-price">
+                        <span>$399</span>
+                    </div>
+                @endif
+
                 <div class="product-add-form">
                     <form>
-                        <fieldset class="color">
-                            <div>
-                                <h6>COLOR</h6>
-                                <label class="gray"><input name="product-color" type="radio"><span></span></label>
-                                <label class="black"><input name="product-color" type="radio"><span></span></label>
-                            </div>
-                        </fieldset>
-                        <fieldset class="size">
-                            <div>
-                                <h6>CAPACIDAD</h6>
-                                <label><input name="product-size" type="radio"><span>16 GB</span></label>
-                                <label><input name="product-size" type="radio"><span>32 GB</span></label>
-                            </div>
-                        </fieldset>
+                        @if(isset($settings["area3"]))
+                            <fieldset>
+                                {!! $settings["area3"] !!}
+                            </fieldset>
+                        @else
+                            <fieldset class="color">
+                                <div>
+                                    <h6>COLOR</h6>
+                                    <label class="gray"><input name="product-color" type="radio"><span></span></label>
+                                    <label class="black"><input name="product-color" type="radio"><span></span></label>
+                                </div>
+                            </fieldset>
+                            <fieldset class="size">
+                                <div>
+                                    <h6>CAPACIDAD</h6>
+                                    <label><input name="product-size" type="radio"><span>16 GB</span></label>
+                                    <label><input name="product-size" type="radio"><span>32 GB</span></label>
+                                </div>
+                            </fieldset>
+                        @endif
                         <fieldset class="add-count">
-                            <div class="count">
-                                <h6>CANTIDAD</h6>
-                                <input type="number" value="1" min="1">
-                            </div>
+                            @if(isset($settings["area4"]))
+                                {!! $settings["area4"] !!}
+                            @else
+                                <div class="count">
+                                    <h6>CANTIDAD</h6>
+                                    <input type="number" value="1" min="1">
+                                </div>
+                            @endif
                             <div class="buy-product">
                                 <button><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
                                     Agregar
@@ -62,7 +84,7 @@
         <div class="row">
             <div class="product_tabs">
                 <ul class="nav nav-tabs">
-                    <li class="">
+                    <li class="active">
                         <a href="#tab-description" data-toggle="tab" aria-expanded="false">
                             DETALLE DEL PRODUCTO
                         </a>
@@ -73,7 +95,7 @@
                         </a>
                     </li>
 
-                    <li class="active">
+                    <li class="">
                         <a href="#tab-review" data-toggle="tab" aria-expanded="true">
                             VENDEDOR
                         </a>
@@ -86,7 +108,11 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-description">
-                        <p>STAY CONNECTED EITHER ON THE PHONE OR THE WEB WITH THE GALAXY S4 I337 FROM SAMSUNG. WITH 16 GB OF MEMORY AND A 4G CONNECTION, THIS PHONE STORES PRECIOUS PHOTOS AND VIDEO AND LETS YOU UPLOAD THEM TO A CLOUD OR SOCIAL NETWORK AT BLINDING-FAST SPEED. WITH A 17-HOUR OPERATING LIFE FROM ONE CHARGE, THIS PHONE ALLOWS YOU KEEP IN TOUCH EVEN ON THE GO. WITH ITS BUILT-IN PHOTO EDITOR, THE GALAXY S4 ALLOWS YOU TO EDIT PHOTOS WITH THE TOUCH OF A FINGER, ELIMINATING EXTRANEOUS BACKGROUND ITEMS. USABLE WITH MOST CARRIERS, THIS SMARTPHONE IS THE PERFECT COMPANION FOR WORK OR ENTERTAINMENT.</p>
+                        @if(isset($settings["area5"]))
+                            <p>{!! $settings["area5"] !!}</p>
+                        @else
+                            <p>STAY CONNECTED EITHER ON THE PHONE OR THE WEB WITH THE GALAXY S4 I337 FROM SAMSUNG. WITH 16 GB OF MEMORY AND A 4G CONNECTION, THIS PHONE STORES PRECIOUS PHOTOS AND VIDEO AND LETS YOU UPLOAD THEM TO A CLOUD OR SOCIAL NETWORK AT BLINDING-FAST SPEED. WITH A 17-HOUR OPERATING LIFE FROM ONE CHARGE, THIS PHONE ALLOWS YOU KEEP IN TOUCH EVEN ON THE GO. WITH ITS BUILT-IN PHOTO EDITOR, THE GALAXY S4 ALLOWS YOU TO EDIT PHOTOS WITH THE TOUCH OF A FINGER, ELIMINATING EXTRANEOUS BACKGROUND ITEMS. USABLE WITH MOST CARRIERS, THIS SMARTPHONE IS THE PERFECT COMPANION FOR WORK OR ENTERTAINMENT.</p>
+                        @endif
                     </div>
                     <div class="tab-pane" id="tab-specification">
                         <ul>
