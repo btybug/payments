@@ -160,6 +160,7 @@ class ModuleServiceProvider extends ServiceProvider
         \Eventy::addAction('payment.pricing', function ($what) {
             $codes = \Config::get('payment.pricing', []);
             $codes[$what['slug']] = [
+                'name' => $what['name'],
                 'slug' => $what['slug'],
                 'form' => $what['form'],
                 'settings' => $what['settings'],
