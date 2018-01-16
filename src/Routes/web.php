@@ -41,8 +41,11 @@ Route::group(['prefix' => 'settings'], function () {
     Route::get('/general', 'PaymentSettingsConroller@getGeneral', true)->name('payments_settings_general');
     Route::get('/payment-gateways', 'PaymentSettingsConroller@getPaymentGateways', true)->name('payments_settings_gatewys');
     Route::get('/checkout', 'PaymentSettingsConroller@getCheckout', true)->name('payments_settings_checkout');
-    Route::get('/price', 'PaymentSettingsConroller@getPrice', true)->name('payments_settings_price');
+    Route::group(['prefix' => 'price'], function () {
+        Route::get('/', 'PaymentSettingsConroller@getPrice', true)->name('payments_settings_price');
+        Route::get('/{form}', 'PaymentSettingsConroller@getPriceForm', true)->name('payments_settings_price_form');
 
+    });
     Route::group(['prefix' => 'attributes'], function () {
         Route::get('/', 'AttributesController@getAttributes', true)->name('payments_settings_attributes');
         Route::get('/create', 'AttributesController@getAttributesCreate', true)->name('payments_settings_attributes_create');

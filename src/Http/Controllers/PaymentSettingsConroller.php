@@ -32,6 +32,11 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.price');
     }
 
+    public function getPriceForm($slug)
+    {
+        return view('payments::settings.price_form',compact('slug'));
+    }
+
     public function getPaymentGateways()
     {
         $stripe = \Config::get('services.stripe');
