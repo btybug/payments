@@ -29,6 +29,35 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        \Eventy::action('payment.pricing',
+            [
+                'slug' => 'simple_price',
+                'form' => 'payments::settings.price._partials.settings.simple_price',
+                'settings' =>  'payments::settings.price._partials.forms.simple_price',
+            ]);
+
+        \Eventy::action('payment.pricing',
+            [
+                'slug' => 'quantity_price',
+                'form' => 'payments::settings.price._partials.settings.quantity_price',
+                'settings' =>  'payments::settings.price._partials.forms.quantity_price',
+            ]);
+
+        \Eventy::action('payment.pricing',
+            [
+                'slug' => 'price_attributes',
+                'form' => 'payments::settings.price._partials.settings.price_attributes',
+                'settings' =>  'payments::settings.price._partials.forms.price_attributes',
+            ]);
+
+        \Eventy::action('payment.pricing',
+            [
+                'slug' => 'price_plan',
+                'form' => 'payments::settings.price._partials.settings.price_plan',
+                'settings' =>  'payments::settings.price._partials.forms.price_plan',
+            ]);
+
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
       //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
         \Config::set('cart', [
@@ -124,6 +153,17 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        \Eventy::addAction('payment.pricing', function ($what) {
+            $codes = \Config::get('payment.pricing', []);
+            $codes[$what['slug']] = [
+                'slug' => $what['slug'],
+                'form' => $what['form'],
+                'settings' => $what['settings'],
+            ];
+            \Config::set('payment.pricing', $codes);
+            return (\Config::get('payment.pricing'));
+        });
+
         $this->app->register(RouteServiceProvider::class);
 
     }

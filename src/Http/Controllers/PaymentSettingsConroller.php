@@ -29,12 +29,15 @@ class PaymentSettingsConroller extends Controller
 
     public function getPrice()
     {
-        return view('payments::settings.price');
+        $prices = get_prices_data();
+        return view('payments::settings.price',compact(['prices']));
     }
 
     public function getPriceForm($slug)
     {
-        return view('payments::settings.price_form',compact('slug'));
+        $price = find_price($slug);
+        if(! $price) abort(404,'Price structure not found');
+        return view('payments::settings.price.price_form',compact('price'));
     }
 
     public function getPaymentGateways()

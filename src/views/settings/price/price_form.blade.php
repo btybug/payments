@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="col-md-12">
-            @include("payments::settings._partials.".$slug)
+            @include($price['settings'])
         </div>
     </div>
 @stop
