@@ -260,3 +260,30 @@ a{
 .right{
     padding-right: 0;
 }
+.head .border-blue{
+    border: 1px solid #499bc7 !important;
+    box-shadow: 0 0 2px #499bc7 !important;
+}
+.head .border-red{
+    border: 1px solid red !important;
+    box-shadow: 0 0 2px red !important;
+}
+.head .border-grey {
+    border: 1px solid grey !important;
+    box-shadow: 0 0 2px grey!important;
+}
+.head .border-radius-bg-color-grey{
+    border-radius: 4px !important;
+    background-color: #80808036 !important;
+    border: 1px solid gray !important;
+}
+.head .border-radius-bg-color-green{
+    border-radius: 4px !important;
+    background-color: #0080003b  !important;
+    border: 1px solid green !important;
+}
+.head .border-radius-bg-color-blue{
+    border-radius: 4px !important;
+    background-color: #499bc769 !important;
+    border: 1px solid #499bc7 !important;
+}
