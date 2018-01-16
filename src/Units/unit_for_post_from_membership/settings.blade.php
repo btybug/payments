@@ -5,6 +5,18 @@ $post = $postRepo->first()->toArray();
 
 <div class="row">
     <div class="col-xs-12">
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="">Select Blog</label>
+            </div>
+            <div class="col-md-6" style="margin-bottom:15px">
+                <select name="" class="form-control">
+                    <option value="">select option</option>
+                    <option value="mobile">mobile</option>
+                </select>
+            </div>
+        </div>
+        <div class="clearfix"></div>
         <div class="bty-panel-collapse">
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
