@@ -39,6 +39,18 @@
                 <div class="panel-body">
                 </div>
             </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" >
+                    <h4 class="panel-title">Quantity price</h4>
+                    <span class="pull-right">
+                        <a href="{!! route('payments_settings_price_form','quantity_price') !!}">See From</a>
+                        Active {!! Form::checkbox('quantity_price',1) !!}
+                    </span>
+                </div>
+                <div class="panel-body">
+                </div>
+            </div>
         </div>
 @stop
 @section('CSS')
