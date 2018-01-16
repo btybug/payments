@@ -1,6 +1,7 @@
 <?php
 $postRepo = new \BtyBugHook\Blog\Repository\PostsRepository();
 $post = $postRepo->first()->toArray();
+$json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
 ?>
 
 <div class="row">
@@ -31,9 +32,11 @@ $post = $postRepo->first()->toArray();
                             <label for="">Item</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_1_item_value" class="form-control">
+                                <option value="">select option</option>
+                                @foreach($json as $key => $data)
+                                    <option value="{{$data}}">{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -42,9 +45,12 @@ $post = $postRepo->first()->toArray();
                             <label for="">Container style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_1_container_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="border-blue">border blue</option>
+                                <option value="border-red">border red</option>
+                                <option value="border-radius-bg-color-grey">background gray</option>
+                                <option value="border-radius-bg-color-green">background green</option>
                             </select>
                         </div>
                     </div>
@@ -53,9 +59,11 @@ $post = $postRepo->first()->toArray();
                             <label for="">Item style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_1_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="custom_p_red">color red</option>
+                                <option value="custom_p_blue">color blue</option>
+                                <option value="custom_p_font">font 20</option>
                             </select>
                         </div>
                     </div>

@@ -1,8 +1,10 @@
 <div class="container all-div">
     <div class="row">
         <div class="head">
-            <div class="col-md-5 col-sm-5 col-xs-12 opt1">
-                Option 1
+            <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : ''}}">
+                <p class="{{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
+                    {{isset($settings["option_1_item_value"]) ? $settings["option_1_item_value"] : ''}}
+                </p>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12 right">
                 <div class="opt2">Option 2</div>

@@ -287,3 +287,12 @@ a{
     background-color: #499bc769 !important;
     border: 1px solid #499bc7 !important;
 }
+.custom_p_red{
+    color:red;
+}
+.custom_p_blue{
+    color:blue;
+}
+.custom_p_font{
+    font-size: 20px;
+}
