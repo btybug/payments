@@ -11,6 +11,7 @@ window.onload = function(){
             $(this).parent().parent().children("div.custom_show").addClass('custom_hidden');
         }
     });
+
     $('body').delegate(".custom_add_new_desc","click",function(){
         var for_append = $(".for_append");
 

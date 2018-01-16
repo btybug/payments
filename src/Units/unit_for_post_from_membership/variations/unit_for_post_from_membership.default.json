@@ -6,18 +6,6 @@
     "area2": "title",
     "area3": "sub title",
     "area4": null,
-    "area5": null,
-    "area6": {
-      "titles": [
-        null,
-        null,
-        null
-      ],
-      "descriptions": [
-        null,
-        null,
-        null
-      ]
-    }
+    "area5": null
   }
 }
