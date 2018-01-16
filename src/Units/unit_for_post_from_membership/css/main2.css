@@ -260,29 +260,29 @@ a{
 .right{
     padding-right: 0;
 }
-.head .border-blue{
+.all-div .border-blue{
     border: 1px solid #499bc7 !important;
     box-shadow: 0 0 2px #499bc7 !important;
 }
-.head .border-red{
+.all-div .border-red{
     border: 1px solid red !important;
     box-shadow: 0 0 2px red !important;
 }
-.head .border-grey {
+.all-div .border-grey {
     border: 1px solid grey !important;
     box-shadow: 0 0 2px grey!important;
 }
-.head .border-radius-bg-color-grey{
+.all-div .border-radius-bg-color-grey{
     border-radius: 4px !important;
     background-color: #80808036 !important;
     border: 1px solid gray !important;
 }
-.head .border-radius-bg-color-green{
+.all-div .border-radius-bg-color-green{
     border-radius: 4px !important;
     background-color: #0080003b  !important;
     border: 1px solid green !important;
 }
-.head .border-radius-bg-color-blue{
+.all-div .border-radius-bg-color-blue{
     border-radius: 4px !important;
     background-color: #499bc769 !important;
     border: 1px solid #499bc7 !important;
@@ -295,4 +295,65 @@ a{
 }
 .custom_p_font{
     font-size: 20px;
+}
+.all-div .option-1{
+    border: 1px solid brown;
+    padding: 15px;
+    box-shadow: 0 0 3px brown;
+    background-color: rgba(165, 42, 42, 0.1);
+    color: #333;
+    font-size: 16px;
+}
+.all-div .option-2{
+    border: 1px solid #096158;
+    padding: 15px;
+    box-shadow: 0 0 3px rgba(9, 97, 88, 1);
+    background-color: rgba(9, 97, 88, 0.1);
+    color: #333;
+    font-size: 16px;
+}
+.all-div .option-3{
+    border: 1px solid #191919;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.all-div .option-4{
+    padding: 20px;
+    background-color: rgba(34, 10, 62, 0.55);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.all-div .option-5{
+    padding: 20px;
+    background-color: rgba(10, 60, 62, 0.55);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+.all-div .option-6{
+    padding: 24px;
+    background-color: rgba(220, 18, 0, 0.55);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    letter-spacing: 3px;
+    border: none;
+    box-shadow: inset 1px 1px 3px #000;
+}
+.all-div .option-7{
+    padding: 24px;
+    background-color: white;
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    letter-spacing: 3px;
+    border: none;
+    box-shadow: inset 1px 1px 3px #000;
 }
