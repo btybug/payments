@@ -19,6 +19,16 @@
     <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add  new</a>
 </div>
 
+<div class="col-md-12 m-t-15">
+    <div class="col-md-4">
+        Display result as
+    </div><div class="col-md-4">
+        {!! Form::radio('qty_option','select',true) !!} Select menu
+    </div><div class="col-md-4">
+        {!! Form::radio('qty_option','radio',true) !!} Radio
+    </div>
+</div>
+
 <script>
     $(document).ready(function () {
         $("body").on('click','.add-new-qty',function () {
