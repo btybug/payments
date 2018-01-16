@@ -15,12 +15,7 @@
                     </span>
                         </div>
                         <div class="panel-body">
-                            @php
-                                $data = find_price($price['slug'])
-                            @endphp
-                            @if($data)
-                                @include($data['form'])
-                            @endif
+                           
                         </div>
                     </div>
                 @endforeach

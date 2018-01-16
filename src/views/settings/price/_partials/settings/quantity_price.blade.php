@@ -21,7 +21,7 @@
     <div class="col-md-12">
         <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add new</a>
     </div>
-    
+
     {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
         <div class="col-md-12 m-t-15">
             <div class="panel panel-default">
