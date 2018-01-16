@@ -260,33 +260,7 @@ a{
 .right{
     padding-right: 0;
 }
-.all-div .border-blue{
-    border: 1px solid #499bc7 !important;
-    box-shadow: 0 0 2px #499bc7 !important;
-}
-.all-div .border-red{
-    border: 1px solid red !important;
-    box-shadow: 0 0 2px red !important;
-}
-.all-div .border-grey {
-    border: 1px solid grey !important;
-    box-shadow: 0 0 2px grey!important;
-}
-.all-div .border-radius-bg-color-grey{
-    border-radius: 4px !important;
-    background-color: #80808036 !important;
-    border: 1px solid gray !important;
-}
-.all-div .border-radius-bg-color-green{
-    border-radius: 4px !important;
-    background-color: #0080003b  !important;
-    border: 1px solid green !important;
-}
-.all-div .border-radius-bg-color-blue{
-    border-radius: 4px !important;
-    background-color: #499bc769 !important;
-    border: 1px solid #499bc7 !important;
-}
+
 .custom_p_red{
     color:red;
 }

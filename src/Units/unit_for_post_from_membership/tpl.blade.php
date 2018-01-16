@@ -7,23 +7,43 @@
                 </p>
             </div>
             <div class="col-md-7 col-sm-7 col-xs-12 right">
-                <div class="opt2">Option 2</div>
-                <div class="opt3">Option 3</div>
-                <div class="unit1">Unit 1</div>
-                <div class="unit2">Unit 2</div>
+                <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : ''}}">
+                    <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}}">
+                        {{isset($settings["option_2_item_value"]) ? $settings["option_2_item_value"] : ''}}
+                    </p>
+                </div>
+                <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : ''}}">
+                    <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">
+                        {{isset($settings["option_3_item_value"]) ? $settings["option_3_item_value"] : ''}}
+                    </p>
+                </div>
+                <div class="unit1">
+                    @if(isset($settings["unit1"]))
+                        {!! BBRenderUnits($settings['unit1']) !!}
+                    @endif
+                </div>
+                <div class="unit2">
+                    @if(isset($settings["unit2"]))
+                        {!! BBRenderUnits($settings['unit2']) !!}
+                    @endif
+                </div>
             </div>
             <div class="clearfix"></div>
         </div>
         <div class="bottom">
             <div class="in-bottom">
-                <div class="col-md-5 col-sm-5 col-xs-12 opt4">
-                    <div>
-                        Option 4
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="opt4 {{isset($settings["option_4_container_style"]) ? $settings["option_4_container_style"] : ''}}">
+                        <p class="{{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}}">
+                            {{isset($settings["option_4_item_value"]) ? $settings["option_4_item_value"] : ''}}
+                        </p>
                     </div>
                 </div>
-                <div class="col-md-7 col-sm-7 col-xs-12 opt5">
-                    <div>
-                        Option 5
+                <div class="col-md-7 col-sm-7 col-xs-12">
+                    <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : ''}}">
+                        <p class="{{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">
+                            {{isset($settings["option_5_item_value"]) ? $settings["option_5_item_value"] : ''}}
+                        </p>
                     </div>
                 </div>
                 <div class="clearfix"></div>

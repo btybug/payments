@@ -47,10 +47,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_1_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="border-blue">border blue</option>
-                                <option value="border-red">border red</option>
-                                <option value="border-radius-bg-color-grey">background gray</option>
-                                <option value="border-radius-bg-color-green">background green</option>
+                                <option value="option-1">brown</option>
+                                <option value="option-2">dark green</option>
+                                <option value="option-3">style 1</option>
+                                <option value="option-4">style 2</option>
+                                <option value="option-5">style 3</option>
+                                <option value="option-6">style 4</option>
+                                <option value="option-7">style 5</option>
                             </select>
                         </div>
                     </div>
@@ -84,9 +87,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_2_item_value" class="form-control">
+                                <option value="">select option</option>
+                                @foreach($json as $key => $data)
+                                    <option value="{{$data}}">{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -95,9 +100,15 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Container style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_2_container_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="option-1">brown</option>
+                                <option value="option-2">dark green</option>
+                                <option value="option-3">style 1</option>
+                                <option value="option-4">style 2</option>
+                                <option value="option-5">style 3</option>
+                                <option value="option-6">style 4</option>
+                                <option value="option-7">style 5</option>
                             </select>
                         </div>
                     </div>
@@ -106,9 +117,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_2_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="custom_p_red">color red</option>
+                                <option value="custom_p_blue">color blue</option>
+                                <option value="custom_p_font">font 20</option>
                             </select>
                         </div>
                     </div>
@@ -129,9 +142,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_3_item_value" class="form-control">
+                                <option value="">select option</option>
+                                @foreach($json as $key => $data)
+                                    <option value="{{$data}}">{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -140,9 +155,15 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Container style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_3_container_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="option-1">brown</option>
+                                <option value="option-2">dark green</option>
+                                <option value="option-3">style 1</option>
+                                <option value="option-4">style 2</option>
+                                <option value="option-5">style 3</option>
+                                <option value="option-6">style 4</option>
+                                <option value="option-7">style 5</option>
                             </select>
                         </div>
                     </div>
@@ -151,9 +172,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_3_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="custom_p_red">color red</option>
+                                <option value="custom_p_blue">color blue</option>
+                                <option value="custom_p_font">font 20</option>
                             </select>
                         </div>
                     </div>
@@ -169,15 +192,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             </div>
             <div id="collapse3" class="collapse in" aria-expanded="true" style="">
                 <div class="content">
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="">Select unit</label>
-                        </div>
-                        <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">unit 1</option>
-                                <option value="">unit 2</option>
-                            </select>
+                    <div class="form-group my_rows1">
+                        <div class="col-sm-8">
+                            {!! BBbutton2('unit',"unit1","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                 </div>
@@ -192,15 +209,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             </div>
             <div id="collapse4" class="collapse in" aria-expanded="true" style="">
                 <div class="content">
-                    <div class="form-group">
-                        <div class="col-md-6">
-                            <label for="">Select unit</label>
-                        </div>
-                        <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">unit 1</option>
-                                <option value="">unit 2</option>
-                            </select>
+                    <div class="form-group my_rows1">
+                        <div class="col-sm-8">
+                            {!! BBbutton2('unit',"unit2","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                 </div>
@@ -220,9 +231,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_4_item_value" class="form-control">
+                                <option value="">select option</option>
+                                @foreach($json as $key => $data)
+                                    <option value="{{$data}}">{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -231,9 +244,15 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Container style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_4_container_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="option-1">brown</option>
+                                <option value="option-2">dark green</option>
+                                <option value="option-3">style 1</option>
+                                <option value="option-4">style 2</option>
+                                <option value="option-5">style 3</option>
+                                <option value="option-6">style 4</option>
+                                <option value="option-7">style 5</option>
                             </select>
                         </div>
                     </div>
@@ -242,9 +261,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_4_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="custom_p_red">color red</option>
+                                <option value="custom_p_blue">color blue</option>
+                                <option value="custom_p_font">font 20</option>
                             </select>
                         </div>
                     </div>
@@ -265,9 +286,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_5_item_value" class="form-control">
+                                <option value="">select option</option>
+                                @foreach($json as $key => $data)
+                                    <option value="{{$data}}">{{$key}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -276,9 +299,15 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Container style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_5_container_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="option-1">brown</option>
+                                <option value="option-2">dark green</option>
+                                <option value="option-3">style 1</option>
+                                <option value="option-4">style 2</option>
+                                <option value="option-5">style 3</option>
+                                <option value="option-6">style 4</option>
+                                <option value="option-7">style 5</option>
                             </select>
                         </div>
                     </div>
@@ -287,9 +316,11 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <label for="">Item style</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="" class="form-control">
-                                <option value="">option 1</option>
-                                <option value="">option 2</option>
+                            <select name="option_5_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="custom_p_red">color red</option>
+                                <option value="custom_p_blue">color blue</option>
+                                <option value="custom_p_font">font 20</option>
                             </select>
                         </div>
                     </div>
