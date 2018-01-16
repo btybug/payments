@@ -32,6 +32,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         \Eventy::action('payment.pricing',
             [
+                'name' => 'Simple price',
                 'slug' => 'simple_price',
                 'form' => 'payments::settings.price._partials.forms.simple_price',
                 'settings' =>  'payments::settings.price._partials.settings.simple_price',
@@ -39,6 +40,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         \Eventy::action('payment.pricing',
             [
+                'name' => 'Quantity price',
                 'slug' => 'quantity_price',
                 'form' => 'payments::settings.price._partials.forms.quantity_price',
                 'settings' =>  'payments::settings.price._partials.settings.quantity_price',
@@ -46,6 +48,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         \Eventy::action('payment.pricing',
             [
+                'name' => 'Attributes price',
                 'slug' => 'price_attributes',
                 'form' => 'payments::settings.price._partials.forms.price_attributes',
                 'settings' =>  'payments::settings.price._partials.settings.price_attributes',
@@ -53,6 +56,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         \Eventy::action('payment.pricing',
             [
+                'name' => 'Price plan',
                 'slug' => 'price_plan',
                 'form' => 'payments::settings.price._partials.forms.price_plan',
                 'settings' =>  'payments::settings.price._partials.settings.price_plan',
