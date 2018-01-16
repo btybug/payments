@@ -218,3 +218,45 @@ a{
     border-left: 1px solid #e3e3e3;
     color: #7a777a;
 }
+*{
+    margin: 0;
+    padding: 0;
+}
+.opt1, .opt2, .opt3, .unit1, .unit2, .bottom{
+    border: 1px solid #000;
+}
+.head .right>div{
+    margin-bottom: 10px;
+}
+.head, .bottom{
+    height: 400px;
+}
+.opt1, .right{
+    height: 100%;
+}
+.opt2, .opt3, .unit2{
+    height: 15%;
+}
+.unit1{
+    height: calc(100% - 55% - -10px);
+}
+.all-div{
+    padding: 50px 0;
+}
+.bottom{
+    margin-top: 20px;
+}
+.in-bottom{
+    height: calc(100% - 30px);
+    margin: 15px;
+}
+.opt4>div, .opt5>div{
+    border: 1px solid #000;
+    height: 100%;
+}
+.opt4, .opt5{
+    height: 100%;
+}
+.right{
+    padding-right: 0;
+}
