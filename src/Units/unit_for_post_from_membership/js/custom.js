@@ -11,4 +11,19 @@ window.onload = function(){
             $(this).parent().parent().children("div.custom_show").addClass('custom_hidden');
         }
     });
+    $('body').delegate(".custom_add_new_desc","click",function(){
+        var for_append = $(".for_append");
+
+        var key = for_append.children(".single_setting").last().data("id");
+        key += 1;
+        var html = '' +
+            '<div class="single_setting" data-id="'+key+'">' +
+                '<label for="area6[titles]['+key+']">Title</label>Title</label>' +
+                '<input type="text" placeholder="Insert title" name="area6[titles]['+key+']" id="area6[titles]['+key+']" class="form-control">' +
+                '<label for="area6[descriptions]['+key+']">Content</label>' +
+                '<textarea name="area6[descriptions]['+key+']" id="area6[descriptions]['+key+']" class="form-control"></textarea>' +
+            '</div>';
+
+        for_append.append(html);
+    });
 };
