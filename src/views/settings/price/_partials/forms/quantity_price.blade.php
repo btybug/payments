@@ -1,52 +1,27 @@
-<div class="col-md-12 qty-box">
-    <div class="row">
-        <div class="col-md-6">
-            <label>
-                Quantity :
-            </label>
-            <input type="text" class="form-control" name="qty" />
-        </div>
-        <div class="col-md-6">
-            <label>
-                Price :
-            </label>
-            <input type="text" class="form-control" name="price" />
-        </div>
-    </div>
+@php
+    $data = get_qty_data();
+@endphp
 
-</div>
+@if(isset($data['qty_option']))
 <div class="col-md-12">
-    <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add  new</a>
+    @if($data['qty_option'] == 'select')
+        <select name="price" class="form-control">
+            <option value="">Select</option>
+            @if(isset($data['qty']) && count($data['qty']))
+                @foreach($data['qty'] as $key => $val)
+                    <option value="{{ $val['qty'] }}">{{ $val['qty'] }}</option>
+                @endforeach
+            @endif
+        </select>
+    @elseif($data['qty_option'] == 'radio')
+        @if(isset($data['qty']) && count($data['qty']))
+            @foreach($data['qty'] as $key => $val)
+                <input type="radio" name="price" value="{{ $val['qty'] }}">{{ $val['qty'] }}
+            @endforeach
+        @endif
+    @endif
 </div>
+@else
+    <a href="{!! url(route('payments_settings_price_form','quantity_price')) !!}"> configure settings </a>
+@endif
 
-<div class="col-md-12 m-t-15">
-    <div class="col-md-4">
-        Display result as
-    </div><div class="col-md-4">
-        {!! Form::radio('qty_option','select',true) !!} Select menu
-    </div><div class="col-md-4">
-        {!! Form::radio('qty_option','radio',true) !!} Radio
-    </div>
-</div>
-
-<script>
-    $(document).ready(function () {
-        $("body").on('click','.add-new-qty',function () {
-            var html = '<div class="row">\n' +
-                '        <div class="col-md-6">\n' +
-                '            <label>\n' +
-                '                Quantity :\n' +
-                '            </label>\n' +
-                '            <input type="text" class="form-control" name="qty" />\n' +
-                '        </div>\n' +
-                '        <div class="col-md-6">\n' +
-                '            <label>\n' +
-                '                Price :\n' +
-                '            </label>\n' +
-                '            <input type="text" class="form-control" name="price" />\n' +
-                '        </div>\n' +
-                '    </div>'
-            $('.qty-box').append(html);
-        })
-    })
-</script>
