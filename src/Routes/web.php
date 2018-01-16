@@ -46,6 +46,10 @@ Route::group(['prefix' => 'settings'], function () {
         Route::get('/{form}', 'PaymentSettingsConroller@getPriceForm', true)->name('payments_settings_price_form');
 
     });
+    Route::group(['prefix' => 'sopping-cart'], function () {
+        Route::get('/', 'PaymentSettingsConroller@getSoppingCart', true)->name('payments_settings_sopping_cart');
+
+    });
     Route::group(['prefix' => 'attributes'], function () {
         Route::get('/', 'AttributesController@getAttributes', true)->name('payments_settings_attributes');
         Route::get('/create', 'AttributesController@getAttributesCreate', true)->name('payments_settings_attributes_create');

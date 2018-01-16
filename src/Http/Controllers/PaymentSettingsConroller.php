@@ -54,4 +54,9 @@ class PaymentSettingsConroller extends Controller
             'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
         ]);
     }
+
+    public function getSoppingCart()
+    {
+        return view('payments::settings.shopping_cart.index');
+    }
 }
