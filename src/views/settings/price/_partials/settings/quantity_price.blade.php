@@ -10,11 +10,14 @@
                 </label>
                 <input type="text" class="form-control" name="qty[0][qty]"/>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label>
                     Price :
                 </label>
                 <input type="text" class="form-control" name="qty[0][price]"/>
+            </div>
+            <div class="col-md-2">
+
             </div>
         </div>
     </div>
@@ -58,16 +61,23 @@
                 '                <label>\n' +
                 '                    Quantity :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control" name="qty['+qty+'][qty]"/>\n' +
+                '                <input type="text" class="form-control" name="qty[0][qty]"/>\n' +
                 '            </div>\n' +
-                '            <div class="col-md-6">\n' +
+                '            <div class="col-md-4">\n' +
                 '                <label>\n' +
                 '                    Price :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control" name="qty['+qty+'][price]"/>\n' +
+                '                <input type="text" class="form-control" name="qty[0][price]"/>\n' +
+                '            </div>\n' +
+                '            <div class="col-md-2">\n' +
+                '                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>\n' +
                 '            </div>\n' +
                 '        </div>'
             $('.qty-box').append(html);
+        })
+
+        $("body").on('click','.btn-delete-row',function () {
+            $(this).parent().parent().remove();
         })
     })
 </script>
