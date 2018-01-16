@@ -33,29 +33,29 @@ class ModuleServiceProvider extends ServiceProvider
         \Eventy::action('payment.pricing',
             [
                 'slug' => 'simple_price',
-                'form' => 'payments::settings.price._partials.settings.simple_price',
-                'settings' =>  'payments::settings.price._partials.forms.simple_price',
+                'form' => 'payments::settings.price._partials.forms.simple_price',
+                'settings' =>  'payments::settings.price._partials.settings.simple_price',
             ]);
 
         \Eventy::action('payment.pricing',
             [
                 'slug' => 'quantity_price',
-                'form' => 'payments::settings.price._partials.settings.quantity_price',
-                'settings' =>  'payments::settings.price._partials.forms.quantity_price',
+                'form' => 'payments::settings.price._partials.forms.quantity_price',
+                'settings' =>  'payments::settings.price._partials.settings.quantity_price',
             ]);
 
         \Eventy::action('payment.pricing',
             [
                 'slug' => 'price_attributes',
-                'form' => 'payments::settings.price._partials.settings.price_attributes',
-                'settings' =>  'payments::settings.price._partials.forms.price_attributes',
+                'form' => 'payments::settings.price._partials.forms.price_attributes',
+                'settings' =>  'payments::settings.price._partials.settings.price_attributes',
             ]);
 
         \Eventy::action('payment.pricing',
             [
                 'slug' => 'price_plan',
-                'form' => 'payments::settings.price._partials.settings.price_plan',
-                'settings' =>  'payments::settings.price._partials.forms.price_plan',
+                'form' => 'payments::settings.price._partials.forms.price_plan',
+                'settings' =>  'payments::settings.price._partials.settings.price_plan',
             ]);
 
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);

@@ -10,7 +10,7 @@
                         <div class="panel-heading" role="tab">
                             <h4 class="panel-title">{!! ucwords(str_replace('_',' ',$price['slug'])) !!}</h4>
                             <span class="pull-right">
-                        <a href="{!! route('payments_settings_price_form',$price['slug']) !!}">See From</a>
+                        <a href="{!! route('payments_settings_price_form',$price['slug']) !!}">Settings</a>
                         Active {!! Form::checkbox($price['slug'],1) !!}
                     </span>
                         </div>

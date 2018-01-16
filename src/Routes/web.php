@@ -76,3 +76,5 @@ Route::group(['prefix' => 'datatable'], function () {
     Route::get('get-attributes', 'DataTablesConroller@getAttributes')->name('pym_attributes_list');
     Route::get('get-attribute-terms/{id}', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
 });
+
+Route::post('/save-quantity-price', 'PriceController@postSaveQtyPrice')->name('payments_settings_qty_save');

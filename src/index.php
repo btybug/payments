@@ -14,3 +14,13 @@ function find_price($slug){
 
     return null;
 }
+
+//QTY functions
+function get_qty_data(){
+    $settingsRepo = new \Btybug\btybug\Repositories\AdminsettingRepository();
+
+    $settings = $settingsRepo->getSettings('pricing','qty');
+    if($settings && $settings->val) return json_decode($settings->val,true);
+
+    return null;
+}
