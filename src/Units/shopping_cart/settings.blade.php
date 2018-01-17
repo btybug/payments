@@ -4,7 +4,7 @@ $post = $postRepo->first()->toArray();
 ?>
 <div class="row">
     <div class="col-xs-12 ">
-        <div class="bty-panel-collapse">
+        {{--<div class="bty-panel-collapse">
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#general"
                    aria-expanded="true">
@@ -53,8 +53,119 @@ $post = $postRepo->first()->toArray();
                     </div>
                 </div>
             </div>
+        </div>--}}
+
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#general1"
+                   aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Styles</span>
+                </a>
+            </div>
+            <div id="general1" class="collapse in" aria-expanded="true" style="">
+                <div class="content bty-settings-panel">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Image styles</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_1_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Title styles</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_2_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Description styles</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_3_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Price styles</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_2_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
+
+    </div>
 
 
     </div>
