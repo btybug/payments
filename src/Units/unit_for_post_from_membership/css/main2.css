@@ -222,112 +222,157 @@ a{
     margin: 0;
     padding: 0;
 }
-.opt1, .opt2, .opt3, .unit1, .unit2, .bottom{
+.all-div .opt1,.all-div .opt2, .all-div .opt3, .all-div .unit1, .all-div .unit2, .all-div .bottom{
     border: 1px solid #000;
 }
-.head .right>div{
+.all-div .head .right>div{
     margin-bottom: 10px;
 }
-.head, .bottom{
-    height: 400px;
+.all-div .head, .all-div .bottom{
+    min-height: 400px;
+    width: 100%;
+    display: flex;
 }
-.opt1, .right{
-    height: 100%;
+.all-div .opt1, .all-div .right{
+    min-height: 400px;
 }
-.opt2, .opt3, .unit2{
-    height: 15%;
+.all-div .opt2, .all-div .opt3, .all-div .unit2{
+    min-height: 70px;
 }
-.unit1{
-    height: calc(100% - 55% - -10px);
+.all-div .unit1{
+    min-height: 160px;
+    padding: 5px;
+}
+.all-div .unit2{
+    margin: 0 !important;
+    padding: 5px;
 }
 .all-div{
     padding: 50px 0;
 }
-.bottom{
+.all-div .bottom{
     margin-top: 20px;
 }
-.in-bottom{
-    height: calc(100% - 30px);
+.all-div .in-bottom{
     margin: 15px;
+    width: 100%;
 }
-.opt4>div, .opt5>div{
+.all-div .opt4, .all-div .opt5{
     border: 1px solid #000;
-    height: 100%;
+    min-height: 400px;
 }
-.opt4, .opt5{
-    height: 100%;
-}
-.right{
+.all-div .right{
     padding-right: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.custom_p_red{
-    color:red;
-}
-.custom_p_blue{
-    color:blue;
-}
-.custom_p_font{
-    font-size: 20px;
-}
 .all-div .option-1{
     border: 1px solid brown;
     padding: 15px;
     box-shadow: 0 0 3px brown;
     background-color: rgba(165, 42, 42, 0.1);
-    color: #333;
-    font-size: 16px;
 }
 .all-div .option-2{
     border: 1px solid #096158;
     padding: 15px;
     box-shadow: 0 0 3px rgba(9, 97, 88, 1);
     background-color: rgba(9, 97, 88, 0.1);
-    color: #333;
-    font-size: 16px;
 }
 .all-div .option-3{
     border: 1px solid #191919;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.55);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
 }
 .all-div .option-4{
     padding: 20px;
     background-color: rgba(34, 10, 62, 0.55);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
 }
 .all-div .option-5{
     padding: 20px;
     background-color: rgba(10, 60, 62, 0.55);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
     border-radius: 4px;
 }
 .all-div .option-6{
     padding: 24px;
     background-color: rgba(220, 18, 0, 0.55);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
     border-radius: 8px;
-    letter-spacing: 3px;
     border: none;
     box-shadow: inset 1px 1px 3px #000;
 }
 .all-div .option-7{
     padding: 24px;
     background-color: white;
-    color: #444;
-    font-size: 20px;
-    font-weight: bold;
     border-radius: 8px;
-    letter-spacing: 3px;
     border: none;
     box-shadow: inset 1px 1px 3px #000;
+}
+
+.all-div .font-1{
+    font-size: 16px;
+    color: #444;
+}
+.all-div .font-2{
+    font-size: 16px;
+    color: #444;
+    font-weight: bold;
+}
+.all-div .font-3{
+    font-size: 18px;
+    color: #444;
+}
+.all-div .font-4{
+    font-size: 18px;
+    color: #444;
+    font-weight: bold;
+}
+.all-div .font-5{
+    font-size: 20px;
+    color: #444;
+    font-weight: bold;
+}
+.all-div .font-6{
+    font-size: 16px;
+    color: white;
+}
+.all-div .font-7{
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+.all-div .font-8{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+.all-div .font-9{
+    font-size: 16px;
+    color: red;
+    letter-spacing: 2px;
+}
+.all-div .font-10{
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.all-div .font-11{
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.all-div .font-12{
+    font-size: 16px;
+    color: #499bc7;
+}
+.all-div .font-13{
+    font-size: 18px;
+    color: #499bc7;
+    font-weight: bold;
+}
+.all-div .font-14{
+    font-size: 20px;
+    color: #499bc7;
+    font-weight: bold;
 }

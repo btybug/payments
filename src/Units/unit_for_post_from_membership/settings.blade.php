@@ -47,13 +47,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_1_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="option-1">brown</option>
-                                <option value="option-2">dark green</option>
-                                <option value="option-3">style 1</option>
-                                <option value="option-4">style 2</option>
-                                <option value="option-5">style 3</option>
-                                <option value="option-6">style 4</option>
-                                <option value="option-7">style 5</option>
+                                <option value="option-1">bg-brown, p-15, border-1, shadow</option>
+                                <option value="option-2">bg-lightblue, p-15, border-1, shadow</option>
+                                <option value="option-3">bg-gray, p-15, border-1</option>
+                                <option value="option-4">bg-lightviolet, p-20</option>
+                                <option value="option-5">bg-lightgreen, p-20, radius-4</option>
+                                <option value="option-6">bg-lightred, p-24, radius-8, shadow</option>
+                                <option value="option-7">bg-white, p-24, radius-8, shadow</option>
                             </select>
                         </div>
                     </div>
@@ -64,9 +64,20 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_1_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="custom_p_red">color red</option>
-                                <option value="custom_p_blue">color blue</option>
-                                <option value="custom_p_font">font 20</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
                             </select>
                         </div>
                     </div>
@@ -102,13 +113,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_2_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="option-1">brown</option>
-                                <option value="option-2">dark green</option>
-                                <option value="option-3">style 1</option>
-                                <option value="option-4">style 2</option>
-                                <option value="option-5">style 3</option>
-                                <option value="option-6">style 4</option>
-                                <option value="option-7">style 5</option>
+                                <option value="option-1">bg-brown, p-15, border-1, shadow</option>
+                                <option value="option-2">bg-lightblue, p-15, border-1, shadow</option>
+                                <option value="option-3">bg-gray, p-15, border-1</option>
+                                <option value="option-4">bg-lightviolet, p-20</option>
+                                <option value="option-5">bg-lightgreen, p-20, radius-4</option>
+                                <option value="option-6">bg-lightred, p-24, radius-8, shadow</option>
+                                <option value="option-7">bg-white, p-24, radius-8, shadow</option>
                             </select>
                         </div>
                     </div>
@@ -119,9 +130,20 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_2_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="custom_p_red">color red</option>
-                                <option value="custom_p_blue">color blue</option>
-                                <option value="custom_p_font">font 20</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
                             </select>
                         </div>
                     </div>
@@ -157,13 +179,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_3_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="option-1">brown</option>
-                                <option value="option-2">dark green</option>
-                                <option value="option-3">style 1</option>
-                                <option value="option-4">style 2</option>
-                                <option value="option-5">style 3</option>
-                                <option value="option-6">style 4</option>
-                                <option value="option-7">style 5</option>
+                                <option value="option-1">bg-brown, p-15, border-1, shadow</option>
+                                <option value="option-2">bg-lightblue, p-15, border-1, shadow</option>
+                                <option value="option-3">bg-gray, p-15, border-1</option>
+                                <option value="option-4">bg-lightviolet, p-20</option>
+                                <option value="option-5">bg-lightgreen, p-20, radius-4</option>
+                                <option value="option-6">bg-lightred, p-24, radius-8, shadow</option>
+                                <option value="option-7">bg-white, p-24, radius-8, shadow</option>
                             </select>
                         </div>
                     </div>
@@ -174,9 +196,20 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_3_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="custom_p_red">color red</option>
-                                <option value="custom_p_blue">color blue</option>
-                                <option value="custom_p_font">font 20</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
                             </select>
                         </div>
                     </div>
@@ -246,13 +279,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_4_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="option-1">brown</option>
-                                <option value="option-2">dark green</option>
-                                <option value="option-3">style 1</option>
-                                <option value="option-4">style 2</option>
-                                <option value="option-5">style 3</option>
-                                <option value="option-6">style 4</option>
-                                <option value="option-7">style 5</option>
+                                <option value="option-1">bg-brown, p-15, border-1, shadow</option>
+                                <option value="option-2">bg-lightblue, p-15, border-1, shadow</option>
+                                <option value="option-3">bg-gray, p-15, border-1</option>
+                                <option value="option-4">bg-lightviolet, p-20</option>
+                                <option value="option-5">bg-lightgreen, p-20, radius-4</option>
+                                <option value="option-6">bg-lightred, p-24, radius-8, shadow</option>
+                                <option value="option-7">bg-white, p-24, radius-8, shadow</option>
                             </select>
                         </div>
                     </div>
@@ -263,9 +296,20 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_4_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="custom_p_red">color red</option>
-                                <option value="custom_p_blue">color blue</option>
-                                <option value="custom_p_font">font 20</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
                             </select>
                         </div>
                     </div>
@@ -301,13 +345,13 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_5_container_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="option-1">brown</option>
-                                <option value="option-2">dark green</option>
-                                <option value="option-3">style 1</option>
-                                <option value="option-4">style 2</option>
-                                <option value="option-5">style 3</option>
-                                <option value="option-6">style 4</option>
-                                <option value="option-7">style 5</option>
+                                <option value="option-1">bg-brown, p-15, border-1, shadow</option>
+                                <option value="option-2">bg-lightblue, p-15, border-1, shadow</option>
+                                <option value="option-3">bg-gray, p-15, border-1</option>
+                                <option value="option-4">bg-lightviolet, p-20</option>
+                                <option value="option-5">bg-lightgreen, p-20, radius-4</option>
+                                <option value="option-6">bg-lightred, p-24, radius-8, shadow</option>
+                                <option value="option-7">bg-white, p-24, radius-8, shadow</option>
                             </select>
                         </div>
                     </div>
@@ -318,9 +362,20 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_5_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="custom_p_red">color red</option>
-                                <option value="custom_p_blue">color blue</option>
-                                <option value="custom_p_font">font 20</option>
+                                <option value="font-1">font 16px</option>
+                                <option value="font-2">16px bold</option>
+                                <option value="font-3">18px</option>
+                                <option value="font-4">18px bold</option>
+                                <option value="font-5">20px bold</option>
+                                <option value="font-6">16px white</option>
+                                <option value="font-7">16px white-bold</option>
+                                <option value="font-8">18px white-bold</option>
+                                <option value="font-9">16px red</option>
+                                <option value="font-10">18px red-bold</option>
+                                <option value="font-11">20px red-bold</option>
+                                <option value="font-12">16px blue</option>
+                                <option value="font-13">18px blue-bold</option>
+                                <option value="font-14">20px blue-bold</option>
                             </select>
                         </div>
                     </div>
