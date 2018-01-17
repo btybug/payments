@@ -376,3 +376,33 @@ a{
     color: #499bc7;
     font-weight: bold;
 }
+.all-div .img-1{
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 5px;
+}
+.all-div .img-1:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.all-div .img-2{
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    padding: 5px;
+}
+.all-div .img-2:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.all-div .img-3{
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.all-div .img-3:hover{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+}

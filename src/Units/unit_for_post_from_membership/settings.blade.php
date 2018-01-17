@@ -64,20 +64,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_1_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="font-1">font 16px</option>
-                                <option value="font-2">16px bold</option>
-                                <option value="font-3">18px</option>
-                                <option value="font-4">18px bold</option>
-                                <option value="font-5">20px bold</option>
-                                <option value="font-6">16px white</option>
-                                <option value="font-7">16px white-bold</option>
-                                <option value="font-8">18px white-bold</option>
-                                <option value="font-9">16px red</option>
-                                <option value="font-10">18px red-bold</option>
-                                <option value="font-11">20px red-bold</option>
-                                <option value="font-12">16px blue</option>
-                                <option value="font-13">18px blue-bold</option>
-                                <option value="font-14">20px blue-bold</option>
+                                <option value="img-1">radius-4, p-5, hover</option>
+                                <option value="img-2">p-5, radius-50, filter</option>
+                                <option value="img-3">radius-20, blur</option>
                             </select>
                         </div>
                     </div>
