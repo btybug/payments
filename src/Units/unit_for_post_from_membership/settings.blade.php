@@ -34,8 +34,8 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         <div class="col-md-6">
                             <select name="option_1_item_value" class="form-control">
                                 <option value="">select option</option>
-                                @foreach($json as $key => $data)
-                                    <option value="{{$data}}">{{$key}}</option>
+                                @foreach($json["images"] as $key => $data)
+                                    <option value="{{$data}}">Image {{$key+1}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -101,6 +101,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <select name="option_2_item_value" class="form-control">
                                 <option value="">select option</option>
                                 @foreach($json as $key => $data)
+                                    @if($key == "images")
+                                        @continue
+                                    @endif
                                     <option value="{{$data}}">{{$key}}</option>
                                 @endforeach
                             </select>
@@ -167,6 +170,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <select name="option_3_item_value" class="form-control">
                                 <option value="">select option</option>
                                 @foreach($json as $key => $data)
+                                    @if($key == "images")
+                                        @continue
+                                    @endif
                                     <option value="{{$data}}">{{$key}}</option>
                                 @endforeach
                             </select>
@@ -267,6 +273,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <select name="option_4_item_value" class="form-control">
                                 <option value="">select option</option>
                                 @foreach($json as $key => $data)
+                                    @if($key == "images")
+                                        @continue
+                                    @endif
                                     <option value="{{$data}}">{{$key}}</option>
                                 @endforeach
                             </select>
@@ -333,6 +342,9 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                             <select name="option_5_item_value" class="form-control">
                                 <option value="">select option</option>
                                 @foreach($json as $key => $data)
+                                    @if($key == "images")
+                                        @continue
+                                    @endif
                                     <option value="{{$data}}">{{$key}}</option>
                                 @endforeach
                             </select>
