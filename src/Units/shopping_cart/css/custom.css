@@ -10,3 +10,47 @@
 .custom_margin_10{
     margin:10px 0;
 }
+.image-1{
+    border:1px solid #ccc;
+}
+.image-2{
+    border-radius:50%;
+    border-color:#255625;
+    border:1px solid;
+}
+.title-1{
+    font-size: 16px;
+    font-weight: bold;
+}
+.title-2{
+    font-size: 18px;
+    font-weight: bold;
+    color: #0B86C3;
+}
+.title-3{
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+.description-1{
+    font-size: 16px;
+    color: #333;
+}
+.description-2{
+    font-size: 18px;
+    color: #eee;
+}
+.description-3{
+    font-size: 20px;
+    font-weight: bold;
+}
+.price-1{
+    font-size: 16px;
+    font-weight: bold;
+    color: #0B86C3;
+}
+.price-2{
+    font-size: 20px;
+    font-weight: bold;
+    color: red
+}

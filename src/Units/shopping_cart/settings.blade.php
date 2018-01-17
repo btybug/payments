@@ -72,20 +72,8 @@ $post = $postRepo->first()->toArray();
                         <div class="col-md-6">
                             <select name="option_1_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="font-1">font 16px</option>
-                                <option value="font-2">16px bold</option>
-                                <option value="font-3">18px</option>
-                                <option value="font-4">18px bold</option>
-                                <option value="font-5">20px bold</option>
-                                <option value="font-6">16px white</option>
-                                <option value="font-7">16px white-bold</option>
-                                <option value="font-8">18px white-bold</option>
-                                <option value="font-9">16px red</option>
-                                <option value="font-10">18px red-bold</option>
-                                <option value="font-11">20px red-bold</option>
-                                <option value="font-12">16px blue</option>
-                                <option value="font-13">18px blue-bold</option>
-                                <option value="font-14">20px blue-bold</option>
+                                <option value="image-1">border</option>
+                                <option value="image-2">image round</option>
                             </select>
                         </div>
                     </div>
@@ -96,20 +84,9 @@ $post = $postRepo->first()->toArray();
                         <div class="col-md-6">
                             <select name="option_2_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="font-1">font 16px</option>
-                                <option value="font-2">16px bold</option>
-                                <option value="font-3">18px</option>
-                                <option value="font-4">18px bold</option>
-                                <option value="font-5">20px bold</option>
-                                <option value="font-6">16px white</option>
-                                <option value="font-7">16px white-bold</option>
-                                <option value="font-8">18px white-bold</option>
-                                <option value="font-9">16px red</option>
-                                <option value="font-10">18px red-bold</option>
-                                <option value="font-11">20px red-bold</option>
-                                <option value="font-12">16px blue</option>
-                                <option value="font-13">18px blue-bold</option>
-                                <option value="font-14">20px blue-bold</option>
+                                <option value="title-1">font 16px, bold</option>
+                                <option value="title-2">font 18px, bold,blue</option>
+                                <option value="title-3">font 20px, bold, black</option>
                             </select>
                         </div>
                     </div>
@@ -120,20 +97,9 @@ $post = $postRepo->first()->toArray();
                         <div class="col-md-6">
                             <select name="option_3_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="font-1">font 16px</option>
-                                <option value="font-2">16px bold</option>
-                                <option value="font-3">18px</option>
-                                <option value="font-4">18px bold</option>
-                                <option value="font-5">20px bold</option>
-                                <option value="font-6">16px white</option>
-                                <option value="font-7">16px white-bold</option>
-                                <option value="font-8">18px white-bold</option>
-                                <option value="font-9">16px red</option>
-                                <option value="font-10">18px red-bold</option>
-                                <option value="font-11">20px red-bold</option>
-                                <option value="font-12">16px blue</option>
-                                <option value="font-13">18px blue-bold</option>
-                                <option value="font-14">20px blue-bold</option>
+                                <option value="description-1">font 16px, black</option>
+                                <option value="description-2">font 18px, gray</option>
+                                <option value="description-3">font 20px, bold</option>
                             </select>
                         </div>
                     </div>
@@ -144,20 +110,8 @@ $post = $postRepo->first()->toArray();
                         <div class="col-md-6">
                             <select name="option_2_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="font-1">font 16px</option>
-                                <option value="font-2">16px bold</option>
-                                <option value="font-3">18px</option>
-                                <option value="font-4">18px bold</option>
-                                <option value="font-5">20px bold</option>
-                                <option value="font-6">16px white</option>
-                                <option value="font-7">16px white-bold</option>
-                                <option value="font-8">18px white-bold</option>
-                                <option value="font-9">16px red</option>
-                                <option value="font-10">18px red-bold</option>
-                                <option value="font-11">20px red-bold</option>
-                                <option value="font-12">16px blue</option>
-                                <option value="font-13">18px blue-bold</option>
-                                <option value="font-14">20px blue-bold</option>
+                                <option value="price-1">font 16px, bold, blue</option>
+                                <option value="price-2">font 20px, bold, red</option>
                             </select>
                         </div>
                     </div>
