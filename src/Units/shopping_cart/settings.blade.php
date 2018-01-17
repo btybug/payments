@@ -108,7 +108,7 @@ $post = $postRepo->first()->toArray();
                             <label for="">Price styles</label>
                         </div>
                         <div class="col-md-6">
-                            <select name="option_2_container_item_style" class="form-control">
+                            <select name="option_4_container_item_style" class="form-control">
                                 <option value="">select option</option>
                                 <option value="price-1">font 16px, bold, blue</option>
                                 <option value="price-2">font 20px, bold, red</option>
