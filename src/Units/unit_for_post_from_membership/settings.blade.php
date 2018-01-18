@@ -67,6 +67,10 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                                 <option value="img-1">radius-4, p-5, hover</option>
                                 <option value="img-2">p-5, radius-50, filter</option>
                                 <option value="img-3">radius-20, blur</option>
+                                <option value="img-4">black-white, hover-color</option>
+                                <option value="img-5">radius-5, shadow</option>
+                                <option value="img-6">border, shadow</option>
+                                <option value="img-7">hover contrast</option>
                             </select>
                         </div>
                     </div>
