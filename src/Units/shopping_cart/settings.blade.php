@@ -4,6 +4,7 @@ $post = $postRepo->first()->toArray();
 $text_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/text.css'));
 $image_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/image.css'));
 $button_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/button.css'));
+$container_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/container.css'));
 ?>
 <div class="row">
     <div class="col-xs-12 ">
@@ -48,8 +49,7 @@ $button_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('publ
                         <div class="col-md-6">
                             <select name="option_2_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="image-1">border</option>
-                                <option value="image-2">image round</option>
+                                {!! $container_styles !!}
                             </select>
                         </div>
                     </div>
@@ -84,8 +84,7 @@ $button_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('publ
                         <div class="col-md-6">
                             <select name="option_4_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="image-1">border</option>
-                                <option value="image-2">image round</option>
+                                {!! $container_styles !!}
                             </select>
                         </div>
                     </div>
@@ -120,8 +119,7 @@ $button_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('publ
                         <div class="col-md-6">
                             <select name="option_6_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="image-1">border</option>
-                                <option value="image-2">image round</option>
+                                {!! $container_styles !!}
                             </select>
                         </div>
                     </div>
