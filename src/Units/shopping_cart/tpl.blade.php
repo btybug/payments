@@ -31,7 +31,7 @@
                     <input type="number" value="2" min="1">
                 </div>
                 <div class="product-removal">
-                    <button class="remove-product">
+                    <button class="{{isset($settings['option_8_container_item_style']) ? $settings['option_8_container_item_style'] : ''}} {{isset($settings['option_9_container_item_style']) ? $settings['option_9_container_item_style'] : ''}}">
                         Remove
                     </button>
                 </div>
@@ -54,7 +54,7 @@
                     <input type="number" value="1" min="1">
                 </div>
                 <div class="product-removal">
-                    <button class="remove-product">
+                    <button class="{{isset($settings['option_8_container_item_style']) ? $settings['option_8_container_item_style'] : ''}} {{isset($settings['option_9_container_item_style']) ? $settings['option_9_container_item_style'] : ''}}">
                         Remove
                     </button>
                 </div>
@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <button class="checkout">Checkout</button>
+            <button class="checkout {{isset($settings['option_10_container_item_style']) ? $settings['option_10_container_item_style'] : ''}} {{isset($settings['option_11_container_item_style']) ? $settings['option_11_container_item_style'] : ''}}">Checkout</button>
 
         </div>
 
@@ -88,5 +88,11 @@
 </div>
 
 {!! BBstyle($_this->path."/css/main.css") !!}
+
+
 {!! BBstyle($_this->path."/css/text.css") !!}
+{!! BBstyle($_this->path."/css/image.css") !!}
+{!! BBstyle($_this->path."/css/button.css") !!}
+
+
 {!!  BBscript($_this->path.'/js/main.js') !!}

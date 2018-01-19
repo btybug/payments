@@ -2,6 +2,8 @@
 $postRepo = new \BtyBugHook\Blog\Repository\PostsRepository();
 $post = $postRepo->first()->toArray();
 $text_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/text.css'));
+$image_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/image.css'));
+$button_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public/dinamiccss/button.css'));
 ?>
 <div class="row">
     <div class="col-xs-12 ">
@@ -22,8 +24,7 @@ $text_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public
                         <div class="col-md-6">
                             <select name="option_1_container_item_style" class="form-control">
                                 <option value="">select option</option>
-                                <option value="image-1">border</option>
-                                <option value="image-2">image round</option>
+                                {!! $image_styles !!}
                             </select>
                         </div>
                     </div>
@@ -130,6 +131,76 @@ $text_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('public
                         </div>
                         <div class="col-md-6">
                             <select name="option_7_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                {!! $text_styles !!}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#general1"
+                   aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Remove button</span>
+                </a>
+            </div>
+            <div id="general1" class="collapse in" aria-expanded="true" style="">
+                <div class="content bty-settings-panel">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Remove button container class</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_8_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                {!! $button_styles !!}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Remove button text class</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_9_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                {!! $text_styles !!}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#general1"
+                   aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Checkout button</span>
+                </a>
+            </div>
+            <div id="general1" class="collapse in" aria-expanded="true" style="">
+                <div class="content bty-settings-panel">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Checkout button container class</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_10_container_item_style" class="form-control">
+                                <option value="">select option</option>
+                                {!! $button_styles !!}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Checkout button text class</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_11_container_item_style" class="form-control">
                                 <option value="">select option</option>
                                 {!! $text_styles !!}
                             </select>
