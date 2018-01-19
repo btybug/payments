@@ -19,14 +19,14 @@
                 </div>
                 <div class="product-details">
                     <div class="product-title">
-                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}}">
+                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} {{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">
                             Dingo Dog Bones
                         </p>
                     </div>
-                    <p class="product-description {{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">The best dog bones of all time. Holy crap. Your dog will be begging
+                    <p class="product-description {{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}} {{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">The best dog bones of all time. Holy crap. Your dog will be begging
                         for these things! I got curious once and ate one myself. I'm a fan.</p>
                 </div>
-                <div class="product-price {{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}}">12.99</div>
+                <div class="product-price {{isset($settings['option_6_container_item_style']) ? $settings['option_6_container_item_style'] : ''}} {{isset($settings['option_7_container_item_style']) ? $settings['option_7_container_item_style'] : ''}}">12.99</div>
                 <div class="product-quantity">
                     <input type="number" value="2" min="1">
                 </div>
@@ -44,12 +44,12 @@
                 </div>
                 <div class="product-details">
                     <div class="product-title">
-                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}}">Nutro™ Adult Lamb and Rice Dog Food</p>
+                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} {{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">Nutro™ Adult Lamb and Rice Dog Food</p>
                     </div>
-                    <p class="product-description {{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">Who doesn't like lamb and rice? We've all hit the halal cart at 3am
+                    <p class="product-description {{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}} {{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">Who doesn't like lamb and rice? We've all hit the halal cart at 3am
                         while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
                 </div>
-                <div class="product-price {{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}}">45.99</div>
+                <div class="product-price {{isset($settings['option_6_container_item_style']) ? $settings['option_6_container_item_style'] : ''}} {{isset($settings['option_7_container_item_style']) ? $settings['option_7_container_item_style'] : ''}}">45.99</div>
                 <div class="product-quantity">
                     <input type="number" value="1" min="1">
                 </div>
@@ -88,4 +88,5 @@
 </div>
 
 {!! BBstyle($_this->path."/css/main.css") !!}
+{!! BBstyle($_this->path."/css/text.css") !!}
 {!!  BBscript($_this->path.'/js/main.js') !!}
