@@ -5,8 +5,9 @@ $post = $postRepo->first()->toArray();
 $blogs = $blogRepository->pluck('title', 'id');
 $columns = null;
 if (isset($settings['blog'])) {
-    $table = $settings['blog'];
-    $columns = \DB::select("SHOW COLUMNS FROM $table]");
+
+    $table =  str_replace('-','_',$blogRepository->find($settings['blog'])->slug);
+    $columns = \DB::select("SHOW COLUMNS FROM $table");
 }
 ?>
 
@@ -37,16 +38,16 @@ if (isset($settings['blog'])) {
                         </div>
                         <div class="grid-list">
                             <div>
-                                <label for="bty-sort-grid">Select Blog</label>
+                                <label for="">Select Blog</label>
                                 {!! Form::select('blog',$blogs,isset($settings['blog'])?$settings['blog']:null,['class'=>'form-control']) !!}
                             </div>
 
                             <div>
-                                <label for="bty-sort-grid">Columns map</label>
+                                <label for="">Columns map</label>
                                 @if($columns)
                                     @foreach($columns as $column)
                                         <lable >{!! $column->Field !!}</lable>
-                                    {!! Form::select('map['.$column->Field.']',['1'=>'placeholder 1','2'=>'placeholder 2','3'=>'placeholder 3'],null,['class'=>'form-control']) !!}
+                                        {!! Form::select('map['.$column->Field.']',['1'=>'placeholder 1','2'=>'placeholder 2','3'=>'placeholder 3'],null,['class'=>'form-control']) !!}
                                     @endforeach
                                 @endif
                             </div>

@@ -84,5 +84,5 @@ $plans=DB::table($slug)->where('status','published')->get();
     </div>
 </section>
 {!! BBstyle($_this->path."/css/main2.css") !!}
-{!!  BBscript($_this->path.'/js/main.js') !!}
+{{--{!!  BBscript($_this->path.'/js/main.js') !!}--}}
     @endif
