@@ -1,6 +1,11 @@
 @php
-    $membershipTypesRepository=new \BtyBugHook\Membership\Repository\PlansRepository();
-    $plans=$membershipTypesRepository->findAllByMultiple(['is_active'=>1]);
+$plans=[];
+if(isset($source['_page'])){
+$page=$source['_page'];
+$slug=str_replace('all_','',$page->slug);
+$plans=DB::table($slug)->where('status','published')->get();
+};
+
 @endphp
 @if((!isset($settings['grid_system']) || $settings['grid_system']!=2 ) || (isset($settings['grid_system']) && $settings['grid_system']==1 ))
     <section id="starter">
@@ -10,11 +15,15 @@
             <div class="col-sm-4 block">
                 <div class="block-black text-center">
                     <div class="title">
-                        {!! $plan->name !!}
+                        {!! $plan->title !!}
                     </div>
                     <div class="header-content text-center">
-                        <b> {!! $plan->amount.' '.$plan->currency !!}</b><br>
-                        <small>{!! $plan->interval.'ly' !!}</small>
+                        <b>
+                            {{--{!! $plan->amount.' '.$plan->currency !!}--}}
+                        </b><br>
+                        <small>
+                            {{--{!! $plan->interval.'ly' !!}--}}
+                        </small>
                     </div>
                     <div class="block-content">
                         <ul class="list-unstyled">
