@@ -1,17 +1,12 @@
 @php
-$plans=[];
-if(isset($source['_page'])){
-$page=$source['_page'];
-$slug=str_replace('all_','',$page->slug);
-$plans=DB::table($slug)->where('status','published')->get();
-};
-
+$col = posts_url_manager();
+$data = get_all_blog_posts();
 @endphp
 @if((!isset($settings['grid_system']) || $settings['grid_system']!=2 ) || (isset($settings['grid_system']) && $settings['grid_system']==1 ))
     <section id="starter">
     <div class="container">
         <div class="row">
-            @foreach($plans as $plan)
+            @foreach($data as $plan)
             <div class="col-sm-4 block">
                 <div class="block-black text-center">
                     <div class="title">
@@ -26,17 +21,11 @@ $plans=DB::table($slug)->where('status','published')->get();
                         </small>
                     </div>
                     <div class="block-content">
-                        <ul class="list-unstyled">
-                            <li>Full access</li>
-                            <li>Documentation</li>
-                            <li>Costumers support</li>
-                            <li>Free updates</li>
-                            <li>Unlimited domains</li>
-                        </ul>
+                        {!! $plan->description !!}
                     </div>
                     <div class="text-center">
                         <button class="btn select-plan">Add To Cart</button>
-                        <a href="{!! url('product',$plan->id) !!}" class="btn select-plan">View Product</a>
+                        <a href="{!! url(get_blog_slug_in_page(),$plan->$col) !!}" class="btn select-plan">View Product</a>
                     </div>
                 </div>
             </div>
