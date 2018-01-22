@@ -5,7 +5,7 @@ if(isset($source['_page'])){
     if(isset($params['param'])) {
         $param = $params['param'];
     }
-    $blog=str_replace_first('single_','',$page->slug);
+    $blog=str_replace('-','_',str_replace_first('single_','',$page->slug));
     $product=DB::table($blog)->find($param);
 }
 
