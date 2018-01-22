@@ -15,4 +15,5 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix'=>'shoing-cart-api'], function () {
     Route::post('/add-to-cart','SoppingCartApiController@addToCart');
+    Route::post('/get-cart-data','SoppingCartApiController@getCartData');
 });
