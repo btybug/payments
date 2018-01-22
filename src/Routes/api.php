@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/ara', function (Request $request) {
-    // return $request->edo();
-})->middleware('auth:api');
+Route::group(['prefix'=>'shoing-cart-api'], function () {
+    Route::post('/add-to-cart','SoppingCartApiController@addToCart');
+});
