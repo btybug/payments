@@ -1,28 +1,28 @@
 <div class="container all-div">
     <div class="row">
             <div class="head">
-                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : ''}}">
+                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : ''}} final-opt1">
                     @if(isset($settings["option_1_item_value"]))
-                        <img src="{{$settings["option_1_item_value"]}}" alt="" class="{{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
+                        <img src="{{$settings["option_1_item_value"]}}" alt="" class="final-img {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
                     @endif
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 right">
-                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : ''}}">
-                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}}">
+                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : ''}} final-opt2">
+                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} final-title">
                             {{isset($settings["option_2_item_value"]) ? $settings["option_2_item_value"] : ''}}
                         </p>
                     </div>
-                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : ''}}">
-                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">
+                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : ''}} final-opt3">
+                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}} final-desc">
                             {{isset($settings["option_3_item_value"]) ? $settings["option_3_item_value"] : ''}}
                         </p>
                     </div>
-                    <div class="unit1">
+                    <div class="unit1 final-unit1">
                         @if(isset($settings["unit1"]))
                             {!! BBRenderUnits($settings['unit1']) !!}
                         @endif
                     </div>
-                    <div class="unit2">
+                    <div class="unit2 final-unit2">
                         @if(isset($settings["unit2"]))
                             {!! BBRenderUnits($settings['unit2']) !!}
                         @endif
@@ -41,6 +41,7 @@
                             {{isset($settings["option_4_item_value"]) ? $settings["option_4_item_value"] : ''}}
                         </p>
                     </div>--}}
+                    <div class="opt4 final-opt4">
                     <div class="col-md-12">
                         @if(isset($settings["unit3"]))
                             {!! BBRenderUnits($settings['unit3']) !!}
@@ -51,9 +52,10 @@
                             {!! BBRenderUnits($settings['unit4']) !!}
                         @endif
                     </div>
+                    </div>
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12">
-                    <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : ''}}">
+                    <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : ''}} final-opt5">
                         <p class="{{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">
                             {{isset($settings["option_5_item_value"]) ? $settings["option_5_item_value"] : ''}}
                         </p>
@@ -65,13 +67,18 @@
         </div>
     </div>
 </div>
+
+
+
+
+
 {{--<section class="product-single-head">--}}
 {{--<div class="container">--}}
 {{--<div class="row">--}}
 {{--<div class="col-md-6 col-sm-6 col-xs-12 left-product">--}}
 {{--@if(isset($settings["area1"]))--}}
 {{--<div class="img">--}}
-{{-- https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg --}}
+ {{--https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg--}}
 {{--<img src="{{$settings["area1"]}}" alt="">--}}
 {{--</div>--}}
 {{--@endif--}}
