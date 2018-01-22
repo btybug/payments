@@ -14,7 +14,7 @@
   "place": "frontend",
   "tags": [
     "plans","product",
-    "frontend"
+    "frontend","single_post"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/products"
 }

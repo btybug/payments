@@ -1,4 +1,16 @@
-{{--{!! dd($source) !!}--}}
+<?php
+if(isset($source['_page'])){
+    $page=$source['_page'];
+    $params = \Request::route()->parameters();
+    if(isset($params['param'])) {
+        $param = $params['param'];
+    }
+    $blog=str_replace_first('single_','',$page->slug);
+    $product=DB::table($blog)->find($param);
+}
+
+
+?>
 <div class="container">
     <div class="row">
         <div class="col-xs-4 item-photo">
