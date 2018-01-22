@@ -22,7 +22,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Option 1</span>
+                    <span class="title">Image options</span>
                 </a>
             </div>
             <div id="collapseOne" class="collapse in" aria-expanded="true" style="">
@@ -81,7 +81,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Option 2</span>
+                    <span class="title">First holder data</span>
                 </a>
             </div>
             <div id="collapse1" class="collapse in" aria-expanded="true" style="">
@@ -150,7 +150,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Option 3</span>
+                    <span class="title">Second holder data</span>
                 </a>
             </div>
             <div id="collapse2" class="collapse in" aria-expanded="true" style="">
@@ -219,7 +219,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Unit 1</span>
+                    <span class="title">Product unit 1</span>
                 </a>
             </div>
             <div id="collapse3" class="collapse in" aria-expanded="true" style="">
@@ -236,7 +236,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Unit 2</span>
+                    <span class="title">Product unit 2</span>
                 </a>
             </div>
             <div id="collapse4" class="collapse in" aria-expanded="true" style="">
@@ -253,7 +253,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Option 4</span>
+                    <span class="title">Extra units</span>
                 </a>
             </div>
 
@@ -262,12 +262,12 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                 <div class="content">
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"unit3","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"unit3","for_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"unit4","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"unit4","for_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                 </div>
@@ -340,7 +340,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
             <div>
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Option 5</span>
+                    <span class="title">Product information</span>
                 </a>
             </div>
             <div id="collapse6" class="collapse in" aria-expanded="true" style="">
