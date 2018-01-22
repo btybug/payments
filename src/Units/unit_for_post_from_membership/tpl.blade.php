@@ -27,6 +27,9 @@
                             {!! BBRenderUnits($settings['unit2']) !!}
                         @endif
                     </div>
+                    <div class="text-center custom_margin_top_30">
+                        <button class="btn btn-success btn-lg">Add to cart</button>
+                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
