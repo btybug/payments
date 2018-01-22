@@ -14,7 +14,7 @@
   "place": "frontend",
   "tags": [
     "product","unit_for_post_from_membership",
-    "frontend"
+    "frontend","single_post"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/unit_for_post_from_membership"
 }
