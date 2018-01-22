@@ -82,6 +82,7 @@ if(isset($source['_page'])){
     </div>
 </div>
 @else
+    <p><h2>Title: {!! $product->title !!}</h2></p>
     <div class="container all-div">
         <div class="row">
             <div class="head">
