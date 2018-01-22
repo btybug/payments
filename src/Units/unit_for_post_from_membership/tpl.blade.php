@@ -36,10 +36,20 @@
         <div class="bottom">
             <div class="in-bottom">
                 <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div class="opt4 {{isset($settings["option_4_container_style"]) ? $settings["option_4_container_style"] : ''}}">
+                   {{-- <div class="opt4 {{isset($settings["option_4_container_style"]) ? $settings["option_4_container_style"] : ''}}">
                         <p class="{{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}}">
                             {{isset($settings["option_4_item_value"]) ? $settings["option_4_item_value"] : ''}}
                         </p>
+                    </div>--}}
+                    <div class="col-md-12">
+                        @if(isset($settings["unit3"]))
+                            {!! BBRenderUnits($settings['unit3']) !!}
+                        @endif
+                    </div>
+                    <div class="col-md-12">
+                        @if(isset($settings["unit4"]))
+                            {!! BBRenderUnits($settings['unit4']) !!}
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12">

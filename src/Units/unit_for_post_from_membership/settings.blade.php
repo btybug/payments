@@ -256,7 +256,25 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                     <span class="title">Option 4</span>
                 </a>
             </div>
+
+
             <div id="collapse5" class="collapse in" aria-expanded="true" style="">
+                <div class="content">
+                    <div class="form-group my_rows1">
+                        <div class="col-sm-8">
+                            {!! BBbutton2('unit',"unit3","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                        </div>
+                    </div>
+                    <div class="form-group my_rows1">
+                        <div class="col-sm-8">
+                            {!! BBbutton2('unit',"unit4","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {{--<div id="collapse5" class="collapse in" aria-expanded="true" style="">
                 <div class="content">
                     <div class="form-group">
                         <div class="col-md-6">
@@ -316,7 +334,7 @@ $json = json_decode(file_get_contents($_this->path.DS."db.json"), true);
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div>
         <div class="bty-panel-collapse">
             <div>
