@@ -69,8 +69,7 @@ class PaymentSettingsConroller extends Controller
     {
         $page=$repository->findBy('slug','shopping-card');
         $data=$request->except('_token');
-        $page->template=$data['shopping_cart_unit'];
-        $page->save();
+        $page->update($page->id, ['template' => $request->shopping_cart_unit]);
         return redirect()->back()->with('message','Saved!!!');
     }
 
