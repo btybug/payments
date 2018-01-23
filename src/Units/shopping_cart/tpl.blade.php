@@ -67,7 +67,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
                 </div>
             </div>
 
-            <button class="checkout {{isset($settings['option_10_container_item_style']) ? $settings['option_10_container_item_style'] : ''}} {{isset($settings['option_11_container_item_style']) ? $settings['option_11_container_item_style'] : ''}}">Checkout</button>
+            <a href="{!! url('/check-out') !!}" class="checkout {{isset($settings['option_10_container_item_style']) ? $settings['option_10_container_item_style'] : ''}} {{isset($settings['option_11_container_item_style']) ? $settings['option_11_container_item_style'] : ''}}">Checkout</a>
 
         </div>
 
