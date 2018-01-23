@@ -18,7 +18,9 @@ class SoppingCartApiController extends Controller
 {
     public function addToCart(Request $request )
     {
-        $product=\DB::table($request->get('slug'))->find($request->get('id'));
+        $id=$request->get('id');
+        $product=\DB::table($request->get('slug'))->find($id);
+     
         return Cart::add($product->id,$product->title,1,10.52);
     }
 
@@ -29,6 +31,6 @@ class SoppingCartApiController extends Controller
 
     public function getCount()
     {
-        return \Response::json(['count'=>Cart::count()]);
+        return \Response::json(['count'=>Cart::content()->count()]);
     }
 }
