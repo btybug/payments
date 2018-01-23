@@ -96,7 +96,7 @@ if(isset($settings["table"]) && !count($product)){
                         @endif
                     </div>
                     <div class="text-center custom_margin_top_30">
-                        <a href="javascript:void(0)" class="btn btn-success btn-lg">Add to cart</a>
+                        <button class="btn select-plan add-to-cart" data-id="{!! $product['id'] !!}">Add To Cart</button>
                     </div>
                 </div>
                 <div class="clearfix"></div>
