@@ -1,0 +1,24 @@
+{
+  "title": "hidden test",
+  "id": "unit_for_post_from_membership.hidden",
+  "hidden":1,
+  "settings": {
+    "option_1_item_value": "this is a title",
+    "option_1_container_style": "option-6",
+    "option_1_container_item_style": "custom_p_font",
+    "option_2_item_value": "this is a sub title",
+    "option_2_container_style": "option-5",
+    "option_2_container_item_style": null,
+    "option_3_item_value": "this is a name",
+    "option_3_container_style": "option-7",
+    "option_3_container_item_style": "custom_p_red",
+    "unit1": null,
+    "unit2": null,
+    "option_4_item_value": "a very long description",
+    "option_4_container_style": "option-6",
+    "option_4_container_item_style": "custom_p_font",
+    "option_5_item_value": "a very long description",
+    "option_5_container_style": "option-2",
+    "option_5_container_item_style": "custom_p_blue"
+  }
+}
