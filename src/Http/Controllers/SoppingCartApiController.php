@@ -18,10 +18,8 @@ class SoppingCartApiController extends Controller
 {
     public function addToCart(Request $request )
     {
-        return Cart::add([
-            ['id' => '293ad', 'name' => 'Product 1', 'qty' => 1, 'price' => 10.00],
-            ['id' => '4832k', 'name' => 'Product 2', 'qty' => 1, 'price' => 10.00, 'options' => ['size' => 'large']]
-        ]);
+        $product=\DB::table($request->get('slug'))->find($request->get('id'));
+        return Cart::add($product->id,$product->title,1,10.52);
     }
 
     public function getCartData()

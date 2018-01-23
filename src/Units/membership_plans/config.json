@@ -14,7 +14,7 @@
   "place": "frontend",
   "tags": [
     "membership","plans","products",
-    "frontend"
+    "frontend","all_posts"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/membership_plans"
 }

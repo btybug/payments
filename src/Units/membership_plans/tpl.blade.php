@@ -24,7 +24,7 @@ $data = get_all_blog_posts();
                         {!! $plan->description !!}
                     </div>
                     <div class="text-center">
-                        <button class="btn select-plan">Add To Cart</button>
+                        <button class="btn select-plan add-to-cart" data-id="{!! $plan->id !!}">Add To Cart</button>
                         <a href="{!! url(get_blog_slug_in_page(),$plan->$col) !!}" class="btn select-plan">View Product</a>
                     </div>
                 </div>
