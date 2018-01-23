@@ -100,7 +100,5 @@
 @stop
 @section('JS')
     {!! HTML::script("public/js/UiElements/bb_styles.js") !!}
-    <script>
 
-    </script>
 @stop
