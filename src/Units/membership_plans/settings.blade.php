@@ -1,61 +1,113 @@
 <?php
 $blogRepository = new \BtyBugHook\Membership\Repository\BlogRepository();
-$postRepo = new \BtyBugHook\Blog\Repository\PostsRepository();
-$post = $postRepo->first()->toArray();
-$blogs = $blogRepository->pluck('title', 'id');
+$table = '';
+$blogs = $blogRepository->pluck('title', 'slug');
 $columns = null;
 if (isset($settings['blog'])) {
 
-    $table =  str_replace('-','_',$blogRepository->find($settings['blog'])->slug);
+    $table =  $slug = implode("_",explode("-",$settings['blog']));
     $columns = \DB::select("SHOW COLUMNS FROM $table");
+}
+function renderOptions($columns){
+    $html = '';
+    if(count($columns)){
+        foreach($columns as $key => $data){
+            $html .= '<option value="'.$data->Field.'">'.$data->Field.'</option>';
+        }
+    }
+    return $html;
 }
 ?>
 
 <div class="row">
     <div class="col-xs-12 ">
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="">Select Blog</label>
+            </div>
+            <div class="col-md-6" style="margin-bottom:15px">
+                <select name="blog" class="form-control">
+                    <option value="">select option</option>
+                    @if(count($blogs))
+                        @foreach($blogs as $key => $blog)
+                            <option value="{{$key}}">{{$blog}}</option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#general"
-                   aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">General</span>
+                    <span class="title">Title options</span>
                 </a>
             </div>
-            <div id="general" class="collapse in" aria-expanded="true" style="">
-                <div class="content bty-settings-panel">
-                    <div class="general-head">
-                        <div class="grid-list">
-                            <div>
-                                <input name="grid_system" value="1" type="radio" class="bty-input-radio-1"
-                                       id="bty-sort-grid" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "grid")?"checked":""}} {{ !isset($settings["grid_system"])?"checked":"" }}>
-                                <label for="bty-sort-grid">version 1</label>
-                            </div>
-                            <div>
-                                <input name="grid_system" value="2" type="radio" class="bty-input-radio-1"
-                                       id="bty-sort-list" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "list")?"checked":""}}>
-                                <label for="bty-sort-list">version 2</label>
-                            </div>
+            <div id="collapseOne" class="collapse in" aria-expanded="true" style="">
+                <div class="content">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Item</label>
                         </div>
-                        <div class="grid-list">
-                            <div>
-                                <label for="">Select Blog</label>
-                                {!! Form::select('blog',$blogs,isset($settings['blog'])?$settings['blog']:null,['class'=>'form-control']) !!}
-                            </div>
-
-                            <div>
-                                <label for="">Columns map</label>
-                                @if($columns)
-                                    @foreach($columns as $column)
-                                        <lable >{!! $column->Field !!}</lable>
-                                        {!! Form::select('map['.$column->Field.']',['1'=>'placeholder 1','2'=>'placeholder 2','3'=>'placeholder 3'],null,['class'=>'form-control']) !!}
-                                    @endforeach
-                                @endif
-                            </div>
+                        <div class="col-md-6">
+                            <select name="option_1_item_value" class="form-control">
+                                <option value="">select option</option>
+                                {!! renderOptions($columns) !!}
+                            </select>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Content option</span>
+                </a>
+            </div>
+            <div id="collapsetwo" class="collapse in" aria-expanded="true" style="">
+                <div class="content">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Item</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_2_item_value" class="form-control">
+                                <option value="">select option</option>
+                                {!! renderOptions($columns) !!}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Description option</span>
+                </a>
+            </div>
+            <div id="collapsetwo" class="collapse in" aria-expanded="true" style="">
+                <div class="content">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Item</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select name="option_3_item_value" class="form-control">
+                                <option value="">select option</option>
+                                {!! renderOptions($columns) !!}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

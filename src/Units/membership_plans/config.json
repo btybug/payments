@@ -6,6 +6,7 @@
   "type": "unit",
   "description": "",
   "have_setting": 1,
+  "example":"demo",
   "image": "screenshot.png",
   "slug": "membership_plans",
   "folder": "membership_plans",
