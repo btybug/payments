@@ -134,3 +134,23 @@ if(isset($settings["table"]) && !count($product)){
 
 {!! BBstyle($_this->path."/css/main2.css") !!}
 {!!  BBscript($_this->path.'/js/main.js') !!}
+<style>
+    .select-plan {
+        width: 250px;
+        height: 50px;
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        font-size: 18px;
+        background-color: rgb(133, 213, 41);
+        font-weight: bolder;
+        padding: 12px;
+        border-width: 0px;
+        border-style: initial;
+        border-color: initial;
+        border-image: initial;
+        border-radius: 0px;
+        outline: 0px;
+        margin: 0px auto;
+        transition: all 0.5s ease;
+    }
+</style>
