@@ -20,7 +20,7 @@ class SoppingCartApiController extends Controller
     {
         $id=$request->get('id');
         $product=\DB::table($request->get('slug'))->find($id);
-     
+
         return Cart::add($product->id,$product->title,1,10.52);
     }
 
