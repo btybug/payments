@@ -13,17 +13,17 @@
                 </div>
                 <div id="urlManagerCol" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="urlManager">
                     <div class="panel-body">
-                        {!! Form::model(null,['url' => "#"]) !!}
+                        {!! Form::model(null,['url' => route('payments_settings_sopping_cart_manager')]) !!}
 
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-12 m-b-10">
                                     <div class="col-sm-4 p-l-0">Sopping Cart</div>
                                     <div class="col-md-5">
-                                        {!! BBbutton2('unit','shopping_cart_unit','shopping_cart','Select',['class'=>'btn btn-default change-layout','copy'=>'1']) !!}
+                                        {!! BBbutton2('unit','shopping_cart_unit','shopping_cart',(isset($settings['shopping_cart_unit']))?'Change':'Select',['class'=>'btn btn-default change-layout','copy'=>'1','model'=>isset($settings['shopping_cart_unit'])?$settings['shopping_cart_unit']:null]) !!}
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#" class="btn btn-warning" target="_blank">Customize</a>
+                                        <a href="{!!isset($settings['shopping_cart_unit'])? route('uploads_settings',$settings['shopping_cart_unit']):'#' !!}" class="btn btn-warning" target="_blank">Customize</a>
                                     </div>
                                 </div>
                             </div>

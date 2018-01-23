@@ -3,7 +3,9 @@
 namespace BtyBugHook\Payments\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Btybug\btybug\Repositories\AdminsettingRepository;
 use BtyBugHook\Membership\Models\User;
+use Illuminate\Http\Request;
 
 class PaymentSettingsConroller extends Controller
 {
@@ -55,8 +57,19 @@ class PaymentSettingsConroller extends Controller
         ]);
     }
 
-    public function getSoppingCart()
+    public function getSoppingCart(AdminsettingRepository $repository)
     {
-        return view('payments::settings.shopping_cart.index');
+        $settings=$repository->getSettings('payments','shopping_cart_manager');
+        if($settings){
+            $settings=json_decode($settings->val,true);
+        }
+        return view('payments::settings.shopping_cart.index',compact('settings'));
+    }
+
+    public function postSaveManager(Request $request,AdminsettingRepository $repository)
+    {
+        $data=$request->except('_token');
+        $repository->createOrUpdate($data,'payments','shopping_cart_manager');
+        return redirect()->back()->with('message','Saved!!!');
     }
 }

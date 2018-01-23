@@ -51,6 +51,7 @@ Route::group(['prefix' => 'settings'], function () {
     });
     Route::group(['prefix' => 'sopping-cart'], function () {
         Route::get('/', 'PaymentSettingsConroller@getSoppingCart', true)->name('payments_settings_sopping_cart');
+        Route::post('/manager', 'PaymentSettingsConroller@postSaveManager')->name('payments_settings_sopping_cart_manager');
 
     });
     Route::group(['prefix' => 'attributes'], function () {
