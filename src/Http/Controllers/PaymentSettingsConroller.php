@@ -67,7 +67,7 @@ class PaymentSettingsConroller extends Controller
 
     public function postSaveManager(Request $request,FrontPagesRepository $repository)
     {
-        $page=$repository->findBy('slug','shopping-card');
+        $page=$repository->findBy('slug','check_out');
         $data=$request->except('_token');
         $repository->update($page->id, ['template' => $request->shopping_cart_unit]);
         return redirect()->back()->with('message','Saved!!!');
