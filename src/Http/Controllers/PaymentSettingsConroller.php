@@ -69,7 +69,7 @@ class PaymentSettingsConroller extends Controller
     public function postSaveManager(Request $request,AdminsettingRepository $repository)
     {
         $data=$request->except('_token');
-        $repository->createOrUpdate(json_decode($data,true),'payments','shopping_cart_manager');
+        $repository->createOrUpdate(json_encode($data,true),'payments','shopping_cart_manager');
         return redirect()->back()->with('message','Saved!!!');
     }
 }
