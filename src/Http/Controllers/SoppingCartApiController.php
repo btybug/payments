@@ -10,9 +10,9 @@ namespace BtyBugHook\Payments\Http\Controllers;
 
 
 use BtyBugHook\Payments\Http\Requests\SoppingCartRequest;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Gloudemans\Shoppingcart\Facades\Cart;
 
 class SoppingCartApiController extends Controller
 {
@@ -27,5 +27,10 @@ class SoppingCartApiController extends Controller
     public function getCartData()
     {
         return Cart::content();
+    }
+
+    public function getCount()
+    {
+        return \Response::json(['count'=>Cart::count()]);
     }
 }

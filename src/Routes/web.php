@@ -19,6 +19,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::get('shopping-cart-table',function (){
+    \BtyBugHook\Payments\Database\CreateShoppingcartTable::up();
+});
 Route::get('/', 'IndexConroller@getPayments', true)->name('payments_index');
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
