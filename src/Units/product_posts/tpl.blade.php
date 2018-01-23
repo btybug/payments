@@ -73,7 +73,7 @@
     </nav>
     </form>
     <div class="custom_append_post">
-        @include("blog::_partials.render-for-post")
+        {{--@include("blog::_partials.render-for-post")--}}
     </div>
     {{--<div class="container">
         <div class="row">
