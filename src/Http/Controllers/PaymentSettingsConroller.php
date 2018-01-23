@@ -20,9 +20,10 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.general');
     }
 
-    public function getCheckout()
+    public function getCheckout(FrontPagesRepository $repository)
     {
-        return view('payments::settings.checkout');
+        $page=$repository->findBy('slug','check_out');
+        return view('payments::settings.checkout',compact('page'));
     }
 
     public function getAttributes()
@@ -69,6 +70,15 @@ class PaymentSettingsConroller extends Controller
         $page=$repository->findBy('slug','shopping-card');
         $data=$request->except('_token');
         $page->template=$data['shopping_cart_unit'];
+        $page->save();
+        return redirect()->back()->with('message','Saved!!!');
+    }
+
+    public function postSaveCheckOutManager(Request $request,FrontPagesRepository $repository)
+    {
+        $page=$repository->findBy('slug','check_out');
+        $data=$request->except('_token');
+        $page->template=$data['check_out_unit'];
         $page->save();
         return redirect()->back()->with('message','Saved!!!');
     }
