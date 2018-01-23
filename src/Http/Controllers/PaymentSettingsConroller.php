@@ -69,7 +69,7 @@ class PaymentSettingsConroller extends Controller
     {
         $page=$repository->findBy('slug','check_out');
         $data=$request->except('_token');
-        $repository->update($page->id, ['template' => $request->shopping_cart_unit]);
+        $repository->update($page->id, ['template' => $request->check_out_unit]);
         return redirect()->back()->with('message','Saved!!!');
     }
 
