@@ -43,7 +43,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
                                 Remove
                             </button>
                         </div>
-                        <div class="product-line-price">{!! $item->price !!}</div>
+                        <div class="product-line-price">{!! $item->total !!}</div>
                     </div>
                 @endforeach
             @endif
