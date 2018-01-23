@@ -11,7 +11,8 @@ if(isset($source['_page'])){
 }
 if(isset($settings["table"]) && !count($product)){
     $table = $settings["table"];
-    $product = DB::table($table)->select("*")->first();
+    $slug = implode("_",explode("-",$table));
+    $product = DB::table($slug)->select("*")->first();
 }
 ?>
 @if(!count($product))

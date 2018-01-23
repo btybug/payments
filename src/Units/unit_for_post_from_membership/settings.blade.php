@@ -8,7 +8,8 @@ if(isset($settings["table"])){
 }
 $blogs = BtyBugHook\Membership\Models\Blog::select("title","slug")->get();
 if($table){
-    $columns = \DB::select('SHOW COLUMNS FROM ' . $table);
+    $slug = implode("_",explode("-",$table));
+    $columns = \DB::select('SHOW COLUMNS FROM ' . $slug);
 }
 
 
