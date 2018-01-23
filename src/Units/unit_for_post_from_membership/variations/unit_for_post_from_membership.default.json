@@ -2,21 +2,6 @@
   "title": "main variation",
   "id": "unit_for_post_from_membership.default",
   "settings": {
-    "option_1_item_value": "https:\/\/ak1.ostkcdn.com\/images\/products\/8818677\/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg",
-    "option_1_container_style": "option-6",
-    "option_1_container_item_style": null,
-    "option_2_item_value": "this is a sub title",
-    "option_2_container_style": "option-5",
-    "option_2_container_item_style": "font-6",
-    "option_3_item_value": "this is a name",
-    "option_3_container_style": "option-7",
-    "option_3_container_item_style": "font-10",
-    "unit1": null,
-    "unit2": null,
-    "unit3": "unit_for_post_small_image.default",
-    "unit4": "unit_for_post_description.default",
-    "option_5_item_value": "a very long description",
-    "option_5_container_style": "option-2",
-    "option_5_container_item_style": "font-4"
+
   }
 }
