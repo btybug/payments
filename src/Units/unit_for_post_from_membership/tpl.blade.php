@@ -15,19 +15,19 @@ if(isset($source['_page'])){
 <div class="container all-div">
     <div class="row">
             <div class="head">
-                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : ''}} final-opt1">
+                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : 'final-opt1'}} ">
                     @if(isset($settings["option_1_item_value"]))
-                        <img src="{{$settings["option_1_item_value"]}}" alt="" class="final-img {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
+                        <img src="{{$settings["option_1_item_value"]}}" alt="" class=" {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : 'final-img'}}">
                     @endif
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 right">
-                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : ''}} final-opt2">
-                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} final-title">
+                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : 'final-opt2'}} ">
+                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : 'final-title'}} ">
                             {{isset($settings["option_2_item_value"]) ? $settings["option_2_item_value"] : ''}}
                         </p>
                     </div>
-                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : ''}} final-opt3">
-                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}} final-desc">
+                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : 'final-opt3'}} ">
+                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : 'final-desc'}} ">
                             {{isset($settings["option_3_item_value"]) ? $settings["option_3_item_value"] : ''}}
                         </p>
                     </div>
@@ -69,7 +69,7 @@ if(isset($source['_page'])){
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12">
-                    <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : ''}} final-opt5">
+                    <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : 'final-opt5'}} ">
                         <p class="{{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">
                             {{isset($settings["option_5_item_value"]) ? $settings["option_5_item_value"] : ''}}
                         </p>
@@ -86,19 +86,19 @@ if(isset($source['_page'])){
     <div class="container all-div">
         <div class="row">
             <div class="head">
-                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : ''}} final-opt1">
+                <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : 'final-opt1'}} ">
                     @if(isset($settings["option_1_item_value"]))
-                        <img src="{{$settings["option_1_item_value"]}}" alt="" class="final-img {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
+                        <img src="{{$settings["option_1_item_value"]}}" alt="" class=" {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : 'final-img'}}">
                     @endif
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 right">
-                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : ''}} final-opt2">
-                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} final-title">
+                    <div class="opt2 {{isset($settings["option_2_container_style"]) ? $settings["option_2_container_style"] : 'final-opt2'}} ">
+                        <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : 'final-title'}} ">
                             {{isset($settings["option_2_item_value"]) ? $settings["option_2_item_value"] : ''}}
                         </p>
                     </div>
-                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : ''}} final-opt3">
-                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}} final-desc">
+                    <div class="opt3 {{isset($settings["option_3_container_style"]) ? $settings["option_3_container_style"] : 'final-opt3'}} ">
+                        <p class="{{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : 'final-desc'}} ">
                             {{isset($settings["option_3_item_value"]) ? $settings["option_3_item_value"] : ''}}
                         </p>
                     </div>
@@ -140,7 +140,7 @@ if(isset($source['_page'])){
                         </div>
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12">
-                        <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : ''}} final-opt5">
+                        <div class="opt5 {{isset($settings["option_5_container_style"]) ? $settings["option_5_container_style"] : 'final-opt5'}} ">
                             <p class="{{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">
                                 {{isset($settings["option_5_item_value"]) ? $settings["option_5_item_value"] : ''}}
                             </p>
