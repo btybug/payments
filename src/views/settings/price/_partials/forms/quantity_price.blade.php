@@ -47,18 +47,6 @@
     <div class="col-md-12">
         <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add new</a>
     </div>
-
-    <div class="col-md-12 m-t-15">
-        <div class="col-md-4">
-            Display result as
-        </div>
-        <div class="col-md-4">
-            {!! Form::radio('qty_option','select',true) !!} Select menu
-        </div>
-        <div class="col-md-4">
-            {!! Form::radio('qty_option','radio',null) !!} Radio
-        </div>
-    </div>
 </div>
 
 
@@ -72,16 +60,23 @@
                 '                <label>\n' +
                 '                    Quantity :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control" name="qty['+qty+'][qty]"/>\n' +
+                '                <input type="text" class="form-control" name="qty[0][qty]"/>\n' +
                 '            </div>\n' +
-                '            <div class="col-md-6">\n' +
+                '            <div class="col-md-4">\n' +
                 '                <label>\n' +
                 '                    Price :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control" name="qty['+qty+'][price]"/>\n' +
+                '                <input type="text" class="form-control" name="qty[0][price]"/>\n' +
+                '            </div>\n' +
+                '            <div class="col-md-2">\n' +
+                '                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>\n' +
                 '            </div>\n' +
                 '        </div>'
             $('.qty-box').append(html);
+        })
+
+        $("body").on('click','.btn-delete-row',function () {
+            $(this).parent().parent().remove();
         })
     })
 </script>

@@ -24,3 +24,7 @@ function get_qty_data(){
 
     return null;
 }
+
+function render_price_form($view_name){
+    return \View("payments::settings.price._partials.forms.$view_name")->render();
+}
