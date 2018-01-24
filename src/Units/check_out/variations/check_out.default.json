@@ -1,6 +1,1 @@
-{
-  "title": "main variation",
-  "id": "check_out.default",
-  "settings": {
-  }
-}
+{"title":"main variation","id":"check_out.default","settings":{"forms":["invoice_address","edit_cart","shipping_address"]}}
