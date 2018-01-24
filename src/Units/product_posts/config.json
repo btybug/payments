@@ -8,6 +8,7 @@
   "have_setting": 1,
   "image": "screenshot.png",
   "slug": "product_posts",
+  "example":"demo",
   "folder": "product_posts",
   "created_at": 1490088665,
   "is_core": 1,

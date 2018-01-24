@@ -9,10 +9,15 @@
         $col_md_x = "col-md-12";
     }
 
-$col = posts_url_manager();
-$data = get_all_blog_posts();
+$product = [];
+if(isset($settings["blog"]) && !count($product)){
+    $table = $settings["blog"];
+    $slug = implode("_",explode("-",$table));
+    $product = DB::table($slug)->select("*")->first();
+    $product = collect($product)->toArray();
+}
 
-$all_posts = json_encode($data);
+$all_posts = json_encode($product);
 @endphp
 
 <section id="blog-section">
@@ -87,65 +92,32 @@ $all_posts = json_encode($data);
             <input type="hidden" class="custom_get_bootstrap_col" value="{{$col_md_x}}">
             <div class="container">
                 <div class="row">
-                    @if(count($data))
+                    @if(count($product))
                         <section id="starter">
                             <div class="container">
                                 <div class="row">
-                                    @foreach($data as $plan)
-                                        <?php $plan = collect($plan)->toArray();?>
-                                        <div class="{{$col_md_x}} block custom_class_for_change_col">
-                                            <div class="block-black text-center">
-                                                <div class="title">
-                                                    {{isset($settings["option_1_item_value"]) ? $plan[$settings["option_1_item_value"]] : ''}}
-                                                </div>
-                                                <div class="header-content text-center">
-                                                    {{isset($settings["option_2_item_value"]) ? $plan[$settings["option_2_item_value"]] : ''}}
-                                                </div>
-                                                <div class="block-content">
-                                                    {{isset($settings["option_3_item_value"]) ? $plan[$settings["option_3_item_value"]] : ''}}
-                                                </div>
-                                                <div class="text-center">
-                                                    <button class="btn select-plan add-to-cart" data-id="{!! $plan["id"] !!}">Add To Cart</button>
-                                                    <a href="{!! url(get_blog_slug_in_page(),$plan[$col]) !!}" class="btn select-plan">View Product</a>
-                                                </div>
+                                    <div class="block {{$col_md_x}} ">
+                                        <div class="block-black text-center">
+                                            <div class="title">
+                                                {{isset($settings["option_1_item_value"]) ? $product[$settings["option_1_item_value"]] : ''}}
+                                            </div>
+                                            <div class="header-content text-center">
+                                                {{isset($settings["option_2_item_value"]) ? $product[$settings["option_2_item_value"]] : ''}}
+                                            </div>
+                                            <div class="block-content">
+                                                {{isset($settings["option_3_item_value"]) ? $product[$settings["option_3_item_value"]] : ''}}
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">Add To Cart</button>
+                                                <a href="#" class="btn select-plan">View Product</a>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </section>
                     @endif
                     <div class="clearfix"></div>
-                    @if(!isset($dont_render_pagination))
-                        @if(isset($settings["custom_pagination"]))
-                            @if($settings["custom_pagination"] === "php")
-                                <?php
-                                $limit_page = 10;
-                                if(isset($settings["custom_limit_per_page"])){
-                                    $limit_page = $settings["custom_limit_per_page"];
-                                }
-                                ?>
-                                <div class="custom_pagination">
-                                    @if(count($data) >= $limit_page)
-                                        {!! $data->links() !!}
-                                    @endif
-                                </div>
-                            @elseif($settings["custom_pagination"] === "scroll")
-                                <div class="ajax-load text-center" style="display:none">
-                                    <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
-                                </div>
-                                <input type="hidden" id="custom_limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
-                            @else
-                                <div class="text-center blog-load-more">
-                                    <button class="custom_load_more">Load More</button>
-                                </div>
-                                <div class="ajax-load-button text-center" style="display:none">
-                                    <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
-                                </div>
-                                <input type="hidden" id="custom_limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
-                            @endif
-                        @endif
-                    @endif
                 </div>
             </div>
         </div>

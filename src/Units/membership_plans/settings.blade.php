@@ -109,8 +109,6 @@ function renderOptions($columns){
         </div>
 
     </div>
-
-
 </div>
 </div>
 {!!  BBstyle($_this->path.'/css/settings.css') !!}

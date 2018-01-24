@@ -49,7 +49,7 @@ $(document).ready(function () {
      });
     $("body").delegate(".custom_grid_change","click",function(){
         var which_type = $(this).val();
-        var cols = $("li.custom_class_for_change_col");
+        var cols = $(".custom_class_for_change_col");
         if(which_type === "list"){
             cols.removeClass("col-md-4").addClass("col-md-12");
             $(".custom_get_bootstrap_col").val("col-md-12");
