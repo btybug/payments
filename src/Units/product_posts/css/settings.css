@@ -207,7 +207,20 @@
 .bty-settings-panel .data-mapping .bty-input-select-1{
     width: 100%;
 }
-
-
-
+.bty-settings-right-tab{
+    border-bottom: 1px solid #fff;
+}
+.bty-settings-right-tab>li>a{
+    color: white;
+    border: 1px solid #fff;
+    border-bottom: none;
+    border-radius: 0;
+    font-weight: bold;
+}
+.bty-settings-right-tab>li.active>a, .bty-settings-right-tab>li.active>a:focus, .bty-settings-right-tab>li.active>a:hover{
+    background-color: #afbbc1;
+}
+.bty-settings-right-tab>li>a:focus, .bty-settings-right-tab>li>a:hover{
+    background-color: #889094;
+}
 

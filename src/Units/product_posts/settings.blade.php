@@ -24,7 +24,7 @@ function renderOptions($columns){
 ?>
 <div class="row">
     <div class="col-xs-12 ">
-        <ul  class="nav nav-pills">
+        <ul  class="nav nav-pills bty-settings-right-tab">
             <li class="active">
                 <a  href="#1a" data-toggle="tab">General</a>
             </li>
@@ -227,7 +227,7 @@ function renderOptions($columns){
                 </div>
             </div>
             <div class="tab-pane" id="2a">
-                <div class="col-xs-12 ">
+                <div>
                     <div class="form-group">
                         <div class="col-md-6">
                             <label for="">Select Blog</label>
