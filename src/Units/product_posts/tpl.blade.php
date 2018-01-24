@@ -96,13 +96,31 @@ $all_posts = json_encode($data);
                                         <div class="{{$col_md_x}} block custom_class_for_change_col">
                                             <div class="block-black text-center">
                                                 <div class="title">
-                                                    {{isset($settings["option_1_item_value"]) ? $plan[$settings["option_1_item_value"]] : ''}}
+                                                    @if(isset($settings["option_1_item_value"]))
+                                                        @if($settings["option_1_item_value"] == "image")
+                                                            <img src="{{$plan[$settings["option_1_item_value"]]}}" alt="">
+                                                        @else
+                                                            {{$plan[$settings["option_1_item_value"]]}}
+                                                        @endif
+                                                    @endif
                                                 </div>
                                                 <div class="header-content text-center">
-                                                    {{isset($settings["option_2_item_value"]) ? $plan[$settings["option_2_item_value"]] : ''}}
+                                                    @if(isset($settings["option_2_item_value"]))
+                                                        @if($settings["option_2_item_value"] == "image")
+                                                            <img src="{{$plan[$settings["option_2_item_value"]]}}" alt="">
+                                                        @else
+                                                            {{$plan[$settings["option_2_item_value"]]}}
+                                                        @endif
+                                                    @endif
                                                 </div>
                                                 <div class="block-content">
-                                                    {{isset($settings["option_3_item_value"]) ? $plan[$settings["option_3_item_value"]] : ''}}
+                                                    @if(isset($settings["option_3_item_value"]))
+                                                        @if($settings["option_3_item_value"] == "image")
+                                                            <img src="{{$plan[$settings["option_3_item_value"]]}}" alt="">
+                                                        @else
+                                                            {{$plan[$settings["option_3_item_value"]]}}
+                                                        @endif
+                                                    @endif
                                                 </div>
                                                 <div class="text-center">
                                                     <button class="btn select-plan add-to-cart" data-id="{!! $plan["id"] !!}">Add To Cart</button>

@@ -99,13 +99,31 @@ $all_posts = json_encode($product);
                                     <div class="block {{$col_md_x}} ">
                                         <div class="block-black text-center">
                                             <div class="title">
-                                                {{isset($settings["option_1_item_value"]) ? $product[$settings["option_1_item_value"]] : ''}}
+                                                @if(isset($settings["option_1_item_value"]))
+                                                    @if($settings["option_1_item_value"] == "image")
+                                                        <img src="{{$product[$settings["option_1_item_value"]]}}" alt="">
+                                                    @else
+                                                        {{$product[$settings["option_1_item_value"]]}}
+                                                    @endif
+                                                @endif
                                             </div>
                                             <div class="header-content text-center">
-                                                {{isset($settings["option_2_item_value"]) ? $product[$settings["option_2_item_value"]] : ''}}
+                                                @if(isset($settings["option_2_item_value"]))
+                                                    @if($settings["option_2_item_value"] == "image")
+                                                        <img src="{{$product[$settings["option_2_item_value"]]}}" alt="">
+                                                    @else
+                                                        {{$product[$settings["option_2_item_value"]]}}
+                                                    @endif
+                                                @endif
                                             </div>
                                             <div class="block-content">
-                                                {{isset($settings["option_3_item_value"]) ? $product[$settings["option_3_item_value"]] : ''}}
+                                                @if(isset($settings["option_3_item_value"]))
+                                                    @if($settings["option_3_item_value"] == "image")
+                                                        <img src="{{$product[$settings["option_3_item_value"]]}}" alt="">
+                                                    @else
+                                                        {{$product[$settings["option_3_item_value"]]}}
+                                                    @endif
+                                                @endif
                                             </div>
                                             <div class="text-center">
                                                 <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">Add To Cart</button>
