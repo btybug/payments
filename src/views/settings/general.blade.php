@@ -44,15 +44,6 @@
                                 <div class="panel-body">
                                     <div class="form-horizontal">
 
-                                        <!-- Multiple Radios -->
-                                        <div class="form-group">
-                                            <div class="radio">
-                                                <label for="radios-">
-                                                    <input type="radio" name="" >
-                                                    Allow Tax Services
-                                                </label>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-4 control-label" for="radios">Insert Product
                                                 Price</label>
