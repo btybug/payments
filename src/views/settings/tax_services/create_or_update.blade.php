@@ -25,7 +25,13 @@
                         <label for="attribute_type">Amount</label>
                     </div>
                     <div class="col-md-3">
-                        {!! Form::select('amount_type',['' => 'Select','+' => '+','-' => '-','*' =>'*','/'=> '/','%'=> '%'],null,['class' => 'form-control']) !!}
+                        <div class="col-md-9">
+                            {!! Form::select('amount_type',['' => 'Select','services' => 'Services','vat' => 'VAT'],null,['class' => 'form-control','id' => 'amount-type']) !!}
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-control amount-type"></div>
+                        </div>
+
                     </div>
                     <div class="col-md-9">
                         {!! Form::text('amount_value',null,['class' => 'form-control']) !!}
@@ -43,5 +49,18 @@
 @section('CSS')
 @stop
 @section('JS')
-
+<script>
+    $("body").on('change','#amount-type',function () {
+        var value = $(this).val();
+        if(value == ''){
+            $(".amount-type").html('')
+        }else{
+            if(value == 'services'){
+                $(".amount-type").html('+')
+            }else{
+                $(".amount-type").html('%')
+            }
+        }
+    })
+</script>
 @stop
