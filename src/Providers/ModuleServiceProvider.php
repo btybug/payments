@@ -85,6 +85,14 @@ class ModuleServiceProvider extends ServiceProvider
                 'options_function' => 'get_prices_data'
             ]
         );
+        \Eventy::action('options.listener',
+            [
+                'name' => 'tax_services',
+                'render_function' => 'render_tax_service_form',
+                'options_function' => 'get_tax_service_data',
+                'tab' => 'others'
+            ]
+        );
 
         $tabs = [
             'payment_settings' => [
