@@ -24,6 +24,16 @@ class DataTablesConroller extends Controller
         })->rawColumns(['actions','terms'])->make(true);
   }
 
+  public function getTaxServices()
+    {
+        return DataTables::of(\DB::query())->addColumn('actions', function ($ts) {
+            $url= url("admin/payments/settings/tax-services/{$ts->id}/edit");
+            $delete_url= url("admin/payments/settings/tax-services/{$ts->id}/delete");
+            return "<a href='$url' class='btn btn-warning'><i class='fa fa-edit'></i></a>
+                    <a href='$delete_url' class='btn btn-danger'><i class='fa fa-trash'></i></a>";
+        },2)->rawColumns(['actions'])->make(true);
+  }
+
   public function getAttributeTerms($id)
     {
 

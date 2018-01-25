@@ -113,6 +113,10 @@ class ModuleServiceProvider extends ServiceProvider
                     'title' => 'Shopping Cart',
                     'url' => '/admin/payments/settings/sopping-cart',
                     'icon' => 'fa fa-cub'
+                ],[
+                    'title' => 'Tax & services',
+                    'url' => '/admin/payments/settings/tax-services',
+                    'icon' => 'fa fa-cub'
                 ],
             ]
         ];

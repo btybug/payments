@@ -31,6 +31,11 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.attributes');
     }
 
+    public function getTaxServices()
+    {
+        return view('payments::settings.tax_services');
+    }
+
     public function getPrice()
     {
         $prices = get_prices_data();

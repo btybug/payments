@@ -54,6 +54,13 @@ Route::group(['prefix' => 'settings'], function () {
         Route::post('/manager', 'PaymentSettingsConroller@postSaveManager')->name('payments_settings_sopping_cart_manager');
 
     });
+
+    Route::group(['prefix' => 'tax-services'], function () {
+        Route::get('/', 'TaxServicesController@getTaxServices', true)->name('payments_settings_tax_services');
+        Route::get('/create', 'TaxServicesController@getCreate', true)->name('payments_settings_tax_services_create');
+        Route::post('/create', 'TaxServicesController@postCreate')->name('payments_settings_post_tax_services_create');
+
+    });
     Route::group(['prefix' => 'attributes'], function () {
         Route::get('/', 'AttributesController@getAttributes', true)->name('payments_settings_attributes');
         Route::get('/create', 'AttributesController@getAttributesCreate', true)->name('payments_settings_attributes_create');
@@ -82,6 +89,7 @@ Route::group(['prefix' => 'settings'], function () {
 
 Route::group(['prefix' => 'datatable'], function () {
     Route::get('get-attributes', 'DataTablesConroller@getAttributes')->name('pym_attributes_list');
+    Route::get('get-tax-services', 'DataTablesConroller@getTaxServices')->name('pym_tax_services_list');
     Route::get('get-attribute-terms/{id}', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
 });
 
