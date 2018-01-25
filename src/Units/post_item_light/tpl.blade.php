@@ -1,82 +1,64 @@
 <div class="container">
     <div class="row">
         <div class="post-item-light">
-            <div class="plan-box">
-                <div class="plan-options">
-                    <p class="plan-name">
-                        Personal
-                    </p>
-                    <div class="plan-price">
-                        <strong>Free</strong>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="plan-box">
+                    <div class="plan-options">
+                        <div class="plan-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1223/5758/products/janhoustoncamo1_2048x2048.jpg"
+                                 alt="">
+                        </div>
+                        <div class="plan-name">
+                            <span>Product name</span>
+                        </div>
+                        <div class="plan-price">
+                            <span>$500</span>
+                        </div>
+                        <div class="button">
+                            <a class="" href="#">Add To Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            <a class="" href="#">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
                     </div>
-                    <ul class="plan-details">
-                        <li>1 sub-domain</li>
-                        <li><strong>10</strong> email addresses</li>
-                        <li><strong>Unlimited</strong> Bandwidth</li>
-                        <li><strong>20GB</strong> Storage</li>
-                        <li>Support Ads</li>
-                        <li>Shared Hosting</li>
-                        <li><strong>24/7</strong> Customer Support</li>
-                    </ul>
-                    {{--<button class="btn select-plan add-to-cart" data-id="{!! $plan["id"] !!}">Add To Cart</button>--}}
-                    {{--<a href="{!! url(get_blog_slug_in_page(),$plan[$col]) !!}" class="btn select-plan">View Product</a>--}}
-                    <div class="button">
-                        <a class="" href="#">Add To Cart</a>
-                        <a class="" href="#">View Product</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="plan-box">
+                    <div class="plan-options">
+                        <div class="plan-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1223/5758/products/janhoustoncamo1_2048x2048.jpg"
+                                 alt="">
+                        </div>
+                        <div class="plan-name">
+                            <span>Product name</span>
+                        </div>
+                        <div class="plan-price">
+                            <span>$500</span>
+                        </div>
+                        <div class="button">
+                            <a class="" href="#">Add To Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            <a class="" href="#">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="plan-box">
-                <div class="plan-options">
-                    <p class="plan-name">
-                        Premium
-                    </p>
-                    <div class="plan-price">
-                        <strong>$19</strong>/mo
-                    </div>
-                    <ul class="plan-details">
-                        <li><strong>FREE</strong> custom domain</li>
-                        <li><strong>Unlimited</strong> email addresses</li>
-                        <li><strong>Unlimited</strong> Bandwidth</li>
-                        <li><strong>100GB</strong> Storage</li>
-                        <li><strong>No Support Ads</strong></li>
-                        <li><strong>24/7</strong> Customer Support</li>
-                    </ul>
-
-                    {{--<button class="btn select-plan add-to-cart" data-id="{!! $plan["id"] !!}">Add To Cart</button>--}}
-                    {{--<a href="{!! url(get_blog_slug_in_page(),$plan[$col]) !!}" class="btn select-plan">View Product</a>--}}
-                    <div class="button">
-                        <a class="" href="#">Add To Cart</a>
-                        <a class="" href="#">View Product</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="plan-box">
-                <div class="plan-options">
-                    <p class="plan-name">
-                        Pro
-                    </p>
-                    <div class="plan-price">
-                        <strong>$50</strong>/mo
-                    </div>
-                    <ul class="plan-details">
-                        <li><strong>FREE</strong> custom domain</li>
-                        <li><strong>Unlimited</strong> email addresses</li>
-                        <li><strong>Unlimited</strong> Bandwidth</li>
-                        <li><strong>200GB</strong> Storage</li>
-                        <li><strong>No Support Ads</strong></li>
-                        <li><strong>Quick Install</strong> Apps (WordPress, etc)</li>
-                        <li><strong>VPS Hosting</strong></li>
-                        <li><strong>24/7</strong> Customer Support</li>
-                    </ul>
-
-                    {{--<button class="btn select-plan add-to-cart" data-id="{!! $plan["id"] !!}">Add To Cart</button>--}}
-                    {{--<a href="{!! url(get_blog_slug_in_page(),$plan[$col]) !!}" class="btn select-plan">View Product</a>--}}
-                    <div class="button">
-                        <a class="" href="#">Add To Cart</a>
-                        <a class="" href="#">View Product</a>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="plan-box">
+                    <div class="plan-options">
+                        <div class="plan-icon">
+                            <img src="https://cdn.shopify.com/s/files/1/1223/5758/products/janhoustoncamo1_2048x2048.jpg"
+                                 alt="">
+                        </div>
+                        <div class="plan-name">
+                            <span>Product name</span>
+                        </div>
+                        <div class="plan-price">
+                            <span>$500</span>
+                        </div>
+                        <div class="button">
+                            <a class="" href="#">Add To Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                            <a class="" href="#">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
