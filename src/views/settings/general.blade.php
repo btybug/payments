@@ -33,12 +33,6 @@
         <h2>Taxses</h2>
         <div class="col-md-12">
             <div class="panel panelSettingData">
-                <div class="panel-heading" role="tab" id="urlManager">
-                    <h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion"
-                                               href="#urlManagerCol" aria-expanded="true" aria-controls="urlManagerCol">
-                            <i
-                                    class="glyphicon glyphicon-chevron-right"></i>Url Manager</a></h4>
-                </div>
                 <div id="urlManagerCol" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="urlManager">
                     <div class="panel-body">
                         {!! Form::model(null,['url' => route('post_settings_save',['slug' => ''])]) !!}
