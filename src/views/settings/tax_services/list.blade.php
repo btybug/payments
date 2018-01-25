@@ -7,7 +7,8 @@
         <th>#</th>
         <th>Name</th>
         <th>Slug</th>
-        <th>Type</th>
+        <th>Amount</th>
+        <th>Amount Type</th>
         <th>Actions</th>
     </thead>
 </table>
@@ -41,7 +42,8 @@
                     {data: 'id', name: 'id',},
                     {data: 'name', name: 'name'},
                     {data: 'slug', name: 'slug'},
-                    {data: 'type', name: 'type'},
+                    {data: 'amount', name: 'amount'},
+                    {data: 'amount_type', name: 'amount_type'},
                     {data: 'actions', name: 'actions'}
                 ]
             });

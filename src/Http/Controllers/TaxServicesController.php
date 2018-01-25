@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use BtyBugHook\Membership\Models\User;
 use BtyBugHook\Payments\Http\Requests\AttributesRequest;
 use BtyBugHook\Payments\Http\Requests\AttributeTermsRequest;
+use BtyBugHook\Payments\Http\Requests\TaxServiceRequest;
 use BtyBugHook\Payments\Repository\AttributesRepository;
 use BtyBugHook\Payments\Repository\AttributeTermsRepository;
+use BtyBugHook\Payments\Repository\TaxServiceRepository;
 
 class TaxServicesController extends Controller
 {
@@ -23,92 +25,43 @@ class TaxServicesController extends Controller
         return view('payments::settings.tax_services.create_or_update')->with('model', $this->model);
     }
 
-    public function getAttributesEdit(
+    public function getEdit(
         $id,
-        AttributesRepository $attributesRepository
+        TaxServiceRepository $taxServiceRepository
     )
     {
-        $this->model = $attributesRepository->findOrFail($id);
-        return view('payments::settings.attributes.create_or_update')->with('model', $this->model);
+        $this->model = $taxServiceRepository->findOrFail($id);
+        return view('payments::settings.tax_services.create_or_update')->with('model', $this->model);
     }
 
     public function postCreate(
-        AttributesRequest $createRequest,
-        AttributesRepository $attributesRepository
+        TaxServiceRequest $createRequest,
+        TaxServiceRepository $taxServiceRepository
     )
     {
-        $attributesRepository->create($createRequest->except('_token'));
+        $taxServiceRepository->create($createRequest->except('_token'));
 
-        return redirect()->route('payments_settings_attributes')->with('message', 'Created successfully');
+        return redirect()->route('payments_settings_tax_services')->with('message', 'Created successfully');
     }
 
-    public function postAttributesEdit(
-        AttributesRequest $request,
-        AttributesRepository $attributesRepository,
+    public function postEdit(
+        TaxServiceRequest $request,
+        TaxServiceRepository $taxServiceRepository,
         $id
     )
     {
-        $attributesRepository->update($id, $request->except('_token'));
+        $taxServiceRepository->update($id, $request->except('_token'));
 
-        return redirect()->route('payments_settings_attributes')->with('message', 'Edited successfully');
+        return redirect()->route('payments_settings_tax_services')->with('message', 'Edited successfully');
     }
 
-    public function getAttributesDelete(
+    public function getDelete(
         $id,
-        AttributesRepository $attributesRepository
+        TaxServiceRepository $attributesRepository
     )
     {
         $this->model = $attributesRepository->findOrFail($id);
         $this->model->delete();
-        return redirect()->route('payments_settings_attributes')->with('message', 'Deleted successfully');
-    }
-
-    public function getTerms(
-        $id
-    )
-    {
-        return view('payments::settings.attributes.terms',compact('id'))->with('model', $this->model);
-    }
-
-    public function postTermCreate(
-        AttributeTermsRequest $createRequest,
-        AttributeTermsRepository $attributesRepository,
-        $id
-    )
-    {
-        $attributesRepository->create($createRequest->except('_token'));
-
-        return redirect()->back()->with('message', 'Created successfully');
-    }
-
-    public function getTermEdit(
-        $id, $term_id,
-        AttributeTermsRepository $attributeTermsRepository
-    )
-    {
-        $this->model = $attributeTermsRepository->findOrFail($id);
-        return view('payments::settings.attributes.term_edit',compact('id'))->with('model', $this->model);
-    }
-
-    public function postTermEdit(
-        AttributeTermsRequest $request,
-        AttributeTermsRepository $attributeTermsRepository,
-        $attr_id,
-        $id
-    )
-    {
-        $attributeTermsRepository->update($id, $request->except('_token'));
-        return redirect()->route('payments_settings_attributes_terms',['id' => $attr_id])->with('message', 'Edited successfully');
-    }
-
-    public function getTermDelete(
-        $attr_id,
-        $id,
-        AttributeTermsRepository $attributesRepository
-    )
-    {
-        $this->model = $attributesRepository->findOrFail($id);
-        $this->model->delete();
-        return redirect()->back()->with('message', 'Deleted successfully');
+        return redirect()->route('payments_settings_tax_services')->with('message', 'Deleted successfully');
     }
 }

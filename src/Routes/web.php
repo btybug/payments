@@ -59,6 +59,12 @@ Route::group(['prefix' => 'settings'], function () {
         Route::get('/', 'TaxServicesController@getTaxServices', true)->name('payments_settings_tax_services');
         Route::get('/create', 'TaxServicesController@getCreate', true)->name('payments_settings_tax_services_create');
         Route::post('/create', 'TaxServicesController@postCreate')->name('payments_settings_post_tax_services_create');
+        Route::group(['prefix' => '{id}'], function () {
+            Route::get('/', 'TaxServicesController@getEdit', true);
+            Route::get('/edit', 'TaxServicesController@getEdit', true)->name('payments_settings_tax_services_edit');
+            Route::get('/delete', 'TaxServicesController@getDelete', true)->name('payments_settings_tax_services_delete');
+            Route::patch('/edit', 'TaxServicesController@postEdit')->name('payments_settings_post_tax_services_edit');
+        });
 
     });
     Route::group(['prefix' => 'attributes'], function () {
