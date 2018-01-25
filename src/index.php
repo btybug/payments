@@ -36,29 +36,13 @@ function render_tax_service_form($view_name){
 function get_tax_service_data(){
     return [
         [
-            'name' => 'INCLUDE Tax',
-            'slug' => 'insert_tax_include',
-            'group' => 'insert_tax_name',
-            'form' => 'payments::settings.price._partials.forms.simple_price',
-            'type' => 'radio'
+            'name' => 'Tax',
+            'slug' => 'tax',
+            'form' => '',
         ],[
-            'name' => 'EXCLUDE Tax',
-            'slug' => 'insert_tax_exclude',
-            'group' => 'insert_tax_name',
-            'form' => 'payments::settings.price._partials.forms.simple_price',
-            'type' => 'radio'
-        ],[
-            'name' => 'include Tax',
-            'slug' => 'display_tax_include',
-            'group' => 'display_tax_name',
-            'form' => 'payments::settings.price._partials.forms.simple_price',
-            'type' => 'radio'
-        ],[
-            'name' => 'exclude Tax',
-            'slug' => 'display_tax_exclude',
-            'group' => 'display_tax_name',
-            'form' => 'payments::settings.price._partials.forms.simple_price',
-            'type' => 'radio'
+            'name' => 'Services',
+            'slug' => 'services',
+            'form' => '',
         ]
     ];
 }
