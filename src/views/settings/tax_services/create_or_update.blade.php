@@ -1,7 +1,7 @@
 @extends('btybug::layouts.admin')
 @section('content')
     <div class="container">
-        <h2>{!! ($model) ? 'Edit' : 'Add new' !!} attribute</h2>
+        <h2>{!! ($model) ? 'Edit' : 'Add new' !!} Tax & Service</h2>
 
         <div class="col-md-8">
             {!! Form::model($model,['class' => 'form-horizontal', 'method' => ($model) ? 'patch' : 'post']) !!}
@@ -21,9 +21,15 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="attribute_type">Type</label>
-                    {!! Form::select('type',['' => 'Select','text' => 'Text','select' => 'Select','radio' =>'Radio','checkbox'=> 'Checkbox'],null,['class' => 'form-control']) !!}
-                    <p class="description">Determines how you select attributes for products. Under admin panel -&gt; products -&gt; product data -&gt; attributes -&gt; values, <strong>Text</strong> allows manual entry whereas <strong>select</strong> allows pre-configured terms in a drop-down list.</p>
+                    <div class="col-md-12">
+                        <label for="attribute_type">Amount</label>
+                    </div>
+                    <div class="col-md-3">
+                        {!! Form::select('amount_type',['' => 'Select','+' => '+','-' => '-','*' =>'*','/'=> '/','%'=> '%'],null,['class' => 'form-control']) !!}
+                    </div>
+                    <div class="col-md-9">
+                        {!! Form::text('amount_value',null,['class' => 'form-control']) !!}
+                    </div>
                 </div>
 
                 <div class="form-group">
