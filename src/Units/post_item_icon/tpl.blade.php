@@ -37,7 +37,7 @@ $col = posts_url_manager()
             </div>
             <div class="button">
                 <a data-id="{{$settings['product']['id']}}" class="btn select-plan add-to-cart" href="#">Add To Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-                <a class="btn select-plan" href="{!! url(str_replace('-','_',$settings["blog"]),$settings['product'][$col]) !!}">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
+                <a class="btn select-plan" href="{!! url($settings["blog"],$settings['product'][$col]) !!}">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
                 {{--<a class="btn select-plan" href="{!! url(get_blog_slug_in_page(),$settings['product'][$col]) !!}">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>--}}
             </div>
         </div>
