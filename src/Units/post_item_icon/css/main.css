@@ -1,0 +1,197 @@
+.post-item-icon ul, .post-item-icon li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.post-item-icon {
+    margin: 50px auto;
+    max-width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    position: relative;
+}
+.post-item-icon .plan-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 33.3333%;
+    margin: 10px 0;
+    min-height: 650px;
+    padding: 10px;
+}
+@media all and (max-width: 700px) {
+    .post-item-icon .plan-box {
+        width: 100%;
+    }
+    .post-item-icon .plan-box:first-child {
+        margin-bottom: 20px;
+    }
+}
+.post-item-icon .plan-name {
+    font-weight: 300;
+    text-align: center;
+    padding: 12px 0;
+    color: white;
+    font-size: 24px;
+    background: #353740;
+    border-bottom: 3px solid #499bc7;
+    margin: 0;
+}
+.post-item-icon .plan-price {
+    color: white;
+    text-align: center;
+    background: #353740;
+    padding: 35px 12px;
+    font-size: 32px;
+    border-top: 3px solid #499bc7;
+    position: relative;
+}
+.post-item-icon .plan-price strong {
+    font-size: 34px;
+    -ms-flex-item-align: baseline;
+    align-self: baseline;
+    font-weight: 500;
+}
+.post-item-icon .plan-options {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    width: 100%;
+    box-shadow: 0 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.post-item-icon .plan-options ul li {
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.3s ease-out 0s;
+}
+.post-item-icon .plan-options ul li:before {
+    content: "\f105";
+    font-family: 'FontAwesome';
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.5s ease 0s;
+}
+.post-item-icon .plan-options ul li:hover {
+    background: #f8f8f8;
+    color: #499bc7;
+}
+.post-item-icon .plan-options ul li:hover:before {
+    margin-right: 15px;
+}
+.post-item-icon .plan-options .button {
+    margin-top: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+}
+.post-item-icon .plan-options .button a{
+    border-bottom: 1px solid #fff;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    background-color: #499bc7;
+    width: 100%;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-radius: 0;
+    position: relative;
+    transition: all 0.5s ease-out 0s;
+}
+.post-item-icon .plan-options .button a:hover {
+    background: #3c7fa2;
+}
+.post-item-icon .plan-options .button a:after, .post-item-icon .plan-options .button a:before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+    top: 30%;
+    right: -10px;
+    transition: all 0.8s ease 0s;
+}
+.post-item-icon .plan-options .button a:before {
+    left: -10px;
+}
+.post-item-icon .plan-options .button a:hover:after, .post-item-icon .plan-options .button a:hover:before {
+    width: 0;
+    height: 0;
+}
+.post-item-icon .plan-options .button a>i{
+    padding-left: 6px;
+}
+.post-item-icon .plan-price:after, .post-item-icon .plan-price:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    right: -15px;
+}
+.post-item-icon .plan-price:before {
+    left: -15px;
+}
+.post-item-icon .plan-icon{
+    display: block;
+    padding: 30px 0;
+    font-size: 54px;
+    text-align: center;
+    background-color: #499bc7;
+    color: white;
+}
+.post-item-icon .plan-icon>i{
+    transform: rotateY(0deg);
+    transition: all 1s ease-out 0s;
+}
+.post-item-icon .plan-icon:hover >i{
+    transform: rotateY(360deg);
+    color: #333333;
+    transition: all 1s ease-out 0s;
+}
+.post-item-icon .plan-box.light-green .plan-icon, .post-item-icon .plan-box.light-green .plan-options .button a{
+    background-color: lightseagreen;
+}
+.post-item-icon .plan-box.light-green .plan-price, .post-item-icon .plan-box.light-green .plan-name{
+    border-color: lightseagreen;
+}
+.post-item-icon .plan-box.light-green .plan-options ul li:hover{
+    color: lightseagreen;
+}
+.post-item-icon .plan-box.light-green .plan-options .button a:hover{
+    background-color: #1c9b94;
+}
+
+.post-item-icon .plan-box.hot-pink .plan-icon, .post-item-icon .plan-box.hot-pink .plan-options .button a{
+    background-color: hotpink;
+}
+.post-item-icon .plan-box.hot-pink .plan-price, .post-item-icon .plan-box.hot-pink .plan-name{
+    border-color: hotpink;
+}
+.post-item-icon .plan-box.hot-pink .plan-options ul li:hover{
+    color: hotpink;
+}
+.post-item-icon .plan-box.hot-pink .plan-options .button a:hover{
+    background-color: #e764a0;
+}
