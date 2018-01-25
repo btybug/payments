@@ -1,5 +1,12 @@
 <?php
 addProvider('BtyBugHook\Payments\Providers\ModuleServiceProvider');
+function get_item_data_from_listener($key){
+    $options = \Config::get('options.listener');
+
+    if(isset($options[$key])) return $options[$key];
+
+    return null;
+}
 
 function get_prices_data(){
     return \Config::get('payment.pricing');
@@ -30,7 +37,7 @@ function render_price_form($view_name){
 }
 
 function render_tax_service_form($view_name){
-    return \View("payments::settings.price._partials.forms.$view_name")->render();
+    return BBRenderUnits($view_name.'.default');
 }
 
 function get_tax_service_data(){
