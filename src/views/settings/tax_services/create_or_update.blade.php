@@ -33,8 +33,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::submit(($model) ? 'edit attribute' : 'add attribute',['class' => 'btn btn-primary pull-right']) !!}
-                    <a href="{!! route('payments_settings_attributes') !!}" class="btn pull-right">Cancel</a>
+                    {!! Form::submit(($model) ? 'edit tax & service' : 'add tax & service',['class' => 'btn btn-primary pull-right']) !!}
+                    <a href="{!! route('payments_settings_tax_services') !!}" class="btn pull-right">Cancel</a>
                 </div>
             {!! Form::close() !!}
         </div>
