@@ -8,14 +8,15 @@ body{
     padding-top: 100px;
 }
 .block-black{
-    box-shadow: -5px 0px 21px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
     position: relative;
-    background-color: #172335;
+    background-color: #5bc0debd;
     width: 100%;
     height: auto;
     margin: 40px auto;
     transition: ease all 0.5s;
     padding: 40px 0;
+    padding-bottom: 0;
 }
 .block-black .title{
     padding: 0 30px 0;
@@ -27,7 +28,7 @@ body{
     margin: 30px 0;
     padding: 35px;
     width: 100%;
-    background-color:#212e42;
+    background-color: #212e4233;
 }
 .block-black .header-content b{
     font-size: 40px;
@@ -45,14 +46,12 @@ body{
     padding: 10px;
 }
 .select-plan{
-    /*width: 250px;*/
-    /*height: 50px;*/
+    display: block;
     color: #fff;
     text-transform: uppercase;
     padding: 12px;
     font-size: 18px;
-    background-color: #85d529;
-    border: 0;
+    background-color: #469cb5;
     border-radius: 0;
     font-weight: bolder;
     outline: 0;
