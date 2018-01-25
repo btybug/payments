@@ -1,28 +1,24 @@
 @php
-  //  $postRepo = new \BtyBugHook\Blog\Repository\PostsRepository();
-   // $posts = $postRepo->paginationSettings($settings);
-   // $all_posts = json_encode($postRepo->getPublished());
-   // $page = \Btybug\btybug\Services\RenderService::getFrontPageByURL();
-
     $col_md_x = "col-md-4";
     if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
         $col_md_x = "col-md-12";
     }
+    $posts = [];
+    if(isset($settings["blog"])){
+        $table = $settings["blog"];
+        $slug = str_replace('-',"_",$table);
+        $posts = DB::table($slug)->select("*")->get();
+    }
 
-$product = [];
-if(isset($settings["blog"]) && !count($product)){
-    $table = $settings["blog"];
-    $slug = implode("_",explode("-",$table));
-    $product = DB::table($slug)->select("*")->first();
-    $product = collect($product)->toArray();
-}
-
-$all_posts = json_encode($product);
+    $all_posts = json_encode($posts);
+    $limit_per_page = isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : 10;
+    $posts = new \Btybug\btybug\Models\Universal\Paginator($limit_per_page,6,'bty-pagination-2',$posts);
 @endphp
 
 <section id="blog-section">
     <form class="navbar-form text-center search-form" id="custom_form_search" role="search">
-    <input type="hidden" name="settings_for_ajax" value="{{serialize($settings)}}">
+    <input type="hidden" name="settings_for_ajax" value="{{json_encode($settings,true)}}">
+    <input type="hidden" name="table" value="{{isset($settings['blog']) ? $settings['blog'] : ''}}">
     <nav class="navbar bty-navbar-blog">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -79,7 +75,6 @@ $all_posts = json_encode($product);
                     </div>
                     <input type="hidden" name="search_by" value="{{isset($settings['custom_search_by']) ? json_encode($settings['custom_search_by']) : ''}}"/>
                 @endif
-                <input type="hidden" name="settings_for_ajax_search" value="{{serialize($settings)}}">
                 <input type="hidden" name="all_posts" value="{{$all_posts}}">
                 <input type="hidden" name="limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
                 <input type="hidden" name="custom_get_col" value="{{(isset($settings["custom_list"]) && !isset($settings["custom_grid"])) ? 'col-md-12' : 'col-md-4'}}">
@@ -88,57 +83,7 @@ $all_posts = json_encode($product);
     </nav>
     </form>
     <div class="custom_append_post">
-        <div class="bty-all-blog">
-            <input type="hidden" class="custom_get_bootstrap_col" value="{{$col_md_x}}">
-            <div class="container">
-                <div class="row">
-                    @if(count($product))
-                        <section id="starter">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="block {{$col_md_x}} ">
-                                        <div class="block-black text-center">
-                                            <div class="title">
-                                                @if(isset($settings["option_1_item_value"]))
-                                                    @if($settings["option_1_item_value"] == "image")
-                                                        <img src="{{$product[$settings["option_1_item_value"]]}}" alt="">
-                                                    @else
-                                                        {{$product[$settings["option_1_item_value"]]}}
-                                                    @endif
-                                                @endif
-                                            </div>
-                                            <div class="header-content text-center">
-                                                @if(isset($settings["option_2_item_value"]))
-                                                    @if($settings["option_2_item_value"] == "image")
-                                                        <img src="{{$product[$settings["option_2_item_value"]]}}" alt="">
-                                                    @else
-                                                        {{$product[$settings["option_2_item_value"]]}}
-                                                    @endif
-                                                @endif
-                                            </div>
-                                            <div class="block-content">
-                                                @if(isset($settings["option_3_item_value"]))
-                                                    @if($settings["option_3_item_value"] == "image")
-                                                        <img src="{{$product[$settings["option_3_item_value"]]}}" alt="">
-                                                    @else
-                                                        {{$product[$settings["option_3_item_value"]]}}
-                                                    @endif
-                                                @endif
-                                            </div>
-                                            <div class="text-center">
-                                                <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">Add To Cart</button>
-                                                <a href="#" class="btn select-plan">View Product</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    @endif
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
+        @include('payments::_partial.render-for-post')
     </div>
 </section>
 {!! BBstyle($_this->path."/css/main.css") !!}

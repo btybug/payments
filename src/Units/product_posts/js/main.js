@@ -76,9 +76,10 @@ $(document).ready(function () {
         var bootstrap_col = $(".custom_get_bootstrap_col").val();
         var settings_for_ajax = $('input[name="settings_for_ajax"]').val();
         var all_posts = $("input[name=all_posts]").val();
+        var ajax_load = $('.ajax-load');
         $.ajax(
             {
-                url: '/admin/blog/append-post-scroll-paginator?page=' + page,
+                url: '/admin/payments/append-post-scroll-paginator?page=' + page,
                 type: "post",
                 data:{
                     _token:token,
@@ -94,13 +95,15 @@ $(document).ready(function () {
             })
             .done(function(data)
             {
-                if(data.html == ""){
-                    $('.ajax-load').html("No more records found");
+                var dthl = data.html;
+                if(dthl == ""){
+                    ajax_load.html("No more records found");
+                    ajax_load.show();
                     return;
                 }
-                $('.ajax-load').hide();
-                var $data = $(data.html);
-                $(".custom_append_post_to_ul").append($data.find('li'));
+                ajax_load.hide();
+                var $data = $(dthl);
+                $(".custom_append_post_to_ul").append($data.find('div.block'));
                 $("input[name=all_posts]").val(data.all_posts);
             })
             .fail(function(jqXHR, ajaxOptions, thrownError)
@@ -111,13 +114,15 @@ $(document).ready(function () {
     // this is for load more buttom
     var load_page = 2;
     $("body").delegate(".custom_load_more","click",function(){
+        var that = $(this);
         var limit = $("#custom_limit_per_page_for_ajax").val();
         var bootstrap_col = $(".custom_get_bootstrap_col").val();
         var settings_for_ajax = $('input[name="settings_for_ajax"]').val();
         var all_posts = $("input[name=all_posts]").val();
+        var ajax_load_button = $('.ajax-load-button');
         $.ajax(
             {
-                url: '/admin/blog/append-post-scroll-paginator?page=' + load_page,
+                url: '/admin/payments/append-post-scroll-paginator?page=' + load_page,
                 type: "post",
                 data:{
                     _token:token,
@@ -133,13 +138,16 @@ $(document).ready(function () {
             })
             .done(function(data)
             {
-                if(data.html == ""){
-                    $('.ajax-load-button').html("No more records found");
+                if(!data.html){
+                    ajax_load_button.html("No more records found");
+                    ajax_load_button.show();
+                    that.remove();
+                    ajax_load_button.hide();
                     return;
                 }
-                $('.ajax-load-button').hide();
+                ajax_load_button.hide();
                 var $data = $(data.html);
-                $(".custom_append_post_to_ul").append($data.find('li'));
+                $(".custom_append_post_to_ul").append($data.find('div.block'));
                 $("input[name=all_posts]").val(data.all_posts);
                 load_page++;
             })
@@ -154,7 +162,7 @@ $(document).ready(function () {
         $('.custom_append_post').addClass('custom_style_for_loading').html('<img src="'+base_path+'/public/images/load.gif") alt="" class="custom_hidden_loading">');
         $.ajax({
             type : 'POST',
-            url: '/admin/blog/search',
+            url: '/admin/payments/search',
             headers: {
                 'X-CSRF-TOKEN': token
             },
@@ -200,13 +208,15 @@ $(document).ready(function () {
         var limit = $("#custom_limit_per_page_for_ajax").val();
         var bootstrap_col = $(".custom_get_bootstrap_col").val();
         var settings_for_ajax = $('input[name="settings_for_ajax"]').val();
+        var table = $('input[name="table"]').val();
         $.ajax({
-            url : '/admin/blog/findpage?page=' + page,
+            url : '/admin/payments/findpage?page=' + page,
             data:{
                 all_posts:all_posts,
                 _token:token,
                 limit_per_page:limit,
                 bootstrap_col:bootstrap_col,
+                table:table,
                 settings_for_ajax:settings_for_ajax
             },
             method:'post',

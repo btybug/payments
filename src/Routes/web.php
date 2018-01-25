@@ -94,3 +94,7 @@ Route::group(['prefix' => 'datatable'], function () {
 });
 
 Route::post('/save-quantity-price', 'PriceController@postSaveQtyPrice')->name('payments_settings_qty_save');
+
+Route::post("/search","IndexConroller@search");
+Route::post("/findpage","IndexConroller@findPage");
+Route::post("/append-post-scroll-paginator","IndexConroller@appendPostScrollPaginator");

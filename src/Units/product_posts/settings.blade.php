@@ -1,12 +1,10 @@
 <?php
 $blogRepository = new \BtyBugHook\Membership\Repository\BlogRepository();
-$post = $blogRepository->first()->toArray();
 
 $table = '';
 $blogs = $blogRepository->pluck('title', 'slug');
-$columns = null;
+$columns = [];
 if (isset($settings['blog'])) {
-
     $table =  $slug = implode("_",explode("-",$settings['blog']));
     $columns = \DB::select("SHOW COLUMNS FROM $table");
 }
@@ -19,7 +17,6 @@ function renderOptions($columns){
     }
     return $html;
 }
-
 
 ?>
 <div class="row">
@@ -83,14 +80,14 @@ function renderOptions($columns){
                                     <select name="custom_search_by[]" class="form-control" id="custom_search_by"
                                             multiple="multiple">
                                         <option value="id" selected>ID</option>
-                                        @foreach($post as $key => $val)
-                                            @if($key === 'id')
+                                        @foreach($columns as $key => $val)
+                                            @if($val->Field === 'id')
                                                 @continue
                                             @endif
-                                            @if(isset($settings["custom_search_by"]) && count($settings["custom_search_by"]) && in_array($key,$settings["custom_search_by"]))
-                                                <option value="{{$key}}" selected>{{$key}}</option>
+                                            @if(isset($settings["custom_search_by"]) && count($settings["custom_search_by"]) && in_array($val->Field,$settings["custom_search_by"]))
+                                                <option value="{{$val->Field}}" selected>{{$val->Field}}</option>
                                             @else
-                                                <option value="{{$key}}">{{$key}}</option>
+                                                <option value="{{$val->Field}}">{{$val->Field}}</option>
                                             @endif
                                         @endforeach
                                     </select>
@@ -120,9 +117,14 @@ function renderOptions($columns){
                             <div class="custom_class_for_copy hidden">
                                 <div class="sort-select-ad custom_margin_10">
                                     <div class="bty-input-select-1">
+
                                         <select chng_nm="custom_sort_by[repl][by]" class="custom_get_data_key" data-key="repl">
-                                            @foreach($post as $key => $val)
-                                                <option value="{{$key}}">{{$key}}</option>
+                                            <option value="id" selected>ID</option>
+                                            @foreach($columns as $key => $val)
+                                                @if($val->Field == 'id')
+                                                    @continue
+                                                @endif
+                                                <option value="{{$val->Field}}">{{$val->Field}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -155,11 +157,14 @@ function renderOptions($columns){
                                                 <div class="sort-select-ad custom_margin_10">
                                                     <div class="bty-input-select-1">
                                                         <select name="custom_sort_by[{{$keyy}}][by]" class="custom_get_data_key" data-key={{$keyy}}>
-                                                            @foreach($post as $key => $val)
-                                                                @if($sort_by['by'] === $key)
-                                                                    <option value="{{$key}}" selected>{{$key}}</option>
+                                                            @if(!count($columns))
+                                                                <option value="id" selected>ID</option>
+                                                            @endif
+                                                            @foreach($columns as $key => $val)
+                                                                @if($sort_by['by'] === $val->Field)
+                                                                    <option value="{{$val->Field}}" selected>{{$val->Field}}</option>
                                                                 @else
-                                                                    <option value="{{$key}}">{{$key}}</option>
+                                                                    <option value="{{$val->Field}}">{{$val->Field}}</option>
                                                                 @endif
                                                             @endforeach
                                                         </select>
@@ -228,6 +233,14 @@ function renderOptions($columns){
             </div>
             <div class="tab-pane" id="2a">
                 <div>
+                    <div class="form-group custom_margin_bottom_30">
+                        <h6>Choose Unit For post</h6>
+                        <div class="col-md-12">
+                            {!! BBbutton2('unit',"unit_for_post","for_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
                     <div class="form-group">
                         <div class="col-md-6">
                             <label for="">Select Blog</label>
@@ -318,50 +331,6 @@ function renderOptions($columns){
                 </div>
             </div>
         </div>
-        {{--<div class="bty-panel-collapse">
-            <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#data-mapping"
-                   aria-expanded="true">
-                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Data mapping</span>
-                </a>
-            </div>
-            <div id="data-mapping" class="collapse in" aria-expanded="true" style="">
-                <div class="content bty-settings-panel">
-                    <div class="data-mapping">
-                        <div>
-                            <h6>Section 1:</h6>
-                            <div class="bty-input-select-1">
-                                <select name="custom_section1_for_post">
-                                    <option value="id">ID</option>
-                                    @foreach($post as $key => $val)
-                                        @if($key === 'id')
-                                            @continue
-                                        @endif
-                                        <option value="{{$key}}">{{$key}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <h6>Section 2:</h6>
-                            <div class="bty-input-select-1">
-                                <select name="custom_section2_for_post">
-                                    <option value="id">ID</option>
-                                    @foreach($post as $key => $val)
-                                        @if($key === 'id')
-                                            @continue
-                                        @endif
-                                        <option value="{{$key}}">{{$key}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>--}}
     </div>
 
 </div>
