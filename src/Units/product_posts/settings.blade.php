@@ -236,7 +236,7 @@ function renderOptions($columns){
                     <div class="form-group custom_margin_bottom_30">
                         <h6>Choose Unit For post</h6>
                         <div class="col-md-12">
-                            {!! BBbutton2('unit',"unit_for_post","for_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"unit_for_post","post_item","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                         <div class="clearfix"></div>
                     </div>

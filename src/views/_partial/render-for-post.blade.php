@@ -25,43 +25,10 @@ if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
                                 @endphp
 
                                 @if(isset($settings["unit_for_post"]))
+                                    <div class="block {{$col_md_x}} custom_class_for_change_col">
                                         {!! BBRenderUnits($settings["unit_for_post"],$settings) !!}
-                                @endif
-                               {{-- <div class="block {{$col_md_x}} custom_class_for_change_col">
-                                    <div class="block-black text-center">
-                                        <div class="title">
-                                            @if(isset($settings["option_1_item_value"]))
-                                                @if($settings["option_1_item_value"] == "image")
-                                                    <img src="{{$product[$settings["option_1_item_value"]]}}" alt="">
-                                                @else
-                                                    {{$product[$settings["option_1_item_value"]]}}
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <div class="header-content text-center">
-                                            @if(isset($settings["option_2_item_value"]))
-                                                @if($settings["option_2_item_value"] == "image")
-                                                    <img src="{{$product[$settings["option_2_item_value"]]}}" alt="">
-                                                @else
-                                                    {{$product[$settings["option_2_item_value"]]}}
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <div class="block-content">
-                                            @if(isset($settings["option_3_item_value"]))
-                                                @if($settings["option_3_item_value"] == "image")
-                                                    <img src="{{$product[$settings["option_3_item_value"]]}}" alt="">
-                                                @else
-                                                    {{$product[$settings["option_3_item_value"]]}}
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <div class="text-center">
-                                            <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">Add To Cart</button>
-                                            <a href="#" class="btn select-plan">View Product</a>
-                                        </div>
                                     </div>
-                                </div>--}}
+                                @endif
                             @endforeach
                         </div>
                     </div>
