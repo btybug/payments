@@ -5,7 +5,7 @@ $table = '';
 $blogs = $blogRepository->pluck('title', 'slug');
 $columns = [];
 if (isset($settings['blog'])) {
-    $table =  $slug = implode("_",explode("-",$settings['blog']));
+    $table =  $slug = str_replace("-","_",$settings['blog']);
     $columns = \DB::select("SHOW COLUMNS FROM $table");
 }
 function renderOptions($columns){
