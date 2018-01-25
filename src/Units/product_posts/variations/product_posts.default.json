@@ -1,1 +1,35 @@
-{"title":"main variation","id":"product_posts.default","settings":{"custom_search":"on","custom_grid":"grid","custom_grid_icon":"fa-building","custom_list":"list","custom_list_icon":"fa-drivers-license-o","custom_search_by":["id","title","description"],"custom_sort":"on","custom_sort_by":[{"by":"created_at","how":"DESC","fail_name":null},{"by":"id","how":"DESC","fail_name":null}],"custom_pagination":"php","custom_limit_per_page":"10","blog":"new-blog","option_1_item_value":"title","option_2_item_value":null,"option_3_item_value":null}}
+{
+  "title": "main variation",
+  "id": "product_posts.default",
+  "settings": {
+    "custom_search": "on",
+    "custom_grid": "grid",
+    "custom_grid_icon": "fa-building",
+    "custom_list": "list",
+    "custom_list_icon": "fa-drivers-license-o",
+    "custom_search_by": [
+      "id",
+      "title",
+      "description"
+    ],
+    "custom_sort": "on",
+    "custom_sort_by": [
+      {
+        "by": "created_at",
+        "how": "DESC",
+        "fail_name": null
+      },
+      {
+        "by": "id",
+        "how": "DESC",
+        "fail_name": null
+      }
+    ],
+    "custom_pagination": "php",
+    "custom_limit_per_page": "10",
+    "blog": "test-blog",
+    "option_1_item_value": "title",
+    "option_2_item_value": null,
+    "option_3_item_value": null
+  }
+}
