@@ -86,9 +86,16 @@ if(isset($settings["table"]) && !count($product)){
                         </p>
                     </div>
                     <div class="unit1 final-unit1">
+                        <div class="col-md-6">
                         @if(isset($settings["unit1"]))
                             {!! BBRenderUnits($settings['unit1']) !!}
                         @endif
+                        </div>
+                        <div class="col-md-6">
+                            @if(isset($settings["unit5"]))
+                                {!! BBRenderUnits($settings['unit5']) !!}
+                            @endif
+                        </div>
                     </div>
                     <div class="unit2 final-unit2">
                         @if(isset($settings["unit2"]))

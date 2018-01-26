@@ -1,0 +1,19 @@
+{
+  "title": "Product Single Price",
+  "author": "Edo",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "product_single_price",
+  "folder": "product_single_price",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": ["product_single",
+    "frontend"
+  ],
+  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/product_single_price"
+}

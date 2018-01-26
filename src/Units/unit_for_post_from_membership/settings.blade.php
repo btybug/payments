@@ -250,7 +250,12 @@ function renderOptions($columns){
                 <div class="content">
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"unit1","single_post","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"unit1","product_single","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                        </div>
+                    </div>
+                    <div class="form-group my_rows1">
+                        <div class="col-sm-8">
+                            {!! BBbutton2('unit',"unit5","product_single","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                 </div>
