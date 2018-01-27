@@ -30,14 +30,21 @@ if(isset($settings["table"]) && !count($product)){
 
                     </div>
                     <div class="unit1 final-unit1">
-
+                        @if(isset($settings["unit1"]))
+                            {!! BBRenderUnits($settings['unit1']) !!}
+                        @endif
                     </div>
                     <div class="unit2 final-unit2">
+                        @if(isset($settings["unit2"]))
+                            {!! BBRenderUnits($settings['unit2']) !!}
+                        @endif
+                    </div>
+                    <div class="unit2 final-unit2">
+                        @if(isset($settings["unit3"]))
+                            {!! BBRenderUnits($settings['unit3']) !!}
+                        @endif
+                    </div>
 
-                    </div>
-                    <div class="text-center custom_margin_top_30">
-                        <button class="btn btn-success btn-lg">Add to cart</button>
-                    </div>
                 </div>
                 <div class="clearfix"></div>
             </div>
@@ -90,24 +97,22 @@ if(isset($settings["table"]) && !count($product)){
 
                         </div>
                         <div class="col-md-6">
-                            {{--@if(isset($settings["unit5"]))--}}
-                                {{--{!! BBRenderUnits($settings['unit5']) !!}--}}
-                            {{--@endif--}}
+                            @if(isset($settings["unit5"]))
+                                {!! BBRenderUnits($settings['unit5']) !!}
+                            @endif
                         </div>
                     </div>
                     <div class="unit2 final-unit2">
-                        {{--@if(isset($settings["unit2"]))--}}
-                            {{--{!! BBRenderUnits($settings['unit2']) !!}--}}
-                        {{--@endif--}}
+                        @if(isset($settings["unit2"]))
+                            {!! BBRenderUnits($settings['unit2']) !!}
+                        @endif
                     </div>
                     <div class="unit2 final-unit2">
-                        {{--@if(isset($settings["unit2"]))--}}
-                            {{--{!! BBRenderUnits($settings['unit2']) !!}--}}
-                        {{--@endif--}}
+                        @if(isset($settings["unit2"]))
+                            {!! BBRenderUnits($settings['unit2']) !!}
+                        @endif
                     </div>
-                    {{--<div class="text-center custom_margin_top_30">--}}
-                        {{--<button class="btn select-plan add-to-cart" data-id="{!! $product['id'] !!}">Add To Cart</button>--}}
-                    {{--</div>--}}
+
                 </div>
                 <div class="clearfix"></div>
             </div>
