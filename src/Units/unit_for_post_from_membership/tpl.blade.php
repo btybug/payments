@@ -92,24 +92,20 @@ if(isset($settings["table"]) && !count($product)){
                             {{isset($settings["option_3_item_value"]) ? $product[$settings["option_3_item_value"]] : ''}}
                         </p>
                     </div>
-                    <div class="unit1 final-unit1">
-                        <div class="col-md-6">
 
-                        </div>
-                        <div class="col-md-6">
-                            @if(isset($settings["unit5"]))
-                                {!! BBRenderUnits($settings['unit5']) !!}
-                            @endif
-                        </div>
-                    </div>
-                    <div class="unit2 final-unit2">
-                        @if(isset($settings["unit2"]))
-                            {!! BBRenderUnits($settings['unit2']) !!}
+                    <div class="unit1 final-unit1">
+                        @if(isset($settings['punit1']))
+                            {!! BBRenderUnits($settings['punit1']) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
-                        @if(isset($settings["unit2"]))
-                            {!! BBRenderUnits($settings['unit2']) !!}
+                        @if(isset($settings['punit2']))
+                            {!! BBRenderUnits($settings['punit2']) !!}
+                        @endif
+                    </div>
+                    <div class="unit2 final-unit2">
+                        @if(isset($settings['punit3']))
+                            {!! BBRenderUnits($settings['punit3']) !!}
                         @endif
                     </div>
 
