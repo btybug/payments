@@ -100,6 +100,11 @@ if(isset($settings["table"]) && !count($product)){
                             {{--{!! BBRenderUnits($settings['unit2']) !!}--}}
                         {{--@endif--}}
                     </div>
+                    <div class="unit2 final-unit2">
+                        {{--@if(isset($settings["unit2"]))--}}
+                            {{--{!! BBRenderUnits($settings['unit2']) !!}--}}
+                        {{--@endif--}}
+                    </div>
                     {{--<div class="text-center custom_margin_top_30">--}}
                         {{--<button class="btn select-plan add-to-cart" data-id="{!! $product['id'] !!}">Add To Cart</button>--}}
                     {{--</div>--}}
