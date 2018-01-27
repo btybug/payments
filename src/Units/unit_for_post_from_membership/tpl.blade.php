@@ -30,18 +30,18 @@ if(isset($settings["table"]) && !count($product)){
 
                     </div>
                     <div class="unit1 final-unit1">
-                        @if(isset($settings['p_unit1']))
-                            {!! BBRenderUnits($settings['p_unit1']) !!}
+                        @if(isset($settings['punit1']))
+                            {!! BBRenderUnits($settings['punit1']) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
-                        @if(isset($settings['p_unit2']))
-                            {!! BBRenderUnits($settings['p_unit2']) !!}
+                        @if(isset($settings['punit2']))
+                            {!! BBRenderUnits($settings['punit2']) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
-                        @if(isset($settings['p_unit3']))
-                            {!! BBRenderUnits($settings['p_unit3']) !!}
+                        @if(isset($settings['punit3']))
+                            {!! BBRenderUnits($settings['punit3']) !!}
                         @endif
                     </div>
 

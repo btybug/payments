@@ -250,17 +250,17 @@ function renderOptions($columns){
                 <div class="content">
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"p_unit1","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"punit1","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"p_unit2","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"punit2","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
-                            {!! BBbutton2('unit',"p_unit3","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                            {!! BBbutton2('unit',"punit3","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
                 </div>
