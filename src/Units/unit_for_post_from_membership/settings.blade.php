@@ -253,35 +253,11 @@ function renderOptions($columns){
                             {!! BBbutton2('unit',"p_unit1","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="bty-panel-collapse">
-            <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true">
-                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Product unit 2</span>
-                </a>
-            </div>
-            <div id="collapse3" class="collapse in" aria-expanded="true" style="">
-                <div class="content">
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
                             {!! BBbutton2('unit',"p_unit2","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="bty-panel-collapse">
-            <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true">
-                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                    <span class="title">Product unit 3</span>
-                </a>
-            </div>
-            <div id="collapse3" class="collapse in" aria-expanded="true" style="">
-                <div class="content">
                     <div class="form-group my_rows1">
                         <div class="col-sm-8">
                             {!! BBbutton2('unit',"p_unit3","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
