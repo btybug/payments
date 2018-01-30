@@ -1,0 +1,20 @@
+{
+  "title": "Thank You",
+  "author": "Sahak jan",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "thank_you",
+  "folder": "thank_you",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": [
+    "payments","thank_you",
+    "frontend"
+  ],
+  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/thank_you"
+}

@@ -27,7 +27,8 @@ class PaymentSettingsConroller extends Controller
     {
         $checkout = $adminsettingRepository->getSettings('payment', 'checkout',true);
         $page=$repository->findBy('slug','check_out');
-        return view('payments::settings.checkout',compact('page','checkout'));
+        $thankYouPage=$repository->findBy('slug','thank_you');
+        return view('payments::settings.checkout',compact('page','thankYouPage','checkout'));
     }
 
     public function postCheckout(
@@ -87,8 +88,10 @@ class PaymentSettingsConroller extends Controller
     public function postSaveManager(Request $request,FrontPagesRepository $repository)
     {
         $page=$repository->findBy('slug','check_out');
+        $thankYouPage=$repository->findBy('slug','thank_you');
         $data=$request->except('_token');
         $repository->update($page->id, ['template' => $request->check_out_unit]);
+        $repository->update($thankYouPage->id, ['template' => $request->thank_you]);
         return redirect()->back()->with('message','Saved!!!');
     }
 

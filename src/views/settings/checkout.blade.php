@@ -30,6 +30,20 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-12 m-b-10">
+                                    <div class="col-sm-4 p-l-0">Thank you</div>
+                                    <div class="col-md-5">
+                                        {!! BBbutton2('unit','thank_you','thank_you',($thankYouPage->template)?'Change':'Select',['class'=>'btn btn-default change-layout','copy'=>'1','model'=>$thankYouPage->template]) !!}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="{!! route('uploads_settings',$page->template) !!}"
+                                           class="btn btn-warning" target="_blank">Customize</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             {!! Form::submit("Save",['class' => 'btn settingBtn pull-right']) !!}
                         </div>
                         {!! Form::close() !!}
