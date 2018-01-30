@@ -5,6 +5,7 @@ namespace BtyBugHook\Payments\Http\Controllers;
 use App\Http\Controllers\Controller;
 use BtyBugHook\Payments\Models\Attributes;
 use BtyBugHook\Payments\Models\AttributeTerms;
+use BtyBugHook\Payments\Models\Orders;
 use BtyBugHook\Payments\Models\TaxService;
 use Yajra\DataTables\DataTables;
 
@@ -23,6 +24,18 @@ class DataTablesConroller extends Controller
             $exploded = (count($terms)) ? implode(', ',$terms->toArray()) : null;
             return $exploded . "<div><a href='$url'>Configure Terms</a></div>";
         })->rawColumns(['actions','terms'])->make(true);
+  }
+
+  public function getOrders()
+    {
+        return DataTables::of(Orders::query())->addColumn('actions', function ($attr) {
+        },2)->editColumn('status', function ($attr) {
+            return $attr->status;//Orders::statuses[$attr->status];
+        })->editColumn('user_id', function ($attr) {
+            return BBGetUser($attr->user_id);
+        })->editColumn('created_at', function ($attr) {
+            return BBgetDateFormat($attr->created_at);
+        })->rawColumns(['actions'])->make(true);
   }
 
   public function getTaxServices()

@@ -98,6 +98,7 @@ Route::group(['prefix' => 'settings'], function () {
 
 Route::group(['prefix' => 'datatable'], function () {
     Route::get('get-attributes', 'DataTablesConroller@getAttributes')->name('pym_attributes_list');
+    Route::get('get-orders', 'DataTablesConroller@getOrders')->name('pym_orders_list');
     Route::get('get-tax-services', 'DataTablesConroller@getTaxServices')->name('pym_tax_services_list');
     Route::get('get-attribute-terms/{id}', 'DataTablesConroller@getAttributeTerms')->name('pym_attribute_terms');
 });
