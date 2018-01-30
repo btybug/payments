@@ -37,7 +37,7 @@
                                         {!! BBbutton2('unit','thank_you','thank_you',($thankYouPage->template)?'Change':'Select',['class'=>'btn btn-default change-layout','copy'=>'1','model'=>$thankYouPage->template]) !!}
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="{!! route('uploads_settings',$page->template) !!}"
+                                        <a href="{!! route('uploads_settings',$thankYouPage->template) !!}"
                                            class="btn btn-warning" target="_blank">Customize</a>
                                     </div>
                                 </div>
