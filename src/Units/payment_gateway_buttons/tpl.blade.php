@@ -14,6 +14,10 @@
             @endif
         {!! Form::close() !!}
     @endif
+
+    @if(isset($checkoutButtons['checkout']['payment_gateways']['stripe']))
+        {!! Form::button('Pay with Stripe (not working yet)',['class' => 'btn btn-primary','disabled' => 'disabled']) !!}
+    @endif
 </div>
 
 {!! BBstyle($_this->path."/css/main.css") !!}
