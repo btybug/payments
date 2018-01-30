@@ -1,34 +1,46 @@
-@php
-    function allow_guest($settings)
-    {
-        return isset($settings['allow_guest']);
-    }
-
-    function show_content($settings)
-    {
-
-        if (!allow_guest($settings)) {
-            if (Auth::check()) {
-                return true;
-            }
+<?php
+function allow_guest()
+{
+    $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository;
+    $checkout = $adminsettingRepository->getSettings('payment', 'checkout', true);
+    if ($checkout) {
+        if (isset($checkout['checkout']['allow'])) {
+            return (bool)$checkout['checkout']['allow'];
         }
-        return false;
     }
+    return false;
+}
 
-    function products($settings)
-    {
-
+function show_content()
+{
+    if (allow_guest()) {
+        return true;
     }
-
-    function include_forms($settings, $_this)
-    {
-        $html='';
-        if(isset($settings['forms'])){
-            foreach ($settings['forms'] as $form){
-            if(\View::exists($_this->slug."::forms.$form"));
-                $html.=View::make($_this->slug."::forms.$form",compact($settings))->render();
-            }
-        }
-        return $html;
+    if (Auth::check()) {
+        return true;
     }
-@endphp
+    return false;
+}
+
+function products($settings)
+{
+
+}
+
+function include_forms($settings, $_this)
+{
+    $html = ' <form class="form-horizontal" method="post" action="">';
+    $html .= \View::make($_this->slug . "::forms.edit_cart", compact($settings))->render();
+    if (show_content()) {
+
+            $html .= View::make($_this->slug . "::forms.invoice_address", compact($settings))->render();
+            $html .= View::make($_this->slug . "::forms.shipping_address", compact($settings))->render();
+            $html .= '</form>';
+            $buttons= (isset($settings['buttons']))? BBRenderUnits($settings['buttons']):null;
+            $html .= '<div clsass="col-md-8">'.$buttons.'</div>';
+    } else {
+        $html .= '</form>';
+        $html .= View::make($_this->slug . "::forms.login", compact($settings))->render();
+    }
+    return $html;
+}
