@@ -15,7 +15,6 @@ class OrdersController extends Controller
 {
     public function getList()
     {
-        dd(Orders::statuses);
         return view('payments::orders.index');
     }
 

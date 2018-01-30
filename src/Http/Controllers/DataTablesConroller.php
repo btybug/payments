@@ -30,7 +30,7 @@ class DataTablesConroller extends Controller
     {
         return DataTables::of(Orders::query())->addColumn('actions', function ($attr) {
         },2)->editColumn('status', function ($attr) {
-            return $attr->status;//Orders::statuses[$attr->status];
+            return array_flip(Orders::statuses)[$attr->status];
         })->editColumn('user_id', function ($attr) {
             return BBGetUser($attr->user_id);
         })->editColumn('created_at', function ($attr) {
