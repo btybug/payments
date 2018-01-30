@@ -20,10 +20,24 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.general');
     }
 
-    public function getCheckout(FrontPagesRepository $repository)
+    public function getCheckout(
+        FrontPagesRepository $repository,
+        AdminsettingRepository $adminsettingRepository
+    )
     {
+        $checkout = $adminsettingRepository->getSettings('payment', 'checkout',true);
         $page=$repository->findBy('slug','check_out');
-        return view('payments::settings.checkout',compact('page'));
+        return view('payments::settings.checkout',compact('page','checkout'));
+    }
+
+    public function postCheckout(
+        Request $request,
+        AdminsettingRepository $adminsettingRepository
+    )
+    {
+        $data = json_encode($request->except(['_token']), true);
+        $adminsettingRepository->createOrUpdate($data, 'payment', 'checkout');
+        return back();
     }
 
     public function getAttributes()

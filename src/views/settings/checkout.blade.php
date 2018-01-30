@@ -23,7 +23,8 @@
                                         {!! BBbutton2('unit','check_out_unit','check_out',($page->template)?'Change':'Select',['class'=>'btn btn-default change-layout','copy'=>'1','model'=>$page->template]) !!}
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="{!! route('uploads_settings',$page->template) !!}" class="btn btn-warning" target="_blank">Customize</a>
+                                        <a href="{!! route('uploads_settings',$page->template) !!}"
+                                           class="btn btn-warning" target="_blank">Customize</a>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +49,7 @@
                     <h4 class="panel-title">General</h4>
                 </div>
                 <div class="panel-body">
-                    {!! Form::model(null,[]) !!}
+                    {!! Form::model($checkout,[]) !!}
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">
@@ -63,30 +64,17 @@
                     </div>
 
                     <div class="form-group">
-                        {!! Form::submit("Save",['class' => 'btn settingBtn pull-right']) !!}
-                    </div>
-                    {!! Form::close() !!}
-
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading" role="tab">
-                    <h4 class="panel-title">Allow these payment options on check out page</h4>
-                </div>
-                <div class="panel-body">
-                    {!! Form::model(null,[]) !!}
-                    <div class="form-group">
+                        <h4>Allow these payment options on check out page</h4>
                         <div class="row">
                             <div class="col-md-12 m-b-10">
                                 <div class="col-sm-4 p-l-0">Stripe</div>
-                                {!! Form::checkbox('checkout[stripe]',1,null) !!}
+                                {!! Form::checkbox('checkout[payment_gateways][stripe]',1,null) !!}
                             </div>
                         </div>
-                    </div><div class="form-group">
                         <div class="row">
                             <div class="col-md-12 m-b-10">
                                 <div class="col-sm-4 p-l-0">Cash payment</div>
-                                {!! Form::checkbox('checkout[cash]',1,null) !!}
+                                {!! Form::checkbox('checkout[payment_gateways][cash]',1,null) !!}
                             </div>
                         </div>
                     </div>
