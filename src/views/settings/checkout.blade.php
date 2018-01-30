@@ -54,11 +54,11 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="col-sm-4 p-l-0">allow guest check out</div>
-                                {!! Form::radio('checkout[allow]',0,true) !!}
+                                {!! Form::radio('checkout[allow]',1,true) !!}
                             </div>
                             <div class="col-md-6">
                                 <div class="col-sm-4 p-l-0">Only members</div>
-                                {!! Form::radio('checkout[allow]',1,null) !!}
+                                {!! Form::radio('checkout[allow]',0,null) !!}
                             </div>
                         </div>
                     </div>
