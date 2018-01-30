@@ -1,4 +1,5 @@
 <?php
+use Gloudemans\Shoppingcart\Facades\Cart;
 function allow_guest()
 {
     $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository;
@@ -27,10 +28,14 @@ function products($settings)
 
 }
 
+function get_cart(){
+    return Cart::class;
+}
+
 function include_forms($settings, $_this)
 {
     $html = ' <form class="form-horizontal" method="post" action="">';
-    $html .= \View::make($_this->slug . "::forms.edit_cart", compact($settings))->render();
+    $html .= \View::make($_this->slug . "::forms.edit_cart", compact($settings))->with('cart',get_cart())->render();
     if (show_content()) {
 
             $html .= View::make($_this->slug . "::forms.invoice_address", compact($settings))->render();
