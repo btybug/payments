@@ -12,6 +12,7 @@
 namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
+use BtyBugHook\Payments\Models\User;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,11 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \Config::set('services.stripe', [
+            'model' => User::class,
+            'key' => 'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
+            'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
+        ]);
 
         \Eventy::action('payment.pricing',
             [
@@ -63,6 +69,7 @@ class ModuleServiceProvider extends ServiceProvider
             ]);
 
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
+        $this->app->register(\Cartalyst\Stripe\Laravel\StripeServiceProvider::class);
       //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
         \Config::set('cart', [
             'tax' => 21,

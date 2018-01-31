@@ -19,6 +19,8 @@
 | to using a Closure or controller method. Build something great!
 |
 */
+Route::any('test','TestController@test');
+Route::any('test-call-back','TestController@testCallBack');
 Route::get('shopping-cart-table',function (){
     \BtyBugHook\Payments\Database\CreateShoppingcartTable::up();
 });
