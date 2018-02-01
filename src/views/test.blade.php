@@ -1,7 +1,7 @@
 <form action="{!! url('/admin/payments/test-call-back') !!}" method="GET">
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="pk_test_zr3Wfst8jb4GrKU8BcLEUkh9"
+            data-key="{!! Config::get('services.stripe.key') !!}"
             data-amount="999"
             data-name="Demo Site"
             data-description="Widget"

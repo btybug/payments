@@ -20,7 +20,7 @@
                 <script
                         src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                         data-key="{!! Config::get('services.stripe.key') !!}"
-                        data-amount="{!! $cart::total() !!}"
+                        data-amount="{!! $cart::total()*100 !!}"
                         data-name="Demo Site"
                         data-description="Widget"
                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

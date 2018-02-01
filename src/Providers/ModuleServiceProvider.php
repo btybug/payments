@@ -13,10 +13,10 @@ namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
 use BtyBugHook\Payments\Models\User;
+use Cartalyst\Stripe\Stripe;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
-
 
 
 class ModuleServiceProvider extends ServiceProvider
@@ -35,6 +35,10 @@ class ModuleServiceProvider extends ServiceProvider
             'key' => 'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
             'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
         ]);
+
+        putenv('STRIPE_API_KEY=pk_test_zr3Wfst8jb4GrKU8BcLEUkh9');
+
+        putenv('STRIPE_API_VERSION=sk_test_5hlaHU2ovKmWpyK33i7sZxxx');
 
         \Eventy::action('payment.pricing',
             [
