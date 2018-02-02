@@ -32,7 +32,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $settingsPath = storage_path('app' . DS . 'payments.json');
         if (\File::exists($settingsPath)) {
-            $settings = json_decode(\File::get($this->settingsPath), true);
+            $settings = json_decode(\File::get($settingsPath), true);
             \Config::set('services.stripe', isset($settings['stripe'])?$settings['stripe']:null);
         }
         \Eventy::action('payment.pricing',
