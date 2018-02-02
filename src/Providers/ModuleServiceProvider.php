@@ -30,16 +30,11 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        \Config::set('services.stripe', [
-            'model' => User::class,
-            'key' => 'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
-            'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
-        ]);
-
-        putenv('STRIPE_API_KEY=pk_test_zr3Wfst8jb4GrKU8BcLEUkh9');
-
-        putenv('STRIPE_API_VERSION=sk_test_5hlaHU2ovKmWpyK33i7sZxxx');
-
+        $settingsPath = storage_path('app' . DS . 'payments.json');
+        if (\File::exists($settingsPath)) {
+            $settings = json_decode(\File::get($this->settingsPath), true);
+            \Config::set('services.stripe', isset($settings['stripe'])?$settings['stripe']:null);
+        }
         \Eventy::action('payment.pricing',
             [
                 'name' => 'Simple price',

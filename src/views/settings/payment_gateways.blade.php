@@ -12,7 +12,7 @@
                     </span>
                 </div>
                 <div class="panel-body">
-                    {!! Form::model($stripe,[]) !!}
+                    {!! Form::model(isset($settings['stripe'])?$settings['stripe']:null,['class'=>'form-horizontal','url'=>route('stripe_settings')]) !!}
 
                     <div class="form-group">
                         <div class="row">

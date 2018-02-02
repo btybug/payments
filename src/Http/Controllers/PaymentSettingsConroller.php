@@ -10,6 +10,20 @@ use Illuminate\Http\Request;
 
 class PaymentSettingsConroller extends Controller
 {
+    private $settingsPath;
+    private $settings;
+
+    public function __construct()
+    {
+        $this->settingsPath = storage_path('app' . DS . 'payments.json');
+        if (\File::exists($this->settingsPath)) {
+            $this->settings = json_decode(\File::get($this->settingsPath), true);
+        } else {
+            $this->settings = [];
+            \File::put($this->settingsPath, json_encode($this->settings, true));
+        }
+    }
+
     public function getSettings()
     {
         return view('payments::settings.index');
@@ -25,10 +39,10 @@ class PaymentSettingsConroller extends Controller
         AdminsettingRepository $adminsettingRepository
     )
     {
-        $checkout = $adminsettingRepository->getSettings('payment', 'checkout',true);
-        $page=$repository->findBy('slug','check_out');
-        $thankYouPage=$repository->findBy('slug','thank_you');
-        return view('payments::settings.checkout',compact('page','thankYouPage','checkout'));
+        $checkout = $adminsettingRepository->getSettings('payment', 'checkout', true);
+        $page = $repository->findBy('slug', 'check_out');
+        $thankYouPage = $repository->findBy('slug', 'thank_you');
+        return view('payments::settings.checkout', compact('page', 'thankYouPage', 'checkout'));
     }
 
     public function postCheckout(
@@ -54,53 +68,62 @@ class PaymentSettingsConroller extends Controller
     public function getPrice()
     {
         $prices = get_prices_data();
-        return view('payments::settings.price',compact(['prices']));
+        return view('payments::settings.price', compact(['prices']));
     }
 
     public function getPriceForm($slug)
     {
         $price = find_price($slug);
-        if(! $price) abort(404,'Price structure not found');
-        return view('payments::settings.price.price_form',compact('price'));
+        if (!$price) abort(404, 'Price structure not found');
+        return view('payments::settings.price.price_form', compact('price'));
     }
 
     public function getPaymentGateways()
     {
-        $stripe = \Config::get('services.stripe');
-        return view('payments::settings.payment_gateways',compact('stripe'));
+        $settings = $this->settings;
+        return view('payments::settings.payment_gateways', compact('settings'));
     }
 
-    public function saveStripe ()
+    public function postSaveStripe(Request $request)
+    {
+        $data = $request->except('_token');
+        $data['model'] = User::class;
+        $this->settings['stripe'] = $data;
+        \File::put($this->settingsPath, json_encode($this->settings, true));
+        return redirect()->back();
+    }
+
+    public function saveStripe()
     {
         \Config::set('services.stripe', [
-            'model'  => User::class,
-            'key' =>'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
+            'model' => User::class,
+            'key' => 'pk_test_zr3Wfst8jb4GrKU8BcLEUkh9',
             'secret' => 'sk_test_5hlaHU2ovKmWpyK33i7sZxxx',
         ]);
     }
 
     public function getSoppingCart(FrontPagesRepository $repository)
     {
-        $page=$repository->findBy('slug','shopping-card');
-        return view('payments::settings.shopping_cart.index',compact('page'));
+        $page = $repository->findBy('slug', 'shopping-card');
+        return view('payments::settings.shopping_cart.index', compact('page'));
     }
 
-    public function postSaveManager(Request $request,FrontPagesRepository $repository)
+    public function postSaveManager(Request $request, FrontPagesRepository $repository)
     {
-        $page=$repository->findBy('slug','check_out');
-        $thankYouPage=$repository->findBy('slug','thank_you');
-        $data=$request->except('_token');
+        $page = $repository->findBy('slug', 'check_out');
+        $thankYouPage = $repository->findBy('slug', 'thank_you');
+        $data = $request->except('_token');
         $repository->update($page->id, ['template' => $request->check_out_unit]);
         $repository->update($thankYouPage->id, ['template' => $request->thank_you]);
-        return redirect()->back()->with('message','Saved!!!');
+        return redirect()->back()->with('message', 'Saved!!!');
     }
 
-    public function postSaveCheckOutManager(Request $request,FrontPagesRepository $repository)
+    public function postSaveCheckOutManager(Request $request, FrontPagesRepository $repository)
     {
-        $page=$repository->findBy('slug','check_out');
-        $data=$request->except('_token');
-        $page->template=$data['check_out_unit'];
+        $page = $repository->findBy('slug', 'check_out');
+        $data = $request->except('_token');
+        $page->template = $data['check_out_unit'];
         $page->save();
-        return redirect()->back()->with('message','Saved!!!');
+        return redirect()->back()->with('message', 'Saved!!!');
     }
 }
