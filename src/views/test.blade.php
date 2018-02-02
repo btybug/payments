@@ -1,4 +1,4 @@
-<form action="{!! route('order_stripe') !!}" method="POST">
+<form action="{!! route('order_stripe') !!}" method="GET">
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="{!! Config::get('services.stripe.key') !!}"

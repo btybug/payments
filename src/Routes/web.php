@@ -26,7 +26,7 @@ Route::get('shopping-cart-table',function (){
 });
 Route::get('/', 'OrdersController@getList', true)->name('payments_index');
 Route::post('/save-cash', 'OrdersController@saveCash')->name('order_cash');
-Route::post('/save-stripe', 'OrdersController@saveStripe')->name('order_stripe');
+Route::get('/save-stripe', 'OrdersController@saveStripe')->name('order_stripe');
 
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
