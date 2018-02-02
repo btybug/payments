@@ -55,6 +55,7 @@ class OrdersController extends Controller
             $user->stripe_id = $customer;
             $user->save();
         }
+        dd($user,$customer);
         $charge = \Stripe\Charge::create(array(
             'customer' => $customer,
             'amount' => Cart::total() * 100,
