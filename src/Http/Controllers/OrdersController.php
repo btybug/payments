@@ -66,7 +66,7 @@ class OrdersController extends Controller
             'order_number' => uniqid(),
             'order_details' => json_encode($order_details, true),
             'user_id' => \Auth::id(),
-            'payment_method' => 'cash',
+            'payment_method' => 'stripe',
             'total_amount' => Cart::total(),
             'status' => Orders::statuses['pending'],
         ]);
