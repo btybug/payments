@@ -1,4 +1,4 @@
-<form action="{!! url('/admin/payments/test-call-back') !!}" method="GET">
+<form action="{!! route('order_stripe') !!}" method="POST">
     <script
             src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="{!! Config::get('services.stripe.key') !!}"

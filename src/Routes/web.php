@@ -25,7 +25,8 @@ Route::get('shopping-cart-table',function (){
     \BtyBugHook\Payments\Database\CreateShoppingcartTable::up();
 });
 Route::get('/', 'OrdersController@getList', true)->name('payments_index');
-Route::post('/save-cash', 'OrdersController@saveCash', true)->name('order_cash');
+Route::post('/save-cash', 'OrdersController@saveCash')->name('order_cash');
+Route::post('/save-cash', 'OrdersController@saveStripe')->name('order_stripe');
 
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
