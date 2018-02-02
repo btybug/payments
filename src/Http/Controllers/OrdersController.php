@@ -10,6 +10,7 @@ use BtyBugHook\Payments\Models\Orders;
 use BtyBugHook\Payments\Repository\OrdersRepository;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Stripe\Stripe;
 
 class OrdersController extends Controller
 {
