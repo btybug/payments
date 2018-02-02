@@ -42,7 +42,6 @@ class OrdersController extends Controller
     {
         if (Cart::count() == 0) return redirect()->back();
         $data = $request->all();
-        dd($data);
         Stripe::setApiKey(\Config::get('services.stripe.secret'));
         $user = \Auth::user();
         $customer = $user->stripe_id;
@@ -51,6 +50,7 @@ class OrdersController extends Controller
                 "description" => $data['stripeEmail'],
                 "source" => $data['stripeToken'] // obtained with Stripe.js
             ));
+            dd($customerUser);
             $customer = $customerUser->id;
             $user->stripe_id = $customer;
             $user->save();
