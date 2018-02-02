@@ -1,20 +1,24 @@
 @extends('btybug::layouts.admin')
 @section('content')
-    <table id="orders-table"  class="table table-striped table-bordered" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Order Number</th>
-            <th>User</th>
-            <th>Invoice Address</th>
-            <th>Shipping Address</th>
-            <th>Payment Method</th>
-            <th>Total Amount</th>
-            <th>Status</th>
-            <th>Created date</th>
-            <th>Actions</th>
-        </thead>
-    </table>
+    <div class="row">
+        <div class="col-md-12">
+            <table id="orders-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Order Number</th>
+                    <th>User</th>
+                    <th>Invoice Address</th>
+                    <th>Shipping Address</th>
+                    <th>Payment Method</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Created date</th>
+                    <th>Actions</th>
+                </thead>
+            </table>
+        </div>
+    </div>
 
 @stop
 @section('CSS')

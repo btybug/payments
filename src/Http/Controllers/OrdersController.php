@@ -73,4 +73,17 @@ class OrdersController extends Controller
         Cart::destroy();
         return redirect()->to('/thank-you');
     }
+
+    public function editOrder(OrdersRepository $ordersRepository, $id)
+    {
+        $order = $ordersRepository->findOrFail($id);
+        return view('payments::orders.edit', compact('order'));
+    }
+
+    public function viewOrder(OrdersRepository $ordersRepository, $id)
+    {
+        $order = $ordersRepository->findOrFail($id);
+        $order_details = json_decode($order->order_details);
+        return view('payments::orders.view', compact('order', 'order_details'));
+    }
 }
