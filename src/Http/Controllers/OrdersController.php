@@ -50,7 +50,7 @@ class OrdersController extends Controller
                 "description" => $data['stripeEmail'],
                 "source" => $data['stripeToken'] // obtained with Stripe.js
             ));
-            $customer = $customerUser->customer;
+            $customer = $customerUser->id;
             $user->stripe_id = $customer;
             $user->save();
 
