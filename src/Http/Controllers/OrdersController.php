@@ -53,7 +53,6 @@ class OrdersController extends Controller
             $customer = $customerUser->id;
             $user->stripe_id = $customer;
             $user->save();
-
         }
         $charge = \Stripe\Charge::create(array(
             'customer' => $customer,
