@@ -45,17 +45,15 @@ class OrdersController extends Controller
         Stripe::setApiKey(\Config::get('services.stripe.secret'));
         $user = \Auth::user();
         $customer = $user->stripe_id;
-        if ($customer) {
+        if (is_null($customer)) {
             $customerUser = \Stripe\Customer::create(array(
                 "description" => $data['stripeEmail'],
                 "source" => $data['stripeToken'] // obtained with Stripe.js
             ));
-            dd($customerUser);
             $customer = $customerUser->id;
             $user->stripe_id = $customer;
             $user->save();
         }
-        dd($user,$customer);
         $charge = \Stripe\Charge::create(array(
             'customer' => $customer,
             'amount' => Cart::total() * 100,
