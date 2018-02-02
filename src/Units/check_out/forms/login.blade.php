@@ -1,4 +1,5 @@
 {!! Form::open(['url'=>url('login')]) !!}
+{!! Form::hidden('redirect_to','/check_out') !!}
 <fieldset>
     <h2>Please Login</h2>
     <hr class="colorgraph">
