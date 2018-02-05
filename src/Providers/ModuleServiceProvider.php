@@ -12,6 +12,7 @@
 namespace BtyBugHook\Payments\Providers;
 
 use Btybug\btybug\Models\Routes;
+use BtyBugHook\Payments\Database\CreatePayInvoiceTable;
 use BtyBugHook\Payments\Models\User;
 use Cartalyst\Stripe\Stripe;
 use Illuminate\Database\Schema\Blueprint;
@@ -30,6 +31,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+//        CreatePayInvoiceTable::up();
         $settingsPath = storage_path('app' . DS . 'payments.json');
         if (\File::exists($settingsPath)) {
             $settings = json_decode(\File::get($settingsPath), true);
