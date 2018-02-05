@@ -144,6 +144,22 @@
                     $(this).val(min_height);
                 }
             });
+            $('input[name=length]').on('keyup', function () {
+                if ($(this).val() < min_length) {
+                    $(this).val(min_length);
+                }
+                if ($(this).val() > max_length) {
+                    $(this).val(max_length);
+                }
+            });
+            $('input[name=height]').on('keyup', function () {
+                if ($(this).val() < min_height) {
+                    $(this).val(min_height);
+                }
+                if ($(this).val() > max_height) {
+                    $(this).val(max_height);
+                }
+            });
             $('.base-size').on('change', function () {
                 var el1 = $('.base-size')[0];
                 var el2 = $('.base-size')[1];
