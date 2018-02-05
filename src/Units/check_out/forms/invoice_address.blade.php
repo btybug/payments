@@ -11,53 +11,53 @@
             <div class="form-group">
                 <div class="col-md-12"><strong>Country:</strong></div>
                 <div class="col-md-12">
-                    <input type="text" class="form-control" name="country" value=""/>
+                    {{ $user->country }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-6 col-xs-12">
                     <strong>First Name:</strong>
-                    <input type="text" name="first_name" class="form-control" value=""/>
+                    {{ $user->f_name }}
                 </div>
                 <div class="span1"></div>
                 <div class="col-md-6 col-xs-12">
                     <strong>Last Name:</strong>
-                    <input type="text" name="last_name" class="form-control" value=""/>
+                    {{ $user->l_name }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>Address:</strong></div>
                 <div class="col-md-12">
-                    <input type="text" name="address" class="form-control" value=""/>
+                    {{ $user->address }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>City:</strong></div>
                 <div class="col-md-12">
-                    <input type="text" name="city" class="form-control" value=""/>
+                    {{ $user->city }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>State:</strong></div>
                 <div class="col-md-12">
-                    <input type="text" name="state" class="form-control" value=""/>
+                    {{ $user->state }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>Zip / Postal Code:</strong></div>
                 <div class="col-md-12">
-                    <input type="text" name="zip_code" class="form-control" value=""/>
+                    {{ $user->post_code }}
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>Phone Number:</strong></div>
-                <div class="col-md-12"><input type="text" name="phone_number" class="form-control"
-                                              value=""/></div>
+                <div class="col-md-12">
+                    {{ $user->phone_number }}
+                </div>
             </div>
             <div class="form-group">
                 <div class="col-md-12"><strong>Email Address:</strong></div>
-                <div class="col-md-12"><input type="text" name="email_address" class="form-control"
-                                              value=""/></div>
+                <div class="col-md-12">{{ $user->email }}</div>
             </div>
         </div>
     </div>
