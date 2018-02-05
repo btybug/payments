@@ -1,25 +1,88 @@
-nav.bty-navbar-blog form input[type=search]{ width: 50%;}
-nav.bty-navbar-blog { background: #545454; border-color: #ccc; box-shadow: 0 0 2px 0 #ccc; margin: 0;}
-nav.bty-navbar-blog a { color: #499bc7; }
-nav.bty-navbar-blog ul.navbar-nav a { color: #fff; border-style: solid; border-width: 0 0 2px 0; border-color: #fff; }
+nav.bty-navbar-blog form input[type=search] {
+    width: 50%;
+}
+
+nav.bty-navbar-blog {
+    background: #545454;
+    border-color: #ccc;
+    box-shadow: 0 0 2px 0 #ccc;
+    margin: 0;
+}
+
+nav.bty-navbar-blog a {
+    color: #499bc7;
+}
+
+nav.bty-navbar-blog ul.navbar-nav a {
+    color: #fff;
+    border-style: solid;
+    border-width: 0 0 2px 0;
+    border-color: #fff;
+}
+
 nav.bty-navbar-blog ul.navbar-nav a:hover,
 nav.bty-navbar-blog ul.navbar-nav a:visited,
 nav.bty-navbar-blog ul.navbar-nav a:focus,
-nav.bty-navbar-blog ul.navbar-nav a:active { background: #fff; color: #444;}
-nav.bty-navbar-blog ul.navbar-nav a:hover { border-color: #333; }
-nav.bty-navbar-blog li.divider { background: #ccc; }
-nav.bty-navbar-blog button.navbar-toggle { background: #499bc7; border-radius: 2px; }
-nav.bty-navbar-blog button.navbar-toggle:hover { background: #999; }
-nav.bty-navbar-blog button.navbar-toggle > span.icon-bar { background: #fff; }
-nav.bty-navbar-blog ul.dropdown-menu { border: 0; background: #fff; border-radius: 4px; margin: 4px 0; box-shadow: 0 0 4px 0 #ccc; }
-nav.bty-navbar-blog ul.dropdown-menu > li > a { color: #444; }
-nav.bty-navbar-blog ul.dropdown-menu > li > a:hover { background: #888; color: #fff; }
-nav.bty-navbar-blog span.badge { background: #499bc7; font-weight: normal; font-size: 11px; margin: 0 4px; }
-nav.bty-navbar-blog span.badge.new { background: rgba(73, 155, 199, 0.81); color: #fff; }
-nav.bty-navbar-blog .bty-navradio{
+nav.bty-navbar-blog ul.navbar-nav a:active {
+    background: #fff;
+    color: #444;
+}
+
+nav.bty-navbar-blog ul.navbar-nav a:hover {
+    border-color: #333;
+}
+
+nav.bty-navbar-blog li.divider {
+    background: #ccc;
+}
+
+nav.bty-navbar-blog button.navbar-toggle {
+    background: #499bc7;
+    border-radius: 2px;
+}
+
+nav.bty-navbar-blog button.navbar-toggle:hover {
+    background: #999;
+}
+
+nav.bty-navbar-blog button.navbar-toggle > span.icon-bar {
+    background: #fff;
+}
+
+nav.bty-navbar-blog ul.dropdown-menu {
+    border: 0;
+    background: #fff;
+    border-radius: 4px;
+    margin: 4px 0;
+    box-shadow: 0 0 4px 0 #ccc;
+}
+
+nav.bty-navbar-blog ul.dropdown-menu > li > a {
+    color: #444;
+}
+
+nav.bty-navbar-blog ul.dropdown-menu > li > a:hover {
+    background: #888;
+    color: #fff;
+}
+
+nav.bty-navbar-blog span.badge {
+    background: #499bc7;
+    font-weight: normal;
+    font-size: 11px;
+    margin: 0 4px;
+}
+
+nav.bty-navbar-blog span.badge.new {
+    background: rgba(73, 155, 199, 0.81);
+    color: #fff;
+}
+
+nav.bty-navbar-blog .bty-navradio {
     display: none;
 }
-nav.bty-navbar-blog .bty-navradio+label{
+
+nav.bty-navbar-blog .bty-navradio + label {
     display: inline-block;
     height: 30px;
     width: 30px;
@@ -29,6 +92,7 @@ nav.bty-navbar-blog .bty-navradio+label{
     /*border: 1px solid #fff;*/
     padding: 4px 6px;
 }
+
 nav.bty-navbar-blog .bty-navradio + label i {
     display: block;
     color: #fff;
@@ -36,35 +100,41 @@ nav.bty-navbar-blog .bty-navradio + label i {
     text-align: center;
 }
 
-nav.bty-navbar-blog .bty-navradio.nv-1 + label{
+nav.bty-navbar-blog .bty-navradio.nv-1 + label {
     opacity: 0.5;
 }
-nav.bty-navbar-blog .bty-navradio.nv-2 + label{
+
+nav.bty-navbar-blog .bty-navradio.nv-2 + label {
     opacity: 0.5;
 }
-nav.bty-navbar-blog .bty-navradio.nv-1:checked + label{
-   opacity: 1;
-}
-nav.bty-navbar-blog .bty-navradio.nv-2:checked + label{
+
+nav.bty-navbar-blog .bty-navradio.nv-1:checked + label {
     opacity: 1;
 }
 
+nav.bty-navbar-blog .bty-navradio.nv-2:checked + label {
+    opacity: 1;
+}
 
 #blog-section {
     margin-bottom: 80px;
 }
-#blog-section .navbar-form{
+
+#blog-section .navbar-form {
     margin: 0;
     padding: 0;
 }
+
 #blog-section .content-title {
     padding: 5px;
     background-color: #fff;
 }
-#blog-section .search-head input{
+
+#blog-section .search-head input {
     width: 100%;
     margin-top: 8px;
 }
+
 #blog-section .content-title h3 a {
     color: #34495E;
     text-decoration: none;
@@ -329,34 +399,41 @@ nav.bty-navbar-blog .bty-navradio.nv-2:checked + label{
 #blog-section .input-group-addon {
     border-radius: 0;
 }
-#blog-section .bty-all-blog ul{
+
+#blog-section .bty-all-blog ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-#blog-section .bty-all-blog figure.bty-recent-post-3{
+
+#blog-section .bty-all-blog figure.bty-recent-post-3 {
     box-shadow: 0 0 2px 0 #696969;
     margin: 0 0 30px 0;
     min-width: 100%;
     max-width: 100%;
     background-color: #f7f7f7a1;
 }
-#blog-section .bty-all-blog figure.bty-recent-post-3 img{
+
+#blog-section .bty-all-blog figure.bty-recent-post-3 img {
     width: 100%;
 }
-#blog-section .bty-all-blog figure.bty-recent-post-3:hover{
+
+#blog-section .bty-all-blog figure.bty-recent-post-3:hover {
     box-shadow: 0 0 4px 1px #696969;
 }
-#blog-section .bty-all-blog figure.bty-recent-post-3 h3{
+
+#blog-section .bty-all-blog figure.bty-recent-post-3 h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     display: block;
 }
-#blog-section .bty-all-blog{
+
+#blog-section .bty-all-blog {
     margin-top: 25px;
 }
-.blog-load-more button{
+
+.blog-load-more button {
     position: relative;
     display: block;
     overflow: hidden;
@@ -371,7 +448,8 @@ nav.bty-navbar-blog .bty-navradio.nv-2:checked + label{
     -webkit-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
 }
-.blog-load-more button:before{
+
+.blog-load-more button:before {
     content: '';
     position: absolute;
     top: 0;
@@ -384,10 +462,12 @@ nav.bty-navbar-blog .bty-navradio.nv-2:checked + label{
     -webkit-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
 }
-.blog-load-more button:hover{
+
+.blog-load-more button:hover {
     color: #fff;
 }
-.blog-load-more button:hover:before{
+
+.blog-load-more button:hover:before {
     -webkit-transform: translateX(0);
     transform: translateX(0);
     z-index: -1;

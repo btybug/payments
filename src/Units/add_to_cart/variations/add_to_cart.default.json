@@ -1,1 +1,11 @@
-{"title":"main variation","id":"add_to_cart.default","settings":{"forms":["invoice_address","edit_cart","shipping_address"]}}
+{
+  "title": "main variation",
+  "id": "add_to_cart.default",
+  "settings": {
+    "forms": [
+      "invoice_address",
+      "edit_cart",
+      "shipping_address"
+    ]
+  }
+}

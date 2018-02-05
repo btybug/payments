@@ -10,6 +10,7 @@
     flex-flow: row wrap;
     position: relative;
 }
+
 .post-item-light .plan-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -18,14 +19,17 @@
     margin: 10px 0;
     padding: 10px;
 }
+
 @media all and (max-width: 700px) {
     .post-item-light .plan-box {
         width: 100%;
     }
+
     .post-item-light .plan-box:first-child {
         margin-bottom: 20px;
     }
 }
+
 .post-item-light .plan-name {
     font-weight: 700;
     padding: 12px 0;
@@ -36,6 +40,7 @@
     text-overflow: ellipsis;
     color: #292929;
 }
+
 .post-item-light .plan-price {
     font-weight: 700;
     font-style: normal;
@@ -66,7 +71,8 @@
     text-decoration: none;
     padding: 0
 }
-.post-item-light .plan-options .button a{
+
+.post-item-light .plan-options .button a {
     color: white;
     text-align: center;
     font-size: 14px;
@@ -79,22 +85,24 @@
     transition: all 0.5s ease-out 0s;
     font-weight: bold;
 }
-.post-item-light .plan-options .button a:first-of-type{
+
+.post-item-light .plan-options .button a:first-of-type {
     border-right: 1px solid #fff;
 }
+
 .post-item-light .plan-options .button a:hover {
     background: #2c5e78;
 }
 
-
-.post-item-light .plan-options .button a>i{
+.post-item-light .plan-options .button a > i {
     padding-left: 6px;
 }
 
-.post-item-light .plan-icon{
+.post-item-light .plan-icon {
     background-color: #ccc;
 }
-.post-item-light .plan-icon img{
+
+.post-item-light .plan-icon img {
     width: 100%;
     height: 360px;
     object-fit: cover;

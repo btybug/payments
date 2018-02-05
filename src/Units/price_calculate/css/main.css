@@ -1,14 +1,16 @@
-.product-single-price{
-text-align: center;
+.product-single-price {
+    text-align: center;
 }
-.product-single-price h6{
+
+.product-single-price h6 {
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
     color: #333333;
     margin-top: 0;
 }
-.product-single-price p{
+
+.product-single-price p {
     font-style: normal;
     font-weight: 300;
     font-size: 18px;

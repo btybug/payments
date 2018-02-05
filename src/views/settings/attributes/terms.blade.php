@@ -6,7 +6,7 @@
                 @include('payments::settings.attributes.terms_create_or_update')
             </div>
             <div class="col-md-7 m-t-15">
-                <table id="fields-table"  class="table table-striped table-bordered" cellspacing="0" width="100%">
+                <table id="fields-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>#</th>

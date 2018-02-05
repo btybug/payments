@@ -1,15 +1,19 @@
-.custom_hidden_for_search_div{
-    display:none;
-}
-.custom_hidden_for_sort_div{
+.custom_hidden_for_search_div {
     display: none;
 }
-.custom_hidden_for_sort_by{
+
+.custom_hidden_for_sort_div {
     display: none;
 }
-.custom_margin_10{
-    margin:10px 0;
+
+.custom_hidden_for_sort_by {
+    display: none;
 }
-.custom_margin_bottom_30{
-    margin-bottom:30px;
+
+.custom_margin_10 {
+    margin: 10px 0;
+}
+
+.custom_margin_bottom_30 {
+    margin-bottom: 30px;
 }

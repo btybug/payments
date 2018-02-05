@@ -1,1 +1,12 @@
-{"id":"thank_you.5a70ad199a4c0","hidden":1,"title":"main variation","settings":{"forms":["invoice_address","edit_cart","shipping_address"]}}
+{
+  "id": "thank_you.5a70ad199a4c0",
+  "hidden": 1,
+  "title": "main variation",
+  "settings": {
+    "forms": [
+      "invoice_address",
+      "edit_cart",
+      "shipping_address"
+    ]
+  }
+}

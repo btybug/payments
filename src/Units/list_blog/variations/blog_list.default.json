@@ -1,1 +1,9 @@
-{"title":"main variation","id":"blog_list.default","settings":{"custom_1_item_value":"title","custom_2_item_value":"slug","custom_3_item_value":"description"}}
+{
+  "title": "main variation",
+  "id": "blog_list.default",
+  "settings": {
+    "custom_1_item_value": "title",
+    "custom_2_item_value": "slug",
+    "custom_3_item_value": "description"
+  }
+}

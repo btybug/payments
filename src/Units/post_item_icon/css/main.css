@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
 }
+
 .post-item-icon {
     margin: 50px auto;
     max-width: 100%;
@@ -15,6 +16,7 @@
     flex-flow: row wrap;
     position: relative;
 }
+
 .post-item-icon .plan-box {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -23,14 +25,17 @@
     margin: 10px 0;
     padding: 10px;
 }
+
 @media all and (max-width: 700px) {
     .post-item-icon .plan-box {
         width: 100%;
     }
+
     .post-item-icon .plan-box:first-child {
         margin-bottom: 20px;
     }
 }
+
 .post-item-icon .plan-name {
     font-weight: 300;
     padding: 12px 10px;
@@ -42,6 +47,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .post-item-icon .plan-price {
     color: white;
     text-align: center;
@@ -54,12 +60,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 .post-item-icon .plan-price strong {
     font-size: 34px;
     -ms-flex-item-align: baseline;
     align-self: baseline;
     font-weight: 500;
 }
+
 .post-item-icon .plan-options {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -83,7 +91,8 @@
     flex-direction: column;
     align-items: center;
 }
-.post-item-icon .plan-options .button a{
+
+.post-item-icon .plan-options .button a {
     border-bottom: 1px solid #fff;
     color: white;
     text-align: center;
@@ -97,9 +106,11 @@
     position: relative;
     transition: all 0.5s ease-out 0s;
 }
+
 .post-item-icon .plan-options .button a:hover {
     background: #3c7fa2;
 }
+
 .post-item-icon .plan-options .button a:after, .post-item-icon .plan-options .button a:before {
     content: "";
     width: 16px;
@@ -112,16 +123,20 @@
     right: -10px;
     transition: all 0.8s ease 0s;
 }
+
 .post-item-icon .plan-options .button a:before {
     left: -10px;
 }
+
 .post-item-icon .plan-options .button a:hover:after, .post-item-icon .plan-options .button a:hover:before {
     width: 0;
     height: 0;
 }
-.post-item-icon .plan-options .button a>i{
+
+.post-item-icon .plan-options .button a > i {
     padding-left: 6px;
 }
+
 .post-item-icon .plan-price:after, .post-item-icon .plan-price:before {
     content: "";
     width: 24px;
@@ -133,17 +148,20 @@
     top: 40%;
     right: -15px;
 }
+
 .post-item-icon .plan-price:before {
     left: -15px;
 }
-.post-item-icon .plan-icon{
+
+.post-item-icon .plan-icon {
     display: block;
     font-size: 54px;
     text-align: center;
     background-color: #499bc7;
     color: white;
 }
-.post-item-icon .plan-icon img{
+
+.post-item-icon .plan-icon img {
     width: 100%;
     height: 200px;
     object-fit: cover;

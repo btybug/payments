@@ -1,0 +1,11 @@
+{
+  "id": "membership_plans.creatives",
+  "hidden": 1,
+  "title": "New variation_creatives",
+  "settings": {
+    "blog": "creatives",
+    "option_1_item_value": "title",
+    "option_2_item_value": "created_at",
+    "option_3_item_value": "description"
+  }
+}

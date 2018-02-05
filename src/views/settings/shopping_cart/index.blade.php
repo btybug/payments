@@ -23,7 +23,8 @@
                                         {!! BBbutton2('unit','shopping_cart_unit','shopping_cart',($page->template)?'Change':'Select',['class'=>'btn btn-default change-layout','copy'=>'1','model'=>$page->template]) !!}
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="{!! route('uploads_settings',$page->template) !!}" class="btn btn-warning" target="_blank">Customize</a>
+                                        <a href="{!! route('uploads_settings',$page->template) !!}"
+                                           class="btn btn-warning" target="_blank">Customize</a>
                                     </div>
                                 </div>
                             </div>

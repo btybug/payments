@@ -1,1 +1,14 @@
-{"id":"shopping_cart.5a677745b610f","hidden":1,"title":"main variation","settings":{"grid_system":"grid","custom_search_by":["id"],"option_1_container_item_style":"font-1","option_2_container_item_style":"font-3","option_3_container_item_style":"font-3"}}
+{
+  "id": "shopping_cart.5a677745b610f",
+  "hidden": 1,
+  "title": "main variation",
+  "settings": {
+    "grid_system": "grid",
+    "custom_search_by": [
+      "id"
+    ],
+    "option_1_container_item_style": "font-1",
+    "option_2_container_item_style": "font-3",
+    "option_3_container_item_style": "font-3"
+  }
+}

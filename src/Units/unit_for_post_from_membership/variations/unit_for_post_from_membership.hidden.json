@@ -1,7 +1,7 @@
 {
   "title": "hidden test",
   "id": "unit_for_post_from_membership.hidden",
-  "hidden":1,
+  "hidden": 1,
   "settings": {
     "option_1_item_value": "this is a title",
     "option_1_container_style": "option-6",

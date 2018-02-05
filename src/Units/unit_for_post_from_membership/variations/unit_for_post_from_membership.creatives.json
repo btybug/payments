@@ -1,0 +1,26 @@
+{
+  "id": "unit_for_post_from_membership.creatives",
+  "hidden": 1,
+  "title": "New variation_creatives",
+  "settings": {
+    "table": "creatives",
+    "option_1_item_value": "image",
+    "option_1_container_style": "option-1",
+    "option_1_container_item_style": "img-3",
+    "option_2_item_value": "title",
+    "option_2_container_style": null,
+    "option_2_container_item_style": null,
+    "option_3_item_value": "description",
+    "option_3_container_style": null,
+    "option_3_container_item_style": null,
+    "punit1": "price_calculate.default",
+    "punit2": "product_single_quantity.default",
+    "punit3": "add_to_cart.default",
+    "unit2": null,
+    "unit3": "unit_for_post_description.default",
+    "unit4": null,
+    "option_5_item_value": "description",
+    "option_5_container_style": null,
+    "option_5_container_item_style": null
+  }
+}

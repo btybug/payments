@@ -70,7 +70,7 @@
 
 
             $('input[name=min_height]').on('change', function () {
-                 min_height = $(this).val();
+                min_height = $(this).val();
                 if ($('input[name=height]').val() < min_height) {
                     $('input[name=height]').val(min_height);
                     $('input[name=height]').change();
@@ -93,7 +93,6 @@
                     $(this).val(max_length);
                 }
             });
-
 
 
             $('input[name=max_height]').on('change', function () {
@@ -120,7 +119,7 @@
             }
 
             $('input[name=min_length]').on('change', function () {
-                 min_length = $(this).val();
+                min_length = $(this).val();
                 if ($('input[name=length]').val() < min_length) {
                     $('input[name=length]').val(min_length);
                     $('input[name=length]').change();
