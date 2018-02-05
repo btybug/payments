@@ -64,10 +64,10 @@ class ModuleServiceProvider extends ServiceProvider
 
         \Eventy::action('payment.pricing',
             [
-                'name' => 'Price plan',
-                'slug' => 'price_plan',
-                'form' => 'payments::settings.price._partials.forms.price_plan',
-                'settings' =>  'payments::settings.price._partials.settings.price_plan',
+                'name' => 'Size based',
+                'slug' => 'size_based',
+                'form' => 'payments::settings.price._partials.forms.size_based',
+                'settings' =>  'payments::settings.price._partials.settings.size_based',
             ]);
 
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
