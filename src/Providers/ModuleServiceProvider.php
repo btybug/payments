@@ -32,6 +32,7 @@ class ModuleServiceProvider extends ServiceProvider
     public function boot()
     {
 //        CreatePayInvoiceTable::up();
+//        CreatePayInvoiceTable::up();
         $settingsPath = storage_path('app' . DS . 'payments.json');
         if (\File::exists($settingsPath)) {
             $settings = json_decode(\File::get($settingsPath), true);

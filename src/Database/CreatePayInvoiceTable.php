@@ -14,19 +14,15 @@ class CreatePayInvoiceTable extends Migration
      */
     public static function up()
     {
-        Schema::create('pay_invoice', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('country');
-            $table->string('f_name');
-            $table->string('l_name');
-            $table->string('email');
-            $table->string('address');
-            $table->string('city');
-            $table->string('state');
-            $table->string('post_code');
-            $table->string('phone_number');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('country')->nullable();
+            $table->string('f_name')->nullable();
+            $table->string('l_name')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('post_code')->nullable();
+            $table->string('phone_number')->nullable();
         });
     }
 
@@ -37,6 +33,6 @@ class CreatePayInvoiceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pay_invoice');
+       // Schema::dropIfExists('pay_invoice');
     }
 }
