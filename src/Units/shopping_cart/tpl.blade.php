@@ -1,5 +1,5 @@
 @php
-use Gloudemans\Shoppingcart\Facades\Cart;
+    use Gloudemans\Shoppingcart\Facades\Cart;
 @endphp
 
 <div class="container">
@@ -20,12 +20,13 @@ use Gloudemans\Shoppingcart\Facades\Cart;
                 @foreach(Cart::content() as $item)
                     <div class="product">
                         <div class="product-image">
-                            <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg" alt="" class="{{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
+                            <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg" alt=""
+                                 class="{{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : ''}}">
                         </div>
                         <div class="product-details">
                             <div class="product-title">
                                 <p class="{{isset($settings['option_2_container_item_style']) ? $settings['option_2_container_item_style'] : ''}} {{isset($settings['option_3_container_item_style']) ? $settings['option_3_container_item_style'] : ''}}">
-                                   {!! $item->name !!}
+                                    {!! $item->name !!}
                                 </p>
                             </div>
                             <p class="product-description {{isset($settings['option_4_container_item_style']) ? $settings['option_4_container_item_style'] : ''}} {{isset($settings['option_5_container_item_style']) ? $settings['option_5_container_item_style'] : ''}}">
@@ -67,7 +68,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
                 </div>
             </div>
 
-            <a href="{!! url('/check-out') !!}" class="checkout {{isset($settings['option_10_container_item_style']) ? $settings['option_10_container_item_style'] : ''}} {{isset($settings['option_11_container_item_style']) ? $settings['option_11_container_item_style'] : ''}}">Checkout</a>
+            <a href="{!! url('/check-out') !!}"
+               class="checkout {{isset($settings['option_10_container_item_style']) ? $settings['option_10_container_item_style'] : ''}} {{isset($settings['option_11_container_item_style']) ? $settings['option_11_container_item_style'] : ''}}">Checkout</a>
 
         </div>
 

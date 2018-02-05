@@ -1,7 +1,7 @@
 @php
-use BtyBugHook\Payments\Repository\TaxServiceRepository;
-$taxRepo = new TaxServiceRepository();
-$services = $taxRepo->getBy('amount_type','services');
+    use BtyBugHook\Payments\Repository\TaxServiceRepository;
+    $taxRepo = new TaxServiceRepository();
+    $services = $taxRepo->getBy('amount_type','services');
 @endphp
 
 @if(count($services))

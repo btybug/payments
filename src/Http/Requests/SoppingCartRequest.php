@@ -25,28 +25,26 @@ class SoppingCartRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules ()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             case 'GET':
-            case 'DELETE':
-                {
-                    return [];
-                }
-            case 'POST':
-                {
-                    return [
-                        'id' => 'required',
-                    ];
-                }
+            case 'DELETE': {
+                return [];
+            }
+            case 'POST': {
+                return [
+                    'id' => 'required',
+                ];
+            }
             case 'PUT':
-            case 'PATCH':
-                {
+            case 'PATCH': {
 
-                }
-            default:break;
+            }
+            default:
+                break;
         }
+
         return [];
     }
 

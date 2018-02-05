@@ -1,8 +1,8 @@
 <?php
 $product = [];
-if(isset($settings["blog"]) && !count($product)){
+if (isset($settings["blog"]) && ! count($product)) {
     $table = $settings["blog"];
-    $slug = implode("_",explode("-",$table));
+    $slug = implode("_", explode("-", $table));
     $product = DB::table($slug)->select("*")->first();
     $product = collect($product)->toArray();
 }
@@ -22,7 +22,9 @@ if(isset($settings["blog"]) && !count($product)){
                         {{isset($settings["option_3_item_value"]) ? $product[$settings["option_3_item_value"]] : ''}}
                     </div>
                     <div class="text-center">
-                        <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">Add To Cart</button>
+                        <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">
+                            Add To Cart
+                        </button>
                         <a href="#" class="btn select-plan">View Product</a>
                     </div>
                 </div>

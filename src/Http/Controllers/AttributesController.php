@@ -13,26 +13,27 @@ class AttributesController extends Controller
 {
     private $model = null;
 
-    public function getAttributes()
+    public function getAttributes ()
     {
         return view('payments::settings.attributes.list');
     }
 
-    public function getAttributesCreate()
+    public function getAttributesCreate ()
     {
         return view('payments::settings.attributes.create_or_update')->with('model', $this->model);
     }
 
-    public function getAttributesEdit(
+    public function getAttributesEdit (
         $id,
         AttributesRepository $attributesRepository
     )
     {
         $this->model = $attributesRepository->findOrFail($id);
+
         return view('payments::settings.attributes.create_or_update')->with('model', $this->model);
     }
 
-    public function postAttributesCreate(
+    public function postAttributesCreate (
         AttributesRequest $createRequest,
         AttributesRepository $attributesRepository
     )
@@ -42,7 +43,7 @@ class AttributesController extends Controller
         return redirect()->route('payments_settings_attributes')->with('message', 'Created successfully');
     }
 
-    public function postAttributesEdit(
+    public function postAttributesEdit (
         AttributesRequest $request,
         AttributesRepository $attributesRepository,
         $id
@@ -53,24 +54,25 @@ class AttributesController extends Controller
         return redirect()->route('payments_settings_attributes')->with('message', 'Edited successfully');
     }
 
-    public function getAttributesDelete(
+    public function getAttributesDelete (
         $id,
         AttributesRepository $attributesRepository
     )
     {
         $this->model = $attributesRepository->findOrFail($id);
         $this->model->delete();
+
         return redirect()->route('payments_settings_attributes')->with('message', 'Deleted successfully');
     }
 
-    public function getTerms(
+    public function getTerms (
         $id
     )
     {
-        return view('payments::settings.attributes.terms',compact('id'))->with('model', $this->model);
+        return view('payments::settings.attributes.terms', compact('id'))->with('model', $this->model);
     }
 
-    public function postTermCreate(
+    public function postTermCreate (
         AttributeTermsRequest $createRequest,
         AttributeTermsRepository $attributesRepository,
         $id
@@ -81,16 +83,17 @@ class AttributesController extends Controller
         return redirect()->back()->with('message', 'Created successfully');
     }
 
-    public function getTermEdit(
+    public function getTermEdit (
         $id, $term_id,
         AttributeTermsRepository $attributeTermsRepository
     )
     {
         $this->model = $attributeTermsRepository->findOrFail($id);
-        return view('payments::settings.attributes.term_edit',compact('id'))->with('model', $this->model);
+
+        return view('payments::settings.attributes.term_edit', compact('id'))->with('model', $this->model);
     }
 
-    public function postTermEdit(
+    public function postTermEdit (
         AttributeTermsRequest $request,
         AttributeTermsRepository $attributeTermsRepository,
         $attr_id,
@@ -98,10 +101,11 @@ class AttributesController extends Controller
     )
     {
         $attributeTermsRepository->update($id, $request->except('_token'));
-        return redirect()->route('payments_settings_attributes_terms',['id' => $attr_id])->with('message', 'Edited successfully');
+
+        return redirect()->route('payments_settings_attributes_terms', ['id' => $attr_id])->with('message', 'Edited successfully');
     }
 
-    public function getTermDelete(
+    public function getTermDelete (
         $attr_id,
         $id,
         AttributeTermsRepository $attributesRepository
@@ -109,6 +113,7 @@ class AttributesController extends Controller
     {
         $this->model = $attributesRepository->findOrFail($id);
         $this->model->delete();
+
         return redirect()->back()->with('message', 'Deleted successfully');
     }
 }

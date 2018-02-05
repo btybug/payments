@@ -29,77 +29,77 @@ class ModuleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot ()
     {
 //        CreatePayInvoiceTable::up();
 //        CreatePayInvoiceTable::up();
         $settingsPath = storage_path('app' . DS . 'payments.json');
         if (\File::exists($settingsPath)) {
             $settings = json_decode(\File::get($settingsPath), true);
-            \Config::set('services.stripe', isset($settings['stripe'])?$settings['stripe']:null);
+            \Config::set('services.stripe', isset($settings['stripe']) ? $settings['stripe'] : null);
         }
         \Eventy::action('payment.pricing',
             [
-                'name' => 'Simple price',
-                'slug' => 'simple_price',
-                'form' => 'payments::settings.price._partials.forms.simple_price',
-                'settings' =>  'payments::settings.price._partials.settings.simple_price',
+                'name'     => 'Simple price',
+                'slug'     => 'simple_price',
+                'form'     => 'payments::settings.price._partials.forms.simple_price',
+                'settings' => 'payments::settings.price._partials.settings.simple_price',
             ]);
 
         \Eventy::action('payment.pricing',
             [
-                'name' => 'Quantity price',
-                'slug' => 'quantity_price',
-                'form' => 'payments::settings.price._partials.forms.quantity_price',
-                'settings' =>  'payments::settings.price._partials.settings.quantity_price',
+                'name'     => 'Quantity price',
+                'slug'     => 'quantity_price',
+                'form'     => 'payments::settings.price._partials.forms.quantity_price',
+                'settings' => 'payments::settings.price._partials.settings.quantity_price',
             ]);
 
         \Eventy::action('payment.pricing',
             [
-                'name' => 'Attributes price',
-                'slug' => 'price_attributes',
-                'form' => 'payments::settings.price._partials.forms.price_attributes',
-                'settings' =>  'payments::settings.price._partials.settings.price_attributes',
+                'name'     => 'Attributes price',
+                'slug'     => 'price_attributes',
+                'form'     => 'payments::settings.price._partials.forms.price_attributes',
+                'settings' => 'payments::settings.price._partials.settings.price_attributes',
             ]);
 
         \Eventy::action('payment.pricing',
             [
-                'name' => 'Size based',
-                'slug' => 'size_based',
-                'form' => 'payments::settings.price._partials.forms.size_based',
-                'settings' =>  'payments::settings.price._partials.settings.size_based',
+                'name'     => 'Size based',
+                'slug'     => 'size_based',
+                'form'     => 'payments::settings.price._partials.forms.size_based',
+                'settings' => 'payments::settings.price._partials.settings.size_based',
             ]);
 
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
         $this->app->register(\Cartalyst\Stripe\Laravel\StripeServiceProvider::class);
-      //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
+        //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
         \Config::set('cart', [
-            'tax' => 21,
-            'database' => [
+            'tax'               => 21,
+            'database'          => [
                 'connection' => null,
-                'table' => 'shoppingcart',
+                'table'      => 'shoppingcart',
             ],
             'destroy_on_logout' => false,
-            'format' => [
-                'decimals' => 2,
-                'decimal_point' => '.',
+            'format'            => [
+                'decimals'           => 2,
+                'decimal_point'      => '.',
                 'thousand_seperator' => ','
             ],
         ]);
 
         \Eventy::action('options.listener',
             [
-                'name' => 'price',
-                'render_function' => 'render_price_form',
+                'name'             => 'price',
+                'render_function'  => 'render_price_form',
                 'options_function' => 'get_prices_data'
             ]
         );
         \Eventy::action('options.listener',
             [
-                'name' => 'tax_services',
-                'render_function' => 'render_tax_service_form',
+                'name'             => 'tax_services',
+                'render_function'  => 'render_tax_service_form',
                 'options_function' => 'get_tax_service_data',
-                'tab' => 'others'
+                'tab'              => 'others'
             ]
         );
 
@@ -107,33 +107,33 @@ class ModuleServiceProvider extends ServiceProvider
             'payment_settings' => [
                 [
                     'title' => 'General',
-                    'url' => '/admin/payments/settings/general',
-                    'icon' => 'fa fa-cub'
+                    'url'   => '/admin/payments/settings/general',
+                    'icon'  => 'fa fa-cub'
                 ],
                 [
                     'title' => 'Payment gateways',
-                    'url' => '/admin/payments/settings/payment-gateways',
-                    'icon' => 'fa fa-cub'
+                    'url'   => '/admin/payments/settings/payment-gateways',
+                    'icon'  => 'fa fa-cub'
                 ], [
                     'title' => 'Checkout',
-                    'url' => '/admin/payments/settings/checkout',
-                    'icon' => 'fa fa-cub'
+                    'url'   => '/admin/payments/settings/checkout',
+                    'icon'  => 'fa fa-cub'
                 ], [
                     'title' => 'Attributes',
-                    'url' => '/admin/payments/settings/attributes',
-                    'icon' => 'fa fa-cub'
+                    'url'   => '/admin/payments/settings/attributes',
+                    'icon'  => 'fa fa-cub'
                 ], [
                     'title' => 'Price',
-                    'url' => '/admin/payments/settings/price',
-                    'icon' => 'fa fa-cub'
-                ],[
+                    'url'   => '/admin/payments/settings/price',
+                    'icon'  => 'fa fa-cub'
+                ], [
                     'title' => 'Shopping Cart',
-                    'url' => '/admin/payments/settings/sopping-cart',
-                    'icon' => 'fa fa-cub'
-                ],[
+                    'url'   => '/admin/payments/settings/sopping-cart',
+                    'icon'  => 'fa fa-cub'
+                ], [
                     'title' => 'Tax & services',
-                    'url' => '/admin/payments/settings/tax-services',
-                    'icon' => 'fa fa-cub'
+                    'url'   => '/admin/payments/settings/tax-services',
+                    'icon'  => 'fa fa-cub'
                 ],
             ]
         ];
@@ -143,37 +143,37 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../views', 'payments');
 
         \Eventy::action('admin.menus', [
-            "title" => "Payments",
+            "title"       => "Payments",
             "custom-link" => "#",
-            "icon" => "fa fa-users",
-            "is_core" => "yes",
-            "children" => [
+            "icon"        => "fa fa-users",
+            "is_core"     => "yes",
+            "children"    => [
                 [
-                    "title" => "Dashboard",
+                    "title"       => "Dashboard",
                     "custom-link" => "/admin/payments/dashboard",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
+                    "icon"        => "fa fa-angle-right",
+                    "is_core"     => "yes"
                 ], [
-                    "title" => "User payments",
+                    "title"       => "User payments",
                     "custom-link" => "/admin/payments/user-payments",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
+                    "icon"        => "fa fa-angle-right",
+                    "is_core"     => "yes"
                 ],
                 [
-                    "title" => "Settings",
+                    "title"       => "Settings",
                     "custom-link" => "/admin/payments/settings",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
+                    "icon"        => "fa fa-angle-right",
+                    "is_core"     => "yes"
                 ], [
-                    "title" => "Payments",
+                    "title"       => "Payments",
                     "custom-link" => "/admin/payments",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
+                    "icon"        => "fa fa-angle-right",
+                    "is_core"     => "yes"
                 ], [
-                    "title" => "Shopping cart",
+                    "title"       => "Shopping cart",
                     "custom-link" => "/admin/payments/shopping-cart",
-                    "icon" => "fa fa-angle-right",
-                    "is_core" => "yes"
+                    "icon"        => "fa fa-angle-right",
+                    "is_core"     => "yes"
                 ]
             ]]);
 
@@ -188,17 +188,18 @@ class ModuleServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register ()
     {
         \Eventy::addAction('payment.pricing', function ($what) {
             $codes = \Config::get('payment.pricing', []);
             $codes[$what['slug']] = [
-                'name' => $what['name'],
-                'slug' => $what['slug'],
-                'form' => $what['form'],
+                'name'     => $what['name'],
+                'slug'     => $what['slug'],
+                'form'     => $what['form'],
                 'settings' => $what['settings'],
             ];
             \Config::set('payment.pricing', $codes);
+
             return (\Config::get('payment.pricing'));
         });
 

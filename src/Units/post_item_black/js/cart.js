@@ -1,6 +1,6 @@
 $(function () {
     var SoppingCart = {
-        slug:$('#shopping-cart-widget').attr('data-slug'),
+        slug: $('#shopping-cart-widget').attr('data-slug'),
         urls: {
             add: "/shopping-cart-api/add-to-cart",
             count: "/shopping-cart-api/get-cart-count",
@@ -8,7 +8,7 @@ $(function () {
         },
 
         request: function sendAjax(url, data, callback) {
-            data.slug=this.slug;
+            data.slug = this.slug;
             $.ajax({
                 type: "POST",
                 datatype: "json",
@@ -28,14 +28,14 @@ $(function () {
         },
         filter: {
             count: function (data) {
-                return  $('body').find('.shopping-cart-count').text(data.count);
+                return $('body').find('.shopping-cart-count').text(data.count);
             }
         },
         count: function () {
             return this.request(this.urls.count, {}, this.filter.count);
         },
         add: function (id) {
-            return this.request(this.urls.add, {id:id}, null);
+            return this.request(this.urls.add, {id: id}, null);
         }
     };
     SoppingCart.count();

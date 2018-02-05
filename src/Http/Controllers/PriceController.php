@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 
 class PriceController extends Controller
 {
-    public function postSaveQtyPrice(
+    public function postSaveQtyPrice (
         Request $request,
         AdminsettingRepository $adminsettingRepository
     )
     {
-        $adminsettingRepository->createOrUpdateToJson($request->except('_token'),'pricing','qty');
+        $adminsettingRepository->createOrUpdateToJson($request->except('_token'), 'pricing', 'qty');
 
         return redirect()->back();
     }

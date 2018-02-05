@@ -26,7 +26,8 @@
                         @endif
                     </div>
                     <div class="text-center">
-                        <a class="btn select-plan" href="{!! url($blog["slug"]) !!}">View Product <i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a class="btn select-plan" href="{!! url($blog["slug"]) !!}">View Product <i class="fa fa-eye"
+                                                                                                     aria-hidden="true"></i></a>
                     </div>
                 </div>
             @endforeach

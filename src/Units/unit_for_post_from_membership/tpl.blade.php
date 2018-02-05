@@ -1,23 +1,23 @@
 <?php
 $product = [];
-if(isset($source['_page'])){
-    $page=$source['_page'];
+if (isset($source['_page'])) {
+    $page = $source['_page'];
     $params = \Request::route()->parameters();
-    if(isset($params['param'])) {
+    if (isset($params['param'])) {
         $param = $params['param'];
     }
-    $blog=str_replace('-','_',str_replace_first('single_','',$page->slug));
-    $product=DB::table($blog)->find($param);
+    $blog = str_replace('-', '_', str_replace_first('single_', '', $page->slug));
+    $product = DB::table($blog)->find($param);
 }
-if(isset($settings["table"]) && !count($product)){
+if (isset($settings["table"]) && ! count($product)) {
     $table = $settings["table"];
-    $slug = implode("_",explode("-",$table));
+    $slug = implode("_", explode("-", $table));
     $product = DB::table($slug)->select("*")->first();
 }
 ?>
 @if(!count($product))
-<div class="container all-div">
-    <div class="row">
+    <div class="container all-div">
+        <div class="row">
             <div class="head">
                 <div class="col-md-5 col-sm-5 col-xs-12 opt1 final-opt1">
 
@@ -48,29 +48,29 @@ if(isset($settings["table"]) && !count($product)){
                 </div>
                 <div class="clearfix"></div>
             </div>
-        <div class="bottom">
-            <div class="in-bottom">
-                <div class="col-md-5 col-sm-5 col-xs-12">
-                    <div class="opt4 final-opt4">
-                    <div class="col-md-12">
+            <div class="bottom">
+                <div class="in-bottom">
+                    <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="opt4 final-opt4">
+                            <div class="col-md-12">
 
-                    </div>
-                    <div class="col-md-12">
+                            </div>
+                            <div class="col-md-12">
 
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                </div>
-                <div class="col-md-7 col-sm-7 col-xs-12">
-                    <div class="opt5 final-opt5">
+                    <div class="col-md-7 col-sm-7 col-xs-12">
+                        <div class="opt5 final-opt5">
 
+                        </div>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="clearfix"></div>
         </div>
     </div>
-</div>
 @else
     <?php $product = collect($product)->toArray();?>
     <div class="container all-div">
@@ -78,7 +78,8 @@ if(isset($settings["table"]) && !count($product)){
             <div class="head">
                 <div class="col-md-5 col-sm-5 col-xs-12 opt1 {{isset($settings["option_1_container_style"]) ? $settings["option_1_container_style"] : 'final-opt1'}} ">
                     @if(isset($settings["option_1_item_value"]))
-                        <img src="{{$product[$settings["option_1_item_value"]]}}" alt="" class=" {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : 'final-img'}}">
+                        <img src="{{$product[$settings["option_1_item_value"]]}}" alt=""
+                             class=" {{isset($settings['option_1_container_item_style']) ? $settings['option_1_container_item_style'] : 'final-img'}}">
                     @endif
                 </div>
                 <div class="col-md-7 col-sm-7 col-xs-12 right">

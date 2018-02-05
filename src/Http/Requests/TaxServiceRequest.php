@@ -11,7 +11,7 @@ class TaxServiceRequest extends Request
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize ()
     {
         return true;
     }
@@ -21,38 +21,37 @@ class TaxServiceRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules ()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             case 'GET':
-            case 'DELETE':
-                {
-                    return [];
-                }
-            case 'POST':
-                {
-                    return [
-                        'name' => 'required|max:100',
-                        'slug' => 'required|unique:tax_services,id',
-                        'amount' => 'required|numeric',
-                        'amount_type' => 'required',
-                    ];
-                }
+            case 'DELETE': {
+                return [];
+            }
+            case 'POST': {
+                return [
+                    'name'        => 'required|max:100',
+                    'slug'        => 'required|unique:tax_services,id',
+                    'amount'      => 'required|numeric',
+                    'amount_type' => 'required',
+                ];
+            }
             case 'PUT':
-            case 'PATCH':
-                {
-                    $id = $this->route('id');
-                    return [
-                        'id' => 'required|exists:tax_services,id',
-                        'name' => 'required|max:100',
-                        'slug' => 'required|unique:tax_services,id,'.$id,
-                        'amount' => 'required|numeric',
-                        'amount_type' => 'required',
-                    ];
-                }
-            default:break;
+            case 'PATCH': {
+                $id = $this->route('id');
+
+                return [
+                    'id'          => 'required|exists:tax_services,id',
+                    'name'        => 'required|max:100',
+                    'slug'        => 'required|unique:tax_services,id,' . $id,
+                    'amount'      => 'required|numeric',
+                    'amount_type' => 'required',
+                ];
+            }
+            default:
+                break;
         }
+
         return [];
     }
 }

@@ -1,13 +1,14 @@
-body{
+body {
     background-color: #fff;
     text-transform: uppercase;
-    color:#fff;
+    color: #fff;
 }
 
-#starter{
+#starter {
     padding-top: 100px;
 }
-.block-black{
+
+.block-black {
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.45);
     position: relative;
     background-color: #5bc0debd;
@@ -18,34 +19,41 @@ body{
     padding: 40px 0;
     padding-bottom: 0;
 }
-.block-black .title{
+
+.block-black .title {
     padding: 0 30px 0;
     font-size: 20px;
     letter-spacing: 4px;
     transition: ease all 0.5s;
 }
-.block-black .header-content{
+
+.block-black .header-content {
     margin: 30px 0;
     padding: 35px;
     width: 100%;
     background-color: #212e4233;
 }
-.block-black .header-content b{
+
+.block-black .header-content b {
     font-size: 40px;
 }
-.block-black .header-content small{
+
+.block-black .header-content small {
     font-size: 16px;
     text-transform: lowercase;
 }
-.block-black .block-content{
+
+.block-black .block-content {
     padding: 30px 60px;
     margin: 0;
     transition: ease all 0.5s;
 }
-.block-black .block-content ul li{
+
+.block-black .block-content ul li {
     padding: 10px;
 }
-.select-plan{
+
+.select-plan {
     display: block;
     color: #fff;
     text-transform: uppercase;
@@ -58,20 +66,23 @@ body{
     margin: 0 auto;
     transition: ease all 0.5s;
 }
-.select-plan:hover{
+
+.select-plan:hover {
     color: #fff;
 }
 
-.block:active .block-black ,.block:hover .block-black{
+.block:active .block-black, .block:hover .block-black {
     /*padding: 60px 0;*/
     /*margin: 0 auto;*/
     transition: ease all .5s;
     transform: scale(1.1);
 }
-.block:active .select-plan ,.block:hover .select-plan{
+
+.block:active .select-plan, .block:hover .select-plan {
     /*margin: 60px auto 0;*/
     transition: ease all 0.5s;
 }
+
 /*.block:active .block-black .block-content ,.block:hover .block-black .block-content {*/
 /*padding: 30px 60px 60px;*/
 /*transition: ease all .5s;*/

@@ -14,12 +14,12 @@ use Stripe\Stripe;
 
 class OrdersController extends Controller
 {
-    public function getList()
+    public function getList ()
     {
         return view('payments::orders.index');
     }
 
-    public function saveCash(
+    public function saveCash (
         Request $request,
         OrdersRepository $ordersRepository
     )
@@ -27,18 +27,19 @@ class OrdersController extends Controller
         if (Cart::count() == 0) return redirect()->back();
 
         $ordersRepository->create([
-            'order_number' => uniqid(),
-            'order_details' => json_encode(Cart::content(), true),
-            'user_id' => \Auth::id(),
+            'order_number'   => uniqid(),
+            'order_details'  => json_encode(Cart::content(), true),
+            'user_id'        => \Auth::id(),
             'payment_method' => 'cash',
-            'total_amount' => Cart::total(),
-            'status' => Orders::statuses['pending'],
+            'total_amount'   => Cart::total(),
+            'status'         => Orders::statuses['pending'],
         ]);
         Cart::destroy();
+
         return redirect()->to('/thank-you');
     }
 
-    public function saveStripe(Request $request, OrdersRepository $ordersRepository)
+    public function saveStripe (Request $request, OrdersRepository $ordersRepository)
     {
         if (Cart::count() == 0) return redirect()->back();
         $data = $request->all();
@@ -46,44 +47,47 @@ class OrdersController extends Controller
         $user = \Auth::user();
         $customer = $user->stripe_id;
         if (is_null($customer)) {
-            $customerUser = \Stripe\Customer::create(array(
+            $customerUser = \Stripe\Customer::create([
                 "description" => $data['stripeEmail'],
-                "source" => $data['stripeToken'] // obtained with Stripe.js
-            ));
+                "source"      => $data['stripeToken'] // obtained with Stripe.js
+            ]);
             $customer = $customerUser->id;
             $user->stripe_id = $customer;
             $user->save();
         }
-        $charge = \Stripe\Charge::create(array(
+        $charge = \Stripe\Charge::create([
             'customer' => $customer,
-            'amount' => Cart::total() * 100,
+            'amount'   => Cart::total() * 100,
             'currency' => 'usd'
-        ));
+        ]);
         $order_details = [];
         $order_details['local'] = Cart::content();
         $order_details['stripe'] = $charge;
         $ordersRepository->create([
-            'order_number' => uniqid(),
-            'order_details' => json_encode($order_details, true),
-            'user_id' => \Auth::id(),
+            'order_number'   => uniqid(),
+            'order_details'  => json_encode($order_details, true),
+            'user_id'        => \Auth::id(),
             'payment_method' => 'stripe',
-            'total_amount' => Cart::total(),
-            'status' => Orders::statuses['pending'],
+            'total_amount'   => Cart::total(),
+            'status'         => Orders::statuses['pending'],
         ]);
         Cart::destroy();
+
         return redirect()->to('/thank-you');
     }
 
-    public function editOrder(OrdersRepository $ordersRepository, $id)
+    public function editOrder (OrdersRepository $ordersRepository, $id)
     {
         $order = $ordersRepository->findOrFail($id);
+
         return view('payments::orders.edit', compact('order'));
     }
 
-    public function viewOrder(OrdersRepository $ordersRepository, $id)
+    public function viewOrder (OrdersRepository $ordersRepository, $id)
     {
         $order = $ordersRepository->findOrFail($id);
         $order_details = json_decode($order->order_details);
+
         return view('payments::orders.view', compact('order', 'order_details'));
     }
 }

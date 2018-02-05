@@ -25,27 +25,27 @@
 
 
             {{--<div class="panel panel-default">--}}
-                {{--<div class="panel-heading" role="tab" >--}}
-                    {{--<h4 class="panel-title">Price plan</h4>--}}
-                    {{--<span class="pull-right">--}}
-                        {{--<a href="{!! route('payments_settings_price_form','price_plan') !!}">See From</a>--}}
-                        {{--Active {!! Form::checkbox('price_plan',1) !!}--}}
-                    {{--</span>--}}
-                {{--</div>--}}
-                {{--<div class="panel-body">--}}
-                {{--</div>--}}
+            {{--<div class="panel-heading" role="tab" >--}}
+            {{--<h4 class="panel-title">Price plan</h4>--}}
+            {{--<span class="pull-right">--}}
+            {{--<a href="{!! route('payments_settings_price_form','price_plan') !!}">See From</a>--}}
+            {{--Active {!! Form::checkbox('price_plan',1) !!}--}}
+            {{--</span>--}}
+            {{--</div>--}}
+            {{--<div class="panel-body">--}}
+            {{--</div>--}}
             {{--</div>--}}
 
             {{--<div class="panel panel-default">--}}
-                {{--<div class="panel-heading" role="tab" >--}}
-                    {{--<h4 class="panel-title">Attributes based price</h4>--}}
-                    {{--<span class="pull-right">--}}
-                        {{--<a href="{!! route('payments_settings_price_form','price_attributes') !!}">See From</a>--}}
-                        {{--Active {!! Form::checkbox('price_attributes',1) !!}--}}
-                    {{--</span>--}}
-                {{--</div>--}}
-                {{--<div class="panel-body">--}}
-                {{--</div>--}}
+            {{--<div class="panel-heading" role="tab" >--}}
+            {{--<h4 class="panel-title">Attributes based price</h4>--}}
+            {{--<span class="pull-right">--}}
+            {{--<a href="{!! route('payments_settings_price_form','price_attributes') !!}">See From</a>--}}
+            {{--Active {!! Form::checkbox('price_attributes',1) !!}--}}
+            {{--</span>--}}
+            {{--</div>--}}
+            {{--<div class="panel-body">--}}
+            {{--</div>--}}
             {{--</div>--}}
 
         </div>

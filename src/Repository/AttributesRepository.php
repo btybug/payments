@@ -1,4 +1,5 @@
 <?php
+
 namespace BtyBugHook\Payments\Repository;
 
 use Btybug\btybug\Repositories\GeneralRepository;
@@ -10,12 +11,13 @@ class AttributesRepository extends GeneralRepository
      * @return mixed
      */
 
-    public function model()
+    public function model ()
     {
         return new Attributes();
     }
 
-    public function terms(){
+    public function terms ()
+    {
         return $this->model()->terms;
     }
 

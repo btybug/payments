@@ -1,4 +1,5 @@
 <?php namespace BtyBugHook\Payments\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -7,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
  * Date: 08.01.2018
  * Time: 23:10
  */
-
 class AttributeTerms extends Model
 {
-    protected $table='pym_attribute_terms';
+    protected $table = 'pym_attribute_terms';
 
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
-    public function attribute()
+    public function attribute ()
     {
         return $this->belongsTo('BtyBugHook\Payments\Models\Attributes', 'attribute_id', 'id');
     }

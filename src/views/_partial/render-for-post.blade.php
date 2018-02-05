@@ -1,11 +1,11 @@
 <?php
 
-if(isset($settings_for_ajax)){
+if (isset($settings_for_ajax)) {
     $settings = $settings_for_ajax;
 }
 
 $col_md_x = "col-md-4";
-if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
+if (isset($settings["custom_list"]) && ! isset($settings["custom_grid"])) {
     $col_md_x = "col-md-12";
 }
 ?>
@@ -39,7 +39,7 @@ if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
                 @if($settings["custom_pagination"] === "php")
                     <?php
                     $limit_page = 10;
-                    if(isset($settings["custom_limit_per_page"])){
+                    if (isset($settings["custom_limit_per_page"])) {
                         $limit_page = $settings["custom_limit_per_page"];
                     }
                     ?>
@@ -52,7 +52,8 @@ if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
                     <div class="ajax-load text-center" style="display:none">
                         <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
                     </div>
-                    <input type="hidden" id="custom_limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
+                    <input type="hidden" id="custom_limit_per_page_for_ajax"
+                           value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
                 @else
                     <div class="text-center blog-load-more">
                         <button class="custom_load_more">Load More</button>
@@ -60,7 +61,8 @@ if (isset($settings["custom_list"]) && !isset($settings["custom_grid"])){
                     <div class="ajax-load-button text-center" style="display:none">
                         <p><img src="http://demo.itsolutionstuff.com/plugin/loader.gif">Loading More post</p>
                     </div>
-                    <input type="hidden" id="custom_limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
+                    <input type="hidden" id="custom_limit_per_page_for_ajax"
+                           value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
                 @endif
             @endif
         </div>

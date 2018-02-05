@@ -12,7 +12,8 @@
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "tags": ["post_item",
+  "tags": [
+    "post_item",
     "frontend"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/post_item_black"

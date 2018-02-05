@@ -25,7 +25,7 @@ function renderOptions($columns){
             <div class="select-search">
                 <select name="custom_1_item_value" class="form-control">
                     <option value="id" selected>ID</option>
-                   {!! renderOptions($columns) !!}
+                    {!! renderOptions($columns) !!}
                 </select>
             </div>
         </div>

@@ -1,7 +1,7 @@
 @php
-use BtyBugHook\Payments\Repository\TaxServiceRepository;
-$taxRepo = new TaxServiceRepository();
-$taxes = $taxRepo->getBy('amount_type','vat');
+    use BtyBugHook\Payments\Repository\TaxServiceRepository;
+    $taxRepo = new TaxServiceRepository();
+    $taxes = $taxRepo->getBy('amount_type','vat');
 @endphp
 
 @if(count($taxes))
@@ -10,7 +10,7 @@ $taxes = $taxRepo->getBy('amount_type','vat');
         <div class="radio">
             <label for="radios-{{ $tax->slug }}">
                 <input type="radio" name="tax"
-                       id="radios-{!! $tax->slug !!}" value="{!!  $tax->amount !!}" >
+                       id="radios-{!! $tax->slug !!}" value="{!!  $tax->amount !!}">
                 {!! $tax->name !!}({!! $tax->amount !!}%)
             </label>
         </div>

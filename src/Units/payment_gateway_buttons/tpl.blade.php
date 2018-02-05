@@ -16,8 +16,8 @@
     @endif
 
     {{--@if(isset($checkoutButtons['checkout']['payment_gateways']['stripe']))--}}
-        <label  class="btn btn-info submit-button" for="stripe-button">Pay With Card</label>
-        <input type="checkbox" name="method" class="hidden" value="stripe" id="stripe-button">
+    <label class="btn btn-info submit-button" for="stripe-button">Pay With Card</label>
+    <input type="checkbox" name="method" class="hidden" value="stripe" id="stripe-button">
     {{--@endif--}}
 </div>
 

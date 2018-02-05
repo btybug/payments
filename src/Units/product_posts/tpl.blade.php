@@ -40,7 +40,8 @@
                                     <ul class="dropdown-menu" role="menu">
                                         @foreach($settings["custom_sort_by"] as $key => $sort_by)
                                             <li>
-                                                <a href="#" class="custom_a_for_click_sort" data-by="{{$sort_by['by']}}" data-how="{{$sort_by['how']}}">
+                                                <a href="#" class="custom_a_for_click_sort" data-by="{{$sort_by['by']}}"
+                                                   data-how="{{$sort_by['how']}}">
                                                     {{ $sort_by["fail_name"] ? $sort_by["fail_name"] : $sort_by["by"] }}
                                                 </a>
                                             </li>
@@ -52,19 +53,23 @@
                         </li>
                         @if(isset($settings["custom_list"]))
                             <li>
-                                <input name="radionav" type="radio" class="bty-navradio nv-1 custom_grid_change" value="list"
+                                <input name="radionav" type="radio" class="bty-navradio nv-1 custom_grid_change"
+                                       value="list"
                                        id="bty-navradio-1" {{ !isset($settings["custom_grid"]) ? "checked" : ""}}>
                                 <label for="bty-navradio-1">
-                                    <i class="fa {{isset($settings['custom_list_icon']) ? $settings['custom_list_icon'] : 'fa-th-list'}}" aria-hidden="true"></i>
+                                    <i class="fa {{isset($settings['custom_list_icon']) ? $settings['custom_list_icon'] : 'fa-th-list'}}"
+                                       aria-hidden="true"></i>
                                 </label>
                             </li>
                         @endif
                         @if(isset($settings["custom_grid"]))
                             <li>
-                                <input name="radionav" type="radio" class="bty-navradio nv-2 custom_grid_change" value="grid"
+                                <input name="radionav" type="radio" class="bty-navradio nv-2 custom_grid_change"
+                                       value="grid"
                                        id="bty-navradio-2" checked>
                                 <label for="bty-navradio-2">
-                                    <i class="fa {{isset($settings['custom_grid_icon']) ? $settings['custom_grid_icon'] : 'fa-th'}}" aria-hidden="true"></i>
+                                    <i class="fa {{isset($settings['custom_grid_icon']) ? $settings['custom_grid_icon'] : 'fa-th'}}"
+                                       aria-hidden="true"></i>
                                 </label>
                             </li>
                         @endif
@@ -73,11 +78,14 @@
                         <div class="col-md-offset-3 col-md-6 search-head">
                             <input type="search" name="term" class="form-control" placeholder="Search"/>
                         </div>
-                        <input type="hidden" name="search_by" value="{{isset($settings['custom_search_by']) ? json_encode($settings['custom_search_by']) : ''}}"/>
+                        <input type="hidden" name="search_by"
+                               value="{{isset($settings['custom_search_by']) ? json_encode($settings['custom_search_by']) : ''}}"/>
                     @endif
                     <input type="hidden" name="all_posts" value="{{$all_posts}}">
-                    <input type="hidden" name="limit_per_page_for_ajax" value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
-                    <input type="hidden" name="custom_get_col" value="{{(isset($settings["custom_list"]) && !isset($settings["custom_grid"])) ? 'col-md-12' : 'col-md-4'}}">
+                    <input type="hidden" name="limit_per_page_for_ajax"
+                           value="{{isset($settings["custom_limit_per_page"]) ? $settings["custom_limit_per_page"] : "" }}">
+                    <input type="hidden" name="custom_get_col"
+                           value="{{(isset($settings["custom_list"]) && !isset($settings["custom_grid"])) ? 'col-md-12' : 'col-md-4'}}">
                 </div>
             </div>
         </nav>

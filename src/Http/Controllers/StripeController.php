@@ -13,7 +13,7 @@ use App\Http\Controllers\Controller;
 
 class StripeController extends Controller
 {
-    public function getIndex()
+    public function getIndex ()
     {
 
 

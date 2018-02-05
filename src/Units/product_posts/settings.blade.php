@@ -5,25 +5,27 @@ $table = '';
 $blogs = $blogRepository->pluck('title', 'slug');
 $columns = [];
 if (isset($settings['blog'])) {
-    $table =  $slug = str_replace("-","_",$settings['blog']);
+    $table = $slug = str_replace("-", "_", $settings['blog']);
     $columns = \DB::select("SHOW COLUMNS FROM $table");
 }
-function renderOptions($columns){
+function renderOptions ($columns)
+{
     $html = '';
-    if(count($columns)){
-        foreach($columns as $key => $data){
-            $html .= '<option value="'.$data->Field.'">'.$data->Field.'</option>';
+    if (count($columns)) {
+        foreach ($columns as $key => $data) {
+            $html .= '<option value="' . $data->Field . '">' . $data->Field . '</option>';
         }
     }
+
     return $html;
 }
 
 ?>
 <div class="row">
     <div class="col-xs-12 ">
-        <ul  class="nav nav-pills bty-settings-right-tab">
+        <ul class="nav nav-pills bty-settings-right-tab">
             <li class="active">
-                <a  href="#1a" data-toggle="tab">General</a>
+                <a href="#1a" data-toggle="tab">General</a>
             </li>
             <li><a href="#2a" data-toggle="tab">Unit</a>
             </li>
@@ -44,14 +46,16 @@ function renderOptions($columns){
                             <div class="general-head">
                                 <div>
                                     <h5>Show search input:</h5>
-                                    <input name="custom_search" type="checkbox" class="show_search_input bty-input-checkbox-5"
+                                    <input name="custom_search" type="checkbox"
+                                           class="show_search_input bty-input-checkbox-5"
                                            id="bty-checkbox-search-set">
                                     <label for="bty-checkbox-search-set"></label>
                                 </div>
                                 <div class="grid-list">
                                     <div>
                                         <div>
-                                            <input name="custom_grid" value="grid" type="checkbox" class="bty-input-checkbox-6"
+                                            <input name="custom_grid" value="grid" type="checkbox"
+                                                   class="bty-input-checkbox-6"
                                                    id="bty-sort-grid" {{isset($settings["custom_grid"]) ? "checked":""}}>
                                             <label for="bty-sort-grid"><span>GRID</span></label>
                                         </div>
@@ -62,7 +66,8 @@ function renderOptions($columns){
                                     </div>
                                     <div>
                                         <div>
-                                            <input name="custom_list" value="list" type="checkbox" class="bty-input-checkbox-6"
+                                            <input name="custom_list" value="list" type="checkbox"
+                                                   class="bty-input-checkbox-6"
                                                    id="bty-sort-list" {{(isset($settings["custom_list"]) && $settings["custom_list"] === "list")?"checked":""}}>
 
                                             <label for="bty-sort-list"><span>LIST</span></label>
@@ -118,7 +123,8 @@ function renderOptions($columns){
                                 <div class="sort-select-ad custom_margin_10">
                                     <div class="bty-input-select-1">
 
-                                        <select chng_nm="custom_sort_by[repl][by]" class="custom_get_data_key" data-key="repl">
+                                        <select chng_nm="custom_sort_by[repl][by]" class="custom_get_data_key"
+                                                data-key="repl">
                                             <option value="id" selected>ID</option>
                                             @foreach($columns as $key => $val)
                                                 @if($val->Field == 'id')
@@ -129,18 +135,21 @@ function renderOptions($columns){
                                         </select>
                                     </div>
                                     <div>
-                                        <input chng_nm="custom_sort_by[repl][how]" type="radio" class="bty-input-radio-1"
+                                        <input chng_nm="custom_sort_by[repl][how]" type="radio"
+                                               class="bty-input-radio-1"
                                                id="bty-sort-asc-repl"
                                                value="ASC" checked>
                                         <label for="bty-sort-asc-repl">ASC:</label>
 
-                                        <input chng_nm="custom_sort_by[repl][how]" type="radio" class="bty-input-radio-1"
+                                        <input chng_nm="custom_sort_by[repl][how]" type="radio"
+                                               class="bty-input-radio-1"
                                                id="bty-sort-desc-repl"
                                                value="DESC">
                                         <label for="bty-sort-desc-repl">DESC:</label>
                                     </div>
                                     <div class="sort-by-text">
-                                        <input type="text" chng_nm="custom_sort_by[repl][fail_name]" placeholder="Your text">
+                                        <input type="text" chng_nm="custom_sort_by[repl][fail_name]"
+                                               placeholder="Your text">
                                     </div>
                                 </div>
                             </div>
@@ -156,13 +165,15 @@ function renderOptions($columns){
                                             @foreach($settings["custom_sort_by"] as $keyy => $sort_by)
                                                 <div class="sort-select-ad custom_margin_10">
                                                     <div class="bty-input-select-1">
-                                                        <select name="custom_sort_by[{{$keyy}}][by]" class="custom_get_data_key" data-key={{$keyy}}>
+                                                        <select name="custom_sort_by[{{$keyy}}][by]"
+                                                                class="custom_get_data_key" data-key={{$keyy}}>
                                                             @if(!count($columns))
                                                                 <option value="id" selected>ID</option>
                                                             @endif
                                                             @foreach($columns as $key => $val)
                                                                 @if($sort_by['by'] === $val->Field)
-                                                                    <option value="{{$val->Field}}" selected>{{$val->Field}}</option>
+                                                                    <option value="{{$val->Field}}"
+                                                                            selected>{{$val->Field}}</option>
                                                                 @else
                                                                     <option value="{{$val->Field}}">{{$val->Field}}</option>
                                                                 @endif
@@ -170,18 +181,22 @@ function renderOptions($columns){
                                                         </select>
                                                     </div>
                                                     <div>
-                                                        <input name="custom_sort_by[{{$keyy}}][how]" type="radio" class="bty-input-radio-1"
+                                                        <input name="custom_sort_by[{{$keyy}}][how]" type="radio"
+                                                               class="bty-input-radio-1"
                                                                id="bty-sort-asc-{{$keyy}}"
                                                                value="ASC" {{(isset($settings["custom_sort_by"][$keyy]["how"]) && $settings["custom_sort_by"][$keyy]["how"] == 'ASC') ? "checked" : ""}} {{ !isset($settings["custom_sort_by"][$keyy]["how"]) ? "checked" :  "" }}>
                                                         <label for="bty-sort-asc-{{$keyy}}">ASC:</label>
 
-                                                        <input name="custom_sort_by[{{$keyy}}][how]" type="radio" class="bty-input-radio-1"
+                                                        <input name="custom_sort_by[{{$keyy}}][how]" type="radio"
+                                                               class="bty-input-radio-1"
                                                                id="bty-sort-desc-{{$keyy}}"
                                                                value="DESC" {{(isset($settings["custom_sort_by"][$keyy]["how"]) && $settings["custom_sort_by"][$keyy]["how"] == 'DESC') ? "checked" : ""}}>
                                                         <label for="bty-sort-desc-{{$keyy}}">DESC:</label>
                                                     </div>
                                                     <div class="sort-by-text">
-                                                        <input type="text" name="custom_sort_by[{{$keyy}}][fail_name]" value="{{isset($settings["custom_sort_by"][$keyy]['fail_name']) ? $settings["custom_sort_by"][$keyy]['fail_name'] : '' }}" placeholder="Insert name for this field">
+                                                        <input type="text" name="custom_sort_by[{{$keyy}}][fail_name]"
+                                                               value="{{isset($settings["custom_sort_by"][$keyy]['fail_name']) ? $settings["custom_sort_by"][$keyy]['fail_name'] : '' }}"
+                                                               placeholder="Insert name for this field">
                                                     </div>
                                                 </div>
                                             @endforeach
@@ -260,7 +275,8 @@ function renderOptions($columns){
 
                     <div class="bty-panel-collapse">
                         <div>
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapseOne" aria-expanded="true">
                                 <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                 <span class="title">Title options</span>
                             </a>
@@ -283,7 +299,8 @@ function renderOptions($columns){
                     </div>
                     <div class="bty-panel-collapse">
                         <div>
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapsetwo" aria-expanded="true">
                                 <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                 <span class="title">Content option</span>
                             </a>
@@ -306,7 +323,8 @@ function renderOptions($columns){
                     </div>
                     <div class="bty-panel-collapse">
                         <div>
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                               href="#collapsetwo" aria-expanded="true">
                                 <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                 <span class="title">Description option</span>
                             </a>

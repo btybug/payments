@@ -20,7 +20,8 @@
                 @endif
             </div>
             <div class="button">
-                <a data-id="" class="btn select-plan add-to-cart" href="#">Add To Cart<i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                <a data-id="" class="btn select-plan add-to-cart" href="#">Add To Cart<i class="fa fa-shopping-cart"
+                                                                                         aria-hidden="true"></i></a>
                 <a class="btn select-plan" href="#">View Product<i class="fa fa-eye" aria-hidden="true"></i></a>
             </div>
         </div>

@@ -13,8 +13,10 @@
   "is_core": 0,
   "place": "frontend",
   "tags": [
-    "plans","product",
-    "frontend","single_post"
+    "plans",
+    "product",
+    "frontend",
+    "single_post"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/products"
 }

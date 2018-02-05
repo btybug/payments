@@ -19,16 +19,16 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::any('test','TestController@test');
-Route::any('test-call-back','TestController@testCallBack');
-Route::get('shopping-cart-table',function (){
+Route::any('test', 'TestController@test');
+Route::any('test-call-back', 'TestController@testCallBack');
+Route::get('shopping-cart-table', function () {
     \BtyBugHook\Payments\Database\CreateShoppingcartTable::up();
 });
 Route::get('/', 'OrdersController@getList', true)->name('payments_index');
 Route::post('/save-cash', 'OrdersController@saveCash')->name('order_cash');
 Route::get('/save-stripe', 'OrdersController@saveStripe')->name('order_stripe');
-Route::get('/edit-order/{id}', 'OrdersController@editOrder',true)->name('edit_order');
-Route::get('/view-order/{id}', 'OrdersController@viewOrder',true)->name('view_order');
+Route::get('/edit-order/{id}', 'OrdersController@editOrder', true)->name('edit_order');
+Route::get('/view-order/{id}', 'OrdersController@viewOrder', true)->name('view_order');
 
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
@@ -111,6 +111,6 @@ Route::group(['prefix' => 'datatable'], function () {
 
 Route::post('/save-quantity-price', 'PriceController@postSaveQtyPrice')->name('payments_settings_qty_save');
 
-Route::post("/search","IndexConroller@search");
-Route::post("/findpage","IndexConroller@findPage");
-Route::post("/append-post-scroll-paginator","IndexConroller@appendPostScrollPaginator");
+Route::post("/search", "IndexConroller@search");
+Route::post("/findpage", "IndexConroller@findPage");
+Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPaginator");

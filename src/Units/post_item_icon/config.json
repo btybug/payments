@@ -6,14 +6,15 @@
   "type": "unit",
   "description": "",
   "have_setting": 1,
-  "example":"demo",
+  "example": "demo",
   "image": "screenshot.png",
   "slug": "post_item_icon",
   "folder": "post_item_icon",
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "tags": ["post_item",
+  "tags": [
+    "post_item",
     "frontend"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/post_item_icon"

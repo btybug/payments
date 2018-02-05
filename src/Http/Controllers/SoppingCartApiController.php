@@ -16,21 +16,21 @@ use Illuminate\Routing\Controller;
 
 class SoppingCartApiController extends Controller
 {
-    public function addToCart(Request $request )
+    public function addToCart (Request $request)
     {
-        $id=$request->get('id');
-        $product=\DB::table($request->get('slug'))->find($id);
+        $id = $request->get('id');
+        $product = \DB::table($request->get('slug'))->find($id);
 
-        return Cart::add($product->id,$product->title,1,10.52);
+        return Cart::add($product->id, $product->title, 1, 10.52);
     }
 
-    public function getCartData()
+    public function getCartData ()
     {
         return Cart::content();
     }
 
-    public function getCount()
+    public function getCount ()
     {
-        return \Response::json(['count'=>Cart::content()->count()]);
+        return \Response::json(['count' => Cart::content()->count()]);
     }
 }

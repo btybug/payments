@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::group(['prefix'=>'shopping-cart-api'], function () {
-    Route::post('/add-to-cart','SoppingCartApiController@addToCart');
-    Route::post('/get-cart-count','SoppingCartApiController@getCount');
-    Route::post('/get-cart-content','SoppingCartApiController@getCartData');
+Route::group(['prefix' => 'shopping-cart-api'], function () {
+    Route::post('/add-to-cart', 'SoppingCartApiController@addToCart');
+    Route::post('/get-cart-count', 'SoppingCartApiController@getCount');
+    Route::post('/get-cart-content', 'SoppingCartApiController@getCartData');
 });

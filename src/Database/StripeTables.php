@@ -1,4 +1,5 @@
 <?php
+
 namespace BtyBugHook\Payments\Database;
 
 use Illuminate\Support\Facades\Schema;
@@ -10,7 +11,7 @@ class StripeTables extends Migration
     /**
      * Run the migrations.
      */
-    public static function up()
+    public static function up ()
     {
         Schema::table('users', function ($table) {
             $table->string('stripe_id')->nullable();
@@ -31,10 +32,11 @@ class StripeTables extends Migration
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down ()
     {
         Schema::drop("subscriptions");
     }

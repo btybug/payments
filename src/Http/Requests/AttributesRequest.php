@@ -11,7 +11,7 @@ class AttributesRequest extends Request
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize ()
     {
         return true;
     }
@@ -21,36 +21,35 @@ class AttributesRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules ()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             case 'GET':
-            case 'DELETE':
-                {
-                    return [];
-                }
-            case 'POST':
-                {
-                    return [
-                        'name' => 'required',
-                        'type' => 'required',
-                        'slug' => 'required|unique:pym_attributes,id'
-                    ];
-                }
+            case 'DELETE': {
+                return [];
+            }
+            case 'POST': {
+                return [
+                    'name' => 'required',
+                    'type' => 'required',
+                    'slug' => 'required|unique:pym_attributes,id'
+                ];
+            }
             case 'PUT':
-            case 'PATCH':
-                {
-                    $id = $this->route('id');
-                    return [
-                        'id' => 'required|exists:pym_attributes,id',
-                        'name' => 'required',
-                        'type' => 'required',
-                        'slug' => 'required|unique:pym_attributes,id,'.$id
-                    ];
-                }
-            default:break;
+            case 'PATCH': {
+                $id = $this->route('id');
+
+                return [
+                    'id'   => 'required|exists:pym_attributes,id',
+                    'name' => 'required',
+                    'type' => 'required',
+                    'slug' => 'required|unique:pym_attributes,id,' . $id
+                ];
+            }
+            default:
+                break;
         }
+
         return [];
     }
 }

@@ -17,11 +17,13 @@ $post = $postRepo->first()->toArray();
                     <div class="general-head">
                         <div class="grid-list">
                             <div>
-                                <input name="grid_system" value="1" type="radio" class="bty-input-radio-1" id="bty-sort-grid" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "grid")?"checked":""}} {{ !isset($settings["grid_system"])?"checked":"" }}>
+                                <input name="grid_system" value="1" type="radio" class="bty-input-radio-1"
+                                       id="bty-sort-grid" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "grid")?"checked":""}} {{ !isset($settings["grid_system"])?"checked":"" }}>
                                 <label for="bty-sort-grid">version 1</label>
                             </div>
                             <div>
-                                <input name="grid_system" value="2" type="radio" class="bty-input-radio-1" id="bty-sort-list" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "list")?"checked":""}}>
+                                <input name="grid_system" value="2" type="radio" class="bty-input-radio-1"
+                                       id="bty-sort-list" {{(isset($settings["grid_system"]) && $settings["grid_system"] === "list")?"checked":""}}>
                                 <label for="bty-sort-list">version 2</label>
                             </div>
                         </div>
@@ -29,10 +31,10 @@ $post = $postRepo->first()->toArray();
                 </div>
             </div>
         </div>
-        </div>
-
-
     </div>
+
+
+</div>
 </div>
 {!!  BBstyle($_this->path.'/css/settings.css') !!}
 {!!  BBstyle($_this->path.'/css/custom.css') !!}

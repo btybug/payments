@@ -21,7 +21,8 @@
                                 {!! Form::text('key',null,['class' => 'form-control']) !!}
                             </div>
                         </div>
-                    </div><div class="form-group">
+                    </div>
+                    <div class="form-group">
                         <div class="row">
                             <div class="col-md-12 m-b-10">
                                 <div class="col-sm-4 p-l-0">Stripe Secret</div>
@@ -38,7 +39,7 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading" role="tab" >
+                <div class="panel-heading" role="tab">
                     <h4 class="panel-title">Cash payment</h4>
                     <span class="pull-right">
                         Active {!! Form::checkbox('cash_paymant_activate',1) !!}

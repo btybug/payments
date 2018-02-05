@@ -1,4 +1,5 @@
 <?php namespace BtyBugHook\Payments\Models;
+
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -7,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
  * Date: 08.01.2018
  * Time: 23:10
  */
-
 class TaxService extends Model
 {
-    protected $table='tax_services';
+    protected $table = 'tax_services';
 
-    protected $guarded=['id'];
+    protected $guarded = ['id'];
 
 }

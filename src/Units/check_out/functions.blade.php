@@ -2,7 +2,7 @@
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
-function allow_guest()
+function allow_guest ()
 {
     $adminsettingRepository = new \Btybug\btybug\Repositories\AdminsettingRepository;
     $checkout = $adminsettingRepository->getSettings('payment', 'checkout', true);
@@ -11,10 +11,11 @@ function allow_guest()
             return (bool)$checkout['checkout']['allow'];
         }
     }
+
     return false;
 }
 
-function show_content()
+function show_content ()
 {
     if (allow_guest()) {
         return true;
@@ -22,20 +23,21 @@ function show_content()
     if (Auth::check()) {
         return true;
     }
+
     return false;
 }
 
-function products($settings)
+function products ($settings)
 {
 
 }
 
-function get_cart()
+function get_cart ()
 {
     return Cart::class;
 }
 
-function include_forms($settings, $_this)
+function include_forms ($settings, $_this)
 {
     $html = ' <form class="form-horizontal" method="post" action="">';
     $html .= \View::make($_this->slug . "::forms.edit_cart", compact($settings))->with('cart', get_cart())->render();
@@ -50,5 +52,6 @@ function include_forms($settings, $_this)
         $html .= '</form>';
         $html .= View::make($_this->slug . "::forms.login", compact($settings))->render();
     }
+
     return $html;
 }

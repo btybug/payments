@@ -11,7 +11,7 @@ class AttributeTermsRequest extends Request
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize ()
     {
         return true;
     }
@@ -21,37 +21,36 @@ class AttributeTermsRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public function rules ()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             case 'GET':
-            case 'DELETE':
-                {
-                    return [];
-                }
-            case 'POST':
-                {
-                    return [
-                        'name' => 'required',
-                        'attribute_id' => 'required|exists:pym_attributes,id',
-                        'slug' => 'required|unique:pym_attribute_terms,id'
-                    ];
-                }
+            case 'DELETE': {
+                return [];
+            }
+            case 'POST': {
+                return [
+                    'name'         => 'required',
+                    'attribute_id' => 'required|exists:pym_attributes,id',
+                    'slug'         => 'required|unique:pym_attribute_terms,id'
+                ];
+            }
             case 'PUT':
-            case 'PATCH':
-                {
-                    $attr_id = $this->route('id');
-                    $term_id = $this->route('term_id');
-                    return [
-                        'id' => 'required|exists:pym_attribute_terms,id',
-                        'name' => 'required',
-                        'attribute_id' => 'required|exists:pym_attributes,id',
-                        'slug' => 'required|unique:pym_attribute_terms,id,'.$term_id
-                    ];
-                }
-            default:break;
+            case 'PATCH': {
+                $attr_id = $this->route('id');
+                $term_id = $this->route('term_id');
+
+                return [
+                    'id'           => 'required|exists:pym_attribute_terms,id',
+                    'name'         => 'required',
+                    'attribute_id' => 'required|exists:pym_attributes,id',
+                    'slug'         => 'required|unique:pym_attribute_terms,id,' . $term_id
+                ];
+            }
+            default:
+                break;
         }
+
         return [];
     }
 }

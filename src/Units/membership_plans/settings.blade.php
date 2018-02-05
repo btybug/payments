@@ -5,18 +5,21 @@ $blogs = $blogRepository->pluck('title', 'slug');
 $columns = null;
 if (isset($settings['blog'])) {
 
-    $table =  $slug = implode("_",explode("-",$settings['blog']));
+    $table = $slug = implode("_", explode("-", $settings['blog']));
     $columns = \DB::select("SHOW COLUMNS FROM $table");
 }
-function renderOptions($columns){
+function renderOptions ($columns)
+{
     $html = '';
-    if(count($columns)){
-        foreach($columns as $key => $data){
-            $html .= '<option value="'.$data->Field.'">'.$data->Field.'</option>';
+    if (count($columns)) {
+        foreach ($columns as $key => $data) {
+            $html .= '<option value="' . $data->Field . '">' . $data->Field . '</option>';
         }
     }
+
     return $html;
 }
+
 ?>
 
 <div class="row">
@@ -40,7 +43,8 @@ function renderOptions($columns){
 
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Title options</span>
                 </a>
@@ -63,7 +67,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Content option</span>
                 </a>
@@ -86,7 +91,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Description option</span>
                 </a>

@@ -12,7 +12,8 @@
   "created_at": 1490088665,
   "is_core": 0,
   "place": "frontend",
-  "tags": ["tax_services",
+  "tags": [
+    "tax_services",
     "frontend"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/tax_services"

@@ -1,4 +1,5 @@
 <?php
+
 namespace BtyBugHook\Payments\Database;
 
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +13,7 @@ class CreatePayInvoiceTable extends Migration
      *
      * @return void
      */
-    public static function up()
+    public static function up ()
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('country')->nullable();
@@ -31,8 +32,8 @@ class CreatePayInvoiceTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down ()
     {
-       // Schema::dropIfExists('pay_invoice');
+        // Schema::dropIfExists('pay_invoice');
     }
 }

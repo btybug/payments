@@ -13,7 +13,8 @@
   "is_core": 0,
   "place": "frontend",
   "tags": [
-    "payments","payment_gateway_buttons",
+    "payments",
+    "payment_gateway_buttons",
     "frontend"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/payment_gateway_buttons"

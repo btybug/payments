@@ -3,29 +3,32 @@
 
 $table = "";
 $columns = [];
-if(isset($settings["table"])){
+if (isset($settings["table"])) {
     $table = $settings["table"];
 }
-$blogs = BtyBugHook\Membership\Models\Blog::select("title","slug")->get();
-if($table){
-    $slug = implode("_",explode("-",$table));
+$blogs = BtyBugHook\Membership\Models\Blog::select("title", "slug")->get();
+if ($table) {
+    $slug = implode("_", explode("-", $table));
     $columns = \DB::select('SHOW COLUMNS FROM ' . $slug);
 }
 
 
-function renderOptions($columns){
+function renderOptions ($columns)
+{
     $html = '';
-    if(count($columns)){
-        foreach($columns as $key => $data){
-            if($data->Field == "image"){
+    if (count($columns)) {
+        foreach ($columns as $key => $data) {
+            if ($data->Field == "image") {
                 continue;
-            }else{
-                $html .= '<option value="'.$data->Field.'">'.$data->Field.'</option>';
+            } else {
+                $html .= '<option value="' . $data->Field . '">' . $data->Field . '</option>';
             }
         }
     }
+
     return $html;
 }
+
 ?>
 
 <div class="row">
@@ -48,7 +51,8 @@ function renderOptions($columns){
         <div class="clearfix"></div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Image options</span>
                 </a>
@@ -113,7 +117,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">First holder data</span>
                 </a>
@@ -177,7 +182,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Second holder data</span>
                 </a>
@@ -241,7 +247,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Product unit 1</span>
                 </a>
@@ -268,7 +275,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse4"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Product unit 2</span>
                 </a>
@@ -285,7 +293,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse5"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Extra units</span>
                 </a>
@@ -309,7 +318,8 @@ function renderOptions($columns){
         </div>
         <div class="bty-panel-collapse">
             <div>
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse6"
+                   aria-expanded="true">
                     <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                     <span class="title">Product information</span>
                 </a>

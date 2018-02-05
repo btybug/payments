@@ -15,26 +15,27 @@ class TaxServicesController extends Controller
 {
     private $model = null;
 
-    public function getTaxServices()
+    public function getTaxServices ()
     {
         return view('payments::settings.tax_services.list');
     }
 
-    public function getCreate()
+    public function getCreate ()
     {
         return view('payments::settings.tax_services.create_or_update')->with('model', $this->model);
     }
 
-    public function getEdit(
+    public function getEdit (
         $id,
         TaxServiceRepository $taxServiceRepository
     )
     {
         $this->model = $taxServiceRepository->findOrFail($id);
+
         return view('payments::settings.tax_services.create_or_update')->with('model', $this->model);
     }
 
-    public function postCreate(
+    public function postCreate (
         TaxServiceRequest $createRequest,
         TaxServiceRepository $taxServiceRepository
     )
@@ -44,7 +45,7 @@ class TaxServicesController extends Controller
         return redirect()->route('payments_settings_tax_services')->with('message', 'Created successfully');
     }
 
-    public function postEdit(
+    public function postEdit (
         TaxServiceRequest $request,
         TaxServiceRepository $taxServiceRepository,
         $id
@@ -55,13 +56,14 @@ class TaxServicesController extends Controller
         return redirect()->route('payments_settings_tax_services')->with('message', 'Edited successfully');
     }
 
-    public function getDelete(
+    public function getDelete (
         $id,
         TaxServiceRepository $attributesRepository
     )
     {
         $this->model = $attributesRepository->findOrFail($id);
         $this->model->delete();
+
         return redirect()->route('payments_settings_tax_services')->with('message', 'Deleted successfully');
     }
 }

@@ -1,1 +1,7 @@
-{"title":"main variation","id":"check_out.default","settings":{"buttons":"payment_gateway_buttons.default"}}
+{
+  "title": "main variation",
+  "id": "check_out.default",
+  "settings": {
+    "buttons": "payment_gateway_buttons.default"
+  }
+}
