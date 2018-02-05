@@ -76,8 +76,8 @@
                     $('input[name=height]').change();
                 }
                 ;
-                if ($('input[name=max_height]').val() < min_length) {
-                    $('input[name=max_height]').val(min_length);
+                if ($('input[name=max_height]').val() < min_height) {
+                    $('input[name=max_height]').val(min_height);
                     $('input[name=max_height]').change();
                 }
                 ;
