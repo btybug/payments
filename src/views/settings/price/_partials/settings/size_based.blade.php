@@ -21,13 +21,13 @@
                 <div class="col-md-8">
                     <label class="col-mg-4">minimum length</label>
                     <div class="col-md-8">
-                        {!! Form::number('min_length') !!}
+                        {!! Form::number('min_length',0,['min'=>0]) !!}
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label class="col-mg-4">maximum length</label>
                     <div class="col-md-8">
-                        {!! Form::number('max_length') !!}
+                        {!! Form::number('max_length',0,['min'=>0]) !!}
                     </div>
                 </div>
             </div>
@@ -38,13 +38,13 @@
                 <div class="col-md-8">
                     <label class="col-mg-4">minimum height</label>
                     <div class="col-md-8">
-                        {!! Form::number('min_height') !!}
+                        {!! Form::number('min_height',0,['min'=>0]) !!}
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label class="col-mg-4">maximum height</label>
                     <div class="col-md-8">
-                        {!! Form::number('max_height') !!}
+                        {!! Form::number('max_height',0,['min'=>0]) !!}
                     </div>
                 </div>
             </div>
@@ -62,23 +62,87 @@
             var min_height = $('input[name=min_height]').val();
             $('input[name=height]').attr('min', min_height);
 
+            var max_height = $('input[name=max_height]').val();
+            $('input[name=height]').attr('max', max_height);
+
+            var max_length = $('input[name=max_length]').val();
+            $('input[name=length]').attr('max', max_length);
+
+
             $('input[name=min_height]').on('change', function () {
-                var min_height = $(this).val();
+                 min_height = $(this).val();
                 if ($('input[name=height]').val() < min_height) {
                     $('input[name=height]').val(min_height);
                     $('input[name=height]').change();
-                };
+                }
+                ;
+                if ($('input[name=max_height]').val() < min_length) {
+                    $('input[name=max_height]').val(min_length);
+                    $('input[name=max_height]').change();
+                }
+                ;
                 $('input[name=height]').attr('min', min_height);
             });
+            $('input[name=height]').on('keyup', function () {
+                if ($(this).val() > max_height) {
+                    $(this).val(max_height);
+                }
+            });
+            $('input[name=length]').on('keyup', function () {
+                if ($(this).val() > max_length) {
+                    $(this).val(max_length);
+                }
+            });
+
+
+
+            $('input[name=max_height]').on('change', function () {
+                max_height = $(this).val();
+                if ($('input[name=height]').val() > max_height) {
+                    $('input[name=height]').val(max_height);
+                    $('input[name=height]').change();
+                }
+                ;
+                $('input[name=height]').attr('max', max_height);
+            });
+            $('input[name=max_length]').on('change', function () {
+                max_length = $(this).val();
+                if ($('input[name=length]').val() > max_length) {
+                    $('input[name=length]').val(max_length);
+                    $('input[name=length]').change();
+                }
+                ;
+                $('input[name=length]').attr('max', max_length);
+            });
+
+            function heights(e) {
+
+            }
 
             $('input[name=min_length]').on('change', function () {
-                var min_length = $(this).val();
+                 min_length = $(this).val();
                 if ($('input[name=length]').val() < min_length) {
                     $('input[name=length]').val(min_length);
                     $('input[name=length]').change();
                 }
                 ;
+                if ($('input[name=max_length]').val() < min_length) {
+                    $('input[name=max_length]').val(min_length);
+                    $('input[name=max_length]').change();
+                }
+                ;
+
                 $('input[name=length]').attr('min', min_length);
+            });
+            $('input[name=max_length]').on('keyup', function () {
+                if ($(this).val() < min_length) {
+                    $(this).val(min_length);
+                }
+            });
+            $('input[name=max_height]').on('keyup', function () {
+                if ($(this).val() < min_height) {
+                    $(this).val(min_height);
+                }
             });
             $('.base-size').on('change', function () {
                 var el1 = $('.base-size')[0];
