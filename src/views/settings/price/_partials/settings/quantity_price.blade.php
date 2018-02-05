@@ -53,8 +53,13 @@
                                 <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add new</a>
                             </div>
                         </div>
-                        <div class="col-md-6 render-box">
+                        <div class="col-md-6">
+                            <div class="col-md-6 render-box">
 
+                            </div>
+                            <div class="col-md-6 calculation">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,7 +90,7 @@
             if(type == 'radio'){
                 $('.render-box').html('');
                 for (var i = 0; i < qtyArr.length; i++) {
-                    $('.render-box').append('<label><input type="radio" name="price" value="' + price[i].value + '" /> ' +  qtyArr[i].value + '</label>');
+                    $('.render-box').append('<label><input type="radio" class="calculate-radio" name="price" value="' + price[i].value + '" /> ' +  qtyArr[i].value + '</label>');
                 }
             }
         }
@@ -121,7 +126,11 @@
             generate(type);
         })
 
-        $("body").on('input','.qty-inputs,.price-input',function () {
+        $("body").on('input','.qty-inputs',function () {
+            var type = $('input[name=qty_option]:checked').val();
+            generate(type);
+        });
+        $("body").on('input','.price-inputs',function () {
             var type = $('input[name=qty_option]:checked').val();
             generate(type);
         })
@@ -131,5 +140,14 @@
             var type = $('input[name=qty_option]:checked').val();
             generate(type);
         })
+
+        $("body").on('change', '.calculate-radio', function () {
+            var val = $(this).val();
+            $('.calculation').html(val);
+        });$("body").on('change', '#select-box', function () {
+            var val = $(this).val();
+            $('.calculation').html(val);
+        });
+
     })
 </script>
