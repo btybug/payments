@@ -98,6 +98,7 @@ class ModuleServiceProvider extends ServiceProvider
             [
                 'name'             => 'price',
                 'render_function'  => 'render_price_form',
+                'list_function'  => 'render_price_list',
                 'options_function' => 'get_prices_data'
             ]
         );
@@ -105,6 +106,7 @@ class ModuleServiceProvider extends ServiceProvider
             [
                 'name'             => 'tax_services',
                 'render_function'  => 'render_tax_service_form',
+                'list_function'  => 'render_tax_service_list',
                 'options_function' => 'get_tax_service_data',
                 'tab'              => 'others'
             ]

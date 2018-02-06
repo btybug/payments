@@ -36,14 +36,24 @@ function get_qty_data ()
     return null;
 }
 
+function render_price_list ()
+{
+    return \View("payments::settings.price.list")->render();
+}
+
 function render_price_form ($view_name)
 {
     return \View("payments::settings.price._partials.forms.$view_name")->render();
 }
 
-function render_tax_service_form ($view_name)
+function render_tax_service_form ()
 {
-    return BBRenderUnits($view_name . '.default');
+    return 'cer u ter';
+}
+
+function render_tax_service_list ()
+{
+    return 'cer u ter';
 }
 
 function get_tax_service_data ()
