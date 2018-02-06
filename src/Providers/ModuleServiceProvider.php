@@ -97,6 +97,7 @@ class ModuleServiceProvider extends ServiceProvider
         \Eventy::action('options.listener',
             [
                 'name'             => 'price',
+                'shortcode'             => 'price_pym',
                 'render_function'  => 'render_price_form',
                 'list_function'  => 'render_price_list',
                 'options_function' => 'get_prices_data'
@@ -105,6 +106,7 @@ class ModuleServiceProvider extends ServiceProvider
         \Eventy::action('options.listener',
             [
                 'name'             => 'tax_services',
+                'shortcode'             => 'tax_services_pym',
                 'render_function'  => 'render_tax_service_form',
                 'list_function'  => 'render_tax_service_list',
                 'options_function' => 'get_tax_service_data',
@@ -213,8 +215,8 @@ class ModuleServiceProvider extends ServiceProvider
             return (\Config::get('payment.pricing'));
         });
 
-        BBaddShortcode('price','render_price_list');
-        BBaddShortcode('tax_services','render_tax_service_list');
+        BBaddShortcode('price_pym','render_price_list');
+        BBaddShortcode('tax_services_pym','render_tax_service_list');
 
         $this->app->register(RouteServiceProvider::class);
 
