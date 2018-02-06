@@ -1,15 +1,27 @@
 @php
     $options = get_options_data('price')
 @endphp
-<fieldset class="bty-form-select" id="bty-input-id-16">
-    <div class="bty-input-select-1">
-        <select data-type="price" class="form-control input-md select-option-type"
-                id="select-price">
-            <option selected="selected" value="">Select Price</option>
-            @foreach($options as $k => $option)
-                <option value="{!! $k !!}">{!! str_replace('_',' ',$k) !!}</option>
-            @endforeach
-        </select>
+<fieldset class="bty-form-select formgeneral">
+    <div class="form-group">
+        <label class="col-sm-12 control-label">Select Price</label>
+        <div class="col-sm-12">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-list"></i>
+                </span>
+                <select data-type="price" class="form-control1 input-md select-option-type"
+                        id="select-price">
+                    <option selected="selected" value="">Select Price</option>
+                    @foreach($options as $k => $option)
+                        <option value="{!! $k !!}">{!! str_replace('_',' ',$k) !!}</option>
+                    @endforeach
+                </select>
+                <span class="input-group-addon tooltip1">
+                    <i class="fa fa-question"></i>
+                    <span class="tooltiptext">Choose your price method</span>
+                </span>
+            </div>
+        </div>
     </div>
 </fieldset>
 <div class="select-price">
