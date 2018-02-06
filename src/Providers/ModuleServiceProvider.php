@@ -31,6 +31,13 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot ()
     {
+        \Eventy::addAction('options.listener', function ($what) {
+            $options = \Config::get('options.listener', []);
+            $options[$what['name']] = $what;
+            \Config::set('options.listener', $options);
+            return (\Config::get('options.listener'));
+        });
+
 //        CreatePayInvoiceTable::up();
 //        CreatePayInvoiceTable::up();
         $settingsPath = storage_path('app' . DS . 'payments.json');
@@ -190,6 +197,7 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function register ()
     {
+
         \Eventy::addAction('payment.pricing', function ($what) {
             $codes = \Config::get('payment.pricing', []);
             $codes[$what['slug']] = [
