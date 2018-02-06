@@ -213,6 +213,9 @@ class ModuleServiceProvider extends ServiceProvider
             return (\Config::get('payment.pricing'));
         });
 
+        BBaddShortcode('price','render_price_list');
+        BBaddShortcode('tax_services','render_tax_service_list');
+
         $this->app->register(RouteServiceProvider::class);
 
     }
