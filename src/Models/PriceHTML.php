@@ -31,7 +31,7 @@ class PriceHTML
             case 'select':
                 $html.="<select class='$class'>";
                 foreach ($qtys as $qty){
-                    $html.="<option value='".$qty["qty"]."'></option>";
+                    $html.="<option value='".$qty["qty"]."'>".$qty["qty"]."</option>";
                 }
                 $html.='</select>';
         }
