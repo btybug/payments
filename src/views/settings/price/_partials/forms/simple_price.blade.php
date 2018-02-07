@@ -1,8 +1,11 @@
+@php
+    $slug = str_replace('-', '_', \Request::route("slug"))
+@endphp
 <div class="form-group">
     <div class="col-md-6">
         Price
     </div>
     <div class="col-md-6">
-        {!! Form::text(\Request::route("slug").'_price',null,['class' => 'form-control']) !!}
+        {!! Form::text($slug.'_price',null,['class' => 'form-control']) !!}
     </div>
 </div>

@@ -1,15 +1,18 @@
+@php
+$slug = str_replace('-', '_', \Request::route("slug"))
+@endphp
 <div class="col-md-12">
     <div class="col-md-4">
         Display result as
     </div>
     <div class="col-md-2">
-        {!! Form::radio(\Request::route("slug").'_price[qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu
+        {!! Form::radio($slug.'_price[qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu
     </div>
     <div class="col-md-2">
-        {!! Form::radio(\Request::route("slug").'_price[qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio
+        {!! Form::radio($slug.'_price[qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio
     </div>
     <div class="col-md-2">
-        {!! Form::radio(\Request::route("slug").'_price[qty_option]','text',null,['class' => 'select-display-type']) !!} Text
+        {!! Form::radio($slug.'_price[qty_option]','text',null,['class' => 'select-display-type']) !!} Text
     </div>
 </div>
 <div class="col-md-12 display-box">
@@ -20,13 +23,13 @@
                     <label>
                         Quantity :
                     </label>
-                    <input type="text" class="form-control qty-inputs" name="{{\Request::route('slug')}}_price[qty][0][qty]"/>
+                    <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[qty][0][qty]"/>
                 </div>
                 <div class="col-md-4">
                     <label>
                         Price :
                     </label>
-                    <input type="text" class="form-control price-inputs" name="{{\Request::route('slug')}}_price[qty][0][price]"/>
+                    <input type="text" class="form-control price-inputs" name="{{$slug}}_price[qty][0][price]"/>
                 </div>
                 <div class="col-md-2">
 
@@ -86,13 +89,13 @@
                 '                <label>\n' +
                 '                    Quantity :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control qty-inputs" name="{{ \Request::route('slug')}}_price[qty]['+qty+'][qty]"/>\n' +
+                '                <input type="text" class="form-control qty-inputs" name="{{ $slug}}_price[qty]['+qty+'][qty]"/>\n' +
                 '            </div>\n' +
                 '            <div class="col-md-4">\n' +
                 '                <label>\n' +
                 '                    Price :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control price-inputs" name="{{ \Request::route('slug')}}_price[qty]['+qty+'][price]"/>\n' +
+                '                <input type="text" class="form-control price-inputs" name="{{ $slug}}_price[qty]['+qty+'][price]"/>\n' +
                 '            </div>\n' +
                 '            <div class="col-md-2">\n' +
                 '                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>\n' +
