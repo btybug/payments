@@ -6,7 +6,9 @@ $columns = null;
 if (isset($settings['blog'])) {
 
     $table = $slug = implode("_", explode("-", $settings['blog']));
-    $columns = \DB::select("SHOW COLUMNS FROM $table");
+    if(\Schema::hasTable($table)){
+        $columns = \DB::select("SHOW COLUMNS FROM $table");
+    }
 }
 function renderOptions ($columns)
 {

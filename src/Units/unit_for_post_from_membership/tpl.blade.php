@@ -96,17 +96,17 @@ if (isset($settings["table"]) && ! count($product)) {
 
                     <div class="unit1 final-unit1">
                         @if(isset($settings['punit1']))
-                            {!! BBRenderUnits($settings['punit1']) !!}
+                            {!! BBRenderUnits($settings['punit1'],[],$product) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
                         @if(isset($settings['punit2']))
-                            {!! BBRenderUnits($settings['punit2']) !!}
+                            {!! BBRenderUnits($settings['punit2'],[],$product) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
                         @if(isset($settings['punit3']))
-                            {!! BBRenderUnits($settings['punit3']) !!}
+                            {!! BBRenderUnits($settings['punit3'],[],$product) !!}
                         @endif
                     </div>
 
