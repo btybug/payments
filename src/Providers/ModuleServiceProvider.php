@@ -99,6 +99,7 @@ class ModuleServiceProvider extends ServiceProvider
                 'name'             => 'price',
                 'shortcode'             => 'price_pym',
                 'render_function'  => 'render_price_form',
+                'option_field_slug'  => 'price_pym',
                 'list_function'  => 'render_price_list',
                 'options_function' => 'get_prices_data'
             ]
@@ -108,6 +109,7 @@ class ModuleServiceProvider extends ServiceProvider
                 'name'             => 'tax_services',
                 'shortcode'             => 'tax_services_pym',
                 'render_function'  => 'render_tax_service_form',
+                'option_field_slug'  => 'tax_services_pym',
                 'list_function'  => 'render_tax_service_list',
                 'options_function' => 'get_tax_service_data',
                 'tab'              => 'others'

@@ -9,7 +9,7 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                <select data-type="price" class="form-control1 input-md select-option-type"
+                <select name="{{ \Request::route('slug') }}_price[method]" data-type="price" class="form-control1 input-md select-option-type"
                         id="select-price">
                     <option selected="selected" value="">Select Price</option>
                     @foreach($options as $k => $option)

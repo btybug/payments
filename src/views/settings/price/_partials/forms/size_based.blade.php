@@ -1,16 +1,16 @@
 <div class="row">
     <div class="col-md-6">
         <div class="col-md-5"><label class="col-md-4">Length</label>
-            <div class="col-md-8">{!! Form::number('length',null,['class'=>'form-control base-size','min'=>0]) !!}</div>
+            <div class="col-md-8">{!! Form::number(\Request::route("slug").'_price[length]',null,['class'=>'form-control base-size length','min'=>0]) !!}</div>
         </div>
         <div class="col-md-2">X</div>
         <div class="col-md-5"><label class="col-md-4">Height</label>
-            <div class="col-md-8">{!! Form::number('height',null,['class'=>'form-control base-size']) !!}</div>
+            <div class="col-md-8">{!! Form::number(\Request::route("slug").'_price[height]',null,['class'=>'form-control base-size height']) !!}</div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="col-md-3"><label class="col-md-4">Total</label>
-            <div class="col-md-8">{!! Form::text('total',null,['class'=>'form-control base-total','readonly'=>true]) !!}</div>
+            <div class="col-md-8">{!! Form::text(\Request::route("slug").'_price[total]',null,['class'=>'form-control base-total','readonly'=>true]) !!}</div>
         </div>
     </div>
     <div>
@@ -20,13 +20,13 @@
                 <div class="col-md-8">
                     <label class="col-mg-4">minimum length</label>
                     <div class="col-md-8">
-                        {!! Form::number('min_length',0,['min'=>0]) !!}
+                        {!! Form::number(\Request::route("slug").'_price[min_length]',0,['min'=>0,'class' => 'min_length']) !!}
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label class="col-mg-4">maximum length</label>
                     <div class="col-md-8">
-                        {!! Form::number('max_length',0,['min'=>0]) !!}
+                        {!! Form::number(\Request::route("slug").'_price[max_length]',0,['min'=>0,'class' => 'max_length']) !!}
                     </div>
                 </div>
             </div>
@@ -37,13 +37,13 @@
                 <div class="col-md-8">
                     <label class="col-mg-4">minimum height</label>
                     <div class="col-md-8">
-                        {!! Form::number('min_height',0,['min'=>0]) !!}
+                        {!! Form::number(\Request::route("slug").'_price[min_height]',0,['min'=>0,'class' => 'min_height']) !!}
                     </div>
                 </div>
                 <div class="col-md-8">
                     <label class="col-mg-4">maximum height</label>
                     <div class="col-md-8">
-                        {!! Form::number('max_height',0,['min'=>0]) !!}
+                        {!! Form::number(\Request::route("slug").'_price[max_height]',0,['min'=>0,'class' => 'max_height']) !!}
                     </div>
                 </div>
             </div>
@@ -54,94 +54,94 @@
 
 <script>
     $(function () {
-        var min_length = $('input[name=min_length]').val();
-        $('input[name=length]').attr('min', min_length);
+        var min_length = $('.min_length').val();
+        $('.length').attr('min', min_length);
 
-        var min_height = $('input[name=min_height]').val();
-        $('input[name=height]').attr('min', min_height);
+        var min_height = $('.min_height').val();
+        $('.height').attr('min', min_height);
 
-        var max_height = $('input[name=max_height]').val();
-        $('input[name=height]').attr('max', max_height);
+        var max_height = $('.max_height').val();
+        $('.height').attr('max', max_height);
 
-        var max_length = $('input[name=max_length]').val();
-        $('input[name=length]').attr('max', max_length);
+        var max_length = $('.max_length').val();
+        $('.length').attr('max', max_length);
 
 
-        $('input[name=min_height]').on('change', function () {
+        $('.min_height').on('change', function () {
             min_height = $(this).val();
-            if ($('input[name=height]').val() < min_height) {
-                $('input[name=height]').val(min_height);
-                $('input[name=height]').change();
+            if ($('.height').val() < min_height) {
+                $('.height').val(min_height);
+                $('.height').change();
             }
             ;
-            if ($('input[name=max_height]').val() < min_height) {
-                $('input[name=max_height]').val(min_height);
-                $('input[name=max_height]').change();
+            if ($('.max_height').val() < min_height) {
+                $('.max_height').val(min_height);
+                $('.max_height').change();
             }
             ;
-            $('input[name=height]').attr('min', min_height);
+            $('.height').attr('min', min_height);
         });
-        $('input[name=height]').on('keyup', function () {
+        $('.height').on('keyup', function () {
             if ($(this).val() > max_height) {
                 $(this).val(max_height);
             }
         });
-        $('input[name=length]').on('keyup', function () {
+        $('.length').on('keyup', function () {
             if ($(this).val() > max_length) {
                 $(this).val(max_length);
             }
         });
 
 
-        $('input[name=max_height]').on('change', function () {
+        $('.max_height').on('change', function () {
             max_height = $(this).val();
-            if ($('input[name=height]').val() > max_height) {
-                $('input[name=height]').val(max_height);
-                $('input[name=height]').change();
+            if ($('.height').val() > max_height) {
+                $('.height').val(max_height);
+                $('.height').change();
             }
-            ;
-            $('input[name=height]').attr('max', max_height);
+
+            $('.height').attr('max', max_height);
         });
-        $('input[name=max_length]').on('change', function () {
+        $('.max_length').on('change', function () {
             max_length = $(this).val();
-            if ($('input[name=length]').val() > max_length) {
-                $('input[name=length]').val(max_length);
-                $('input[name=length]').change();
+            if ($('.length').val() > max_length) {
+                $('.length').val(max_length);
+                $('.length').change();
             }
             ;
-            $('input[name=length]').attr('max', max_length);
+            $('.length').attr('max', max_length);
         });
 
         function heights(e) {
 
         }
 
-        $('input[name=min_length]').on('change', function () {
+        $('.min_length').on('change', function () {
             min_length = $(this).val();
-            if ($('input[name=length]').val() < min_length) {
-                $('input[name=length]').val(min_length);
-                $('input[name=length]').change();
+            if ($('.length').val() < min_length) {
+                $('.length').val(min_length);
+                $('.length').change();
             }
             ;
-            if ($('input[name=max_length]').val() < min_length) {
-                $('input[name=max_length]').val(min_length);
-                $('input[name=max_length]').change();
+            if ($('.max_length').val() < min_length) {
+                $('.max_length').val(min_length);
+                $('.max_length').change();
             }
             ;
 
-            $('input[name=length]').attr('min', min_length);
+            $('.length').attr('min', min_length);
         });
-        $('input[name=max_length]').on('keyup', function () {
+        $('.max_length').on('keyup', function () {
             if ($(this).val() < min_length) {
                 $(this).val(min_length);
             }
         });
-        $('input[name=max_height]').on('keyup', function () {
+        $('.max_height').on('keyup', function () {
             if ($(this).val() < min_height) {
                 $(this).val(min_height);
             }
         });
-        $('input[name=length]').on('keyup', function () {
+        $('.length').on('keyup', function () {
             if ($(this).val() < min_length) {
                 $(this).val(min_length);
             }
@@ -149,7 +149,7 @@
                 $(this).val(max_length);
             }
         });
-        $('input[name=height]').on('keyup', function () {
+        $('.height').on('keyup', function () {
             if ($(this).val() < min_height) {
                 $(this).val(min_height);
             }

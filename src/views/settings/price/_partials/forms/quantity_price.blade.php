@@ -3,13 +3,13 @@
         Display result as
     </div>
     <div class="col-md-2">
-        {!! Form::radio('qty_option','select',true,['class' => 'select-display-type']) !!} Select menu
+        {!! Form::radio(\Request::route("slug").'_price[qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu
     </div>
     <div class="col-md-2">
-        {!! Form::radio('qty_option','radio',null,['class' => 'select-display-type']) !!} Radio
+        {!! Form::radio(\Request::route("slug").'_price[qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio
     </div>
     <div class="col-md-2">
-        {!! Form::radio('qty_option','text',null,['class' => 'select-display-type']) !!} Text
+        {!! Form::radio(\Request::route("slug").'_price[qty_option]','text',null,['class' => 'select-display-type']) !!} Text
     </div>
 </div>
 <div class="col-md-12 display-box">
@@ -20,13 +20,13 @@
                     <label>
                         Quantity :
                     </label>
-                    <input type="text" class="form-control qty-inputs" name="qty[0][qty]"/>
+                    <input type="text" class="form-control qty-inputs" name="{{\Request::route('slug')}}_price[qty][0][qty]"/>
                 </div>
                 <div class="col-md-4">
                     <label>
                         Price :
                     </label>
-                    <input type="text" class="form-control price-inputs" name="qty[0][price]"/>
+                    <input type="text" class="form-control price-inputs" name="{{\Request::route('slug')}}_price[qty][0][price]"/>
                 </div>
                 <div class="col-md-2">
 
@@ -68,7 +68,7 @@
             if (type == 'radio') {
                 $('.render-box').html('');
                 for (var i = 0; i < qtyArr.length; i++) {
-                    $('.render-box').append('<label><input type="radio" class="calculate-radio" name="price" value="' + price[i].value + '" /> ' + qtyArr[i].value + '</label>');
+                    $('.render-box').append('<label><input type="radio" class="calculate-radio" name="pricedata" value="' + price[i].value + '" /> ' + qtyArr[i].value + '</label>');
                 }
             }
         }
@@ -86,13 +86,13 @@
                 '                <label>\n' +
                 '                    Quantity :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control qty-inputs" name="qty[0][qty]"/>\n' +
+                '                <input type="text" class="form-control qty-inputs" name="{{ \Request::route('slug')}}_price[qty]['+qty+'][qty]"/>\n' +
                 '            </div>\n' +
                 '            <div class="col-md-4">\n' +
                 '                <label>\n' +
                 '                    Price :\n' +
                 '                </label>\n' +
-                '                <input type="text" class="form-control price-inputs" name="qty[0][price]"/>\n' +
+                '                <input type="text" class="form-control price-inputs" name="{{ \Request::route('slug')}}_price[qty]['+qty+'][price]"/>\n' +
                 '            </div>\n' +
                 '            <div class="col-md-2">\n' +
                 '                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>\n' +
@@ -100,22 +100,22 @@
                 '        </div>'
             $('.qty-box').append(html);
 
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         })
 
         $("body").on('input', '.qty-inputs', function () {
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         });
         $("body").on('input', '.price-inputs', function () {
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         })
 
         $("body").on('click', '.btn-delete-row', function () {
             $(this).parent().parent().remove();
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         })
 

@@ -3,6 +3,6 @@
         Price
     </div>
     <div class="col-md-6">
-        {!! Form::text('price',null,['class' => 'form-control']) !!}
+        {!! Form::text(\Request::route("slug").'_price',null,['class' => 'form-control']) !!}
     </div>
 </div>
