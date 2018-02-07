@@ -1,5 +1,6 @@
 @php
-    $options = get_options_data('price')
+    $options = get_options_data('price');
+    $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <fieldset class="bty-form-select formgeneral">
     <div class="form-group">
@@ -9,7 +10,7 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                <select name="{{ \Request::route('slug') }}_price[method]" data-type="price" class="form-control1 input-md select-option-type"
+                <select name="{{ $slug }}_price[method]" data-type="price" class="form-control1 input-md select-option-type"
                         id="select-price">
                     <option selected="selected" value="">Select Price</option>
                     @foreach($options as $k => $option)
