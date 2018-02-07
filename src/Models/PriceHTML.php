@@ -29,7 +29,7 @@ class PriceHTML
         $html='';
         switch ($qty_option){
             case 'select':
-                $html.="<select class='$class'>";
+                $html.="<select class='$class form-control'>";
                 foreach ($qtys as $qty){
                     $html.="<option value='".$qty["qty"]."'>".$qty["qty"]."</option>";
                 }
