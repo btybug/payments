@@ -24,9 +24,9 @@ if (isset($settings["blog"]) && ! count($product)) {
                         {{isset($product[$settings["option_3_item_value"]]) ? $product[$settings["option_3_item_value"]] : ''}}
                     </div>
                     <div class="text-center">
-                        <button class="btn select-plan add-to-cart" data-id="{{count($product) ? $product['id'] : ''}}">
-                            Add To Cart
-                        </button>
+                        @if(isset($settings['add_to_cart']))
+                            {!! BBRenderUnits($settings['add_to_cart'],[],$product) !!}
+                        @endif
                         <a href="#" class="btn select-plan">View Product</a>
                     </div>
                 </div>

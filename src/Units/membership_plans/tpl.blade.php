@@ -24,8 +24,9 @@
                                 {!! $plan->description !!}
                             </div>
                             <div class="text-center">
-                                <button class="btn select-plan add-to-cart" data-id="{!! $plan->id !!}">Add To Cart
-                                </button>
+                                @if(isset($settings['add_to_cart']))
+                                    {!! BBRenderUnits($settings['add_to_cart'],[],$plan) !!}
+                                @endif
                                 <a href="{!! url(get_blog_slug_in_page(),$plan->$col) !!}" class="btn select-plan">View
                                     Product</a>
                             </div>

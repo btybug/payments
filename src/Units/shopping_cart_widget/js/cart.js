@@ -36,7 +36,8 @@ $(function () {
         },
         add: function (id) {
             return this.request(this.urls.add, {id: id}, null);
-        }
+        },
+        data : {}
     };
     SoppingCart.count();
     $('body').on('click', '.add-to-cart', function () {
