@@ -1,7 +1,7 @@
 @php
     $slug = str_replace('-', '_', \Request::route("slug"))
 @endphp
-<div class="form-group" data-id="id" data-shortcode="axper ste shortcode piti liny">
+<div class="form-group" >
     <div class="col-md-6">
         Price
     </div>

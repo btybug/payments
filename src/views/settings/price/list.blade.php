@@ -3,13 +3,14 @@
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <fieldset class="bty-form-select formgeneral">
-    <div class="form-group" data-id="{{ get_field_by_slug("price_pym_".$slug) }}" data-shortcode="">
+    <div class="form-group" >
         <label class="col-sm-12 control-label">Select Price</label>
         <div class="col-sm-12">
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
+
                 <select name="{{ $slug }}_price[method]" data-type="price" class="form-control1 input-md select-option-type"
                         id="select-price">
                     <option selected="selected" value="">Select Price</option>

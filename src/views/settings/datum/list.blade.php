@@ -3,7 +3,7 @@
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <fieldset class="bty-form-select formgeneral">
-    <div class="form-group" data-id="{{ get_field_by_slug("data_pym_".$slug) }}" data-shortcode="">
+    <div class="form-group">
         <label class="col-sm-12 control-label">Select Data</label>
         <div class="col-sm-12">
             <div class="input-group">
