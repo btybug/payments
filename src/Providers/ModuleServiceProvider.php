@@ -77,6 +77,14 @@ class ModuleServiceProvider extends ServiceProvider
                 'settings' => 'payments::settings.price._partials.settings.size_based',
             ]);
 
+        \Eventy::action('payment.pricing',
+            [
+                'name'     => 'Complex method',
+                'slug'     => 'complex_method',
+                'form'     => 'payments::settings.price._partials.forms.complex_method',
+                'settings' => 'payments::settings.price._partials.settings.complex_method',
+            ]);
+
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
         $this->app->register(\Cartalyst\Stripe\Laravel\StripeServiceProvider::class);
         //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
