@@ -14,6 +14,11 @@ function get_prices_data ()
     return \Config::get('payment.pricing');
 }
 
+function get_data_datum ()
+{
+    return \Config::get('datum.options');
+}
+
 function find_price ($slug)
 {
     $prices = get_prices_data();
@@ -44,6 +49,16 @@ function render_price_list ()
 function render_price_form ($view_name)
 {
     return \View("payments::settings.price._partials.forms.$view_name")->render();
+}
+
+function render_data_list ()
+{
+    return \View("payments::settings.datum.list")->render();
+}
+
+function render_data_form ($view_name)
+{
+    return \View("payments::settings.price._partials.$view_name")->render();
 }
 
 function render_tax_service_form ()

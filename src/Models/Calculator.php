@@ -32,4 +32,13 @@ final class Calculator
         throw new \Exception('Invalid count');
     }
 
+    public function simple_price($count, array $array)
+    {
+        if(isset($array['value'])){
+            return $array['value'];
+        }
+
+        throw new \Exception('Invalid count');
+    }
+
 }

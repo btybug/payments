@@ -6,6 +6,6 @@
         Price
     </div>
     <div class="col-md-6">
-        {!! Form::text($slug.'_price',null,['class' => 'form-control']) !!}
+        {!! Form::text($slug.'_price[value]',null,['class' => 'form-control']) !!}
     </div>
 </div>

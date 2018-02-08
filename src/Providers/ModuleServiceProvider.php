@@ -85,6 +85,28 @@ class ModuleServiceProvider extends ServiceProvider
                 'settings' => 'payments::settings.price._partials.settings.complex_method',
             ]);
 
+
+        \Eventy::action('datum.options',
+            [
+                'name'     => 'Digital',
+                'slug'     => 'digital_method',
+                'form'     => 'payments::settings.datum._partials.digital'
+            ]);
+
+        \Eventy::action('datum.options',
+            [
+                'name'     => 'Physical',
+                'slug'     => 'physical_method',
+                'form'     => 'payments::settings.datum._partials.physical'
+            ]);
+
+        \Eventy::action('datum.options',
+            [
+                'name'     => 'Services',
+                'slug'     => 'services_method',
+                'form'     => 'payments::settings.datum._partials.services'
+            ]);
+
         $this->app->register(\Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class);
         $this->app->register(\Cartalyst\Stripe\Laravel\StripeServiceProvider::class);
         //  \Config::set('app.aliases', array_merge(\Config::get('app.aliases'), ['Cart' => Gloudemans\Shoppingcart\Facades\Cart::class]));
@@ -112,6 +134,18 @@ class ModuleServiceProvider extends ServiceProvider
                 'options_function' => 'get_prices_data'
             ]
         );
+
+        \Eventy::action('options.listener',
+            [
+                'name'             => 'data',
+                'shortcode'             => 'data_pym',
+                'render_function'  => 'render_data_form',
+                'option_field_slug'  => 'data_pym',
+                'list_function'  => 'render_data_list',
+                'options_function' => 'get_data_datum'
+            ]
+        );
+
         \Eventy::action('options.listener',
             [
                 'name'             => 'tax_services',
@@ -225,7 +259,20 @@ class ModuleServiceProvider extends ServiceProvider
             return (\Config::get('payment.pricing'));
         });
 
+        \Eventy::addAction('datum.options', function ($what) {
+            $codes = \Config::get('datum.options', []);
+            $codes[$what['slug']] = [
+                'name'     => $what['name'],
+                'slug'     => $what['slug'],
+                'form'     => $what['form']
+            ];
+            \Config::set('datum.options', $codes);
+
+            return (\Config::get('datum.options'));
+        });
+
         BBaddShortcode('price_pym','render_price_list');
+        BBaddShortcode('data_pym','render_datapym_list');
         BBaddShortcode('tax_services_pym','render_tax_service_list');
 
         $this->app->register(RouteServiceProvider::class);
