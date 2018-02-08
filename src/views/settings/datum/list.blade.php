@@ -10,7 +10,7 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                <select name="{{ $slug }}_data[method]" data-type="data" class="form-control1 input-md select-option-type"
+                <select name="{{ $slug }}_data[method]" data-type="data" class="form-control1 input-md select-option-type-data"
                         id="select-data">
                     <option selected="selected" value="">Select Data</option>
                     @foreach($options as $k => $option)
@@ -29,7 +29,7 @@
 
 </div>
 <script>
-    $('body').on('change', '.select-option-type', function () {
+    $('body').on('change', '.select-option-type-data', function () {
         var type = $(this).data('type');
         var value = $(this).val();
         if (value != '' && value != undefined) {
