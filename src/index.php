@@ -51,7 +51,7 @@ function render_price_form ($view_name)
     return \View("payments::settings.price._partials.forms.$view_name")->render();
 }
 
-function render_data_list ()
+function render_datapym_list ()
 {
     return \View("payments::settings.datum.list")->render();
 }
