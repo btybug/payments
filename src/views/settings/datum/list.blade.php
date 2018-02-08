@@ -3,14 +3,14 @@
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <fieldset class="bty-form-select formgeneral">
-    <div class="form-group">
+    <div class="form-group" data-id="{{ get_field_by_slug("data_pym_".$slug) }}" data-shortcode="">
         <label class="col-sm-12 control-label">Select Data</label>
         <div class="col-sm-12">
             <div class="input-group">
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                <select name="{{ $slug }}_data[method]" data-type="data" class="form-control1 input-md select-option-type-data"
+                <select name="{{ $slug }}_data[method]" data-type="data" class="form-control1 input-md select-option-type"
                         id="select-data">
                     <option selected="selected" value="">Select Data</option>
                     @foreach($options as $k => $option)
@@ -29,7 +29,7 @@
 
 </div>
 <script>
-    $('body').on('change', '.select-option-type-data', function () {
+    $('body').on('change', '.select-option-type', function () {
         var type = $(this).data('type');
         var value = $(this).val();
         if (value != '' && value != undefined) {
