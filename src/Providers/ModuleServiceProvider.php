@@ -141,7 +141,7 @@ class ModuleServiceProvider extends ServiceProvider
                 'shortcode'             => 'data_pym',
                 'render_function'  => 'render_data_form',
                 'option_field_slug'  => 'data_pym',
-                'list_function'  => 'render_data_list',
+                'list_function'  => 'render_datapym_list',
                 'options_function' => 'get_data_datum'
             ]
         );
