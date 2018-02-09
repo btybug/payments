@@ -31,17 +31,17 @@ if (isset($settings["table"]) && ! count($product)) {
                     </div>
                     <div class="unit1 final-unit1">
                         @if(isset($settings['punit1']))
-                            {!! BBRenderUnits($settings['punit1']) !!}
+                            {!! BBRenderUnits($settings['punit1'],[],$product) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
                         @if(isset($settings['punit2']))
-                            {!! BBRenderUnits($settings['punit2']) !!}
+                            {!! BBRenderUnits($settings['punit2'],[],$product) !!}
                         @endif
                     </div>
                     <div class="unit2 final-unit2">
                         @if(isset($settings['punit3']))
-                            {!! BBRenderUnits($settings['punit3']) !!}
+                            {!! BBRenderUnits($settings['punit3'],[],$product) !!}
                         @endif
                     </div>
 
@@ -119,12 +119,12 @@ if (isset($settings["table"]) && ! count($product)) {
                         <div class="opt4 final-opt4">
                             <div class="col-md-12">
                                 @if(isset($settings["unit3"]))
-                                    {!! BBRenderUnits($settings['unit3']) !!}
+                                    {!! BBRenderUnits($settings['unit3'],[],$product) !!}
                                 @endif
                             </div>
                             <div class="col-md-12">
                                 @if(isset($settings["unit4"]))
-                                    {!! BBRenderUnits($settings['unit4']) !!}
+                                    {!! BBRenderUnits($settings['unit4'],[],$product) !!}
                                 @endif
                             </div>
                         </div>
