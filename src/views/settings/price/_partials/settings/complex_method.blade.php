@@ -1,5 +1,6 @@
 @php
     $data = get_qty_data();
+    $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <div class="col-md-12">
     {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
@@ -11,62 +12,155 @@
                     {!! Form::submit('save',['class' => 'btn btn-primary pull-right']) !!}
                 </h4>
             </div>
-            <div class="panel-body">
+            <div class="panel-body just__for_appent">
                 <div class="col-md-12">
-                    <div class="col-md-4">
-                        Display result as
-                    </div>
-                    <div class="col-md-2">
-                        {!! Form::radio('qty_option','select',true,['class' => 'select-display-type']) !!} Select menu
-                    </div>
-                    <div class="col-md-2">
-                        {!! Form::radio('qty_option','radio',null,['class' => 'select-display-type']) !!} Radio
-                    </div>
-                    <div class="col-md-2">
-                        {!! Form::radio('qty_option','text',null,['class' => 'select-display-type']) !!} Text
-                    </div>
+                    <button type="button" class="btn btn-md btn-primary add_new_copy">Add New</button>
                 </div>
+                <div class="clearfix"></div>
+                <div class="div_for_copy" data-index = '0'>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            Display result as
+                        </div>
+                        <div class="col-md-2">
+                            {!! Form::radio($slug.'_price[option0][qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu
+                        </div>
+                        <div class="col-md-2">
+                            {!! Form::radio($slug.'_price[option0][qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio
+                        </div>
+                        <div class="col-md-2">
+                            {!! Form::radio($slug.'_price[option0][qty_option]','text',null,['class' => 'select-display-type']) !!} Text
+                        </div>
+                    </div>
 
+                    <div class="col-md-12 display-box">
+                        <div class="col-md-6">
+                            <div class="col-md-12 qty-box" id="qty-parent">
+                                <div class="row qty_count">
+                                    <div class="col-md-6">
+                                        <label>
+                                            Quantity :
+                                        </label>
+                                        <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            Price :
+                                        </label>
+                                        <input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>
+                                    </div>
+                                    <div class="col-md-2">
 
-                <div class="col-md-12 display-box">
-                    <div class="col-md-6">
-                        <div class="col-md-12 qty-box">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>
-                                        Quantity :
-                                    </label>
-                                    <input type="text" class="form-control qty-inputs" name="qty[0][qty]"/>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>
-                                        Price :
-                                    </label>
-                                    <input type="text" class="form-control price-inputs" name="qty[0][price]"/>
-                                </div>
-                                <div class="col-md-2">
-
+                                    </div>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <a href="javascript:void(0)" class="add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i> add new</a>
+                            </div>
                         </div>
-                        <div class="col-md-12">
-                            <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add new</a>
+                        <div class="col-md-6">
+                            <div class="col-md-6 render-box">
+
+                            </div>
+                            <div class="col-md-6 calculation">
+
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="col-md-6 render-box">
-
-                        </div>
-                        <div class="col-md-6 calculation">
-
-                        </div>
-                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
     </div>
     {!! Form::close() !!}
 </div>
+<script type="template" id="qty_template">
+    <div class="row qty_count">
+        <div class="col-md-6">
+        <label>
+        Quantity :
+    </label>
+    <input type="text" class="form-control qty-inputs" name="_price[option{repl_main}][qty][{repl}][qty]">
+        </div>
+        <div class="col-md-4">
+        <label>
+        Price :
+    </label>
+    <input type="text" class="form-control price-inputs" name="_price[option{repl_main}][qty][{repl}][price]">
+        </div>
+        <div class="col-md-2">
+        <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>
+    </div>
+    </div>
+</script>
+<style>
+    .div_for_copy{
+        padding:5px;
+        border:1px solid;
+        margin:5px;
+    }
+</style>
+<script>
+    window.onload = function(){
+        $("body").delegate(".add_new_copy","click",function(){
+        var index = $("div.div_for_copy").length;
+       var html = '<div class="div_for_copy" data-index="'+index+'">'+
+        '               <div class="col-md-12">'+
+        '                   <div class="col-md-4">'+
+        '                       Display result as'+
+        '                   </div>'+
+        '                   <div class="col-md-2">'+
+        '                       <input class="select-display-type" checked="checked" name="_price[option'+index+'][qty_option]" type="radio" value="select"> Select menu'+
+        '                   </div>'+
+            '               <div class="col-md-2">'+
+            '                   <input class="select-display-type" name="_price[option'+index+'][qty_option]" type="radio" value="radio"> Radio'+
+            '               </div>'+
+            '               <div class="col-md-2">'+
+            '                   <input class="select-display-type" name="_price[option'+index+'][qty_option]" type="radio" value="text"> Text'+
+            '               </div>'+
+        '               </div>'+
+        '               <div class="col-md-12 display-box">'+
+        '                   <div class="col-md-6">'+
+        '                       <div class="col-md-12 qty-box" id="qty-parent'+index+'">'+
+        '                           <div class="row qty_count">'+
+        '                               <div class="col-md-6">'+
+        '                                   <label>'+
+        '                                       Quantity :'+
+        '                                   </label>'+
+        '                                   <input type="text" class="form-control qty-inputs" name="_price[option'+index+'][qty][0][qty]">'+
+        '                               </div>'+
+        '                               <div class="col-md-4">'+
+        '                                   <label>'+
+        '                                       Price :'+
+        '                                   </label>'+
+        '                                   <input type="text" class="form-control price-inputs" name="_price[option'+index+'][qty][0][price]">'+
+        '                               </div>'+
+        '                               <div class="col-md-2">'+
+        '                               </div>'+
+        '                           </div>'+
+        '                       </div>'+
+        '                       <div class="col-md-12">'+
+        '                           <a href="javascript:void(0)" class="add-new-qty" data-parent="qty-parent'+index+'"><i class="fa fa-plus"></i> add new</a>'+
+        '                       </div>'+
+        '               </div>'+
+        '               <div class="col-md-6">'+
+        '                   <div class="col-md-6 render-box">'+
+        '                   </div>'+
+        '                   <div class="col-md-6 calculation">'+
+        '                   </div>'+
+        '               </div>'+
+        '        </div>'+
+        '           <button class=\'btn btn-md btn-danger remove_this pull-right\'>Remove this</button>'+
+        '        <div class="clearfix"></div>'+
+        '        </div>';
+
+        $(".just__for_appent").append(html);
+        });
+        $("body").delegate(".remove_this","click",function(){
+            $(this).parent().remove();
+        });
+    }
+</script>
 
 
 <script>
@@ -90,7 +184,7 @@
             if (type == 'radio') {
                 $('.render-box').html('');
                 for (var i = 0; i < qtyArr.length; i++) {
-                    $('.render-box').append('<label><input type="radio" class="calculate-radio" name="price" value="' + price[i].value + '" /> ' + qtyArr[i].value + '</label>');
+                    $('.render-box').append('<label><input type="radio" class="calculate-radio" name="pricedata" value="' + price[i].value + '" /> ' + qtyArr[i].value + '</label>');
                 }
             }
         }
@@ -100,44 +194,33 @@
             generate(type);
         });
 
-        var qty = '{!! (isset($data['qty']) && count($data['qty'])) ? count($data['qty']) : 0 !!}';
+       // var qty = '{!! (isset($data['qty']) && count($data['qty'])) ? count($data['qty']) : 0 !!}';
         $("body").on('click', '.add-new-qty', function () {
-            qty++;
-            var html = '<div class="row">\n' +
-                '            <div class="col-md-6">\n' +
-                '                <label>\n' +
-                '                    Quantity :\n' +
-                '                </label>\n' +
-                '                <input type="text" class="form-control qty-inputs" name="qty[0][qty]"/>\n' +
-                '            </div>\n' +
-                '            <div class="col-md-4">\n' +
-                '                <label>\n' +
-                '                    Price :\n' +
-                '                </label>\n' +
-                '                <input type="text" class="form-control price-inputs" name="qty[0][price]"/>\n' +
-                '            </div>\n' +
-                '            <div class="col-md-2">\n' +
-                '                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>\n' +
-                '            </div>\n' +
-                '        </div>'
-            $('.qty-box').append(html);
+            var qty = $(this).parent().parent().children().find("div.qty_count").length;
 
-            var type = $('input[name=qty_option]:checked').val();
+            var index = $(this).parents("div.div_for_copy").data("index");
+
+            var html = $("#qty_template").html();
+            html = html.replace('{repl_main}',index);
+            html = html.replace('{repl}',qty);
+            var id = $(this).data("parent");
+            $("#"+id).append(html);
+            var type = $(this).parents("div.div_for_copy .select-display-type:checked").val();
             generate(type);
         })
 
         $("body").on('input', '.qty-inputs', function () {
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         });
         $("body").on('input', '.price-inputs', function () {
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         })
 
         $("body").on('click', '.btn-delete-row', function () {
             $(this).parent().parent().remove();
-            var type = $('input[name=qty_option]:checked').val();
+            var type = $('.select-display-type:checked').val();
             generate(type);
         })
 
