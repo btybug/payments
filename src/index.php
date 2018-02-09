@@ -64,7 +64,7 @@ function render_discount_list ()
 
 function render_data_form ($view_name)
 {
-    return \View("payments::settings.price._partials.$view_name")->render();
+    return \View("payments::settings.datum._partials.$view_name")->render();
 }
 
 function render_tax_service_form ()
