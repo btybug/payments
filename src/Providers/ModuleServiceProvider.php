@@ -274,6 +274,7 @@ class ModuleServiceProvider extends ServiceProvider
         BBaddShortcode('price_pym','render_price_list');
         BBaddShortcode('data_pym','render_datapym_list');
         BBaddShortcode('discount_pym_code','render_discount_list');
+        BBaddShortcode('links_pym_code','render_links');
         BBaddShortcode('tax_services_pym','render_tax_service_list');
 
         $this->app->register(RouteServiceProvider::class);

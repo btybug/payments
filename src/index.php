@@ -61,6 +61,10 @@ function render_discount_list ()
 {
     return \View("payments::settings.discount.discount")->render();
 }
+function render_links ()
+{
+    return \View("payments::settings.links.index")->render();
+}
 
 function render_data_form ($view_name)
 {
