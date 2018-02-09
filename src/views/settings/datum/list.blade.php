@@ -25,7 +25,9 @@
         </div>
     </div>
 </fieldset>
+<div class="select-data">
 
+</div>
 <script>
     $('body').on('change', '.select-option-type-data', function () {
         var type = $(this).data('type');
