@@ -57,6 +57,11 @@ function render_datapym_list ()
     return \View("payments::settings.datum.list")->render();
 }
 
+function render_discount_list ()
+{
+    return \View("payments::settings.discount.discount")->render();
+}
+
 function render_data_form ($view_name)
 {
     return \View("payments::settings.price._partials.$view_name")->render();
