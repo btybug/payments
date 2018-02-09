@@ -71,27 +71,26 @@ function render_data_form ($view_name)
     return \View("payments::settings.datum._partials.$view_name")->render();
 }
 
-function render_tax_service_form ()
-{
-    return 'cer u ter';
-}
-
 function render_tax_service_list ()
 {
-    return 'cer u ter';
+    return \View("payments::settings.tax_services.form")->render();
 }
 
-function get_tax_service_data ()
+function get_tax_service_data ($data)
 {
-    return [
-        [
-            'name' => 'Tax',
-            'slug' => 'tax',
-            'form' => '',
-        ], [
-            'name' => 'Services',
-            'slug' => 'services',
-            'form' => '',
-        ]
-    ];
+    $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
+
+    $query = [];
+    if(isset($data['tax']) && $data['tax'] && isset($data['services']) && $data['services']){
+        $query = $vat->pluck('name','id');
+    }else{
+        if(isset($data['tax']) && $data['tax']){
+            $query = $vat->plunckByCondition(['amount_type' => 'vat'],'id','name');
+        }
+        if(isset($data['services']) && $data['services']){
+            $query = $vat->plunckByCondition(['amount_type' => 'services'],'id','name');
+        }
+    }
+
+    return $query;
 }
