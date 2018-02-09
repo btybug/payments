@@ -6,7 +6,7 @@
             </div>
             <div class="col-xs-10 form-group">
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Categories">
+                    <input type="text" class="form-control" name="links_pym[categories]" placeholder="Categories">
                     <div class="some-content">
                         <div><i class="fa fa-minus-circle"></i> Desktops</div>
                         <div><i class="fa fa-minus-circle"></i> Cameras</div>
@@ -21,7 +21,7 @@
             </div>
             <div class="col-xs-10 form-group">
                 <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Tags">
+                    <input type="text" class="form-control" name="links_pym[tags]" placeholder="Tags">
                     <div class="some-content"></div>
                 </div>
             </div>
