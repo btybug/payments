@@ -1,9 +1,9 @@
 <?php
 $product = [];
-if (isset($settings["blog"]) && ! count($product)) {
+if (isset($settings["blog"]) && !count($product)) {
     $table = $settings["blog"];
     $slug = implode("_", explode("-", $table));
-    if(\Schema::hasTable($slug)){
+    if (\Schema::hasTable($slug)) {
         $product = DB::table($slug)->select("*")->first();
         $product = collect($product)->toArray();
     }
@@ -15,13 +15,20 @@ if (isset($settings["blog"]) && ! count($product)) {
             <div class="col-sm-4 block">
                 <div class="block-black text-center">
                     <div class="title">
-                        {{isset($product[$settings["option_1_item_value"]]) ?$product[$settings["option_1_item_value"]] : ''}}
+                        @if(isset($settings["option_1_item_value"]))
+                            {{isset($product[$settings["option_1_item_value"]]) ?$product[$settings["option_1_item_value"]] : ''}}
+                        @endif
                     </div>
                     <div class="header-content text-center">
-                        {{isset($product[$settings["option_2_item_value"]]) ? $product[$settings["option_2_item_value"]] : ''}}
+                        @if(isset($settings["option_2_item_value"]))
+                            {{isset($product[$settings["option_2_item_value"]]) ? $product[$settings["option_2_item_value"]] : ''}}
+                        @endif
                     </div>
+
                     <div class="block-content">
-                        {{isset($product[$settings["option_3_item_value"]]) ? $product[$settings["option_3_item_value"]] : ''}}
+                        @if(isset($settings["option_2_item_value"]))
+                            {{isset($product[$settings["option_3_item_value"]]) ? $product[$settings["option_3_item_value"]] : ''}}
+                        @endif
                     </div>
                     <div class="text-center">
                         @if(isset($settings['add_to_cart']))
