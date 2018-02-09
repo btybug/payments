@@ -10,7 +10,8 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                <select name="{{ $slug }}_data[method]" data-type="data" class="form-control1 input-md select-option-type-data"
+                <select name="{{ $slug }}_data[method]" data-type="data"
+                        class="form-control1 input-md select-option-type-data"
                         id="select-data">
                     <option selected="selected" value="">Select Data</option>
                     @foreach($options as $k => $option)
