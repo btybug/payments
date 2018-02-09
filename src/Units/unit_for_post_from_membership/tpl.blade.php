@@ -14,6 +14,7 @@ if (isset($settings["table"]) && ! count($product)) {
     $slug = implode("_", explode("-", $table));
     $product = DB::table($slug)->select("*")->first();
 }
+dd($product);
 ?>
 @if(!count($product))
     <div class="container all-div">
