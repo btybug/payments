@@ -1,5 +1,1 @@
-{
-  "id": "membership_plans.5a71f8e29d268",
-  "title": "New variation_5a5a1fd78cb88",
-  "settings": []
-}
+{"id":"membership_plans.5a71f8e29d268","title":"New variation_5a5a1fd78cb88","settings":{"blog":"test-blog","option_1_item_value":"title","option_2_item_value":"description","option_3_item_value":"price","add_to_cart":"add_to_cart.default"}}
