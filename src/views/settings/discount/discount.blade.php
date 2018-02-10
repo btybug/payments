@@ -16,29 +16,29 @@
     <tbody class="append-tr">
     <tr>
         <td>
-            <select name="discount_pym_{{$slug}}[0][group]" class="form-control">
+            <select name="{{$slug}}_discount_pym[0][group]" class="form-control">
                 <option value="default">Default</option>
                 <option value="other">Other</option>
             </select>
         </td>
         <td>
-            <input name="discount_pym_{{$slug}}[0][qty_from]" type="text" class="form-control" placeholder="Quantity">
+            <input name="{{$slug}}_discount_pym[0][qty_from]" type="text" class="form-control" placeholder="Quantity">
         </td>
         <td>
-            <input name="discount_pym_{{$slug}}[0][qty_to]" type="text" class="form-control" placeholder="Priority">
+            <input name="{{$slug}}_discount_pym[0][qty_to]" type="text" class="form-control" placeholder="Priority">
         </td>
         <td>
-            <input name="discount_pym_{{$slug}}[0][price_unit]" type="text" class="form-control" placeholder="Price">
+            <input name="{{$slug}}_discount_pym[0][price_unit]" type="text" class="form-control" placeholder="Price">
         </td>
         <td>
             <div class="input-group">
-                <input name="discount_pym_{{$slug}}[0][start_date]" type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start">
+                <input name="{{$slug}}_discount_pym[0][start_date]" type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start">
                 <span class="input-group-addon" id="date-start"><i class="fa fa-calendar"></i></span>
             </div>
         </td>
         <td>
             <div class="input-group">
-                <input name="discount_pym_{{$slug}}[0][end_date]" type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end">
+                <input name="{{$slug}}_discount_pym[0][end_date]" type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end">
                 <span class="input-group-addon" id="date-end"><i class="fa fa-calendar"></i></span>
             </div>
         </td>
@@ -56,29 +56,29 @@
             count++;
             var html = '<tr class="copy_this">'+
                 '<td>'+
-                '<select class="form-control" name="discount_pym_{{$slug}}['+count+'][group]">'+
+                '<select class="form-control" name="{{$slug}}_discount_pym['+count+'][group]">'+
                 '<option value="default">Default</option>'+
                 '<option value="other">Other</option>'+
                 '</select>'+
                 '</td>'+
                 '<td>'+
-                '<input type="text" class="form-control" placeholder="Quantity" name="discount_pym_{{$slug}}['+count+'][qty_from]">'+
+                '<input type="text" class="form-control" placeholder="Quantity" name="{{$slug}}_discount_pym['+count+'][qty_from]">'+
                 '</td>'+
                 '<td>'+
-                '<input type="text" class="form-control" placeholder="Priority" name="discount_pym_{{$slug}}['+count+'][qty_to]">'+
+                '<input type="text" class="form-control" placeholder="Priority" name="{{$slug}}_discount_pym['+count+'][qty_to]">'+
                 '</td>'+
                 '<td>'+
-                '<input type="text" class="form-control" placeholder="Price" name="discount_pym_{{$slug}}['+count+'][price_unit]">'+
+                '<input type="text" class="form-control" placeholder="Price" name="{{$slug}}_discount_pym['+count+'][price_unit]">'+
                 '</td>'+
                 '<td>'+
                 '<div class="input-group">'+
-                '<input type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start" name="discount_pym_{{$slug}}['+count+'][start_date]">'+
+                '<input type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start" name="{{$slug}}_discount_pym['+count+'][start_date]">'+
                 '<span class="input-group-addon" id="date-start"><i class="fa fa-calendar"></i></span>'+
                 '</div>'+
                 '</td>'+
                 '<td>'+
                 '<div class="input-group">'+
-                '<input type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end" name="discount_pym_{{$slug}}['+count+'][end_date]">'+
+                '<input type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end" name="{{$slug}}_discount_pym['+count+'][end_date]">'+
                 '<span class="input-group-addon" id="date-end"><i class="fa fa-calendar"></i></span>'+
                 '</div>'+
                 '</td>'+
