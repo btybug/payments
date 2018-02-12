@@ -39,30 +39,10 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab">
-                                    <h4 class="panel-title">Tax & services</h4>
+                                    <h4 class="panel-title">Single product price</h4>
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-horizontal">
-
-                                        <div class="form-group">
-                                            <label class="col-md-4 control-label" for="radios">Insert Product
-                                                Price</label>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label for="radios-0">
-                                                        <input type="radio" name="radios" id="radios-0" value="1"
-                                                               checked="checked">
-                                                        INCLUDE Tax
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="radios-1">
-                                                        <input type="radio" name="radios" id="radios-1" value="2">
-                                                        EXCLUDE Tax
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <label class="col-md-4 control-label" for="radios">Display Product Price</label>
                                         <div class="col-md-4">
                                             <div class="radio">

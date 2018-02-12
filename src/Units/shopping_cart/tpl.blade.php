@@ -12,6 +12,7 @@
                 <label class="product-image">Image</label>
                 <label class="product-details">Product</label>
                 <label class="product-price">Price</label>
+                <label class="product-vat">VAT</label>
                 <label class="product-quantity">Quantity</label>
                 <label class="product-removal">Remove</label>
                 <label class="product-line-price">Total</label>
@@ -35,6 +36,9 @@
                         </div>
                         <div class="product-price {{isset($settings['option_6_container_item_style']) ? $settings['option_6_container_item_style'] : ''}} {{isset($settings['option_7_container_item_style']) ? $settings['option_7_container_item_style'] : ''}}">
                             {!! $item->price !!}
+                        </div>
+                        <div class="product-vat {{isset($settings['option_6_container_item_style']) ? $settings['option_6_container_item_style'] : ''}} {{isset($settings['option_7_container_item_style']) ? $settings['option_7_container_item_style'] : ''}}">
+                            0
                         </div>
                         <div class="product-quantity">
                             <input type="number" value="{!! $item->qty !!}" min="1">
