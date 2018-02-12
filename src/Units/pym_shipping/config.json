@@ -1,0 +1,21 @@
+{
+  "title": "Payments shipping",
+  "author": "Edo",
+  "site": "http:\/\/bootydev.co.uk",
+  "version": "1.0",
+  "type": "unit",
+  "description": "",
+  "have_setting": 1,
+  "image": "screenshot.png",
+  "slug": "pym_shipping",
+  "folder": "pym_shipping",
+  "created_at": 1490088665,
+  "is_core": 0,
+  "place": "frontend",
+  "tags": [
+    "pym_shipping",
+    "global_single_product",
+    "frontend"
+  ],
+  "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/pym_shipping"
+}
