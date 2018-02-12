@@ -61,6 +61,10 @@
                     <div class="col-md-12">
                         {{isset($settings['shipping']) ? BBRenderUnits($settings['shipping']) : ''}}
                     </div>
+                    <div class="col-md-12">
+                        {!! isset($settings['pym_shipping']) ? BBRenderUnits($settings['pym_shipping']) : ''!!}
+                    </div>
+
                 </div>
                 <div class="col-md-6">
                     <div class="totals-item">

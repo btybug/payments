@@ -207,6 +207,33 @@ $container_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('p
                 </div>
             </div>
         </div>
+
+        <div class="bty-panel-collapse">
+            <div>
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapsepymshipping"
+                   aria-expanded="true">
+                    <span class="icon"><i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                    <span class="title">Shipping Calculator</span>
+                </a>
+            </div>
+            <div id="collapsepymshipping" class="collapse in" aria-expanded="true" style="">
+                <div class="content">
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <label for="">Shipping calc</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group my_rows1">
+                                <div class="col-sm-8">
+                                    {!! BBbutton2('unit',"pym_shipping","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 {!!  BBstyle($_this->path.'/css/settings.css') !!}
