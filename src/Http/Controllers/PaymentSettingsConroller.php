@@ -29,9 +29,10 @@ class PaymentSettingsConroller extends Controller
         return view('payments::settings.index');
     }
 
-    public function getGeneral ()
+    public function getGeneral (AdminsettingRepository $adminsettingRepository)
     {
-        return view('payments::settings.general');
+        $general = $adminsettingRepository->getSettings('general', 'save', true);
+        return view('payments::settings.general',compact('general'));
     }
 
     public function getCheckout (
@@ -55,6 +56,12 @@ class PaymentSettingsConroller extends Controller
         $adminsettingRepository->createOrUpdate($data, 'payment', 'checkout');
 
         return back();
+    }
+
+    public function generalSave(Request $request,AdminsettingRepository $adminsettingRepository){
+        $data = json_encode($request->except(['_token']), true);
+        $adminsettingRepository->createOrUpdate($data, 'general', 'save');
+        return redirect()->back();
     }
 
     public function getAttributes ()
