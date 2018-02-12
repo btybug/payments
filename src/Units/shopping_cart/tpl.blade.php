@@ -69,6 +69,10 @@
                     <label>Shipping</label>
                     <div class="totals-value" id="cart-shipping">15.00</div>
                 </div>
+                <div class="totals-item">
+                    <label>Discount</label>
+                    <div class="totals-value" id="cart-shipping">10.00</div>
+                </div>
                 <div class="totals-item totals-item-total">
                     <label>Grand Total</label>
                     <div class="totals-value" id="cart-total">{!! Cart::total() !!}</div>
