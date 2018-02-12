@@ -57,25 +57,32 @@
             @endif
 
             <div class="totals">
-                <div class="totals-item">
-                    <label>Subtotal</label>
-                    <div class="totals-value" id="cart-subtotal">{!! Cart::subtotal() !!}</div>
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        {{isset($settings['shipping']) ? BBRenderUnits($settings['shipping']) : ''}}
+                    </div>
                 </div>
-                <div class="totals-item">
-                    <label>Tax (5%)</label>
-                    <div class="totals-value" id="cart-tax">{!! Cart::tax() !!}</div>
-                </div>
-                <div class="totals-item">
-                    <label>Shipping</label>
-                    <div class="totals-value" id="cart-shipping">15.00</div>
-                </div>
-                <div class="totals-item">
-                    <label>Discount</label>
-                    <div class="totals-value" id="cart-shipping">10.00</div>
-                </div>
-                <div class="totals-item totals-item-total">
-                    <label>Grand Total</label>
-                    <div class="totals-value" id="cart-total">{!! Cart::total() !!}</div>
+                <div class="col-md-6">
+                    <div class="totals-item">
+                        <label>Subtotal</label>
+                        <div class="totals-value" id="cart-subtotal">{!! Cart::subtotal() !!}</div>
+                    </div>
+                    <div class="totals-item">
+                        <label>Tax (5%)</label>
+                        <div class="totals-value" id="cart-tax">{!! Cart::tax() !!}</div>
+                    </div>
+                    <div class="totals-item">
+                        <label>Voucher </label>
+                        <div class="totals-value" id="cart-shipping">15.00</div>
+                    </div>
+                    <div class="totals-item">
+                        <label>Discount</label>
+                        <div class="totals-value" id="cart-shipping">10.00</div>
+                    </div>
+                    <div class="totals-item totals-item-total">
+                        <label>Grand Total</label>
+                        <div class="totals-value" id="cart-total">{!! Cart::total() !!}</div>
+                    </div>
                 </div>
             </div>
 

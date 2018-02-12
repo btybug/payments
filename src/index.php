@@ -76,20 +76,23 @@ function render_tax_service_list ()
     return \View("payments::settings.tax_services.form")->render();
 }
 
+function get_tax($data){
+    $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
+    $query = [];
+    if(isset($data['tax']) && $data['tax']){
+        $query = $vat->plunckByCondition(['amount_type' => 'vat'],'id','name');
+    }
+
+    return $query;
+}
+
 function render_tax_service_form ($data)
 {
     $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
 
     $query = [];
-    if(isset($data['tax']) && $data['tax'] && isset($data['services']) && $data['services']){
-        $query = $vat->pluck('name','id');
-    }else{
-        if(isset($data['tax']) && $data['tax']){
-            $query = $vat->plunckByCondition(['amount_type' => 'vat'],'id','name');
-        }
-        if(isset($data['services']) && $data['services']){
-            $query = $vat->plunckByCondition(['amount_type' => 'services'],'id','name');
-        }
+    if(isset($data['services']) && $data['services']){
+        $query = $vat->plunckByCondition(['amount_type' => 'services'],'id','name');
     }
 
     return $query;
