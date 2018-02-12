@@ -1,5 +1,5 @@
 @php
-    $data = get_tax_service_data(get_options_data('tax_services'));
+    $data = render_tax_service_form(get_options_data('tax_services'));
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <fieldset class="bty-form-select formgeneral">

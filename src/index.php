@@ -76,7 +76,7 @@ function render_tax_service_list ()
     return \View("payments::settings.tax_services.form")->render();
 }
 
-function get_tax_service_data ($data)
+function render_tax_service_form ($data)
 {
     $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
 
@@ -93,4 +93,16 @@ function get_tax_service_data ($data)
     }
 
     return $query;
+}
+
+function get_tax_service_data(){
+    return [
+        [
+            'name'     => 'Tax',
+            'slug'     => 'tax'
+        ],[
+            'name'     => 'Services',
+            'slug'     => 'services'
+        ]
+    ];
 }
