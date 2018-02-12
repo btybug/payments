@@ -14,38 +14,79 @@
     </tr>
     </thead>
     <tbody class="append-tr">
-    <tr>
-        <td>
-            <select name="{{$slug}}_discount_pym[0][group]" class="form-control">
-                <option value="default">Default</option>
-                <option value="other">Other</option>
-            </select>
-        </td>
-        <td>
-            <input name="{{$slug}}_discount_pym[0][qty_from]" type="text" class="form-control" placeholder="Quantity">
-        </td>
-        <td>
-            <input name="{{$slug}}_discount_pym[0][qty_to]" type="text" class="form-control" placeholder="Priority">
-        </td>
-        <td>
-            <input name="{{$slug}}_discount_pym[0][price_unit]" type="text" class="form-control" placeholder="Price">
-        </td>
-        <td>
-            <div class="input-group">
-                <input name="{{$slug}}_discount_pym[0][start_date]" type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start">
-                <span class="input-group-addon" id="date-start"><i class="fa fa-calendar"></i></span>
-            </div>
-        </td>
-        <td>
-            <div class="input-group">
-                <input name="{{$slug}}_discount_pym[0][end_date]" type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end">
-                <span class="input-group-addon" id="date-end"><i class="fa fa-calendar"></i></span>
-            </div>
-        </td>
-        <td>
-            <button class="btn bnt-lg btn-primary render_tr"><i class="fa fa-plus-circle"></i></button>
-        </td>
-    </tr>
+        @if(isset($form_model) && isset($form_model[$slug.'_discount_pym']))
+            @foreach($form_model[$slug.'_discount_pym'] as $key => $item)
+                <tr>
+                    <td>
+                        {!! Form::select($slug."_discount_pym[$key][group]",['default' => 'Default','other' => 'Other'],
+                        $item['group']
+                        ,['class' => 'form-control']) !!}
+                    </td>
+                    <td>
+                        <input name="{{$slug}}_discount_pym[{{$key}}][qty_from]" value="{{ $item['qty_from'] }}" type="text" class="form-control" placeholder="Quantity">
+                    </td>
+                    <td>
+                        <input name="{{$slug}}_discount_pym[{{$key}}][qty_to]" value="{{ $item['qty_to'] }}" type="text" class="form-control" placeholder="Priority">
+                    </td>
+                    <td>
+                        <input name="{{$slug}}_discount_pym[{{$key}}][price_unit]" value="{{ $item['price_unit'] }}" type="text" class="form-control" placeholder="Price">
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <input name="{{$slug}}_discount_pym[{{$key}}][start_date]" value="{{ $item['start_date'] }}" type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start">
+                            <span class="input-group-addon" id="date-start"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <input name="{{$slug}}_discount_pym[{{$key}}][end_date]" value="{{ $item['end_date'] }}" type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end">
+                            <span class="input-group-addon" id="date-end"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </td>
+                    <td>
+                        @if($loop->first)
+                            <button type="button" class="btn bnt-lg btn-primary render_tr"><i class="fa fa-plus-circle"></i></button>
+                        @else
+                            <button type="button" class="btn bnt-lg remove_tr btn-danger"><i class="fa fa-minus-circle"></i></button>
+                        @endif
+
+                    </td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td>
+                    <select name="{{$slug}}_discount_pym[0][group]" class="form-control">
+                        <option value="default">Default</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+                <td>
+                    <input name="{{$slug}}_discount_pym[0][qty_from]" type="text" class="form-control" placeholder="Quantity">
+                </td>
+                <td>
+                    <input name="{{$slug}}_discount_pym[0][qty_to]" type="text" class="form-control" placeholder="Priority">
+                </td>
+                <td>
+                    <input name="{{$slug}}_discount_pym[0][price_unit]" type="text" class="form-control" placeholder="Price">
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="{{$slug}}_discount_pym[0][start_date]" type="text" class="form-control date_discount" placeholder="Date Start" aria-describedby="date-start">
+                        <span class="input-group-addon" id="date-start"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </td>
+                <td>
+                    <div class="input-group">
+                        <input name="{{$slug}}_discount_pym[0][end_date]" type="text" class="form-control date_discount" placeholder="Date End" aria-describedby="date-end">
+                        <span class="input-group-addon" id="date-end"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn bnt-lg btn-primary render_tr"><i class="fa fa-plus-circle"></i></button>
+                </td>
+            </tr>
+        @endif
     </tbody>
 </table>
 <script>
@@ -83,7 +124,7 @@
                 '</div>'+
                 '</td>'+
                 '<td>'+
-                '<button class="btn bnt-lg remove_tr btn-danger"><i class="fa fa-minus-circle"></i></button>'+
+                '<button type="button" class="btn bnt-lg remove_tr btn-danger"><i class="fa fa-minus-circle"></i></button>'+
                 '</td>'+
                 '</tr>';
             $(".append-tr").append(html);
