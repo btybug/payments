@@ -46,9 +46,9 @@ function render_price_list ()
     return \View("payments::settings.price.list")->render();
 }
 
-function render_price_form ($view_name)
+function render_price_form ($view_name,$data = null)
 {
-    return \View("payments::settings.price._partials.forms.$view_name")->render();
+    return \View("payments::settings.price._partials.forms.$view_name")->with('data',$data)->render();
 }
 
 function render_datapym_list ()

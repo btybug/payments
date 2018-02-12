@@ -1,5 +1,5 @@
 @php
-$slug = str_replace('-', '_', \Request::route("slug"))
+$slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <div class="col-md-12">
     <div class="col-md-4">
@@ -18,23 +18,47 @@ $slug = str_replace('-', '_', \Request::route("slug"))
 <div class="col-md-12 display-box">
     <div class="col-md-6">
         <div class="col-md-12 qty-box">
-            <div class="row">
-                <div class="col-md-6">
-                    <label>
-                        Quantity :
-                    </label>
-                    <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[qty][0][qty]"/>
-                </div>
-                <div class="col-md-4">
-                    <label>
-                        Price :
-                    </label>
-                    <input type="text" class="form-control price-inputs" name="{{$slug}}_price[qty][0][price]"/>
-                </div>
-                <div class="col-md-2">
+            @if($data && isset($data['qty']) && count($data['qty']))
+                @foreach($data['qty'] as $key => $item)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                Quantity :
+                            </label>
+                            <input type="text" class="form-control qty-inputs" value="{{ $item['qty'] }}" name="{{$slug}}_price[qty][{{ $key }}][qty]"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>
+                                Price :
+                            </label>
+                            <input type="text" class="form-control price-inputs" value="{{ $item['price'] }}" name="{{$slug}}_price[qty][{{ $key }}][price]"/>
+                        </div>
+                        <div class="col-md-2">
+                            @if(!$loop->first)
+                                <a href="javascript:void(0)" class="btn btn-danger btn-delete-row"><i class="fa fa-trash"></i></a>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            @else
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>
+                            Quantity :
+                        </label>
+                        <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[qty][0][qty]"/>
+                    </div>
+                    <div class="col-md-4">
+                        <label>
+                            Price :
+                        </label>
+                        <input type="text" class="form-control price-inputs" name="{{$slug}}_price[qty][0][price]"/>
+                    </div>
+                    <div class="col-md-2">
 
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
         <div class="col-md-12">
             <a href="javascript:void(0)" class="add-new-qty"><i class="fa fa-plus"></i> add new</a>

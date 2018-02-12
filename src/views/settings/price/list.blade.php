@@ -15,7 +15,11 @@
                         id="select-price">
                     <option selected="selected" value="">Select Price</option>
                     @foreach($options as $k => $option)
-                        <option value="{!! $k !!}">{!! str_replace('_',' ',$k) !!}</option>
+                        @if(isset($form_model) && isset($form_model[$slug.'_price']['method']) && $form_model[$slug.'_price']['method'] == $k)
+                            <option selected value="{!! $k !!}">{!! str_replace('_',' ',$k) !!}</option>
+                        @else
+                            <option value="{!! $k !!}">{!! str_replace('_',' ',$k) !!}</option>
+                        @endif
                     @endforeach
                 </select>
                 <span class="input-group-addon tooltip1">
@@ -27,7 +31,9 @@
     </div>
 </fieldset>
 <div class="select-price">
-
+    @if(isset($form_model) && isset($form_model[$slug.'_price']['method']))
+        {!! render_price_form($form_model[$slug.'_price']['method'],$form_model[$slug.'_price']) !!}
+    @endif
 </div>
 <script>
     $('body').on('change', '.select-option-type', function () {
