@@ -13,8 +13,8 @@
                 <label class="product-price">Price</label>
                 <label class="product-vat">VAT</label>
                 <label class="product-quantity">Quantity</label>
-                <label class="product-removal">Remove</label>
                 <label class="product-line-price">Total</label>
+                <label class="product-removal">Remove</label>
             </div>
             @if(Cart::count())
                 @foreach(Cart::content() as $item)
@@ -42,12 +42,12 @@
                         <div class="product-quantity">
                             <input type="number" value="{!! $item->qty !!}" min="1">
                         </div>
+                        <div class="product-line-price">{!! $item->total !!}</div>
                         <div class="product-removal">
                             <button class="{{isset($settings['option_8_container_item_style']) ? $settings['option_8_container_item_style'] : ''}} {{isset($settings['option_9_container_item_style']) ? $settings['option_9_container_item_style'] : ''}}">
                                 Remove
                             </button>
                         </div>
-                        <div class="product-line-price">{!! $item->total !!}</div>
                     </div>
                 @endforeach
             @endif
