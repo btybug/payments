@@ -11,7 +11,9 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                {!! Form::select($slug.'_tax_services_pym[vat]',$vat,null,['class' => 'form-control']) !!}
+                {!! Form::select($slug.'_tax_services_pym[vat]',$vat,
+                    (isset($form_model) && isset($form_model[$slug.'_tax_services_pym']['vat']))?$form_model[$slug.'_tax_services_pym']['vat']:null
+                    ,['class' => 'form-control']) !!}
                 <span class="input-group-addon tooltip1">
                     <i class="fa fa-question"></i>
                     <span class="tooltiptext">Choose VAT</span>
@@ -26,7 +28,9 @@
                 <span class="input-group-addon">
                     <i class="fa fa-list"></i>
                 </span>
-                {!! Form::select($slug.'_tax_services_pym[services]',$data,null,['class' => 'form-control select-vat','multiple' => true]) !!}
+                {!! Form::select($slug.'_tax_services_pym[services][]',$data,
+                (isset($form_model) && isset($form_model[$slug.'_tax_services_pym']['services']))?$form_model[$slug.'_tax_services_pym']['services']:null
+                ,['class' => 'form-control select-vat','multiple' => true]) !!}
                 <span class="input-group-addon tooltip1">
                     <i class="fa fa-question"></i>
                     <span class="tooltiptext">Choose Services</span>
