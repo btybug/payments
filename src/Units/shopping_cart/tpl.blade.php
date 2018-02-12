@@ -7,7 +7,6 @@
         <h1>Shopping Cart</h1>
 
         <div class="shopping-cart">
-
             <div class="column-labels">
                 <label class="product-image">Image</label>
                 <label class="product-details">Product</label>
