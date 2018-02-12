@@ -31,12 +31,6 @@
                                 </div>
                             </div>
                             <div class="col-md-12 m-b-10 margin_bottom">
-                                <div class="col-sm-4 p-l-0">Date/time format</div>
-                                <div class="col-sm-8">
-                                    {!! Form::select('date_format',['' => 'Select Format','1' => 'YYY/MM/DD','2' => 'mm-dd-yyyy'],null,['class' => 'form-control']) !!}
-                                </div>
-                            </div>
-                            <div class="col-md-12 m-b-10 margin_bottom">
                                 <div class="col-sm-4 p-l-0">Price symbol</div>
                                 <div class="col-sm-8">
                                     {!! Form::select('price_symbol',['' => 'Select Symbol','1' => ',','2' => '.'],null,['class' => 'form-control']) !!}
