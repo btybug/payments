@@ -80,7 +80,7 @@ function get_tax($data){
     $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
     $query = [];
     if(isset($data['tax']) && $data['tax']){
-        $query = $vat->plunckByCondition(['amount_type' => 'vat'],'id','name');
+        $query = $vat->plunckByCondition(['amount_type' => 'vat'],'name','id');
     }
 
     return $query;
@@ -92,7 +92,7 @@ function render_tax_service_form ($data)
 
     $query = [];
     if(isset($data['services']) && $data['services']){
-        $query = $vat->plunckByCondition(['amount_type' => 'services'],'id','name');
+        $query = $vat->plunckByCondition(['amount_type' => 'services'],'name','id');
     }
 
     return $query;
