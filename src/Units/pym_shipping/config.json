@@ -14,7 +14,6 @@
   "place": "frontend",
   "tags": [
     "pym_shipping",
-    "global_single_product",
     "frontend"
   ],
   "path": "app\/Plugins\/vendor\/sahak.avatar\/payments\/src\/Units\/pym_shipping"

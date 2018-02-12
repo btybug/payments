@@ -225,7 +225,7 @@ $container_styles = \App\Http\Controllers\PhpJsonParser::getClasses(base_path('p
                         <div class="col-md-6">
                             <div class="form-group my_rows1">
                                 <div class="col-sm-8">
-                                    {!! BBbutton2('unit',"pym_shipping","global_single_product","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
+                                    {!! BBbutton2('unit',"pym_shipping","pym_shipping","Change",['class'=>'btn btn-default change-layout','data-type'=>'frontend_sidebar','model'=>$settings]) !!}
                                 </div>
                             </div>
                         </div>
