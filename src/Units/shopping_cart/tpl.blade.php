@@ -96,7 +96,6 @@
 
 {!! BBstyle($_this->path."/css/main.css") !!}
 
-
 {!! BBstyle($_this->path."/css/text.css") !!}
 {!! BBstyle($_this->path."/css/image.css") !!}
 {!! BBstyle($_this->path."/css/button.css") !!}
