@@ -7,7 +7,7 @@
         <th>Customer Group</th>
         <th>Quantity From</th>
         <th>Quantity To</th>
-        <th>Price / Unit</th>
+        <th>Price / Unit Discount (%)</th>
         <th>Date Start</th>
         <th>Date End</th>
         <th></th>
