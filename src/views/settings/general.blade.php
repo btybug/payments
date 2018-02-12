@@ -31,6 +31,18 @@
                                     {!! Form::select('weight_units',['' => 'Select Weight','kg' => 'kg','gm' => 'gm','pound' => 'pound'],null,['class' => 'form-control']) !!}
                                 </div>
                             </div>
+                            <div class="col-md-12 m-b-10 margin_bottom">
+                                <div class="col-sm-4 p-l-0">Date/time format</div>
+                                <div class="col-sm-8">
+                                    {!! Form::select('date_format',['' => 'Select Format','1' => 'YYY/MM/DD','2' => 'mm-dd-yyyy'],null,['class' => 'form-control']) !!}
+                                </div>
+                            </div>
+                            <div class="col-md-12 m-b-10 margin_bottom">
+                                <div class="col-sm-4 p-l-0">Price symbol</div>
+                                <div class="col-sm-8">
+                                    {!! Form::select('price_symbol',['' => 'Select Symbol','1' => ',','2' => '.'],null,['class' => 'form-control']) !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -52,12 +64,12 @@
             <div class="panel panelSettingData">
                 <div id="urlManagerCol" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="urlManager">
                     <div class="panel-body">
-                        {!! Form::model(null,['url' => route('post_settings_save',['slug' => ''])]) !!}
+                        {!! Form::model($original_price,['url' => route('payments_settings_general_original_price_save',['slug' => ''])]) !!}
                         <div class="col-md-12">
                             <div class="form-horizontal">
                                 <label class="col-md-4 control-label">Display Product Price as: Original price</label>
                                 <div class="col-md-8">
-                                    {!! Form::select('original_price',['1' => 'Yes','0' => 'No'],null,['class' => 'form-control']) !!}
+                                    {!! Form::select('original_price',['nothing' => 'Nothing','vat' => 'Vat','services' => 'Services','vat_service' => 'Vat & services'],null,['class' => 'form-control']) !!}
                                 </div>
                             </div>
                         </div>
