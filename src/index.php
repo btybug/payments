@@ -1,6 +1,6 @@
 <?php
 addProvider('BtyBugHook\Payments\Providers\ModuleServiceProvider');
-function get_item_data_from_listener ($key)
+function get_item_data_from_listener($key)
 {
     $options = \Config::get('options.listener');
 
@@ -9,17 +9,17 @@ function get_item_data_from_listener ($key)
     return null;
 }
 
-function get_prices_data ()
+function get_prices_data()
 {
     return \Config::get('payment.pricing');
 }
 
-function get_data_datum ()
+function get_data_datum()
 {
     return \Config::get('datum.options');
 }
 
-function find_price ($slug)
+function find_price($slug)
 {
     $prices = get_prices_data();
 
@@ -31,7 +31,7 @@ function find_price ($slug)
 }
 
 //QTY functions
-function get_qty_data ()
+function get_qty_data()
 {
     $settingsRepo = new \Btybug\btybug\Repositories\AdminsettingRepository();
 
@@ -41,7 +41,7 @@ function get_qty_data ()
     return null;
 }
 
-function render_price_list ()
+function render_price_list()
 {
     return \View("payments::settings.price.list")->render();
 }
@@ -51,61 +51,64 @@ function render_price_form ($view_name,$data = null)
     return \View("payments::settings.price._partials.forms.$view_name")->with('data',$data)->render();
 }
 
-function render_datapym_list ()
+function render_datapym_list()
 {
-    
+
     return \View("payments::settings.datum.list")->render();
 }
 
-function render_discount_list ()
+function render_discount_list()
 {
     return \View("payments::settings.discount.discount")->render();
 }
-function render_links ()
+
+function render_links()
 {
     return \View("payments::settings.links.index")->render();
 }
 
-function render_data_form ($view_name)
+function render_data_form($view_name)
 {
     return \View("payments::settings.datum._partials.$view_name")->render();
 }
 
-function render_tax_service_list ()
+function render_tax_service_list()
 {
     return \View("payments::settings.tax_services.form")->render();
 }
 
-function get_tax($data){
+function get_tax($data)
+{
     $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
     $query = [];
-    if(isset($data['tax']) && $data['tax']){
-        $query = $vat->plunckByCondition(['amount_type' => 'vat'],'name','id');
+    if (isset($data['tax']) && $data['tax']) {
+        $query = $vat->plunckByCondition(['amount_type' => 'vat'], 'name', 'id');
     }
 
     return $query;
 }
 
-function render_tax_service_form ($data)
+function render_tax_service_form($data)
 {
     $vat = new \BtyBugHook\Payments\Repository\TaxServiceRepository();
 
     $query = [];
-    if(isset($data['services']) && $data['services']){
-        $query = $vat->plunckByCondition(['amount_type' => 'services'],'name','id');
+    if (isset($data['services']) && $data['services']) {
+        $query = $vat->plunckByCondition(['amount_type' => 'services'], 'name', 'id');
     }
 
     return $query;
 }
 
-function get_tax_service_data(){
+function get_tax_service_data()
+{
     return [
         [
-            'name'     => 'Tax',
-            'slug'     => 'tax'
-        ],[
-            'name'     => 'Services',
-            'slug'     => 'services'
+            'name' => 'Tax',
+            'slug' => 'tax'
+        ], [
+            'name' => 'Services',
+            'slug' => 'services'
         ]
     ];
 }
@@ -116,9 +119,34 @@ function product_price($slug, $id)
     $product = \DB::table($slug)->find($id);
     if (!$product) throw new \Exception('wrong product!!!');
     $priceData = json_decode($product->price, true);
-    $price=null;
-    switch ($priceData['method']){
-        case 'simple_price': $price=$priceData['value'];
+    $price = null;
+    switch ($priceData['method']) {
+        case 'simple_price':
+            $price = $priceData['value'];
     }
     return $price;
+}
+
+function getTax($id, $slug)
+{
+    $product = \DB::table($slug)->find($id);
+    $taxAndServices=@json_decode($product->tax_services_pym,true);
+    $result=[];
+    if($taxAndServices){
+        foreach ($taxAndServices as $key=>$value){
+            if($value && is_callable($key)){
+                $data = \BtyBugHook\Payments\Models\TaxService::where('slug', $key)->first();
+                if($data){
+                    $result[$key]=['amount'=>$data->amount,'price'=>$key($data->amount,product_price($slug,$id))] ;
+                }
+            }
+        }
+    };
+//    $data = \BtyBugHook\Payments\Models\TaxService::where('slug', $type)->first();
+    return $result;
+}
+
+function vat($vat, $price)
+{
+    return $price+($price * $vat / 100);
 }

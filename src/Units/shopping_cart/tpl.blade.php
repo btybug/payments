@@ -18,6 +18,7 @@
                 <label class="product-removal">Remove</label>
             </div>
             @if(Cart::count())
+
                 @foreach(Cart::content() as $item)
                     <div class="product">
                         <div class="product-image">
@@ -41,12 +42,16 @@
                             0%
                         </div>
                         <div class="product-vat {{isset($settings['option_6_container_item_style']) ? $settings['option_6_container_item_style'] : ''}} {{isset($settings['option_7_container_item_style']) ? $settings['option_7_container_item_style'] : ''}}">
-                            0
+                            {!! (isset($item->options['vat']['amount']))?$item->options['vat']['amount']:0 !!}
                         </div>
                         <div class="product-quantity">
                             <input type="number" value="{!! $item->qty !!}" min="1">
                         </div>
-                        <div class="product-line-price">{!! $item->total !!}</div>
+                        @php
+                        $price=isset($item->options['vat']['price'])?$item->options['vat']['price']:$item->price;
+                        @endphp
+
+                        <div class="product-line-price">{!! $item->qty *$price  !!}</div>
                         <div class="product-removal">
                             <button class="{{isset($settings['option_8_container_item_style']) ? $settings['option_8_container_item_style'] : ''}} {{isset($settings['option_9_container_item_style']) ? $settings['option_9_container_item_style'] : ''}}">
                                 Remove
