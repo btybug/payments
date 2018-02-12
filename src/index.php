@@ -109,3 +109,16 @@ function get_tax_service_data(){
         ]
     ];
 }
+
+
+function product_price($slug, $id)
+{
+    $product = \DB::table($slug)->find($id);
+    if (!$product) throw new \Exception('wrong product!!!');
+    $priceData = json_decode($product->price, true);
+    $price=null;
+    switch ($priceData['method']){
+        case 'simple_price': $price=$priceData['value'];
+    }
+    return $price;
+}
