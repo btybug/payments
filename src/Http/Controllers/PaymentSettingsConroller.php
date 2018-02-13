@@ -31,7 +31,7 @@ class PaymentSettingsConroller extends Controller
 
     public function getGeneral (AdminsettingRepository $adminsettingRepository)
     {
-        $general = $adminsettingRepository->getSettings('general', 'save', true);
+        $general = $adminsettingRepository->getSettings('pym_settings', 'general', true);
         $original_price = $adminsettingRepository->getSettings('general', 'original_price', true);
         return view('payments::settings.general',compact('general','original_price'));
     }
@@ -61,7 +61,7 @@ class PaymentSettingsConroller extends Controller
 
     public function generalSave(Request $request,AdminsettingRepository $adminsettingRepository){
         $data = json_encode($request->except(['_token']), true);
-        $adminsettingRepository->createOrUpdate($data, 'general', 'save');
+        $adminsettingRepository->createOrUpdate($data, 'pym_settings', 'general');
         return redirect()->back();
     }
     public function originalPriceSave(Request $request,AdminsettingRepository $adminsettingRepository){

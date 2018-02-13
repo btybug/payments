@@ -114,11 +114,16 @@ function get_tax_service_data()
 }
 
 
-function product_price($slug, $id)
+function product_price($slugOrPriceArray, $id=null)
 {
-    $product = \DB::table($slug)->find($id);
-    if (!$product) throw new \Exception('wrong product!!!');
-    $priceData = json_decode($product->price, true);
+    if(!is_array($slugOrPriceArray)){
+        $product = \DB::table($slugOrPriceArray)->find($id);
+        if (!$product) throw new \Exception('wrong product!!!');
+        $priceData = json_decode($product->price, true);
+    }else{
+        $priceData=$slugOrPriceArray;
+    }
+
     $price = null;
     switch ($priceData['method']) {
         case 'simple_price':
@@ -127,10 +132,16 @@ function product_price($slug, $id)
     return $price;
 }
 
-function getTax($id, $slug)
+function getTax($slugOrProductArray,$id=null)
 {
-    $product = \DB::table($slug)->find($id);
-    $taxAndServices=@json_decode($product->tax_services_pym,true);
+    if(!is_array($slugOrProductArray)) {
+        $price=$slugOrProductArray;
+        $product = \DB::table($slugOrProductArray)->find($id);
+        $taxAndServices = @json_decode($product->tax_services_pym, true);
+    }else{
+        $price=json_decode($slugOrProductArray['price'],true);
+        $taxAndServices =@json_decode($slugOrProductArray['tax_services_pym'],true);
+    }
     $result=[];
     if($taxAndServices){
         foreach ($taxAndServices as $key=>$value){
@@ -139,7 +150,7 @@ function getTax($id, $slug)
 
                 if($data){
                     $fn=$data->amount_type;
-                    $result[$key]=['amount'=>$data->amount,'price'=>$fn($data->amount,product_price($slug,$id))] ;
+                    $result[$key]=['amount'=>$data->amount,'price'=>$fn($data->amount,product_price($price,$id))] ;
                 }
             }
         }

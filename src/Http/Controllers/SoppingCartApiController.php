@@ -20,7 +20,7 @@ class SoppingCartApiController extends Controller
         $id = $request->get('id');
         $slug = $request->get('slug');
         $product = \DB::table($slug)->find($id);
-        $taxAndServices=getTax($id, $slug);
+        $taxAndServices=getTax($slug,$id);
         return Cart::add($product->id, $product->title, 1, product_price($slug, $id),$taxAndServices);
     }
 

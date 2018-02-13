@@ -1,6 +1,8 @@
 <?php
 $product = [];
+$flag=true;
 if (isset($source['_page'])) {
+    $flag=false;
     $page = $source['_page'];
     $params = \Request::route()->parameters();
     if (isset($params['param'])) {
@@ -9,14 +11,14 @@ if (isset($source['_page'])) {
     $blog = str_replace('-', '_', str_replace_first('single_', '', $page->slug));
     $product = DB::table($blog)->find($param);
 }
-if (isset($settings["table"]) && ! count($product)) {
+if (isset($settings["table"]) && ! $flag) {
     $table = $settings["table"];
     $slug = implode("_", explode("-", $table));
     $product = DB::table($slug)->select("*")->first();
 }
 
 ?>
-@if(!count($product))
+@if($flag)
     <div class="container all-div">
         <div class="row">
             <div class="head">
