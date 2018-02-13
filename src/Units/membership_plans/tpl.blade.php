@@ -23,7 +23,7 @@
                             <div class="block-content">
                                 {!! $plan->description !!}
                             </div>
-                            <div class="text-center">
+                            <div class="block-bottom text-center">
                                 @if(isset($settings['add_to_cart']))
                                     {!! BBRenderUnits($settings['add_to_cart'],[],$plan) !!}
                                 @endif
