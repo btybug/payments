@@ -15,7 +15,7 @@
                         Attribute name here
                     </h4>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body"  style="background-color: #70a98d">
                     <div class="attr_content">
                         <div class="col-md-4 left">
                             <div class="col-md-6">
@@ -84,7 +84,9 @@
     <div class="col-md-3"></div>
     <script type="template" id="attribute-panel">
         <div>
-          
+            <div class="col-md-12 m-t-15">
+                <a class="btn btn-success">Create new Master attribute</a>
+            </div>
             <div class="col-md-12 m-t-15">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
