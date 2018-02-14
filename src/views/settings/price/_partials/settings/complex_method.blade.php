@@ -138,7 +138,6 @@
     </div>
 
 
-
 </div>
 
 <script type="template" id="master-attribute-panel">
@@ -246,8 +245,8 @@
 
                         <div class="col-md-8 right">
                             <div class="col-md-12 ">
-                                <div class="col-md-12 qty-box" id="qty-parent" >
-                                    <div class="row qty_count">
+                                <div class="col-md-12 qty-box" id="qty-parent">
+                                    <div class="row qty_count qty-area-{id}">
                                         <div class="col-md-3">
                                             <label>
                                                 Options :
@@ -259,27 +258,30 @@
                                                        name="{{$slug}}_price[option0][qty][0][qty]"/>
                                             </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <select class=" form-control condition-option">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                                <option>Option 3</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class="form-control condition-types">
-                                                <option>And</option>
-                                                <option>Or</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class=" form-control condition-actions">
-                                                <option>Option 1</option>
-                                                <option>Option 2</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+                                        <div class="col-md-9">
+                                            <div class="col-md-3">
+                                                <select class=" form-control condition-option">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class="form-control condition-types">
+                                                    <option>And</option>
+                                                    <option>Or</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class=" form-control condition-actions">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <button type="button" class="btn btn-info plus-new-option-row" data-id="{id}"><i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -315,6 +317,30 @@
         </div>
     </div>
 </script>
+<script type="template" id="attribute-options">
+    <div class="col-md-3">
+        <select class=" form-control condition-option">
+            <option>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control condition-types">
+            <option>And</option>
+            <option>Or</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class=" form-control condition-actions">
+            <option>Option 1</option>
+            <option>Option 2</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+    </div>
+</script>
 <style>
     .div_for_copy {
         padding: 5px;
@@ -341,11 +367,12 @@
     .quant-btn-inp > a {
         margin-right: 5px;
     }
-    .qty-box{
+
+    .qty-box {
         border: 1px solid;
         padding: 5px;
         border-radius: 6px;
-        box-shadow: -3px 5px 7px 3px;
+        box-shadow: -3px 3px 12px 2px;
         background-color: darkgoldenrod;
     }
 </style>
@@ -484,7 +511,8 @@
         $('body').on('click', '.add-dep-attr', function () {
             var html = $('#attribute-panel').html();
             var id = $(this).attr('data-id');
-            console.log($('body').find('.panels-area-' + id));
+            html = html.replace("{id}", id);
+            html = html.replace("{id}", id);
             $('body').find('.panels-area-' + id).append(html);
         });
         $('body').on('click', '.add-new-master-panel', function () {
@@ -492,6 +520,8 @@
             var name = $('#panel-name').val();
             $('#panel-name').val('');
             var id = Date.now()
+            html = html.replace("{id}", id);
+            html = html.replace("{id}", id);
             html = html.replace("{id}", id);
             html = html.replace("{id}", id);
             html = html.replace("{id}", id);
