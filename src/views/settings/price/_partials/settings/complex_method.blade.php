@@ -163,7 +163,7 @@
                                 <div class="col-md-12 ">
                                     <div class="col-md-12 qty-box" id="qty-parent">
                                         <div class="row qty_count">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <label>
                                                     Quantity :
                                                 </label>
@@ -174,12 +174,24 @@
                                                            name="{{$slug}}_price[option0][qty][0][qty]"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label>
-                                                    Price :
-                                                </label>
-                                                <input type="text" class="form-control price-inputs"
-                                                       name="{{$slug}}_price[option0][qty][0][price]"/>
+                                            <div class="col-md-3">
+                                                <select class=" form-control condition-option">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class="form-control condition-types">
+                                                    <option>And</option>
+                                                    <option>Or</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <select class=" form-control condition-actions">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-2">
 
@@ -205,18 +217,19 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <div class="row">
-                        <div class="col-md-4">
-                            <h4 class="panel-title">
-                                {name}
-                            </h4>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="pull-right">
-                                <button type="button" class="btn btn-info">Edit</button>
-                                <button type="button" data-id="{id}" class="btn btn-warning delete-panel">Delete</button>
+                            <div class="col-md-4">
+                                <h4 class="panel-title">
+                                    {name}
+                                </h4>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-info">Edit</button>
+                                    <button type="button" data-id="{id}" class="btn btn-warning delete-panel">Delete
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                     <div class="panel-body" style="background-color: #70a98d">
                         <div class="attr_content">
@@ -478,9 +491,9 @@
             $('.master-panels-area').append(html);
 
         });
-        $('body').on('click','.delete-panel',function () {
-           var id=$(this).attr('data-id');
-            $('body').find('#panel-'+id).remove();
+        $('body').on('click', '.delete-panel', function () {
+            var id = $(this).attr('data-id');
+            $('body').find('#panel-' + id).remove();
         });
     });
 </script>
