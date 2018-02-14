@@ -29,8 +29,8 @@
                             <div class="col-md-6">
                                 <select name="" id="" class="form-control">
                                     <option>Radio</option>
-                                    <option>Radio2</option>
-                                    <option>Radio3</option>
+                                    <option>Select</option>
+                                    <option>Checkbox</option>
                                 </select>
                             </div>
                         </div>
