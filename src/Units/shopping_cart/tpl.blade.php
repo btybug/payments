@@ -120,11 +120,13 @@
         </div>
     </div>
 </div>
-
 {!! BBstyle($_this->path."/css/main.css") !!}
+{!! BBstyle($_this->path."/css/custom.css") !!}
 
 {!! BBstyle($_this->path."/css/text.css") !!}
 {!! BBstyle($_this->path."/css/image.css") !!}
 {!! BBstyle($_this->path."/css/button.css") !!}
 {!! BBstyle($_this->path."/css/container.css") !!}
+
+
 {!!  BBscript($_this->path.'/js/main.js') !!}
