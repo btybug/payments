@@ -6,6 +6,7 @@
   "type": "unit",
   "description": "",
   "have_setting": 1,
+  "example": "demo",
   "image": "screenshot.png",
   "slug": "shopping_cart",
   "folder": "shopping_cart",
