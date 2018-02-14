@@ -264,7 +264,7 @@
                 </div>
             </div>
         </div>
-        <div id="panels-area-{id}"></div>
+        <div class="panels-area-{id}"></div>
         <div>
             <button type="button" class="btn btn-info add-dep-attr" data-id="{id}"><i class="fa fa-plus"></i>Add depended attribute
             </button>
@@ -453,8 +453,9 @@
         });
         $('body').on('click','.add-dep-attr',function () {
             var html = $('#attribute-panel').html();
-            var id = $(this).data('id');
-            $('.panels-area-' + id).append(html);
+            var id = $(this).attr('data-id');
+            console.log($('body').find('.panels-area-'+ id));
+            $('body').find('.panels-area-'+ id).append(html);
         });
         $('body').on('click', '.add-new-master-panel', function () {
             var html = $('#master-attribute-panel').html();
