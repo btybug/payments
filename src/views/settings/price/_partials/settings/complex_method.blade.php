@@ -5,6 +5,7 @@
 <div class="col-md-12">
     {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
     <div class="col-md-12 m-t-15">
+        <a class="btn btn-success">Create new Master attribute</a>
         <div class="panel panel-default">
             <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
