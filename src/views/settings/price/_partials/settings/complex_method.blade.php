@@ -136,164 +136,166 @@
 
         </div>
     </div>
-    <script type="template" id="attribute-panel">
-        <div>
-            <div class="col-md-12 m-t-15">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h4 class="panel-title">
-                            Attribute name here
-                        </h4>
-                    </div>
-                    <div class="panel-body">
-                        <div class="attr_content">
-                            <div class="col-md-4 left">
 
-                                <div class="col-md-6">
-                                    <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
-                                            class="form-control select-display-type">
-                                        <option value="radio">Radio</option>
-                                        <option value="select">Select</option>
-                                        <option value="text">Text</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                            <div class="col-md-8 right">
-                                <div class="col-md-12 ">
-                                    <div class="col-md-12 qty-box" id="qty-parent">
-                                        <div class="row qty_count">
-                                            <div class="col-md-3">
-                                                <label>
-                                                    Quantity :
-                                                </label>
-                                                <div class="quant-btn-inp">
-                                                    <a href="javascript:void(0)" class="btn btn-primary add-new-qty"
-                                                       data-parent="qty-parent"><i class="fa fa-plus"></i></a>
-                                                    <input type="text" class="form-control qty-inputs"
-                                                           name="{{$slug}}_price[option0][qty][0][qty]"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <select class=" form-control condition-option">
-                                                    <option>Option 1</option>
-                                                    <option>Option 2</option>
-                                                    <option>Option 3</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <select class="form-control condition-types">
-                                                    <option>And</option>
-                                                    <option>Or</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <select class=" form-control condition-actions">
-                                                    <option>Option 1</option>
-                                                    <option>Option 2</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-2">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-
-                                </div>
-
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
-    <script type="template" id="master-attribute-panel">
-        <div id="panel-{id}">
-            <div class="col-md-12 m-t-15">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h4 class="panel-title">
-                                    {name}
-                                </h4>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="pull-right">
-                                    <button type="button" class="btn btn-info">Edit</button>
-                                    <button type="button" data-id="{id}" class="btn btn-warning delete-panel">Delete
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body" style="background-color: #70a98d">
-                        <div class="attr_content">
-                            <div class="col-md-4 left">
-                                <div class="col-md-6">
-                                    <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
-                                            class="form-control select-display-type">
-                                        <option value="radio">Radio</option>
-                                        <option value="select">Select</option>
-                                        <option value="text">Text</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-8 right">
-                                <div class="col-md-12 ">
-                                    <div class="col-md-12 qty-box" id="qty-parent">
-                                        <div class="row qty_count">
-                                            <div class="col-md-6">
-                                                <label>
-                                                    Quantity :
-                                                </label>
-                                                <div class="quant-btn-inp">
-                                                    <a href="javascript:void(0)" class="btn btn-primary add-new-qty"
-                                                       data-parent="qty-parent"><i class="fa fa-plus"></i></a>
-                                                    <input type="text" class="form-control qty-inputs"
-                                                           name="{{$slug}}_price[option0][qty][0][qty]"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label>
-                                                    Price :
-                                                </label>
-                                                <input type="text" class="form-control price-inputs"
-                                                       name="{{$slug}}_price[option0][qty][0][price]"/>
-                                            </div>
-                                            <div class="col-md-2">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-
-                                </div>
-
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="panels-area-{id}"></div>
-            <div>
-                <button type="button" class="btn btn-info add-dep-attr" data-id="{id}"><i class="fa fa-plus"></i>Add
-                    depended attribute
-                </button>
-            </div>
-        </div>
-
-    </script>
 
 </div>
 
+<script type="template" id="master-attribute-panel">
+    <div id="panel-{id}">
+        <div class="col-md-12 m-t-15">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="panel-title">
+                                {name}
+                            </h4>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-info">Edit</button>
+                                <button type="button" data-id="{id}" class="btn btn-warning delete-panel">Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="background-color: #70a98d">
+                    <div class="attr_content">
+                        <div class="col-md-4 left">
+                            <div class="col-md-6">
+                                <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
+                                        class="form-control select-display-type">
+                                    <option value="radio">Radio</option>
+                                    <option value="select">Select</option>
+                                    <option value="text">Text</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 right">
+                            <div class="col-md-12 ">
+                                <div class="col-md-12 qty-box" id="qty-parent">
+                                    <div class="row qty_count">
+                                        <div class="col-md-6">
+                                            <label>
+                                                Quantity :
+                                            </label>
+                                            <div class="quant-btn-inp">
+                                                <a href="javascript:void(0)" class="btn btn-primary add-new-qty"
+                                                   data-parent="qty-parent"><i class="fa fa-plus"></i></a>
+                                                <input type="text" class="form-control qty-inputs"
+                                                       name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>
+                                                Price :
+                                            </label>
+                                            <input type="text" class="form-control price-inputs"
+                                                   name="{{$slug}}_price[option0][qty][0][price]"/>
+                                        </div>
+                                        <div class="col-md-2">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panels-area-{id}"></div>
+        <div>
+            <button type="button" class="btn btn-info add-dep-attr" data-id="{id}"><i class="fa fa-plus"></i>Add
+                depended attribute
+            </button>
+        </div>
+    </div>
+
+</script>
+<script type="template" id="attribute-panel">
+    <div>
+        <div class="col-md-12 m-t-15">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        Attribute name here
+                    </h4>
+                </div>
+                <div class="panel-body">
+                    <div class="attr_content">
+                        <div class="col-md-4 left">
+
+                            <div class="col-md-6">
+                                <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
+                                        class="form-control select-display-type">
+                                    <option value="radio">Radio</option>
+                                    <option value="select">Select</option>
+                                    <option value="text">Text</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 right">
+                            <div class="col-md-12 ">
+                                <div class="col-md-12 qty-box" id="qty-parent">
+                                    <div class="row qty_count">
+                                        <div class="col-md-3">
+                                            <label>
+                                                Options :
+                                            </label>
+                                            <div class="quant-btn-inp">
+                                                <a href="javascript:void(0)" class="btn btn-primary add-new-qty"
+                                                   data-parent="qty-parent"><i class="fa fa-plus"></i></a>
+                                                <input type="text" class="form-control qty-inputs"
+                                                       name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <select class=" form-control condition-option">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                                <option>Option 3</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class="form-control condition-types">
+                                                <option>And</option>
+                                                <option>Or</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select class=" form-control condition-actions">
+                                                <option>Option 1</option>
+                                                <option>Option 2</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
 <script type="template" id="qty_template">
     <div class="row qty_count">
         <div class="col-md-6">
