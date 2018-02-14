@@ -123,21 +123,7 @@
                     <div class="panel-body">
                         <div class="attr_content">
                             <div class="col-md-4 left">
-                                <div class="col-md-6">
-                                    <p>Display result as</p>
-                                    <div class="render-box">
-                                        <div>
-                                            <input name="attrradio" type="radio" class="bty-input-radio-7"
-                                                   id="attrradio1">
-                                            <label for="attrradio1">radio</label>
-                                        </div>
-                                        <div>
-                                            <input name="attrradio" type="radio" class="bty-input-radio-7"
-                                                   id="attrradio2">
-                                            <label for="attrradio2">radio</label>
-                                        </div>
-                                    </div>
-                                </div>
+                   
                                 <div class="col-md-6">
                                     <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
                                             class="form-control select-display-type">
