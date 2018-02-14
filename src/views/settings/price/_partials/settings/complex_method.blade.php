@@ -246,7 +246,7 @@
 
                         <div class="col-md-8 right">
                             <div class="col-md-12 ">
-                                <div class="col-md-12 qty-box" id="qty-parent">
+                                <div class="col-md-12 qty-box" id="qty-parent" >
                                     <div class="row qty_count">
                                         <div class="col-md-3">
                                             <label>
@@ -340,6 +340,13 @@
 
     .quant-btn-inp > a {
         margin-right: 5px;
+    }
+    .qty-box{
+        border: 1px solid;
+        padding: 5px;
+        border-radius: 6px;
+        box-shadow: -3px 5px 7px 3px;
+        background-color: darkgoldenrod;
     }
 </style>
 <script>
