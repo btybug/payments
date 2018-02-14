@@ -451,14 +451,16 @@
             var val = $(this).val();
             $('.calculation').html(val);
         });
-        $('.add-dep-attr').on('click', function () {
+        $('body').on('click','.add-dep-attr',function () {
             var html = $('#attribute-panel').html();
             var id = $(this).data('id');
             $('.panels-area-' + id).append(html);
         });
         $('body').on('click', '.add-new-master-panel', function () {
             var html = $('#master-attribute-panel').html();
-            html = html.replace('{id}', Date.now());
+            var id=Date.now()
+            html = html.replace("{id}",id);
+            html = html.replace("{id}",id);
             $('.master-panels-area').append(html);
 
         })
