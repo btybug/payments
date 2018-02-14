@@ -3,6 +3,7 @@
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <div class="col-md-12">
+<div class="col-md-9">
     <div>
         <div class="col-md-12 m-t-15">
             <a class="btn btn-success">Create new Master attribute</a>
@@ -75,7 +76,84 @@
             </div>
         </div>
     </div>
+    <div id="panels-area"></div>
+    <div>
+        <button type="button" class="btn btn-info add-dep-attr"><i class="fa fa-plus"></i>Add depended attribute</button>
+    </div>
+</div>
+    <div class="col-md-3"></div>
+    <script type="template" id="attribute-panel">
+        <div>
+          
+            <div class="col-md-12 m-t-15">
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h4 class="panel-title">
+                            Attribute name here
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="attr_content">
+                            <div class="col-md-4 left">
+                                <div class="col-md-6">
+                                    <p>Display result as</p>
+                                    <div class="render-box">
+                                        <div>
+                                            <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
+                                            <label for="attrradio1">radio</label>
+                                        </div>
+                                        <div>
+                                            <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
+                                            <label for="attrradio2">radio</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <select name="{{ $slug.'_price[option0][qty_option]' }}" id="" class="form-control select-display-type">
+                                        <option value="radio">Radio</option>
+                                        <option value="select">Select</option>
+                                        <option value="text">Text</option>
+                                    </select>
+                                </div>
+                            </div>
 
+                            <div class="col-md-8 right">
+                                <div class="col-md-12 ">
+                                    <div class="col-md-12 qty-box" id="qty-parent">
+                                        <div class="row qty_count">
+                                            <div class="col-md-6">
+                                                <label>
+                                                    Quantity :
+                                                </label>
+                                                <div class="quant-btn-inp">
+                                                    <a href="javascript:void(0)" class="btn btn-primary add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i></a>
+                                                    <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>
+                                                    Price :
+                                                </label>
+                                                <input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>
+                                            </div>
+                                            <div class="col-md-2">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
     {{--{!! Form::model($data,['class' => 'form-horizontal']) !!}--}}
     {{--<div class="col-md-12 m-t-15">--}}
         {{--<a class="btn btn-success">Create new Master attribute</a>--}}
@@ -321,6 +399,9 @@
             var val = $(this).val();
             $('.calculation').html(val);
         });
-
-    })
+        $('.add-dep-attr').on('click',function () {
+            var html=$('#attribute-panel').html();
+            $('#panels-area').append(html);
+        });
+    });
 </script>
