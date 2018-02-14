@@ -51,6 +51,7 @@ Route::group(['prefix' => 'shopping-cart'], function () {
         Route::get('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdate', true)->name('payments_sopping_cart_zones_update');
         Route::post('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdateSave', true)->name('payments_sopping_cart_zones_update_save');
         Route::post('/create', 'IndexConroller@getShoppingCartZonesCreateSave', true)->name('payments_sopping_cart_zones_create_save');
+        Route::post('/getzones', 'IndexConroller@getZones', true)->name('get_zones_by_country');
     });
     Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
