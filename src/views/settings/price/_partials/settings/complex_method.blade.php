@@ -7,7 +7,9 @@
         <div>
             <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
     margin-top: 7px;">
-                <button class="btn btn-success pull-right add-new-master-panel">Create new Master attribute</button>
+                <button class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">Create new Master
+                    attribute
+                </button>
             </div>
             <div class="col-md-12 m-t-15">
                 <div class="panel panel-default">
@@ -108,8 +110,31 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Panel Name</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control" id="panel-name" aria-describedby="emailHelp"
+                               placeholder="Enter name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success add-new-master-panel" data-dismiss="modal">Save
+                    </button>
+                </div>
+            </div>
 
+        </div>
     </div>
     <script type="template" id="attribute-panel">
         <div>
@@ -123,7 +148,7 @@
                     <div class="panel-body">
                         <div class="attr_content">
                             <div class="col-md-4 left">
-                   
+
                                 <div class="col-md-6">
                                     <select name="{{ $slug.'_price[option0][qty_option]' }}" id=""
                                             class="form-control select-display-type">
@@ -175,13 +200,23 @@
         </div>
     </script>
     <script type="template" id="master-attribute-panel">
-        <div>
+        <div id="panel-{id}">
             <div class="col-md-12 m-t-15">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
-                        <h4 class="panel-title">
-                            Attribute name here
-                        </h4>
+                        <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="panel-title">
+                                {name}
+                            </h4>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="pull-right">
+                                <button type="button" class="btn btn-info">Edit</button>
+                                <button type="button" data-id="{id}" class="btn btn-warning delete-panel">Delete</button>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <div class="panel-body" style="background-color: #70a98d">
                         <div class="attr_content">
@@ -234,12 +269,14 @@
                     </div>
                 </div>
             </div>
+            <div class="panels-area-{id}"></div>
+            <div>
+                <button type="button" class="btn btn-info add-dep-attr" data-id="{id}"><i class="fa fa-plus"></i>Add
+                    depended attribute
+                </button>
+            </div>
         </div>
-        <div class="panels-area-{id}"></div>
-        <div>
-            <button type="button" class="btn btn-info add-dep-attr" data-id="{id}"><i class="fa fa-plus"></i>Add depended attribute
-            </button>
-        </div>
+
     </script>
 
 </div>
@@ -422,19 +459,28 @@
             var val = $(this).val();
             $('.calculation').html(val);
         });
-        $('body').on('click','.add-dep-attr',function () {
+        $('body').on('click', '.add-dep-attr', function () {
             var html = $('#attribute-panel').html();
             var id = $(this).attr('data-id');
-            console.log($('body').find('.panels-area-'+ id));
-            $('body').find('.panels-area-'+ id).append(html);
+            console.log($('body').find('.panels-area-' + id));
+            $('body').find('.panels-area-' + id).append(html);
         });
         $('body').on('click', '.add-new-master-panel', function () {
             var html = $('#master-attribute-panel').html();
-            var id=Date.now()
-            html = html.replace("{id}",id);
-            html = html.replace("{id}",id);
+            var name = $('#panel-name').val();
+            $('#panel-name').val('');
+            var id = Date.now()
+            html = html.replace("{id}", id);
+            html = html.replace("{id}", id);
+            html = html.replace("{id}", id);
+            html = html.replace("{id}", id);
+            html = html.replace("{name}", name);
             $('.master-panels-area').append(html);
 
-        })
+        });
+        $('body').on('click','.delete-panel',function () {
+           var id=$(this).attr('data-id');
+            $('body').find('#panel-'+id).remove();
+        });
     });
 </script>
