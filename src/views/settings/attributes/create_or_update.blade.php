@@ -72,11 +72,20 @@
                                     @if(count($model->terms))
                                         @foreach($model->terms as $term)
                                             <tr>
-                                                <td>{{ $term->name }}</td>
-                                                <td>{{ $term->slug }}</td>
-                                                <td>{{ $term->description }}</td>
+                                                <td>{{ $term->name }}
+                                                    <input type="hidden" name="terms[{{$term->id}}][name]" value="{{$term->name }}">
+                                                </td>
+                                                <td>{{ $term->slug }}
+                                                    <input type="hidden" name="terms[{{$term->id}}][slug]" value="{{$term->slug }}">
+                                                </td>
+                                                <td>{{ $term->description }}
+                                                    <input type="hidden" name="terms[{{$term->id}}][description]" value="{{$term->description }}">
+                                                </td>
                                                 <td>
-                                                    <a href='javascript:void(0)' class='btn btn-warning edit-term'><i
+                                                    <a href='javascript:void(0)'
+                                                       data-id="{{ $term->id }}" data-name="{{ $term->name }}"
+                                                       data-slug="{{ $term->slug }}" data-description="{{ $term->description }}"
+                                                       class='btn btn-warning edit-term'><i
                                                                 class='fa fa-edit'></i></a>
                                                     <a href='javascript:void(0)' class='btn btn-danger delete-term'><i
                                                                 class='fa fa-trash'></i></a>
@@ -223,11 +232,24 @@
     <script>
         $('.icp').iconpicker();
         var count = "{{ count($model->terms) }}";
+        $("body").on('click', '.edit-term', function () {
+            var name = $(this).data('name');
+            var slug = $(this).data('slug');
+            var description = $(this).data('description');
+            var id = $(this).data('id');
+
+            var termForm = $("#term_form").html();
+            termForm = termForm.replace('{name}',name);
+            termForm = termForm.replace('{slug}', slug);
+            termForm = termForm.replace('{description}', description);
+            termForm = termForm.replace('{count}', description);
+            $(".edit_or_create_term").html(termForm);
+        });
         $("body").on('click', '.add-new-term', function () {
+            var name = $('.t-name').val();
+            var slug = $('.t-slug').val();
             if(name != '' && name != undefined && slug !='' && slug != undefined){
                 count++;
-                var name = $('.t-name').val();
-                var slug = $('.t-slug').val();
                 var description = $('.t-description').val();
 
                 var html = $("#new-term").html();
