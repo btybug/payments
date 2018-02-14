@@ -29,8 +29,11 @@
                     <div class="panel-body" style="background-color: #70a98d">
                         <div class="col-md-12">
                             <div class="col-md-5">
-                                <button class=" form-control  btn btn-info condition-option">Read
-                                </button>
+                                <select class=" form-control condition-option">
+                                    <option>Red</option>
+                                    <option>Blue</option>
+                                    <option>Black</option>
+                                </select>
                             </div>
                             <div class="col-md-5">
                                 <select class="form-control condition-types">
