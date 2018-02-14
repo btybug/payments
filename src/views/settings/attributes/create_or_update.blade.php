@@ -71,7 +71,7 @@
                                     <tbody class="terms-box">
                                     @if(count($model->terms))
                                         @foreach($model->terms as $term)
-                                            <tr>
+                                            <tr data-id="{{ $term->id }}">
                                                 <td>{{ $term->name }}
                                                     <input type="hidden" name="terms[{{$term->id}}][name]" value="{{$term->name }}">
                                                 </td>
@@ -174,7 +174,7 @@
     </div>
 
     <script type="template" id="new-term">
-        <tr>
+        <tr data-id="{count}">
             <td>
                 {name}
                 <input type="hidden" name="terms[{count}][name]" value="{name}">
@@ -186,7 +186,10 @@
                 <input type="hidden" name="terms[{count}][description]" value="{description}">
             </td>
             <td>
-                <a href='javascript:void(0)' class='btn btn-warning edit-term'><i
+                <a href='javascript:void(0)'
+                   data-id="{count}" data-name="{name}"
+                   data-slug="{slug}" data-description="{description}"
+                   class='btn btn-warning edit-term'><i
                             class='fa fa-edit'></i></a>
                 <a href='javascript:void(0)' class='btn btn-danger delete-term'><i
                             class='fa fa-trash'></i></a>
@@ -212,7 +215,7 @@
             </div>
 
             <div class="form-group">
-                {!! Form::button('add term',['class' => 'btn btn-primary pull-right add-new-term','type' => 'button']) !!}
+                {!! Form::button('add term',['class' => 'btn btn-primary pull-right add-new-term','type' => 'button', 'data-id' => '{count}']) !!}
             </div>
         </div>
     </script>
@@ -242,27 +245,39 @@
             termForm = termForm.replace('{name}',name);
             termForm = termForm.replace('{slug}', slug);
             termForm = termForm.replace('{description}', description);
-            termForm = termForm.replace('{count}', description);
+            termForm = termForm.replace('{count}', id);
             $(".edit_or_create_term").html(termForm);
         });
         $("body").on('click', '.add-new-term', function () {
             var name = $('.t-name').val();
             var slug = $('.t-slug').val();
-            if(name != '' && name != undefined && slug !='' && slug != undefined){
-                count++;
+            if(name != '' || name != undefined || slug !='' || slug != undefined){
+                var id = $(this).data('id');
                 var description = $('.t-description').val();
 
-                var html = $("#new-term").html();
-                html = html.replace('{name}', name);
-                html = html.replace('{slug}', slug);
-                html = html.replace('{description}', description);
-                html = html.replace('{count}', count);
-                $(".terms-box").append(html);
+                if(id == '' || id == undefined){
+                    id = count++;
+                    var html = $("#new-term").html();
+                    html = html.replace('{name}', name);
+                    html = html.replace('{slug}', slug);
+                    html = html.replace('{description}', description);
+                    html = html.replace('{count}', id);
+                    $(".terms-box").append(html);
+                }else{
+                    var html = $("#new-term").html();
+                    html = html.replace('{name}', name);
+                    html = html.replace('{slug}', slug);
+                    html = html.replace('{description}', description);
+                    html = html.replace('{count}', id);
+
+                    $( ".terms-box tr[data-id='"+id+"']" ).replaceWith(html);
+                }
 
                 var termForm = $("#term_form").html();
                 termForm = termForm.replace('{name}', '');
                 termForm = termForm.replace('{slug}', '');
                 termForm = termForm.replace('{description}', '');
+                termForm = termForm.replace('{count}', '');
                 $(".edit_or_create_term").html(termForm);
             }else{
                 alert("fill data then click to save !!!")
