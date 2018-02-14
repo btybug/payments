@@ -8,26 +8,6 @@
             @if($model)
                 {!! Form::hidden('id',null) !!}
             @endif
-            <div class="form-group">
-                <label for="attribute_label">Name</label>
-                {!! Form::text('name',null,['class' => 'form-control']) !!}
-                <p class="description">Name for the attribute (shown on the front-end).</p>
-            </div>
-
-            <div class="form-group">
-                <label for="attribute_name">Slug</label>
-                {!! Form::text('slug',null,['class' => 'form-control']) !!}
-                <p class="description">Unique slug/reference for the attribute; must be no more than 28 characters.</p>
-            </div>
-
-            <div class="form-group">
-                <label for="attribute_type">Type</label>
-                {!! Form::select('type',['' => 'Select','text' => 'Text','select' => 'Select','radio' =>'Radio','checkbox'=> 'Checkbox'],null,['class' => 'form-control']) !!}
-                <p class="description">Determines how you select attributes for products. Under admin panel -&gt;
-                    products -&gt; product data -&gt; attributes -&gt; values, <strong>Text</strong> allows manual entry
-                    whereas <strong>select</strong> allows pre-configured terms in a drop-down list.</p>
-            </div>
-
             <div class="row">
                 <div class="panel panel-default p-0">
                     <div class="panel-heading">Input Data</div>
@@ -128,9 +108,18 @@
             </div>
             {!! Form::close() !!}
         </div>
+        <div class="col-md-4 display-box">
+
+        </div>
     </div>
 @stop
 @section('CSS')
+    <style>
+        .display-box{
+            min-height: 300px;
+            border: 1px solid black;
+        }
+    </style>
 @stop
 @section('JS')
 
