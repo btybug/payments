@@ -3,76 +3,139 @@
     $slug = str_replace('-', '_', \Request::route("slug"));
 @endphp
 <div class="col-md-12">
-    {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
-    <div class="col-md-12 m-t-15">
-        <a class="btn btn-success">Create new Master attribute</a>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    Settings
-                    {!! Form::submit('save',['class' => 'btn btn-primary pull-right']) !!}
-                </h4>
-            </div>
-            <div class="panel-body just__for_appent">
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-md btn-primary add_new_copy">Add New</button>
+    <div>
+        <div class="col-md-12 m-t-15">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        Attribute name here
+                    </h4>
                 </div>
-                <div class="clearfix"></div>
-                <div class="div_for_copy" data-index = '0'>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
-                            Display result as
-                        </div>
-                        <div class="col-md-2">
-                            {!! Form::radio($slug.'_price[option0][qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu
-                        </div>
-                        <div class="col-md-2">
-                            {!! Form::radio($slug.'_price[option0][qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio
-                        </div>
-                        <div class="col-md-2">
-                            {!! Form::radio($slug.'_price[option0][qty_option]','text',null,['class' => 'select-display-type']) !!} Text
-                        </div>
-                    </div>
+                <div class="panel-body">
+                    <div class="attr_content">
+                        <div class="col-md-4 left">
+                            <div class="col-md-6">
+                                <p>Display result as</p>
 
-                    <div class="col-md-12 display-box">
-                        <div class="col-md-6">
-                            <div class="col-md-12 qty-box" id="qty-parent">
-                                <div class="row qty_count">
+                                <div>
+                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
+                                    <label for="attrradio1">radio</label>
+                                </div>
+                                <div>
+                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
+                                    <label for="attrradio2">radio</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <select name="" id="" class="form-control">
+                                    <option>Radio</option>
+                                    <option>Radio2</option>
+                                    <option>Radio3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 right">
+                            <div class="col-md-12 ">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>
+                                            Options
+                                        </label>
+                                        <input type="text" class="form-control opt-input"/>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>
+                                            Price
+                                        </label>
+                                        <input type="text" class="form-control price-input"/>
+                                    </div>
                                     <div class="col-md-6">
-                                        <label>
-                                            Quantity :
-                                        </label>
-                                        <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label>
-                                            Price :
-                                        </label>
-                                        <input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>
-                                    </div>
-                                    <div class="col-md-2">
 
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="javascript:void(0)" class="add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i> add new</a>
+                                <a href="javascript:void(0)" class="bty-btn bty-btn-add"><span>add new</span></a>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-6 render-box">
 
-                            </div>
-                            <div class="col-md-6 calculation">
-
-                            </div>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
     </div>
+    {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
+    {{--<div class="col-md-12 m-t-15">--}}
+        {{--<a class="btn btn-success">Create new Master attribute</a>--}}
+        {{--<div class="panel panel-default">--}}
+            {{--<div class="panel-heading" role="tab">--}}
+                {{--<h4 class="panel-title">--}}
+                    {{--Settings--}}
+                    {{--{!! Form::submit('save',['class' => 'btn btn-primary pull-right']) !!}--}}
+                {{--</h4>--}}
+            {{--</div>--}}
+            {{--<div class="panel-body just__for_appent">--}}
+                {{--<div class="col-md-12">--}}
+                    {{--<button type="button" class="btn btn-md btn-primary add_new_copy">Add New</button>--}}
+                {{--</div>--}}
+                {{--<div class="clearfix"></div>--}}
+                {{--<div class="div_for_copy" data-index = '0'>--}}
+                    {{--<div class="col-md-12">--}}
+                        {{--<div class="col-md-4">--}}
+                            {{--Display result as--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-2">--}}
+                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-2">--}}
+                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-2">--}}
+                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','text',null,['class' => 'select-display-type']) !!} Text--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+
+                    {{--<div class="col-md-12 display-box">--}}
+                        {{--<div class="col-md-6">--}}
+                            {{--<div class="col-md-12 qty-box" id="qty-parent">--}}
+                                {{--<div class="row qty_count">--}}
+                                    {{--<div class="col-md-6">--}}
+                                        {{--<label>--}}
+                                            {{--Quantity :--}}
+                                        {{--</label>--}}
+                                        {{--<input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-md-4">--}}
+                                        {{--<label>--}}
+                                            {{--Price :--}}
+                                        {{--</label>--}}
+                                        {{--<input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>--}}
+                                    {{--</div>--}}
+                                    {{--<div class="col-md-2">--}}
+
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-md-12">--}}
+                                {{--<a href="javascript:void(0)" class="add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i> add new</a>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div class="col-md-6">--}}
+                            {{--<div class="col-md-6 render-box">--}}
+
+                            {{--</div>--}}
+                            {{--<div class="col-md-6 calculation">--}}
+
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="clearfix"></div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
     {!! Form::close() !!}
 </div>
 <script type="template" id="qty_template">
@@ -99,6 +162,15 @@
         padding:5px;
         border:1px solid;
         margin:5px;
+    }
+    .attr_content{
+        color: black;
+    }
+    .attr_content .left p{
+        margin-top: 5px;
+    }
+    .attr_content .right .bty-btn-add{
+        margin-top: 15px;
     }
 </style>
 <script>
