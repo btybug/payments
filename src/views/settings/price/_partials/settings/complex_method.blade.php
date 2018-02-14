@@ -22,9 +22,22 @@
             <div class="tab-pane active" id="tab_a">
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h4 class="panel-title">
+                                    Display Options
+                                </h4>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
                         <h4 class="panel-title">
-                            Display Options
+
                         </h4>
+
                     </div>
                     <div class="panel-body" style="background-color: #70a98d">
                         <div class="col-md-12">
