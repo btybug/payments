@@ -28,19 +28,66 @@
                             ],null,['class' => 'form-control select-type']) !!}
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <label class="col-sm-3 p-l-0 control-label m-0  text-left">Data</label>
-                            <div class="col-sm-8">
-                                {!! Form::textarea('data',null,['class' => 'form-control']) !!}
-                            </div>
-                        </div>
                         <div class="form-group col-md-6 m-b-10">
                             <label class="col-sm-3 p-l-0 control-label m-0  text-left">Extra Validation</label>
                             <div class="col-sm-8">
                                 {!! Form::text('extravalidation',null,['class' => 'form-control core-val']) !!}
                             </div>
                         </div>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-5 edit_or_create_term">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="attribute_label">Name</label>
+                                        {!! Form::text('term_name',null,['class' => 'form-control t-name']) !!}
+                                    </div>
 
+                                    <div class="form-group">
+                                        <label for="attribute_name">Slug</label>
+                                        {!! Form::text('term_slug',null,['class' => 'form-control t-slug']) !!}
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="attribute_type">Description</label>
+                                        {!! Form::textarea('term_description',null,['class' => 'form-control t-description']) !!}
+                                    </div>
+
+                                    <div class="form-group">
+                                        {!! Form::button('add term',['class' => 'btn btn-primary pull-right add-new-term','type' => 'button']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 m-t-15">
+                                <table id="fields-table" class="table table-striped table-bordered" cellspacing="0"
+                                       width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Slug</th>
+                                        <th>Description</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="terms-box">
+                                    @if(count($model->terms))
+                                        @foreach($model->terms as $term)
+                                            <tr>
+                                                <td>{{ $term->name }}</td>
+                                                <td>{{ $term->slug }}</td>
+                                                <td>{{ $term->description }}</td>
+                                                <td>
+                                                    <a href='javascript:void(0)' class='btn btn-warning edit-term'><i
+                                                                class='fa fa-edit'></i></a>
+                                                    <a href='javascript:void(0)' class='btn btn-danger delete-term'><i
+                                                                class='fa fa-trash'></i></a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @endif
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -58,7 +105,8 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="placeholder" class="col-sm-3 control-label m-0 text-left ">Placeholder</label>
+                                <label for="placeholder"
+                                       class="col-sm-3 control-label m-0 text-left ">Placeholder</label>
                                 <div class="col-sm-8">
                                     {!! Form::text('placeholder',null,['class' => 'form-control']) !!}
                                 </div>
@@ -67,13 +115,15 @@
 
                         <div class="form-group col-md-12 m-b-10">
                             <div class="col-md-6">
-                                <label for="fieldicon" class="col-sm-3 p-l-0 control-label m-0 text-left">Field Icon</label>
+                                <label for="fieldicon" class="col-sm-3 p-l-0 control-label m-0 text-left">Field
+                                    Icon</label>
                                 <div class="col-sm-8">
                                     {!!Form::text('icon',null,['class' => 'form-control icp','readonly'])  !!}
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="tooltip-icon" class="col-sm-3 m-0 control-label text-left">Tooltip Icon</label>
+                                <label for="tooltip-icon" class="col-sm-3 m-0 control-label text-left">Tooltip
+                                    Icon</label>
                                 <div class="col-sm-8">
                                     {!!Form::text('tooltip_icon',null,['class' => 'form-control icp','readonly','id'=>'tooltip-icon'])  !!}
 
@@ -91,7 +141,8 @@
                         </div>
                         <div class="form-group col-md-12 m-b-10">
                             <div class="form-group col-md-6 m-b-10">
-                                <label  for='validation_message' class="col-sm-3 m-0 control-label text-left">Error Message</label>
+                                <label for='validation_message' class="col-sm-3 m-0 control-label text-left">Error
+                                    Message</label>
                                 <div class="col-sm-8">
                                     {!! Form::textarea('validation_message',null,['class' => 'form-control','id'=>'validation_message']) !!}
                                 </div>
@@ -112,12 +163,56 @@
 
         </div>
     </div>
+
+    <script type="template" id="new-term">
+        <tr>
+            <td>
+                {name}
+                <input type="hidden" name="terms[{count}][name]" value="{name}">
+            </td>
+            <td>{slug}
+                <input type="hidden" name="terms[{count}][slug]" value="{slug}">
+            </td>
+            <td>{description}
+                <input type="hidden" name="terms[{count}][description]" value="{description}">
+            </td>
+            <td>
+                <a href='javascript:void(0)' class='btn btn-warning edit-term'><i
+                            class='fa fa-edit'></i></a>
+                <a href='javascript:void(0)' class='btn btn-danger delete-term'><i
+                            class='fa fa-trash'></i></a>
+            </td>
+        </tr>
+    </script>
+
+    <script type="template" id="term_form">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="attribute_label">Name</label>
+                <input type="text" name="term_name" value="{name}" class="form-control t-name">
+            </div>
+
+            <div class="form-group">
+                <label for="attribute_name">Slug</label>
+                <input type="text" name="term_slug" value="{slug}" class="form-control t-slug">
+            </div>
+
+            <div class="form-group">
+                <label for="attribute_type">Description</label>
+                <textarea name="term_description" class="form-control t-description">{description}</textarea>
+            </div>
+
+            <div class="form-group">
+                {!! Form::button('add term',['class' => 'btn btn-primary pull-right add-new-term','type' => 'button']) !!}
+            </div>
+        </div>
+    </script>
 @stop
 @section('CSS')
 
     {!! HTML::style('public/css/font-awesome/css/fontawesome-iconpicker.min.css') !!}
     <style>
-        .display-box{
+        .display-box {
             min-height: 300px;
             border: 1px solid black;
         }
@@ -127,5 +222,30 @@
     {!! HTML::script('public/css/font-awesome/js/fontawesome-iconpicker.min.js') !!}
     <script>
         $('.icp').iconpicker();
+        var count = "{{ count($model->terms) }}";
+        $("body").on('click', '.add-new-term', function () {
+            if(name != '' && name != undefined && slug !='' && slug != undefined){
+                count++;
+                var name = $('.t-name').val();
+                var slug = $('.t-slug').val();
+                var description = $('.t-description').val();
+
+                var html = $("#new-term").html();
+                html = html.replace('{name}', name);
+                html = html.replace('{slug}', slug);
+                html = html.replace('{description}', description);
+                html = html.replace('{count}', count);
+                $(".terms-box").append(html);
+
+                var termForm = $("#term_form").html();
+                termForm = termForm.replace('{name}', '');
+                termForm = termForm.replace('{slug}', '');
+                termForm = termForm.replace('{description}', '');
+                $(".edit_or_create_term").html(termForm);
+            }else{
+                alert("fill data then click to save !!!")
+            }
+
+        })
     </script>
 @stop
