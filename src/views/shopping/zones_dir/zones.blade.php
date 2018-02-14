@@ -7,6 +7,7 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Countries</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -15,6 +16,10 @@
                     <td>{{$zone->id}}</td>
                     <td>{{$zone->name}}</td>
                     <td>{{$zone->countries}}</td>
+                    <td>
+                        <a href="{{route('payments_sopping_cart_zones_update',$zone->id)}}" class="btn btn-warning">Edit</a>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -44,10 +44,14 @@ Route::group(['prefix' => 'user-payments'], function () {
 
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
-    Route::get('/general', 'IndexConroller@getSoppingCartGeneral', true)->name('payments_sopping_cart_general');
-    Route::get('/zones', 'IndexConroller@getSoppingCartZones', true)->name('payments_sopping_cart_zones');
-    Route::get('/zones/create', 'IndexConroller@getSoppingCartZonesCreate', true)->name('payments_sopping_cart_zones_create');
-    Route::post('/zones/create', 'IndexConroller@getSoppingCartZonesCreateSave', true)->name('payments_sopping_cart_zones_create_save');
+    Route::get('/general', 'IndexConroller@getShoppingCartGeneral', true)->name('payments_sopping_cart_general');
+    Route::group(['prefix' => 'zones'], function () {
+        Route::get('/', 'IndexConroller@getShoppingCartZones', true)->name('payments_sopping_cart_zones');
+        Route::get('/create', 'IndexConroller@getShoppingCartZonesCreate', true)->name('payments_sopping_cart_zones_create');
+        Route::get('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdate', true)->name('payments_sopping_cart_zones_update');
+        Route::post('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdateSave', true)->name('payments_sopping_cart_zones_update_save');
+        Route::post('/create', 'IndexConroller@getShoppingCartZonesCreateSave', true)->name('payments_sopping_cart_zones_create_save');
+    });
     Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
 
@@ -121,6 +125,8 @@ Route::post('/save-quantity-price', 'PriceController@postSaveQtyPrice')->name('p
 Route::post("/search", "IndexConroller@search");
 Route::post("/findpage", "IndexConroller@findPage");
 Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPaginator");
+
+
 Route::get('createzonetable', function(){
     \BtyBugHook\Payments\Database\CreateZonesTable::up();
 });
