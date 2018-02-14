@@ -55,8 +55,7 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <button type="button" class="btn btn-info "><i class="fa fa-plus"></i>
-                                </button>
+                                
                             </div>
                         </div>
                     </div>
