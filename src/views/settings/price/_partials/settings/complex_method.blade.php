@@ -32,7 +32,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab">
                         <h4 class="panel-title">
-                            Attribute name here
+                            Price options
                         </h4>
                     </div>
                     <div class="panel-body" style="background-color: #70a98d">
