@@ -27,6 +27,25 @@
                         </h4>
                     </div>
                     <div class="panel-body" style="background-color: #70a98d">
+                        <div class="col-md-12">
+                            <div class="col-md-5">
+                                <select class=" form-control condition-option">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5">
+                                <select class="form-control condition-types">
+                                    <option>Always display</option>
+                                    <option>Conditional</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-info "><i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="panel panel-default">
