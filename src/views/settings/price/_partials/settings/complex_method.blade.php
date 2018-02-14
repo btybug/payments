@@ -5,6 +5,9 @@
 <div class="col-md-12">
     <div>
         <div class="col-md-12 m-t-15">
+            <a class="btn btn-success">Create new Master attribute</a>
+        </div>
+        <div class="col-md-12 m-t-15">
             <div class="panel panel-default">
                 <div class="panel-heading" role="tab">
                     <h4 class="panel-title">
