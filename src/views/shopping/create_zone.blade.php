@@ -3,10 +3,18 @@
     <div class="main_lay_cont">
         <div class="row for_title_row">
             <h1 class="text-center">Add new zone</h1>
-            {!! Form::open(['url'=>'']) !!}
+            {{-- 'url'=>'', --}}
+            {!! Form::open(['method' => 'get']) !!}
                 <div class="form-group">
-                    <label for="">Select Countries</label>
-                    {!! Form::select('',$countries,null,['class' => 'form-control select2','multiple' => 'multiple']) !!}
+                    {!! Form::label('name', 'Zone name') !!}
+                    {!! Form::text('name','',['id' => 'name','class' => 'form-control','placeholder' => 'Insert zone name']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label('country', 'Select countries') !!}
+                    {!! Form::select('',$countries,null,['id' => 'country','class' => 'form-control select2','multiple' => 'multiple']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::submit('Save',["class" => 'btn btn-primary pull-right']) !!}
                 </div>
             {!! Form::close() !!}
         </div>
