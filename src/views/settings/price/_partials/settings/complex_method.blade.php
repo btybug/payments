@@ -19,19 +19,7 @@
                 <div class="panel-body"  style="background-color: #70a98d">
                     <div class="attr_content">
                         <div class="col-md-4 left">
-                            <div class="col-md-6">
-                                <p>Display result as</p>
-                                <div class="render-box">
-                                    <div>
-                                        <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
-                                        <label for="attrradio1">radio</label>
-                                    </div>
-                                    <div>
-                                        <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
-                                        <label for="attrradio2">radio</label>
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="col-md-6">
                                 <select name="{{ $slug.'_price[option0][qty_option]' }}" id="" class="form-control select-display-type">
                                     <option value="radio">Radio</option>
@@ -77,12 +65,52 @@
             </div>
         </div>
     </div>
-    <div id="panels-area"></div>
+    <div class="panels-area-0"></div>
     <div>
-        <button type="button" class="btn btn-info add-dep-attr"><i class="fa fa-plus"></i>Add depended attribute</button>
+        <button type="button" class="btn btn-info add-dep-attr" data-id="0"><i class="fa fa-plus"></i>Add depended attribute</button>
     </div>
 </div>
-    <div class="col-md-3 "></div>
+    <div class="col-md-3 ">
+        <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
+    margin-top: 7px;" >
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                   Preview
+                </h4>
+            </div>
+            <div class="panel-body"  style="background-color: #a3a1a9">
+                <div class="attr_content">
+                    <div class="col-md-4 left">
+                        <div class="col-md-6">
+                            <div class="render-box">
+                                <div>
+                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
+                                    <label for="attrradio1">radio</label>
+                                </div>
+                                <div>
+                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
+                                    <label for="attrradio2">radio</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
     <script type="template" id="attribute-panel">
         <div>
             <div class="col-md-12 m-t-15">
@@ -229,76 +257,7 @@
             <button type="button" class="btn btn-info add-dep-attr"><i class="fa fa-plus"></i>Add depended attribute</button>
         </div>
     </script>
-    {{--{!! Form::model($data,['class' => 'form-horizontal']) !!}--}}
-    {{--<div class="col-md-12 m-t-15">--}}
-        {{--<a class="btn btn-success">Create new Master attribute</a>--}}
-        {{--<div class="panel panel-default">--}}
-            {{--<div class="panel-heading" role="tab">--}}
-                {{--<h4 class="panel-title">--}}
-                    {{--Settings--}}
-                    {{--{!! Form::submit('save',['class' => 'btn btn-primary pull-right']) !!}--}}
-                {{--</h4>--}}
-            {{--</div>--}}
-            {{--<div class="panel-body just__for_appent">--}}
-                {{--<div class="col-md-12">--}}
-                    {{--<button type="button" class="btn btn-md btn-primary add_new_copy">Add New</button>--}}
-                {{--</div>--}}
-                {{--<div class="clearfix"></div>--}}
-                {{--<div class="div_for_copy" data-index = '0'>--}}
-                    {{--<div class="col-md-12">--}}
-                        {{--<div class="col-md-4">--}}
-                            {{--Display result as--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-2">--}}
-                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','select',true,['class' => 'select-display-type']) !!} Select menu--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-2">--}}
-                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','radio',null,['class' => 'select-display-type']) !!} Radio--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-2">--}}
-                            {{--{!! Form::radio($slug.'_price[option0][qty_option]','text',null,['class' => 'select-display-type']) !!} Text--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
 
-                    {{--<div class="col-md-12 display-box">--}}
-                        {{--<div class="col-md-6">--}}
-                            {{--<div class="col-md-12 qty-box" id="qty-parent">--}}
-                                {{--<div class="row qty_count">--}}
-                                    {{--<div class="col-md-6">--}}
-                                        {{--<label>--}}
-                                            {{--Quantity :--}}
-                                        {{--</label>--}}
-                                        {{--<input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-4">--}}
-                                        {{--<label>--}}
-                                            {{--Price :--}}
-                                        {{--</label>--}}
-                                        {{--<input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="col-md-2">--}}
-
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="col-md-12">--}}
-                                {{--<a href="javascript:void(0)" class="add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i> add new</a>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-6">--}}
-                            {{--<div class="col-md-6 render-box">--}}
-
-                            {{--</div>--}}
-                            {{--<div class="col-md-6 calculation">--}}
-
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                    {{--<div class="clearfix"></div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
 </div>
 
 <script type="template" id="qty_template">
@@ -476,7 +435,8 @@
         });
         $('.add-dep-attr').on('click',function () {
             var html=$('#attribute-panel').html();
-            $('#panels-area').append(html);
+            var id=$(this).data('id');
+            $('.panels-area-'+id).append(html);
         });
         $('body').on('click','.add-new-master-panel',function () {
             var html=$('#master-attribute-panel').html();
