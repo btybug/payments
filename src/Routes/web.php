@@ -44,6 +44,9 @@ Route::group(['prefix' => 'user-payments'], function () {
 
 Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
+    Route::get('/general', 'IndexConroller@getSoppingCartGeneral', true)->name('payments_sopping_cart_general');
+    Route::get('/zones', 'IndexConroller@getSoppingCartZones', true)->name('payments_sopping_cart_zones');
+    Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
 
 Route::group(['prefix' => 'settings'], function () {
@@ -60,7 +63,7 @@ Route::group(['prefix' => 'settings'], function () {
         Route::get('/{form}', 'PaymentSettingsConroller@getPriceForm', true)->name('payments_settings_price_form');
 
     });
-    Route::group(['prefix' => 'sopping-cart'], function () {
+    Route::group(['prefix' => 'shopping-cart'], function () {
         Route::get('/', 'PaymentSettingsConroller@getSoppingCart', true)->name('payments_settings_sopping_cart');
         Route::post('/manager', 'PaymentSettingsConroller@postSaveManager')->name('payments_settings_sopping_cart_manager');
 

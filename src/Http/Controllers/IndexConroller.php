@@ -18,6 +18,18 @@ class IndexConroller extends Controller
     {
         return view('payments::shopping.index');
     }
+    public function getSoppingCartGeneral ()
+    {
+        return view('payments::shopping.general');
+    }
+    public function getSoppingCartZones ()
+    {
+        return view('payments::shopping.zones');
+    }
+    public function getSoppingCartMethods ()
+    {
+        return view('payments::shopping.methods');
+    }
 
     public function doFilter ($table, $term, $search_by, $sort_by = 'id', $sort_how = 'ASC')
     {

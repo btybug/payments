@@ -190,6 +190,22 @@ class ModuleServiceProvider extends ServiceProvider
                     'url'   => '/admin/payments/settings/tax-services',
                     'icon'  => 'fa fa-cub'
                 ],
+            ],
+            'shopping_cart' => [
+                [
+                    'title' => 'General',
+                    'url'   => '/admin/payments/shopping-cart/general',
+                    'icon'  => 'fa fa-cub'
+                ],
+                [
+                    'title' => 'Zones',
+                    'url'   => '/admin/payments/shopping-cart/zones',
+                    'icon'  => 'fa fa-cub'
+                ], [
+                    'title' => 'Methods',
+                    'url'   => '/admin/payments/shopping-cart/methods',
+                    'icon'  => 'fa fa-cub'
+                ]
             ]
         ];
         \Eventy::action('my.tab', $tabs);
