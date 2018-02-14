@@ -47,7 +47,10 @@
                                             <label>
                                                 Quantity :
                                             </label>
+                                            <div class="quant-btn-inp">
+                                            <a href="javascript:void(0)" class="btn btn-primary add-new-qty" data-parent="qty-parent"><i class="fa fa-plus"></i></a>
                                             <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                            </div>
                                         </div>
                                         <div class="col-md-4">
                                             <label>
@@ -62,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="javascript:void(0)" class="bty-btn bty-btn-add add-new-qty" data-parent="qty-parent"><span>add new</span></a>
+
                             </div>
 
                         </div>
@@ -178,6 +181,12 @@
     }
     .attr_content .right .bty-btn-add{
         margin-top: 15px;
+    }
+    .quant-btn-inp{
+        display: flex;
+    }
+    .quant-btn-inp > a{
+        margin-right: 5px;
     }
 </style>
 <script>
