@@ -30,6 +30,9 @@ class IndexConroller extends Controller
     {
         return view('payments::shopping.methods');
     }
+    public function getSoppingCartZonesCreate(){
+        return view('payments::shopping.create_zone');
+    }
 
     public function doFilter ($table, $term, $search_by, $sort_by = 'id', $sort_how = 'ASC')
     {

@@ -46,6 +46,7 @@ Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/', 'IndexConroller@getShoppingCatr', true)->name('payments_shopping');
     Route::get('/general', 'IndexConroller@getSoppingCartGeneral', true)->name('payments_sopping_cart_general');
     Route::get('/zones', 'IndexConroller@getSoppingCartZones', true)->name('payments_sopping_cart_zones');
+    Route::get('/zones/create', 'IndexConroller@getSoppingCartZonesCreate', true)->name('payments_sopping_cart_zones_create');
     Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
 
