@@ -19,47 +19,50 @@
                         <div class="col-md-4 left">
                             <div class="col-md-6">
                                 <p>Display result as</p>
-
-                                <div>
-                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
-                                    <label for="attrradio1">radio</label>
-                                </div>
-                                <div>
-                                    <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
-                                    <label for="attrradio2">radio</label>
+                                <div class="render-box">
+                                    <div>
+                                        <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio1">
+                                        <label for="attrradio1">radio</label>
+                                    </div>
+                                    <div>
+                                        <input name="attrradio" type="radio" class="bty-input-radio-7" id="attrradio2">
+                                        <label for="attrradio2">radio</label>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <select name="" id="" class="form-control">
-                                    <option>Radio</option>
-                                    <option>Select</option>
-                                    <option>Checkbox</option>
+                                <select name="{{ $slug.'_price[option0][qty_option]' }}" id="" class="form-control select-display-type">
+                                    <option value="radio">Radio</option>
+                                    <option value="select">Select</option>
+                                    <option value="text">Text</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-md-8 right">
                             <div class="col-md-12 ">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label>
-                                            Options
-                                        </label>
-                                        <input type="text" class="form-control opt-input"/>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label>
-                                            Price
-                                        </label>
-                                        <input type="text" class="form-control price-input"/>
-                                    </div>
-                                    <div class="col-md-6">
+                                <div class="col-md-12 qty-box" id="qty-parent">
+                                    <div class="row qty_count">
+                                        <div class="col-md-6">
+                                            <label>
+                                                Quantity :
+                                            </label>
+                                            <input type="text" class="form-control qty-inputs" name="{{$slug}}_price[option0][qty][0][qty]"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>
+                                                Price :
+                                            </label>
+                                            <input type="text" class="form-control price-inputs" name="{{$slug}}_price[option0][qty][0][price]"/>
+                                        </div>
+                                        <div class="col-md-2">
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <a href="javascript:void(0)" class="bty-btn bty-btn-add"><span>add new</span></a>
+                                <a href="javascript:void(0)" class="bty-btn bty-btn-add add-new-qty" data-parent="qty-parent"><span>add new</span></a>
                             </div>
 
                         </div>
@@ -69,7 +72,8 @@
             </div>
         </div>
     </div>
-    {!! Form::model($data,['route' => 'payments_settings_qty_save','class' => 'form-horizontal']) !!}
+
+    {{--{!! Form::model($data,['class' => 'form-horizontal']) !!}--}}
     {{--<div class="col-md-12 m-t-15">--}}
         {{--<a class="btn btn-success">Create new Master attribute</a>--}}
         {{--<div class="panel panel-default">--}}
@@ -139,8 +143,8 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
-    {!! Form::close() !!}
 </div>
+
 <script type="template" id="qty_template">
     <div class="row qty_count">
         <div class="col-md-6">
