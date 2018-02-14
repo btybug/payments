@@ -3,15 +3,14 @@
     <div class="main_lay_cont">
         <div class="row for_title_row">
             <h1 class="text-center">Add new zone</h1>
-            {{-- 'url'=>'', --}}
-            {!! Form::open(['method' => 'get']) !!}
+            {!! Form::open(['url'=>route('payments_sopping_cart_zones_create_save'),'method' => 'post']) !!}
                 <div class="form-group">
                     {!! Form::label('name', 'Zone name') !!}
                     {!! Form::text('name','',['id' => 'name','class' => 'form-control','placeholder' => 'Insert zone name']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::label('country', 'Select countries') !!}
-                    {!! Form::select('',$countries,null,['id' => 'country','class' => 'form-control select2','multiple' => 'multiple']) !!}
+                    {!! Form::select('countries[]',$countries,null,['id' => 'country','class' => 'form-control select2','multiple' => 'multiple']) !!}
                 </div>
                 <div class="form-group">
                     {!! Form::submit('Save',["class" => 'btn btn-primary pull-right']) !!}

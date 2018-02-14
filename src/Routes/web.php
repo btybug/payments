@@ -47,6 +47,7 @@ Route::group(['prefix' => 'shopping-cart'], function () {
     Route::get('/general', 'IndexConroller@getSoppingCartGeneral', true)->name('payments_sopping_cart_general');
     Route::get('/zones', 'IndexConroller@getSoppingCartZones', true)->name('payments_sopping_cart_zones');
     Route::get('/zones/create', 'IndexConroller@getSoppingCartZonesCreate', true)->name('payments_sopping_cart_zones_create');
+    Route::post('/zones/create', 'IndexConroller@getSoppingCartZonesCreateSave', true)->name('payments_sopping_cart_zones_create_save');
     Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
 
@@ -120,3 +121,6 @@ Route::post('/save-quantity-price', 'PriceController@postSaveQtyPrice')->name('p
 Route::post("/search", "IndexConroller@search");
 Route::post("/findpage", "IndexConroller@findPage");
 Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPaginator");
+Route::get('createzonetable', function(){
+    \BtyBugHook\Payments\Database\CreateZonesTable::up();
+});
