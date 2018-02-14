@@ -114,6 +114,8 @@
     </div>
 @stop
 @section('CSS')
+
+    {!! HTML::style('public/css/font-awesome/css/fontawesome-iconpicker.min.css') !!}
     <style>
         .display-box{
             min-height: 300px;
@@ -122,5 +124,8 @@
     </style>
 @stop
 @section('JS')
-
+    {!! HTML::script('public/css/font-awesome/js/fontawesome-iconpicker.min.js') !!}
+    <script>
+        $('.icp').iconpicker();
+    </script>
 @stop
