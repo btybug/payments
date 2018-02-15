@@ -97,7 +97,7 @@ class IndexConroller extends Controller
                 return $item["id"];
             })
             ->toArray();
-        $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
+        /*$cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
             ->whereIn("state_id",$states)
             ->toArray();
         foreach ($cities as $value){
@@ -105,7 +105,7 @@ class IndexConroller extends Controller
                 'id' => $value['id'],
                 'text' => $value['name']
             ];
-        }
+        }*/dd(4);
         return response()->json($arr);
     }
     public function deleteZone(Request $request){
