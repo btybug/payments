@@ -83,9 +83,10 @@
                     url:'{{route('get_zones_by_country')}}',
                     data:{id:id,_token:token},
                     success:function(data){
-                        var result = data;
+                        var cities = data;
+                        console.log(cities);
                         that.parent().parent().children("td.zones").children("select").select2("destroy").select2({
-                            data:result
+                            data:cities
                         });
                     }
                 });

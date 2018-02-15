@@ -98,16 +98,15 @@ class IndexConroller extends Controller
             })
             ->toArray();
         $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
-           // ->whereIn("state_id",$states)
+            ->whereIn("state_id",$states)
             ->toArray();
-        dd($states,$cities);
+
         foreach ($cities as $value){
             $arr[] = [
                 'id' => $value['id'],
                 'text' => $value['name']
             ];
         }
-        dd($arr);
         return response()->json($arr);
     }
     public function deleteZone(Request $request){
