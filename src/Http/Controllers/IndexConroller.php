@@ -39,18 +39,50 @@ class IndexConroller extends Controller
         return view('payments::shopping.zones_dir.create_zone',compact("countries"));
     }
     public function getShoppingCartZonesUpdate($id){
-        $countries = $this->countries();
         $zone = \DB::table('zones')->where("id",$id)->first();
-        $indexes = $this->getCountryIndexes(explode(", ",$zone->countries));
-        return view('payments::shopping.zones_dir.update_zone',compact("countries","zone","indexes"));
+        $countries = $this->countries();
+        $country_index = $this->getCountryIndex($zone->name);
+        $cities = $this->getCitiesByCountryId($country_index);
+        $active_cities = $this->getZoneIndexes($zone->countries);
+        $active_exceptions = $this->getZoneIndexes($zone->exceptions);
+
+        return view('payments::shopping.zones_dir.update_zone',compact("countries","zone","country_index","active_cities","cities","active_exceptions"));
     }
     public function getShoppingCartZonesCreateSave(Request $request){
         $data = $request->except("_token");
         if (count($data)){
             foreach ($data["countries"] as $key => $country){
+                $name = $this->countriesGetName($country["country"]);
+                $cities = isset($country["zones"]) ? $this->getZoneName($country["zones"]) : null;
+                $all = isset($country["all"]) ? 1 : 0;
+                $exceptions = isset($country["exceptions"]) ? $this->getZoneName($country["exceptions"]) : null;
+                if(!$cities && !$exceptions){
+                    $all = 1;
+                }
                 $zones = \DB::table("zones")->insert([
-                    'name' => $this->countriesGetName($country["country"]),
-                    'countries' => $this->getZoneName($country["zones"])
+                    'name' => $name,
+                    'countries' => $cities,
+                    'all' => $all,
+                    'exceptions' => $exceptions
+                ]);
+            }
+        }
+        return redirect()->route('payments_sopping_cart_zones');
+    }
+    public function getShoppingCartZonesUpdateSave(Request $request,$id){
+        $data = $request->except("_token");
+        if (count($data)){
+            foreach ($data["countries"] as $key => $country){
+                $cities = isset($country["zones"]) ? $this->getZoneName($country["zones"]) : null;
+                $all = isset($country["all"]) ? 1 : 0;
+                $exceptions = isset($country["exceptions"]) ? $this->getZoneName($country["exceptions"]) : null;
+                if(!$cities && !$exceptions){
+                    $all = 1;
+                }
+                $zones = \DB::table("zones")->where("id",$id)->update([
+                    'countries' => $cities,
+                    'all' => $all,
+                    'exceptions' => $exceptions
                 ]);
             }
         }
@@ -61,8 +93,14 @@ class IndexConroller extends Controller
         $arr = [];
         $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true))
             ->where("country_id",$country_id)
+            ->map(function ($item){
+                return $item["id"];
+            })
             ->toArray();
-        foreach ($states as $value){
+        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))
+            ->whereIn("state_id",$states)
+            ->toArray();
+        foreach ($cities as $value){
             $arr[] = [
                 'id' => $value['id'],
                 'text' => $value['name']
@@ -71,34 +109,26 @@ class IndexConroller extends Controller
 
         return response()->json($arr);
     }
-    function getCountries($data){
-        $countries = $this->countries();
-        $str = '';
-        foreach ($data as $i => $key){
-            $count = count($data)-1;
-            if($count == $i){
-                $str .= $countries[$key];
-            }else{
-                $str .= $countries[$key].", ";
-            }
-        }
-        return $str;
+    public function deleteZone(Request $request){
+        $id = $request->id;
+        $deleted = \DB::table("zones")->where("id",$id)->delete();
+        return response()->json($deleted);
     }
-    function getCountryIndexes($data){
+    function getCountryIndex($name){
         $countries = $this->countries();
-        $arr = [];
-        foreach ($data as $key => $val){
-            $index = array_search($val, $countries);
-            $arr[$key] = $index;
-        }
-        return $arr;
+        $index = array_search($name, $countries);
+        return $index;
+    }
+    function getCitiesByCountryId($id){
+        $states_arr = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true))->where("country_id",$id)->pluck("id")->toArray();
+        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->whereIn("state_id",$states_arr)->pluck("name","id")->toArray();
+        return $cities;
     }
     function getZoneName($data){
-       // $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true));
         $str = '';
         foreach ($data as $key => $val){
             $count = count($data)-1;
-            $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true))->where("id",$val)->first();
+            $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->where("id",$val)->first();
             if($count == $key){
                 $str .= $states["name"];
             }else{
@@ -106,6 +136,18 @@ class IndexConroller extends Controller
             }
         }
         return $str;
+    }
+    function getZoneIndexes($zones){
+        if(!$zones){
+            return null;
+        }
+        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->pluck("name","id")->toArray();
+        $zones_names = explode(", ",$zones);
+        $indexes = [];
+        foreach ($zones_names as $name){
+            $indexes[] = array_search($name,$cities);
+        }
+        return $indexes;
     }
     function countries(){
         $countries = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/countries.json')),true))->pluck("name","id")->toArray();

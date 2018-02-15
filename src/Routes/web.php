@@ -49,9 +49,10 @@ Route::group(['prefix' => 'shopping-cart'], function () {
         Route::get('/', 'IndexConroller@getShoppingCartZones', true)->name('payments_sopping_cart_zones');
         Route::get('/create', 'IndexConroller@getShoppingCartZonesCreate', true)->name('payments_sopping_cart_zones_create');
         Route::get('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdate', true)->name('payments_sopping_cart_zones_update');
-        Route::post('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdateSave', true)->name('payments_sopping_cart_zones_update_save');
-        Route::post('/create', 'IndexConroller@getShoppingCartZonesCreateSave', true)->name('payments_sopping_cart_zones_create_save');
-        Route::post('/getzones', 'IndexConroller@getZones', true)->name('get_zones_by_country');
+        Route::post('/update/{id}', 'IndexConroller@getShoppingCartZonesUpdateSave')->name('payments_sopping_cart_zones_update_save');
+        Route::post('/create', 'IndexConroller@getShoppingCartZonesCreateSave')->name('payments_sopping_cart_zones_create_save');
+        Route::post('/getzones', 'IndexConroller@getZones')->name('get_zones_by_country');
+        Route::post('/delete', 'IndexConroller@deleteZone')->name('delete_zone');
     });
     Route::get('/methods', 'IndexConroller@getSoppingCartMethods', true)->name('payments_sopping_cart_methods');
 });
@@ -130,4 +131,7 @@ Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPag
 
 Route::get('createzonetable', function(){
     \BtyBugHook\Payments\Database\CreateZonesTable::up();
+});
+Route::get('removezonetable', function(){
+    \BtyBugHook\Payments\Database\CreateZonesTable::down();
 });

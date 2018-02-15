@@ -16,7 +16,9 @@ class CreateZonesTable extends Migration
         Schema::create('zones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 191);
-            $table->string('countries');
+            $table->string('countries')->nullable();
+            $table->boolean('all')->default(0);
+            $table->string('exceptions')->nullable();
             $table->nullableTimestamps();
         });
     }
@@ -24,7 +26,7 @@ class CreateZonesTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down ()
+    public static function down ()
     {
         Schema::drop('zones');
     }
