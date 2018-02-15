@@ -14,61 +14,11 @@
         </div>
         <div class="col-md-4">
             <ul class="nav nav-pills nav-stacked col-md-12" id="tabMenuItems">
-                <li class="active"><a href="#tab_a" data-toggle="pill">Radio</a></li>
+
             </ul>
         </div>
         <div class="col-md-8 tab-content" id="tabContentItems">
-            <div class="tab-pane active" id="tab_a">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <h4 class="panel-title">
-                                    Display Options
-                                </h4>
-                            </div>
-                            <div class="col-md-8">
-                                <div class="pull-right">
-                                    <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="panel-title">
-
-                        </h4>
-
-                    </div>
-                    <div class="panel-body" style="background-color: #70a98d">
-                        <div class="col-md-12">
-                            <div class="col-md-5">
-                                <select class=" form-control condition-option">
-                                    <option>Red</option>
-                                    <option>Blue</option>
-                                    <option>Black</option>
-                                </select>
-                            </div>
-                            <div class="col-md-5">
-                                <select class="form-control condition-types">
-                                    <option>Always display</option>
-                                    <option>Conditional</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h4 class="panel-title">
-                            Price options
-                        </h4>
-                    </div>
-                    <div class="panel-body" style="background-color: #70a98d">
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
     <div class="col-md-3">
@@ -123,7 +73,14 @@
 
     </div>
 </div>
-
+<style>
+    .attributes-conditional-area {
+        padding: 7px;
+        margin: 7px;
+        box-shadow: -3px 3px 16px;
+        background-color: #58a27e;
+    }
+</style>
 
 <script type="template" id="tab-menu">
     <li class=""><a href="#tab_{tab}" data-toggle="pill">{title}</a></li>
@@ -140,7 +97,8 @@
                     </div>
                     <div class="col-md-8">
                         <div class="pull-right">
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+                            <button type="button" data-id="{id}" class="btn btn-info add-main-attributes"><i
+                                        class="fa fa-plus"></i></button>
                         </div>
                     </div>
                 </div>
@@ -150,23 +108,8 @@
 
             </div>
             <div class="panel-body" style="background-color: #70a98d">
-                <div class="col-md-12">
-                    <div class="col-md-5">
-                        <select class=" form-control condition-option">
-                            <option>Red</option>
-                            <option>Blue</option>
-                            <option>Black</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <select class="form-control condition-types">
-                            <option>Always display</option>
-                            <option>Conditional</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2">
-
-                    </div>
+                <div class="col-md-12 attributes-main-area-{id}">
+                    {content}
                 </div>
             </div>
         </div>
@@ -177,6 +120,91 @@
                 </h4>
             </div>
             <div class="panel-body" style="background-color: #70a98d">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="template" id="attributes-main">
+    <div class="col-md-12 row attributes-conditional-area">
+        <div class="col-md-6">
+            <select class=" form-control condition-option">
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Black</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <select class="form-control condition-types" data-id="{id}">
+                <option value="always">Always display</option>
+                <option value="conditional">Conditional</option>
+            </select>
+        </div>
+        <div class="row sub-attributes-{id}">
+
+        </div>
+    </div>
+</script>
+<script type="template" id="first-sub-attributes">
+    <div class="col-md-2">
+        Hide If
+    </div>
+    <div class="col-md-12" data-area="{id}">
+        <div class="row">
+            <div class="col-md-4">
+                <select class="form-control">
+                    <option>Field 1</option>
+                    <option>Field 2</option>
+                    <option>Field 3</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <select class="form-control">
+                    <option>And</option>
+                    <option>Or</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-control">
+                    <option>Field 1</option>
+                    <option>Field 2</option>
+                    <option>Field 3</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <div class="pull-right">
+                    <button type="button" data-id="{id}" class="btn btn-info add-secondary-condition"><i class="fa fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</script>
+<script type="template" id="secondary-sub-attributes">
+
+    <div class="row">
+        <div class="col-md-4">
+            <select class="form-control">
+                <option>Field 1</option>
+                <option>Field 2</option>
+                <option>Field 3</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select class="form-control">
+                <option>And</option>
+                <option>Or</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <select class="form-control">
+                <option>Field 1</option>
+                <option>Field 2</option>
+                <option>Field 3</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <div class="pull-right">
+                <button type="button"  class="btn btn-danger delete-secondary-condition"><i class="fa fa-minus"></i></button>
             </div>
         </div>
     </div>
@@ -192,15 +220,47 @@
                 var id = Date.now();
                 var tabMenu = $('#tab-menu').html();
                 var tabContent = $('#tab-content').html();
+                var attrMain = $('#attributes-main').html();
+                tabContent = tabContent.replace('{content}', attrMain);
                 tabContent = tabContent.replace(/{id}/g, id);
                 tabMenu = tabMenu.replace(/{tab}/g, id);
                 tabMenu = tabMenu.replace(/{title}/g, attr.value);
                 $('#tabMenuItems').append(tabMenu);
                 $('#tabContentItems').append(tabContent);
             });
-            $(this).find("input[type=checkbox]").attr('checked',false);
+            $(this).find("input[type=checkbox]").attr('checked', false);
             $('#myModal').modal('toggle');
 
         });
+
+        $('body').on('change', '.condition-types', function () {
+            var value = $(this).val();
+            var Main_id = $(this).attr('data-id');
+            var id = Date.now();
+            if (value == 'conditional') {
+                var html = $('#first-sub-attributes').html();
+                html = html.replace(/{id}/g, id);
+                $('body').find('.sub-attributes-' + Main_id).html(html);
+            } else {
+                $('body').find('.sub-attributes-' + Main_id).empty();
+            }
+        });
+
+        $('body').on('click', '.add-main-attributes', function () {
+            var Main_id = $(this).attr('data-id');
+            var id = Date.now();
+            var attrMain = $('#attributes-main').html();
+            attrMain = attrMain.replace(/{id}/g, id);
+            $('body').find('.attributes-main-area-' + Main_id).append(attrMain);
+        });
+        $('body').on('click','.add-secondary-condition',function () {
+            var Main_id = $(this).attr('data-id');
+            var attrSecondary = $('#secondary-sub-attributes').html();
+            $('body').find('[data-area='+Main_id+']').append(attrSecondary);
+        });
+
+        $('body').on('click','.delete-secondary-condition',function () {
+            $(this).parents('.row').first().remove();
+        })
     });
 </script>
