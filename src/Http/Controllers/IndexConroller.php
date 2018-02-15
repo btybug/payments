@@ -89,7 +89,6 @@ class IndexConroller extends Controller
         return redirect()->route('payments_sopping_cart_zones');
     }
     public function getZones(Request $request){
-        dd($request->all());
         $country_id = $request->id;
         $arr = [];
         $states = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'state.json')),true))
@@ -98,6 +97,7 @@ class IndexConroller extends Controller
                 return $item["id"];
             })
             ->toArray();
+        dd($states);
         $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
             ->whereIn("state_id",$states)
             ->toArray();
