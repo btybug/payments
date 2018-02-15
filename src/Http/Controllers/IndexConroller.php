@@ -97,6 +97,7 @@ class IndexConroller extends Controller
                 return $item["id"];
             })
             ->toArray();
+        dd(collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true)));
         $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
             ->whereIn("state_id",$states)
             ->toArray();
