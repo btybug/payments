@@ -1,14 +1,21 @@
 @extends('btybug::layouts.admin')
 @section('content')
     <div class="container">
-        <h2>{!! ($model) ? 'Edit' : 'Add new' !!} attribute</h2>
+        <div class="title-btn">
+            <h2>{!! ($model) ? 'Edit' : 'Add new' !!} attribute</h2>
+            <div>
+                {!! Form::submit(($model) ? 'edit attribute' : 'add attribute',['class' => 'bty-btn bty-btn-edit pull-right']) !!}
+                <a href="{!! route('payments_settings_attributes') !!}" class="bty-btn bty-btn-delete pull-right"><span>Cancel</span></a>
+            </div>
+        </div>
 
-        <div class="col-md-8">
+
+        <div class="col-md-9">
             {!! Form::model($model,['class' => 'form-horizontal', 'method' => ($model) ? 'patch' : 'post']) !!}
             @if($model)
                 {!! Form::hidden('id',null) !!}
             @endif
-            <div class="row">
+            <div class="">
                 <div class="panel panel-default p-0">
                     <div class="panel-heading">Input Data</div>
                     <div class="panel-body">
@@ -17,7 +24,8 @@
                             <div class="col-sm-8">
                                 {!! Form::text('name',null,['class' => 'form-control']) !!}
                             </div>
-                        </div><div class="form-group col-md-6 m-b-10">
+                        </div>
+                        <div class="form-group col-md-6 m-b-10">
                             <label class="col-sm-3 p-l-0 control-label m-0  text-left">Slug</label>
                             <div class="col-sm-8">
                                 {!! Form::text('slug',null,['class' => 'form-control']) !!}
@@ -46,7 +54,7 @@
                             </div>
                         </div>
                         <div class="form-group col-md-12">
-                            <div class="col-md-5 edit_or_create_term">
+                            <div class="col-md-12 edit_or_create_term">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="attribute_label">Name</label>
@@ -68,7 +76,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 m-t-15">
+                        </div>
+                        <div class="form-group col-md-12">
+                            <div class="col-md-12">
                                 <table id="fields-table" class="table table-striped table-bordered" cellspacing="0"
                                        width="100%">
                                     <thead>
@@ -84,18 +94,22 @@
                                         @foreach($model->terms as $term)
                                             <tr data-id="{{ $term->id }}">
                                                 <td>{{ $term->name }}
-                                                    <input type="hidden" name="terms[{{$term->id}}][name]" value="{{$term->name }}">
+                                                    <input type="hidden" name="terms[{{$term->id}}][name]"
+                                                           value="{{$term->name }}">
                                                 </td>
                                                 <td>{{ $term->slug }}
-                                                    <input type="hidden" name="terms[{{$term->id}}][slug]" value="{{$term->slug }}">
+                                                    <input type="hidden" name="terms[{{$term->id}}][slug]"
+                                                           value="{{$term->slug }}">
                                                 </td>
                                                 <td>{{ $term->description }}
-                                                    <input type="hidden" name="terms[{{$term->id}}][description]" value="{{$term->description }}">
+                                                    <input type="hidden" name="terms[{{$term->id}}][description]"
+                                                           value="{{$term->description }}">
                                                 </td>
                                                 <td>
                                                     <a href='javascript:void(0)'
                                                        data-id="{{ $term->id }}" data-name="{{ $term->name }}"
-                                                       data-slug="{{ $term->slug }}" data-description="{{ $term->description }}"
+                                                       data-slug="{{ $term->slug }}"
+                                                       data-description="{{ $term->description }}"
                                                        class='btn btn-warning edit-term'><i
                                                                 class='fa fa-edit'></i></a>
                                                     <a href='javascript:void(0)' class='btn btn-danger delete-term'><i
@@ -112,7 +126,7 @@
                 </div>
 
             </div>
-            <div class="row">
+            <div class="">
                 <div class="panel panel-default p-0">
                     <div class="panel-heading">Input Setting</div>
                     <div class="panel-body">
@@ -152,18 +166,18 @@
 
                         </div>
                         <div class="form-group col-md-12 m-b-10">
-                            <div class="col-md-6">
-                                <label for="help" class="col-sm-3 m-0 control-label text-left">help</label>
-                                <div class="col-sm-8">
+                            <div class="col-md-12">
+                                <label for="help" class="col-sm-12 m-0 control-label text-left">help</label>
+                                <div class="col-sm-12">
                                     {!! Form::textarea('help',null,['class'=>'form-control','id'=>'help']) !!}
                                 </div>
                             </div>
                         </div>
                         <div class="form-group col-md-12 m-b-10">
-                            <div class="form-group col-md-6 m-b-10">
-                                <label for='validation_message' class="col-sm-3 m-0 control-label text-left">Error
+                            <div class="col-md-12 m-b-10">
+                                <label for='validation_message' class="col-sm-12 m-0 control-label text-left">Error
                                     Message</label>
-                                <div class="col-sm-8">
+                                <div class="col-sm-12">
                                     {!! Form::textarea('validation_message',null,['class' => 'form-control','id'=>'validation_message']) !!}
                                 </div>
                             </div>
@@ -173,13 +187,10 @@
 
             </div>
 
-            <div class="form-group">
-                {!! Form::submit(($model) ? 'edit attribute' : 'add attribute',['class' => 'btn btn-primary pull-right']) !!}
-                <a href="{!! route('payments_settings_attributes') !!}" class="btn pull-right">Cancel</a>
-            </div>
+
             {!! Form::close() !!}
         </div>
-        <div class="col-md-4 display-box">
+        <div class="col-md-3 display-box">
 
         </div>
     </div>
@@ -236,8 +247,44 @@
     {!! HTML::style('public/css/font-awesome/css/fontawesome-iconpicker.min.css') !!}
     <style>
         .display-box {
-            min-height: 300px;
-            border: 1px solid black;
+            min-height: 400px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            box-shadow: 0 0 5px 0 #ccc;
+        }
+
+        .title-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-control {
+            border-radius: 0 !important;
+            height: 40px;
+
+        }
+
+        .form-control:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            border-color: #ccc;
+        }
+
+        table .terms-box tr td:last-of-type {
+            text-align: center;
+        }
+        .control-label{
+            padding-right: 0;
+        }
+        .title-btn >div input{
+
+        }
+        .title-btn >div a{
+            margin-right: 10px;
+        }
+        .bty-btn{
+            padding: 10px 15px;
         }
     </style>
 @stop
@@ -257,7 +304,7 @@
             var id = $(this).data('id');
 
             var termForm = $("#term_form").html();
-            termForm = termForm.replace(/{name}/g,name);
+            termForm = termForm.replace(/{name}/g, name);
             termForm = termForm.replace(/{slug}/g, slug);
             termForm = termForm.replace(/{description}/g, description);
             termForm = termForm.replace(/{count}/g, id);
@@ -266,11 +313,11 @@
         $("body").on('click', '.add-new-term', function () {
             var name = $('.t-name').val();
             var slug = $('.t-slug').val();
-            if(name != '' && name != undefined && slug !='' && slug != undefined){
+            if (name != '' && name != undefined && slug != '' && slug != undefined) {
                 var id = $(this).data('id');
                 var description = $('.t-description').val();
 
-                if(id == '' || id == undefined){
+                if (id == '' || id == undefined) {
                     id = Math.floor(Math.random() * 26) + Date.now();
                     var html = $("#new-term").html();
                     html = html.replace(/{name}/g, name);
@@ -278,14 +325,14 @@
                     html = html.replace(/{description}/g, description);
                     html = html.replace(/{count}/g, id);
                     $(".terms-box").append(html);
-                }else{
+                } else {
                     var html = $("#new-term").html();
                     html = html.replace(/{name}/g, name);
                     html = html.replace(/{slug}/g, slug);
                     html = html.replace(/{description}/g, description);
                     html = html.replace(/{count}/g, id);
 
-                    $( ".terms-box tr[data-id='"+id+"']" ).replaceWith(html);
+                    $(".terms-box tr[data-id='" + id + "']").replaceWith(html);
                 }
 
                 var termForm = $("#term_form").html();
@@ -294,7 +341,7 @@
                 termForm = termForm.replace(/{description}/g, '');
                 termForm = termForm.replace(/{count}/g, '');
                 $(".edit_or_create_term").html(termForm);
-            }else{
+            } else {
                 alert("fill data then click to save !!!")
             }
 
