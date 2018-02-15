@@ -1,7 +1,7 @@
 @extends('btybug::layouts.mTabs',['index'=>'payment_settings'])
 <!-- Nav tabs -->
 @section('tab')
-    <table id="fields-table" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <table id="fields-table" class="table table-striped" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>#</th>

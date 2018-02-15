@@ -53,7 +53,8 @@
                             </td>
                             <td>
                                 <div class="product-cart-vat  ">
-                                    {!! (isset($item->options['vat']['amount']))?$item->options['vat']['amount']:0 !!}
+                                    {!! (isset($item->options['vat']['extra']))?$item->options['vat']['extra']:0 !!}
+                                    ({{ (isset($item->options['vat']['amount']))?$item->options['vat']['amount']:0 }})
                                 </div>
                             </td>
                             <td>

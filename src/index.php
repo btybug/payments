@@ -145,12 +145,13 @@ function getTax($slugOrProductArray,$id=null)
     $result=[];
     if($taxAndServices){
         foreach ($taxAndServices as $key=>$value){
-            if($value ){
-                $data = \BtyBugHook\Payments\Models\TaxService::where('slug', $key)->first();
-
+            if($value && ! is_array($value)){
+                $data = \BtyBugHook\Payments\Models\TaxService::find($value);
                 if($data){
                     $fn=$data->amount_type;
-                    $result[$key]=['amount'=>$data->amount,'price'=>$fn($data->amount,product_price($price,$id))] ;
+                    $result[$key]=['amount'=>$data->amount,
+                                   'price'=>$fn($data->amount,product_price($price,$id)),
+                                   'extra' => $fn($data->amount,product_price($price,$id),false)] ;
                 }
             }
         }
@@ -159,9 +160,14 @@ function getTax($slugOrProductArray,$id=null)
     return $result;
 }
 
-function vat($vat, $price)
+function vat($vat, $price, $sum = true)
 {
-    return $price+($price * $vat / 100);
+    if($sum){
+        return $price+($price * $vat / 100);
+    }else{
+        return $price * $vat / 100;
+    }
+
 }
 function service($vat, $price){
     return $price + $vat;
