@@ -82,6 +82,7 @@
     }
     .tab-icon{
         position: relative;
+        background-color: #b8b8b8;
     }
     .tab-icon button{
         position: absolute;
