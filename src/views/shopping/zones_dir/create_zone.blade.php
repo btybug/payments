@@ -84,7 +84,6 @@
                     data:{id:id,_token:token},
                     success:function(data){
                         var cities = data;
-                        console.log(cities);
                         that.parent().parent().children("td.zones").children("select").select2("destroy").select2({
                             data:cities
                         });
