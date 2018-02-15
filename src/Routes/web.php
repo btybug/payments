@@ -132,6 +132,3 @@ Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPag
 Route::get('createzonetable', function(){
     \BtyBugHook\Payments\Database\CreateZonesTable::up();
 });
-Route::get('removezonetable', function(){
-    \BtyBugHook\Payments\Database\CreateZonesTable::down();
-});

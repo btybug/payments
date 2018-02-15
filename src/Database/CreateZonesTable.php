@@ -26,7 +26,7 @@ class CreateZonesTable extends Migration
     /**
      * Reverse the migrations.
      */
-    public static function down ()
+    public function down ()
     {
         Schema::drop('zones');
     }
