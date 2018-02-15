@@ -13,6 +13,17 @@
                     <div class="panel-heading">Input Data</div>
                     <div class="panel-body">
                         <div class="form-group col-md-6 m-b-10">
+                            <label class="col-sm-3 p-l-0 control-label m-0  text-left">Name</label>
+                            <div class="col-sm-8">
+                                {!! Form::text('name',null,['class' => 'form-control']) !!}
+                            </div>
+                        </div><div class="form-group col-md-6 m-b-10">
+                            <label class="col-sm-3 p-l-0 control-label m-0  text-left">Slug</label>
+                            <div class="col-sm-8">
+                                {!! Form::text('slug',null,['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6 m-b-10">
                             <label for="lablename" class="col-sm-3 p-l-0 control-label m-0  text-left">
                                 Select Type
                             </label>
@@ -259,7 +270,7 @@
                 var id = $(this).data('id');
                 var description = $('.t-description').val();
 
-                if(id == '' && id == undefined){
+                if(id == '' || id == undefined){
                     id = Math.floor(Math.random() * 26) + Date.now();
                     var html = $("#new-term").html();
                     html = html.replace(/{name}/g, name);

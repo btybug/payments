@@ -46,10 +46,23 @@ class AttributesController extends Controller
     public function postAttributesEdit (
         AttributesRequest $request,
         AttributesRepository $attributesRepository,
+        AttributeTermsRepository $attributeTermsRepository,
         $id
     )
     {
-        $attributesRepository->update($id, $request->except('_token'));
+        $model = $attributesRepository->update($id, $request->except('_token','terms','extravalidation','term_name','term_slug','term_description'));
+        $terms = $request->get('terms');
+        $existingTerms = $model->terms()->pluck('id','id')->toArray();
+        $attributeTermsRepository->destroy(array_except($existingTerms,array_keys($terms)));
+        if(count($terms)){
+            foreach ($terms as $key => $term){
+                if(in_array($key,$existingTerms)){
+                    $attributeTermsRepository->update($key,$term);
+                }else{
+                    $attributeTermsRepository->create($term + ['attribute_id' => $model->id]);
+                }
+            }
+        }
 
         return redirect()->route('payments_settings_attributes')->with('message', 'Edited successfully');
     }
