@@ -235,6 +235,10 @@
     <script>
         $('.icp').iconpicker();
         var count = "{{ count($model->terms) }}";
+
+        $("body").on('click', '.delete-term', function () {
+            $(this).parents('tr').remove();
+        });
         $("body").on('click', '.edit-term', function () {
             var name = $(this).data('name');
             var slug = $(this).data('slug');
@@ -242,42 +246,42 @@
             var id = $(this).data('id');
 
             var termForm = $("#term_form").html();
-            termForm = termForm.replace('{name}',name);
-            termForm = termForm.replace('{slug}', slug);
-            termForm = termForm.replace('{description}', description);
-            termForm = termForm.replace('{count}', id);
+            termForm = termForm.replace(/{name}/g,name);
+            termForm = termForm.replace(/{slug}/g, slug);
+            termForm = termForm.replace(/{description}/g, description);
+            termForm = termForm.replace(/{count}/g, id);
             $(".edit_or_create_term").html(termForm);
         });
         $("body").on('click', '.add-new-term', function () {
             var name = $('.t-name').val();
             var slug = $('.t-slug').val();
-            if(name != '' || name != undefined || slug !='' || slug != undefined){
+            if(name != '' && name != undefined && slug !='' && slug != undefined){
                 var id = $(this).data('id');
                 var description = $('.t-description').val();
 
-                if(id == '' || id == undefined){
-                    id = count++;
+                if(id == '' && id == undefined){
+                    id = Math.floor(Math.random() * 26) + Date.now();
                     var html = $("#new-term").html();
-                    html = html.replace('{name}', name);
-                    html = html.replace('{slug}', slug);
-                    html = html.replace('{description}', description);
-                    html = html.replace('{count}', id);
+                    html = html.replace(/{name}/g, name);
+                    html = html.replace(/{slug}/g, slug);
+                    html = html.replace(/{description}/g, description);
+                    html = html.replace(/{count}/g, id);
                     $(".terms-box").append(html);
                 }else{
                     var html = $("#new-term").html();
-                    html = html.replace('{name}', name);
-                    html = html.replace('{slug}', slug);
-                    html = html.replace('{description}', description);
-                    html = html.replace('{count}', id);
+                    html = html.replace(/{name}/g, name);
+                    html = html.replace(/{slug}/g, slug);
+                    html = html.replace(/{description}/g, description);
+                    html = html.replace(/{count}/g, id);
 
                     $( ".terms-box tr[data-id='"+id+"']" ).replaceWith(html);
                 }
 
                 var termForm = $("#term_form").html();
-                termForm = termForm.replace('{name}', '');
-                termForm = termForm.replace('{slug}', '');
-                termForm = termForm.replace('{description}', '');
-                termForm = termForm.replace('{count}', '');
+                termForm = termForm.replace(/{name}/g, '');
+                termForm = termForm.replace(/{slug}/g, '');
+                termForm = termForm.replace(/{description}/g, '');
+                termForm = termForm.replace(/{count}/g, '');
                 $(".edit_or_create_term").html(termForm);
             }else{
                 alert("fill data then click to save !!!")
