@@ -35,11 +35,17 @@ class AttributesController extends Controller
 
     public function postAttributesCreate (
         AttributesRequest $createRequest,
-        AttributesRepository $attributesRepository
+        AttributesRepository $attributesRepository,
+        AttributeTermsRepository $attributeTermsRepository
     )
     {
-        $attributesRepository->create($createRequest->except('_token'));
-
+        $model = $attributesRepository->create($createRequest->except('_token','terms','extravalidation','term_name','term_slug','term_description'));
+        $terms = $createRequest->get('terms');
+        if(count($terms)){
+            foreach ($terms as $key => $term){
+                $attributeTermsRepository->create($term + ['attribute_id' => $model->id]);
+            }
+        }
         return redirect()->route('payments_settings_attributes')->with('message', 'Created successfully');
     }
 

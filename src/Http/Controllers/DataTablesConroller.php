@@ -20,11 +20,10 @@ class DataTablesConroller extends Controller
             return "<a href='$url' class='btn btn-warning'><i class='fa fa-edit'></i></a>
                     <a href='$delete_url' class='btn btn-danger'><i class='fa fa-trash'></i></a>";
         }, 2)->editColumn('terms', function ($attr) {
-            $url = url("admin/payments/settings/attributes/{$attr->id}/terms");
             $terms = $attr->terms()->pluck('name', 'id');
             $exploded = (count($terms)) ? implode(', ', $terms->toArray()) : null;
 
-            return $exploded . "<div><a href='$url'>Configure Terms</a></div>";
+            return $exploded;
         })->rawColumns(['actions', 'terms'])->make(true);
     }
 

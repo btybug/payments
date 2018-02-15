@@ -80,7 +80,7 @@
                                     </tr>
                                     </thead>
                                     <tbody class="terms-box">
-                                    @if(count($model->terms))
+                                    @if(isset($model) && count($model->terms))
                                         @foreach($model->terms as $term)
                                             <tr data-id="{{ $term->id }}">
                                                 <td>{{ $term->name }}
@@ -245,7 +245,7 @@
     {!! HTML::script('public/css/font-awesome/js/fontawesome-iconpicker.min.js') !!}
     <script>
         $('.icp').iconpicker();
-        var count = "{{ count($model->terms) }}";
+        var count = "{{ (isset($model)) ? count($model->terms) : 0 }}";
 
         $("body").on('click', '.delete-term', function () {
             $(this).parents('tr').remove();
