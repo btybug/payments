@@ -94,13 +94,16 @@ class IndexConroller extends Controller
         $states = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'state.json')),true))
             ->where("country_id",$country_id)
             ->map(function ($item){
-                return $item["id"];
-            })
+                return [
+                    'id' => $item["id"]
+                ];
+            })->pluck("id")
             ->toArray();
-        $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true,100000))
-            ->whereIn("state_id",$states)
-            ->toArray();
-        dd($cities);
+        $cities = json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true);
+        $cities = collect($cities)->map(function($item){
+            return collect($item);
+        });
+        $cities = $cities->whereIn("state_id",$states)->toArray();
         foreach ($cities as $value){
             $arr[] = [
                 'id' => $value['id'],

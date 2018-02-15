@@ -82,9 +82,8 @@
                     type:'post',
                     url:'{{route('get_zones_by_country')}}',
                     data:{id:id,_token:token},
-                    success:function(data){
-                        var cities = data;
-                        that.parent().parent().children("td.zones").children("select").select2("destroy").select2({
+                    success:function(cities){
+                        that.parent().parent().children("td.zones").children("select").empty().select2({
                             data:cities
                         });
                     }
