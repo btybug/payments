@@ -91,13 +91,13 @@ class IndexConroller extends Controller
     public function getZones(Request $request){
         $country_id = $request->id;
         $arr = [];
-        $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true))
+        $states = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'state.json')),true))
             ->where("country_id",$country_id)
             ->map(function ($item){
                 return $item["id"];
             })
             ->toArray();
-        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))
+        $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))
             ->whereIn("state_id",$states)
             ->toArray();
         foreach ($cities as $value){
@@ -120,15 +120,15 @@ class IndexConroller extends Controller
         return $index;
     }
     function getCitiesByCountryId($id){
-        $states_arr = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/state.json')),true))->where("country_id",$id)->pluck("id")->toArray();
-        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->whereIn("state_id",$states_arr)->pluck("name","id")->toArray();
+        $states_arr = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'state.json')),true))->where("country_id",$id)->pluck("id")->toArray();
+        $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))->whereIn("state_id",$states_arr)->pluck("name","id")->toArray();
         return $cities;
     }
     function getZoneName($data){
         $str = '';
         foreach ($data as $key => $val){
             $count = count($data)-1;
-            $states = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->where("id",$val)->first();
+            $states = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))->where("id",$val)->first();
             if($count == $key){
                 $str .= $states["name"];
             }else{
@@ -141,7 +141,7 @@ class IndexConroller extends Controller
         if(!$zones){
             return null;
         }
-        $cities = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/cities.json')),true))->pluck("name","id")->toArray();
+        $cities = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true))->pluck("name","id")->toArray();
         $zones_names = explode(", ",$zones);
         $indexes = [];
         foreach ($zones_names as $name){
@@ -150,11 +150,11 @@ class IndexConroller extends Controller
         return $indexes;
     }
     function countries(){
-        $countries = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/countries.json')),true))->pluck("name","id")->toArray();
+        $countries = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'countries.json')),true))->pluck("name","id")->toArray();
         return $countries;
     }
     function countriesGetName($id){
-        $countries = collect(json_decode(\File::get(plugins_path('vendor/sahak.avatar/payments/src/views/shopping/zones_dir/countries.json')),true))->where("id",$id)->first();
+        $countries = collect(json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'countries.json')),true))->where("id",$id)->first();
         return $countries["name"];
     }
     // end new functionality
