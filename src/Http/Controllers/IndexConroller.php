@@ -99,7 +99,7 @@ class IndexConroller extends Controller
                 ];
             })->pluck("id")
             ->toArray();
-        return response()->json(\File::exists(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')));
+
         $cities = json_decode(\File::get(plugins_path('vendor'.DS.'sahak.avatar'.DS.'payments'.DS.'src'.DS.'views'.DS.'shopping'.DS.'zones_dir'.DS.'cities.json')),true);
         $cities = collect($cities)->map(function($item){
             return collect($item);
