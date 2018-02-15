@@ -9,7 +9,7 @@
     <div class="col-md-9">
         <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
     margin-top: 7px;">
-            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">Get Attributes
+            <button class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal">Get Master attribute
             </button>
         </div>
         <div class="col-md-4">
@@ -18,7 +18,7 @@
             </ul>
         </div>
         <div class="col-md-8 tab-content" id="tabContentItems">
-           
+
         </div>
     </div>
     <div class="col-md-3">
@@ -80,10 +80,31 @@
         box-shadow: -3px 3px 16px;
         background-color: #58a27e;
     }
+    .tab-icon{
+        position: relative;
+    }
+    .tab-icon button{
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        color: white;
+    }
+    .tab-icon .child{
+        background-color: antiquewhite;
+        width: 80%;
+        float: right;
+    }
+
 </style>
 
 <script type="template" id="tab-menu">
-    <li class=""><a href="#tab_{tab}" data-toggle="pill">{title}</a></li>
+    <li class="tab-icon"><a href="#tab_{tab}"  data-toggle="pill">{title}</a><button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
+
+    </li>
+</script>
+<script type="template">
+    <li class="tab-icon child" ><a href="#tab_{tab}" data-toggle="pill">Select</a></li>
 </script>
 <script type="template" id="tab-content">
     <div class="tab-pane " id="tab_{id}">
