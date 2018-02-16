@@ -89,7 +89,7 @@
             {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
-            <label for="street_address">Street address</label>
+            <label for="street_address">Street number</label>
             {!! Form::text('street_number',null,["id" => "street_number","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
