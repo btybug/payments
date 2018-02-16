@@ -74,9 +74,9 @@
                     @endforeach
                     </tbody>
                 </table>
-                <button class="btn btn-primary custom_add_new_address pull-right">Add new</button>
             </div>
         @endif
+        <button class="btn btn-primary custom_add_new_address pull-right">Add new</button>
     </div>
 </div>
 
