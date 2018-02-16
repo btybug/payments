@@ -40,6 +40,10 @@ Route::group(['prefix' => 'dashboard'], function () {
 
 Route::group(['prefix' => 'user-payments'], function () {
     Route::get('/', 'UserPaymentsConroller@getIndex', true)->name('payments_user_payments');
+    Route::post('/save', 'UserPaymentsConroller@saveShippingAddress')->name('save_shipping_address');
+    Route::post('/edit/{id}', 'UserPaymentsConroller@editShippingAddress')->name('edit_shipping_address');
+    Route::post('/edit/save/{id}', 'UserPaymentsConroller@editShippingAddressSave')->name('edit_shipping_address_save');
+    Route::get('/remove/{id}', 'UserPaymentsConroller@removeShippingAddress',true)->name('remove_shipping_address');
 });
 
 Route::group(['prefix' => 'shopping-cart'], function () {
@@ -128,6 +132,10 @@ Route::post("/search", "IndexConroller@search");
 Route::post("/findpage", "IndexConroller@findPage");
 Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPaginator");
 
+
+Route::get('shippingaddress', function(){
+    \BtyBugHook\Payments\Database\AddShippingAddressColumn::up();
+});
 
 Route::get('createzonetable', function(){
     \BtyBugHook\Payments\Database\CreateZonesTable::up();
