@@ -59,8 +59,8 @@
                         <tr>
                             <td class="text-left">
                                 {{isset($address['general']) ? $address['general'] : ''}}<br>
+                                {{isset($address['street_number']) ? $address['street_number'] : ''}}<br>
                                 {{isset($address['street_address']) ? $address['street_address'] : ''}}<br>
-                                {{isset($address['street_name']) ? $address['street_name'] : ''}}<br>
                                 {{isset($address['city']) ? $address['city'] : ''}}<br>
                                 {{isset($address['state']) ? $address['state'] : ''}}<br>
                                 {{isset($address['zip_code']) ? $address['zip_code'] : ''}}<br>
