@@ -232,7 +232,7 @@
                         var key = data.key;
                         var arr = data.data;
                         $("#general").val(arr.general);
-                        $("#street_addres").val(arr.street_address);
+                        $("#street_address").val(arr.street_address);
                         $("#street_name").val(arr.street_name);
                         $("#city").val(arr.city);
                         $("#state").val(arr.state);

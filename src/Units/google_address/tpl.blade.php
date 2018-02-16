@@ -232,12 +232,13 @@
                     var key = data.key;
                     var arr = data.data;
                     $("#general").val(arr.general);
-                    $("#street_addres").val(arr.street_address);
+                    $("#street_address").val(arr.street_address);
                     $("#street_name").val(arr.street_name);
                     $("#city").val(arr.city);
                     $("#state").val(arr.state);
                     $("#zip_code").val(arr.zip_code);
                     $("#country").val(arr.country);
+
                     $(".custom_for_google").addClass("custom_hide");
                     $(".main_lay_cont").removeClass("custom_hide");
                 }
