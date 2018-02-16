@@ -83,7 +83,7 @@
 
 
 <div class="main_lay_cont custom_hide">
-    {!! Form::open(['url'=>route('edit_shipping_address_save',$key),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
+    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
     <div class="form-group">
         <label for="general">General</label>
         {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
