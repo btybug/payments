@@ -90,11 +90,11 @@
         </div>
         <div class="form-group">
             <label for="street_address">Street number</label>
-            {!! Form::text('street_number',null,["id" => "street_number","class"=>"form-control"]) !!}
+            {!! Form::text('street_number',null,["id" => "street_numb","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
             <label for="street_name">Street name</label>
-            {!! Form::text('street_address',null,["id" => "route","class"=>"form-control"]) !!}
+            {!! Form::text('street_address',null,["id" => "rout","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
             <label for="city">City</label>
@@ -110,7 +110,7 @@
         </div>
         <div class="form-group">
             <label for="country">Country</label>
-            {!! Form::text('country',null,["id" => "country","class"=>"form-control"]) !!}
+            {!! Form::text('country',null,["id" => "countr","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
             <button class="btn btn-primary pull-right">Save</button>
@@ -237,12 +237,12 @@
                     var key = data.key;
                     var arr = data.data;
                     $("#general").val(arr.general);
-                    $("#street_number").val(arr.street_number);
-                    $("#route").val(arr.street_address);
+                    $("#street_numb").val(arr.street_number);
+                    $("#rout").val(arr.street_address);
                     $("#city").val(arr.city);
                     $("#state").val(arr.state);
                     $("#zip_code").val(arr.zip_code);
-                    $("#country").val(arr.country);
+                    $("#countr").val(arr.country);
 
                     $(".custom_for_google").addClass("custom_hide");
                     $(".main_lay_cont").removeClass("custom_hide");
