@@ -58,13 +58,13 @@
                     @foreach($addresses as $key => $address)
                         <tr>
                             <td class="text-left">
-                                {{$address['general']}}<br>
-                                {{$address['street_address']}}<br>
-                                {{$address['street_name']}}<br>
-                                {{$address['city']}}<br>
-                                {{$address['state']}}<br>
-                                {{$address['zip_code']}}<br>
-                                {{$address['country']}}<br>
+                                {{isset($address['general']) ? $address['general'] : ''}}<br>
+                                {{isset($address['street_address']) ? $address['street_address'] : ''}}<br>
+                                {{isset($address['street_name']) ? $address['street_name'] : ''}}<br>
+                                {{isset($address['city']) ? $address['city'] : ''}}<br>
+                                {{isset($address['state']) ? $address['state'] : ''}}<br>
+                                {{isset($address['zip_code']) ? $address['zip_code'] : ''}}<br>
+                                {{isset($address['country']) ? $address['country'] : ''}}<br>
                             </td>
                             <td class="text-right">
                                 <button type="button" class="btn btn-info edit_address" data-url="{{route('edit_shipping_address',$key)}}">Edit</button>
