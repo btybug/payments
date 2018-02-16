@@ -84,38 +84,37 @@
 
 <div class="main_lay_cont custom_hide">
     {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
-    <div class="form-group">
-        <label for="general">General</label>
-        {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="street_address">Street address</label>
-        {!! Form::text('street_address',null,["id" => "street_address","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="street_name">Street name</label>
-        {!! Form::text('street_name',null,["id" => "street_name","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="city">City</label>
-        {!! Form::text('city',null,["id" => "city","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="state">State</label>
-        {!! Form::text('state',null,["id" => "state","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="zip_code">Zip code</label>
-        {!! Form::text('zip_code',null,["id" => "zip_code","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <label for="country">Country</label>
-        {!! Form::text('country',null,["id" => "country","class"=>"form-control"]) !!}
-    </div>
-    <div class="form-group">
-        <button class="btn btn-primary pull-right">Save</button>
-    </div>
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <div class="form-group">
+            <label for="general">General</label>
+            {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="street_address">Street address</label>
+            {!! Form::text('street_address',null,["id" => "street_address","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="street_name">Street name</label>
+            {!! Form::text('street_name',null,["id" => "street_name","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            {!! Form::text('city',null,["id" => "city","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            {!! Form::text('state',null,["id" => "state","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="zip_code">Zip code</label>
+            {!! Form::text('zip_code',null,["id" => "zip_code","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            {!! Form::text('country',null,["id" => "country","class"=>"form-control"]) !!}
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary pull-right">Save</button>
+        </div>
     {!! Form::close() !!}
 </div>
 
