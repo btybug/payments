@@ -41,7 +41,6 @@ class UserPaymentsConroller extends Controller
 
     public function editShippingAddressSave(Request $request,$key){
         $data = json_decode(auth()->user()->shipping_address,true);
-        dd($data);
         $data[$key] = $request->except('_token');
         $user = User::where("id",auth()->user()->id)->first();
         $user->shipping_address = json_encode($data);
