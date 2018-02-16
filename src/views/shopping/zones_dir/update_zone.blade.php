@@ -9,6 +9,7 @@
                         <tr>
                             <th>Country</th>
                             <th>Zone</th>
+                            <th>Zone/Postcode</th>
                             <th>All cities</th>
                             <th>Any exceptions</th>
                         </tr>
@@ -17,6 +18,7 @@
                         <tr class="clone_this">
                             <td>{!! Form::select('countries[0][country]',$countries,[$country_index],['id' => 'country','class' => 'form-control select2','disabled' => 'disabled']) !!}</td>
                             <td class="zones_disable">{!! Form::select('countries[0][zones][]',$cities,$active_cities,['id' => 'zones','class' => 'form-control select2','multiple' => 'multiple',$zone->all ? "disabled=>disabled" : '']) !!}</td>
+                            <td>{!! Form::select('',[0=>"post code"],null,['class' => 'form-control']) !!}</td>
                             <td>
                                 <label>Select all
                                     <input type="checkbox" id="select-all" class="select-all" name="countries[0][all]" value="1" {{$zone->all ? 'checked' : ''}}>

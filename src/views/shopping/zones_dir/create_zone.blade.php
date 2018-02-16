@@ -8,14 +8,16 @@
                     <thead>
                     <tr>
                         <th>Country</th>
-                        <th>Zone</th>
+                        <th>Allowed</th>
+                        <th>Zone/Postcode</th>
                         <th>All cities</th>
-                        <th>Any exceptions</th>
+                        <th>Exceptions</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr class="append_before">
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -45,6 +47,7 @@
         <tr>
             <td>{!! Form::select('countries[{repl_index}][country]',$countries,null,['class' => 'form-control select_for_countries']) !!}</td>
             <td class="zones zones_disable">{!! Form::select('countries[{repl_index_zone}][zones][]',[],null,['class' => 'form-control select_for_zones {repl}','multiple' => 'multiple']) !!}</td>
+            <td>{!! Form::select('',[0=>"post code"],null,['class' => 'form-control']) !!}</td>
             <td>
                 <label>Select all
                     <input type="checkbox" id="select-all" class="select-all" name="countries[{repl_checkbox}][all]" value="1">

@@ -132,3 +132,21 @@ Route::post("/append-post-scroll-paginator", "IndexConroller@appendPostScrollPag
 Route::get('createzonetable', function(){
     \BtyBugHook\Payments\Database\CreateZonesTable::up();
 });
+Route::get('createcountries', function(){
+    \BtyBugHook\Payments\Database\CreateCountriesTable::up();
+});
+Route::get('insertintostate', function(){
+    \BtyBugHook\Payments\Database\InsertIntoStateTable::up();
+});
+Route::get('insertintocities', function(){
+    \BtyBugHook\Payments\Database\InsertIntoCitiesTable::up();
+});
+Route::get('insertintocities1', function(){
+    \BtyBugHook\Payments\Database\InsertIntoCitiesTable1::up();
+});
+Route::get('insertintocities2', function(){
+    \BtyBugHook\Payments\Database\InsertIntoCitiesTable2::up();
+});
+Route::get('insertintocities3', function(){
+    \BtyBugHook\Payments\Database\InsertIntoCitiesTable3::up();
+});
