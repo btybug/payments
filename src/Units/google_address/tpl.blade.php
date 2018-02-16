@@ -115,6 +115,7 @@
     <div class="form-group">
         <button class="btn btn-primary pull-right">Save</button>
     </div>
+    <input type="hidden" name="_token" value="{{csrf_token()}}">
     {!! Form::close() !!}
 </div>
 
