@@ -131,10 +131,10 @@
         <tr>
             <td class="label">Street address</td>
             <td class="slimField">
-                <input class="field" id="street_number" disabled="true" name="street_address">
+                <input class="field" id="street_number" disabled="true" name="street_number">
             </td>
             <td class="wideField" colspan="2">
-                <input class="field" id="route" disabled="true" name="street_name">
+                <input class="field" id="route" disabled="true" name="street_address">
             </td>
         </tr>
         <tr>
@@ -228,7 +228,7 @@
             var full_url = window.location.origin + '/admin/payments/user-payments/edit/save/'+key;
             $("form.remove_values input").not("input[name='_token']").val("");
             $("form.remove_values").attr("action",full_url);
-            
+
             $.ajax({
                 type:'post',
                 url:url,
@@ -237,8 +237,8 @@
                     var key = data.key;
                     var arr = data.data;
                     $("#general").val(arr.general);
-                    $("#street_address").val(arr.street_address);
-                    $("#street_name").val(arr.street_name);
+                    $("#street_number").val(arr.street_number);
+                    $("#route").val(arr.street_address);
                     $("#city").val(arr.city);
                     $("#state").val(arr.state);
                     $("#zip_code").val(arr.zip_code);
