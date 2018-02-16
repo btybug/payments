@@ -67,7 +67,7 @@
                                 {{isset($address['country']) ? $address['country'] : ''}}<br>
                             </td>
                             <td class="text-right">
-                                <button type="button" class="btn btn-info edit_address" data-url="{{route('edit_shipping_address',$key)}}">Edit</button>
+                                <button type="button" class="btn btn-info edit_address" data-url="{{route('edit_shipping_address',$key)}}" data-key="{{$key}}">Edit</button>
                                 &nbsp; <a href="{{route('remove_shipping_address',$key)}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -223,7 +223,12 @@
         $("body").delegate(".edit_address","click",function(){
             var token = $("input[name=_token]").val();
             var url = $(this).data("url");
+            var key = $(this).data('key');
+
+            var full_url = window.location.origin + '/admin/payments/user-payments/edit/save/'+key;
             $("form.remove_values input").not("input[name='_token']").val("");
+            $("form.remove_values").attr("action",full_url);
+            
             $.ajax({
                 type:'post',
                 url:url,
