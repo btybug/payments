@@ -90,11 +90,11 @@
         </div>
         <div class="form-group">
             <label for="street_address">Street address</label>
-            {!! Form::text('street_address',null,["id" => "street_address","class"=>"form-control"]) !!}
+            {!! Form::text('street_number',null,["id" => "street_number","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
             <label for="street_name">Street name</label>
-            {!! Form::text('street_name',null,["id" => "street_name","class"=>"form-control"]) !!}
+            {!! Form::text('street_address',null,["id" => "route","class"=>"form-control"]) !!}
         </div>
         <div class="form-group">
             <label for="city">City</label>
