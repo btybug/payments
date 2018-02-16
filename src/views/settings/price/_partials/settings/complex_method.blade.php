@@ -9,7 +9,7 @@
     <div class="col-md-9">
         <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
     margin-top: 7px;">
-            <button class="btn btn-success pull-left" data-toggle="modal" data-target="#myModal">Get Master attribute
+            <button class="btn btn-success pull-left attributes-modal" data-role="master">Get Master attribute
             </button>
         </div>
         <div class="col-md-4">
@@ -90,28 +90,86 @@
         position: absolute;
         right: 0;
         top: 0;
-        bottom: 0;
+        padding: 9px 12px;
         color: white;
     }
 
-    .tab-icon .child {
+    .tab-icon.child {
         background-color: antiquewhite;
         width: 80%;
         float: right;
     }
+    .tab-icon{
+        background-color: transparent;
+    }
+    .nav-pills>li>a{
+        background-color: #b8b8b8;
+    }
+    .child.nav-pills>li {
+         float: none !important;
+    }
+
+
 
 </style>
 
 <script type="template" id="tab-menu">
     <li class="tab-icon" data-tab="{tab}"><a href="#tab_{tab}" data-toggle="pill">{title}</a>
-        <button type="button" data-id="{tab}" class="btn btn-info add-tab-menu-child"><i class="fa fa-plus"></i>
+        <button type="button" data-id="{tab}" class="btn btn-info add-tab-menu-child attributes-modal" data-role="children"><i class="fa fa-plus"></i>
         </button>
+        <ul class="nav tab-icon child nav-pills">
+
+        </ul>
+        <div class="clearfix"></div>
     </li>
 </script>
 <script type="template" id="tab-menu-child">
-    <li class="tab-icon child"><a href="#tab_{tab}" data-toggle="pill">Select</a></li>
+    <li><a href="#tab_{tab}" data-toggle="pill">{title}</a></li>
 </script>
+
 <script type="template" id="tab-content">
+    <div class="tab-pane " id="tab_{id}">
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4 class="panel-title">
+                            Display Options
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body" style="background-color: #70a98d">
+                <div class="col-md-12 attributes-main-area-{id}">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label" for="name-{id}">Option Name</label>
+                            <div class="col-md-8">
+                                <input id="name-{id}" name="{id}[optionName]" type="text" placeholder="placeholder" class="form-control input-md">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-md-4 control-label" for="price-{id}">Price</label>
+                            <div class="col-md-8">
+                                <input id="price-{id}" name="{id}[price]" type="number" min="0" placeholder="enter price" class="form-control input-md">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    Price options
+                </h4>
+            </div>
+            <div class="panel-body" style="background-color: #70a98d">
+            </div>
+        </div>
+    </div>
+</script>
+<script type="template" id="tab-content-depended">
     <div class="tab-pane " id="tab_{id}">
         <div class="panel panel-default">
             <div class="panel-heading" role="tab">
@@ -241,19 +299,35 @@
 
 <script>
     $(function () {
+        $('body').on('click','.attributes-modal',function () {
+            var role=$(this).attr('data-role');
+            $('#myModal').modal('toggle');
+            var Main_id=$(this).attr('data-id');
+            $('form').attr('data-depended',role);
+            $('form').attr('data-depended-id',Main_id);
+        });
         $('form').submit(function (e) {
+            console.log($(this).attr('data-depended'));
+            var role=$(this).attr('data-depended');
+            var Main_id=$(this).attr('data-depended-id');
+            var tContentId,tMenuId,menuSelector;
+            switch (role){
+                case 'master':tContentId='#tab-content'; tMenuId='#tab-menu';menuSelector='#tabMenuItems';break;
+                case 'children':tContentId='#tab-content-depended'; tMenuId='#tab-menu-child'; menuSelector= $('body').find('[data-tab='+Main_id+'] ul');break;
+            }
+
             e.preventDefault();
             var data = $(this).serializeArray();
             $.each(data, function (key, attr) {
                 var id = Date.now();
-                var tabMenu = $('#tab-menu').html();
-                var tabContent = $('#tab-content').html();
+                var tabMenu = $(tMenuId).html();
+                var tabContent = $(tContentId).html();
                 var attrMain = $('#attributes-main').html();
                 tabContent = tabContent.replace('{content}', attrMain);
                 tabContent = tabContent.replace(/{id}/g, id);
                 tabMenu = tabMenu.replace(/{tab}/g, id);
                 tabMenu = tabMenu.replace(/{title}/g, attr.value);
-                $('#tabMenuItems').append(tabMenu);
+                $(menuSelector).append(tabMenu);
                 $('#tabContentItems').append(tabContent);
             });
             $(this).find("input[type=checkbox]").attr('checked', false);
@@ -290,9 +364,19 @@
         $('body').on('click', '.delete-secondary-condition', function () {
             $(this).parents('.row').first().remove();
         });
-        $('body').on('click', '.add-tab-menu-child', function () {
-            
-        });
+        // $('body').on('click', '.add-tab-menu-child', function () {
+        //     var id = Date.now();
+        //     var Main_id=$(this).attr('data-id');
+        //     var ch_menu=$('#tab-menu-child').html();
+        //     ch_menu=ch_menu.replace(/{tab}/g, id);
+        //     var tabContent = $('#tab-content').html();
+        //     var attrMain = $('#attributes-main').html();
+        //     tabContent = tabContent.replace('{content}', attrMain);
+        //     tabContent = tabContent.replace(/{id}/g, id);
+        //
+        //     $('#tabContentItems').append(tabContent);
+        //     $('body').find('[data-tab='+Main_id+'] ul').append(ch_menu);
+        // });
 
     });
 </script>
