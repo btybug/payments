@@ -83,7 +83,7 @@
 
 
 <div class="main_lay_cont custom_hide">
-    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'class'=>'form-forizontal remove_values']) !!}
+    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'class'=>'form-horizontal remove_values']) !!}
         <div class="form-group">
             <label for="general">General</label>
             {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
@@ -122,7 +122,7 @@
 
 
 <div class="custom_for_google custom_hide">
-    {!! Form::open(['url'=>route('save_shipping_address'),'method' => 'post']) !!}
+    {!! Form::open(['url'=>route('save_shipping_address')]) !!}
 
     <div id="locationField">
         <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" name="general">
@@ -223,7 +223,7 @@
         $("body").delegate(".edit_address","click",function(){
             var token = $("input[name=_token]").val();
             var url = $(this).data("url");
-            $("form.remove_values input").val("");
+            $("form.remove_values input").not("input[name='_token']").val("");
             $.ajax({
                 type:'post',
                 url:url,
