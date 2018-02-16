@@ -83,7 +83,7 @@
 
 
 <div class="main_lay_cont custom_hide">
-    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
+    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'class'=>'form-forizontal remove_values']) !!}
         <div class="form-group">
             <label for="general">General</label>
             {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
@@ -121,7 +121,50 @@
 
 
 
+<div class="custom_for_google custom_hide">
+    {!! Form::open(['url'=>route('save_shipping_address'),'method' => 'post']) !!}
 
+    <div id="locationField">
+        <input id="autocomplete" placeholder="Enter your address" onFocus="geolocate()" type="text" name="general">
+    </div>
+    <table id="address">
+        <tr>
+            <td class="label">Street address</td>
+            <td class="slimField">
+                <input class="field" id="street_number" disabled="true" name="street_address">
+            </td>
+            <td class="wideField" colspan="2">
+                <input class="field" id="route" disabled="true" name="street_name">
+            </td>
+        </tr>
+        <tr>
+            <td class="label">City</td>
+            <td class="wideField" colspan="3">
+                <input class="field" id="locality" disabled="true" name="city">
+            </td>
+        </tr>
+        <tr>
+            <td class="label">State</td>
+            <td class="slimField">
+                <input class="field" id="administrative_area_level_1" disabled="true" name="state">
+            </td>
+            <td class="label">Zip code</td>
+            <td class="wideField">
+                <input class="field" id="postal_code" disabled="true" name="zip_code">
+            </td>
+        </tr>
+        <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3">
+                <input class="field" id="country" disabled="true" name="country">
+            </td>
+        </tr>
+    </table>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+    {!! Form::close() !!}
+</div>
 
 <script>
     var placeSearch, autocomplete;
