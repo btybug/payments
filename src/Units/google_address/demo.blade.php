@@ -74,16 +74,16 @@
                     @endforeach
                     </tbody>
                 </table>
-                <button class="btn btn-primary custom_add_new_address pull-right">Add new</button>
             </div>
         @endif
+            <button class="btn btn-primary custom_add_new_address pull-right">Add new</button>
     </div>
 </div>
 
 
 
 <div class="main_lay_cont custom_hide">
-    {!! Form::open(['url'=>route('edit_shipping_address_save',$key),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
+    {!! Form::open(['url'=>route('edit_shipping_address_save',isset($key) ? $key : 0),'method' => 'post','class'=>'form-forizontal remove_values']) !!}
     <div class="form-group">
         <label for="general">General</label>
         {!! Form::text('general',null,["id" => "general","class"=>"form-control"]) !!}
