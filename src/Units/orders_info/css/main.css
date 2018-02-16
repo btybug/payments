@@ -1,0 +1,16 @@
+.order_info h3{
+    font-size: 2em;
+    font-weight: 400;
+    color: #333;
+}
+.order_info table.detail td.left,.order_history table.detail td.right{
+    width: 50%;
+    text-align: left;
+}
+.order_info table.address td.left,.order_info table.address td.right{
+    width: 50%;
+    vertical-align: top;
+}
+.order_info table.name td.button{
+    white-space: nowrap;
+}
