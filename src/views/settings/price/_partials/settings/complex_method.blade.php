@@ -80,18 +80,21 @@
         box-shadow: -3px 3px 16px;
         background-color: #58a27e;
     }
-    .tab-icon{
+
+    .tab-icon {
         position: relative;
         background-color: #b8b8b8;
     }
-    .tab-icon button{
+
+    .tab-icon button {
         position: absolute;
         right: 0;
         top: 0;
         bottom: 0;
         color: white;
     }
-    .tab-icon .child{
+
+    .tab-icon .child {
         background-color: antiquewhite;
         width: 80%;
         float: right;
@@ -100,12 +103,13 @@
 </style>
 
 <script type="template" id="tab-menu">
-    <li class="tab-icon"><a href="#tab_{tab}"  data-toggle="pill">{title}</a><button type="button" class="btn btn-info"><i class="fa fa-plus"></i></button>
-
+    <li class="tab-icon" data-tab="{tab}"><a href="#tab_{tab}" data-toggle="pill">{title}</a>
+        <button type="button" data-id="{tab}" class="btn btn-info add-tab-menu-child"><i class="fa fa-plus"></i>
+        </button>
     </li>
 </script>
-<script type="template">
-    <li class="tab-icon child" ><a href="#tab_{tab}" data-toggle="pill">Select</a></li>
+<script type="template" id="tab-menu-child">
+    <li class="tab-icon child"><a href="#tab_{tab}" data-toggle="pill">Select</a></li>
 </script>
 <script type="template" id="tab-content">
     <div class="tab-pane " id="tab_{id}">
@@ -194,7 +198,8 @@
             </div>
             <div class="col-md-2">
                 <div class="pull-right">
-                    <button type="button" data-id="{id}" class="btn btn-info add-secondary-condition"><i class="fa fa-plus"></i></button>
+                    <button type="button" data-id="{id}" class="btn btn-info add-secondary-condition"><i
+                                class="fa fa-plus"></i></button>
                 </div>
             </div>
         </div>
@@ -226,7 +231,8 @@
         </div>
         <div class="col-md-2">
             <div class="pull-right">
-                <button type="button"  class="btn btn-danger delete-secondary-condition"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-danger delete-secondary-condition"><i class="fa fa-minus"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -275,14 +281,18 @@
             attrMain = attrMain.replace(/{id}/g, id);
             $('body').find('.attributes-main-area-' + Main_id).append(attrMain);
         });
-        $('body').on('click','.add-secondary-condition',function () {
+        $('body').on('click', '.add-secondary-condition', function () {
             var Main_id = $(this).attr('data-id');
             var attrSecondary = $('#secondary-sub-attributes').html();
-            $('body').find('[data-area='+Main_id+']').append(attrSecondary);
+            $('body').find('[data-area=' + Main_id + ']').append(attrSecondary);
         });
 
-        $('body').on('click','.delete-secondary-condition',function () {
+        $('body').on('click', '.delete-secondary-condition', function () {
             $(this).parents('.row').first().remove();
-        })
+        });
+        $('body').on('click', '.add-tab-menu-child', function () {
+            
+        });
+
     });
 </script>
