@@ -41,8 +41,8 @@ Route::group(['prefix' => 'dashboard'], function () {
 Route::group(['prefix' => 'user-payments'], function () {
     Route::get('/', 'UserPaymentsConroller@getIndex', true)->name('payments_user_payments');
     Route::post('/save', 'UserPaymentsConroller@saveShippingAddress')->name('save_shipping_address');
-    Route::post('/edit/{id}', 'UserPaymentsConroller@editShippingAddress')->name('edit_shipping_address');
     Route::post('/edit/save/{id}', 'UserPaymentsConroller@editShippingAddressSave')->name('edit_shipping_address_save');
+    Route::post('/edit/{id}', 'UserPaymentsConroller@editShippingAddress')->name('edit_shipping_address');
     Route::get('/remove/{id}', 'UserPaymentsConroller@removeShippingAddress',true)->name('remove_shipping_address');
 });
 
