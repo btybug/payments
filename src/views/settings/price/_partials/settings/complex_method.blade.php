@@ -1,6 +1,8 @@
 @php
     $data = get_qty_data();
     $slug = str_replace('-', '_', \Request::route("slug"));
+$attributesRepossitory=new \BtyBugHook\Payments\Repository\AttributesRepository();
+$attributes=$attributesRepossitory->getAll();
 @endphp
 
 
@@ -40,24 +42,14 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="checkboxes">Attributes</label>
                             <div class="col-md-4">
+                                    @foreach($attributes as $attribute)
                                 <div class="checkbox">
-                                    <label for="checkboxes-0">
-                                        <input type="checkbox" name="radio" id="checkboxes-0" value="Radio">
-                                        Radio
+                                    <label for="checkboxes-{!! $attribute->id !!}">
+                                        <input type="checkbox" name="{!! $attribute->type !!}" id="checkboxes-{!! $attribute->id !!}" value="{!! $attribute->slug !!}">
+                                        {!! $attribute->name !!}
                                     </label>
                                 </div>
-                                <div class="checkbox">
-                                    <label for="checkboxes-1">
-                                        <input type="checkbox" name="select" id="checkboxes-1" value="Select">
-                                        Select
-                                    </label>
-                                </div>
-                                <div class="checkbox">
-                                    <label for="checkboxes-2">
-                                        <input type="checkbox" name="text" id="checkboxes-2" value="Text">
-                                        Text
-                                    </label>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
 
