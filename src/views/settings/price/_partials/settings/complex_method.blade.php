@@ -11,7 +11,8 @@ $attributes=$attributesRepossitory->getAll();
     <div class="col-md-9">
         <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
     margin-top: 7px;">
-            <button class="btn btn-success pull-left" data-toggle="modal" data-target="#masterModal">Get Master attribute
+            <button class="btn btn-success pull-left" data-toggle="modal" data-target="#masterModal">Get Master
+                attribute
             </button>
         </div>
         <div class="col-md-4">
@@ -65,7 +66,8 @@ $attributes=$attributesRepossitory->getAll();
                                 @foreach($attributes as $attribute)
                                     <div class="checkbox">
                                         <label for="checkboxes-{!! $attribute->id !!}">
-                                            <input type="checkbox" data-type="{!! $attribute->type !!}" name="{!! $attribute->type !!}"
+                                            <input type="checkbox" data-type="{!! $attribute->type !!}"
+                                                   name="{!! $attribute->type !!}"
                                                    id="checkboxes-{!! $attribute->id !!}"
                                                    value="{!! $attribute->slug !!}">
                                             {!! $attribute->name !!}
@@ -102,7 +104,8 @@ $attributes=$attributesRepossitory->getAll();
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="master-name-input">Name</label>
                             <div class="col-md-4">
-                                <input id="master-name-input" name="master_name" type="text" placeholder="" class="form-control input-md">
+                                <input id="master-name-input" name="master_name" type="text" placeholder=""
+                                       class="form-control input-md">
                             </div>
                         </div>
 
@@ -192,14 +195,17 @@ $attributes=$attributesRepossitory->getAll();
                         <div class="col-md-6">
                             <label class="col-md-6 control-label" for="name-{id}">Select Field Type</label>
                             <div class="col-md-6">
-                                <select class=" form-control condition-option">
+                                <select class="form-control condition-option master-type" data-id="{id}">
                                     <option>Select Type</option>
-                                    <option>Radio</option>
-                                    <option>Checkbox</option>
-                                    <option>Select box</option>
-                                    <option>Text</option>
+                                    <option value="radio">Radio</option>
+                                    <option value="checkbox">Checkbox</option>
+                                    <option value="select">Select box</option>
+                                    <option value="text">Text</option>
                                 </select>
                             </div>
+                        </div>
+                        <div class="col-md-6" data-place="{id}">
+
                         </div>
                         <div class="form-group">
                             <label for="lablename" class="col-sm-12 control-label text-left">Label
@@ -399,6 +405,9 @@ $attributes=$attributesRepossitory->getAll();
         </div>
     </div>
 </script>
+<script type="template" id="master-button">
+    <button class="btn btn-info">Select Attribute</button>
+</script>
 
 {{--form components--}}
 <script type="template" id="component-label">
@@ -444,6 +453,16 @@ $attributes=$attributesRepossitory->getAll();
             $('#tabMenuItems').append(tabMenu);
             $('#tabContentItems').append(tabContent);
             $('#masterModal').modal('toggle');
+        });
+        $('body').on('change', '.master-type', function () {
+            var value = $(this).val();
+            var id=$(this).attr('data-id');
+            $('body').find('[data-place='+id+']').empty();
+            if (value=='radio' || value=='checkbox' || value=='select'){
+                var html=$('#master-button').html();
+                $('body').find('[data-place='+id+']').html(html);
+
+            }
         });
 
         $('body').on('click', '.attributes-modal', function () {
