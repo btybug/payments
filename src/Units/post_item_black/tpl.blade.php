@@ -31,8 +31,7 @@
     </div>
     <div class="block-bottom  text-center">
         <button class="btn select-plan add-to-cart" data-id="{!! $settings['product']["id"] !!}">Add To Cart</button>
-        <a class="btn select-plan" href="{!! url($settings["blog"],$settings['product'][$col]) !!}">View Product <i
-                    class="fa fa-eye" aria-hidden="true"></i></a>
+        <a class="btn select-plan" href="{!! url($settings["blog"],$settings['product'][$col]) !!}">View Product</a>
         {{--<a href="{!! url(get_blog_slug_in_page(),$plan[$col]) !!}" class="btn select-plan">View Product</a>--}}
     </div>
 </div>

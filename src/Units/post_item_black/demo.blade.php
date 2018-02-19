@@ -12,8 +12,7 @@
             </div>
             <div class="block-bottom text-center">
                 <button class="btn select-plan add-to-cart" data-id="1">Add To Cart</button>
-                <a class="btn select-plan" href="http://forms.albumbugs.com/test-blog/1">View Product <i
-                            class="fa fa-eye" aria-hidden="true"></i>
+                <a class="btn select-plan" href="http://forms.albumbugs.com/test-blog/1">View Product
                 </a>
 
             </div>
