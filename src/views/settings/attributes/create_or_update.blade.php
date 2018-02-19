@@ -206,18 +206,21 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="help" class="col-sm-12 m-0 control-label text-left">Help</label>
-                        <div class="col-sm-12">
-                            {!! Form::textarea('help',null,['class'=>'form-control','id'=>'help']) !!}
+                        <div class="col-sm-6">
+                            <label for="help" class="col-sm-3 m-0 control-label text-left">Help</label>
+                            <div class="col-sm-9">
+                                {!! Form::textarea('help',null,['class'=>'form-control','id'=>'help']) !!}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for='validation_message' class="col-sm-3 m-0 control-label text-left">Error
+                                Message</label>
+                            <div class="col-sm-9">
+                                {!! Form::textarea('validation_message',null,['class' => 'form-control','id'=>'validation_message']) !!}
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for='validation_message' class="col-sm-12 m-0 control-label text-left">Error
-                            Message</label>
-                        <div class="col-sm-12">
-                            {!! Form::textarea('validation_message',null,['class' => 'form-control','id'=>'validation_message']) !!}
-                        </div>
-                    </div>
+
                 </div>
             </div>
 
