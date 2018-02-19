@@ -159,44 +159,48 @@
                 <div class="panel-heading">Input Setting</div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label for="lablename" class="col-sm-12 control-label text-left">Label
-                            name</label>
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
-                                {!! Form::text('label',null,['class' => 'form-control']) !!}
-                            </div>
+                        <div class="col-sm-6">
+                            <label for="lablename" class="col-sm-3 control-label text-left">Label
+                                name</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                    {!! Form::text('label',null,['class' => 'form-control']) !!}
+                                </div>
 
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <label for="placeholder" class="col-sm-12 control-label text-left ">Placeholder</label>
-
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-sliders"></i></span>
-                                {!! Form::text('placeholder',null,['class' => 'form-control']) !!}
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="fieldicon" class="col-sm-12 control-label text-left">Field
-                            Icon</label>
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-slack"></i></span>
-                                {!!Form::text('icon',null,['class' => 'form-control icp','readonly'])  !!}
+                        <div class="col-sm-6">
+                            <label for="placeholder" class="col-sm-3 control-label text-left ">Placeholder</label>
+
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-sliders"></i></span>
+                                    {!! Form::text('placeholder',null,['class' => 'form-control']) !!}
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="tooltip-icon" class="col-sm-12 control-label text-left">Tooltip
-                            Icon</label>
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-slack"></i></span>
-                                {!!Form::text('tooltip_icon',null,['class' => 'form-control icp','readonly','id'=>'tooltip-icon'])  !!}
+                        <div class="col-sm-6">
+                            <label for="fieldicon" class="col-sm-3 control-label text-left">Field
+                                Icon</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-slack"></i></span>
+                                    {!!Form::text('icon',null,['class' => 'form-control icp','readonly'])  !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="tooltip-icon" class="col-sm-3 control-label text-left">Tooltip
+                                Icon</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-slack"></i></span>
+                                    {!!Form::text('tooltip_icon',null,['class' => 'form-control icp','readonly','id'=>'tooltip-icon'])  !!}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -293,9 +297,11 @@
             height: 40px;
 
         }
-textarea.form-control{
-    height:90px !important;
-}
+
+        textarea.form-control {
+            height: 90px !important;
+        }
+
         .form-control:focus {
             outline: none !important;
             box-shadow: none !important;
@@ -365,7 +371,8 @@ textarea.form-control{
             border-radius: 0;
             min-width: 40px;
         }
-        .title-btn h2{
+
+        .title-btn h2 {
             font-size: 24px;
         }
 
