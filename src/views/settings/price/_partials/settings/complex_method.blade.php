@@ -207,6 +207,9 @@ $attributes=$attributesRepossitory->getAll();
                         <div class="col-md-6" data-place="{id}">
 
                         </div>
+                        <div class="col-md-12" data-attributes="{id}">
+
+                        </div>
                         <div class="form-group">
                             <label for="lablename" class="col-sm-12 control-label text-left">Label
                                 name</label>
@@ -338,6 +341,21 @@ $attributes=$attributesRepossitory->getAll();
         </div>
     </div>
 </script>
+<script type="template" id="attributes-master">
+    <div class="col-md-12 row attributes-conditional-area">
+        <div class="col-md-6">
+            <select class=" form-control condition-option">
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Black</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-info"><i class="fa fa-icon"></i></button>
+        </div>
+
+    </div>
+</script>
 <script type="template" id="first-sub-attributes">
     <div class="col-md-2">
         Hide If
@@ -406,7 +424,7 @@ $attributes=$attributesRepossitory->getAll();
     </div>
 </script>
 <script type="template" id="master-button">
-    <button class="btn btn-info attributes-modal">Select Attribute</button>
+    <button class="btn btn-info attributes-modal" data-depended="master" data-id="{id}">Select Attribute</button>
 </script>
 
 {{--form components--}}
@@ -460,6 +478,7 @@ $attributes=$attributesRepossitory->getAll();
             $('body').find('[data-place='+id+']').empty();
             if (value=='radio' || value=='checkbox' || value=='select'){
                 var html=$('#master-button').html();
+                html=html.replace(/{id}/g, id);
                 $('body').find('[data-place='+id+']').html(html);
 
             }
@@ -502,7 +521,7 @@ $attributes=$attributesRepossitory->getAll();
                 tabMenu = tabMenu.replace(/{title}/g, attr.value);
                 console.log($(attr).attr('data-type'));
                 $(menuSelector).append(tabMenu);
-                $('#tabContentItems').append(tabContent);
+                $().append(tabContent);
             });
             $(this).find("input[type=checkbox]").attr('checked', false);
             $('#myModal').modal('toggle');
