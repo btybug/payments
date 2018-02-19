@@ -406,7 +406,7 @@ $attributes=$attributesRepossitory->getAll();
     </div>
 </script>
 <script type="template" id="master-button">
-    <button class="btn btn-info">Select Attribute</button>
+    <button class="btn btn-info attributes-modal">Select Attribute</button>
 </script>
 
 {{--form components--}}
