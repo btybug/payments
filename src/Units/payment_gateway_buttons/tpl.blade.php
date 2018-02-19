@@ -7,18 +7,18 @@
 <div class="col-md-12">
     @if(isset($checkoutButtons['checkout']['payment_gateways']['cash']))
         {!! Form::open(['url' => url(route('order_cash'))]) !!}
-        @if($cart::count())
-            {!! Form::submit('Pay now',['class' => 'btn btn-success']) !!}
-        @else
-            {!! Form::button('Pay now',['class' => 'btn btn-success','disabled' => 'disabled']) !!}
-        @endif
+            @if($cart::count())
+                {!! Form::submit('Pay now',['class' => 'btn btn-success']) !!}
+            @else
+                {!! Form::button('Pay now',['class' => 'btn btn-success','disabled' => 'disabled']) !!}
+            @endif
         {!! Form::close() !!}
     @endif
 
-    {{--@if(isset($checkoutButtons['checkout']['payment_gateways']['stripe']))--}}
-    <label class="btn btn-info submit-button" for="stripe-button">Pay With Card</label>
-    <input type="checkbox" name="method" class="hidden" value="stripe" id="stripe-button">
-    {{--@endif--}}
+    @if(isset($checkoutButtons['checkout']['payment_gateways']['stripe']))
+        <label class="btn btn-info submit-button" for="stripe-button">Pay With Card</label>
+        <input type="checkbox" name="method" class="hidden" value="stripe" id="stripe-button">
+    @endif
 </div>
 
 {!! BBstyle($_this->path."/css/main.css") !!}
