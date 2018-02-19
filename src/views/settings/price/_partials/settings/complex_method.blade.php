@@ -24,6 +24,26 @@ $attributes=$attributesRepossitory->getAll();
         </div>
     </div>
     <div class="col-md-3">
+        <div class="tab-pane ">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="panel-title">
+                                Preview
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="background-color: #70a98d">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -42,13 +62,15 @@ $attributes=$attributesRepossitory->getAll();
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="checkboxes">Attributes</label>
                             <div class="col-md-4">
-                                    @foreach($attributes as $attribute)
-                                <div class="checkbox">
-                                    <label for="checkboxes-{!! $attribute->id !!}">
-                                        <input type="checkbox" name="{!! $attribute->type !!}" id="checkboxes-{!! $attribute->id !!}" value="{!! $attribute->slug !!}">
-                                        {!! $attribute->name !!}
-                                    </label>
-                                </div>
+                                @foreach($attributes as $attribute)
+                                    <div class="checkbox">
+                                        <label for="checkboxes-{!! $attribute->id !!}">
+                                            <input type="checkbox" data-type="{!! $attribute->type !!}" name="{!! $attribute->type !!}"
+                                                   id="checkboxes-{!! $attribute->id !!}"
+                                                   value="{!! $attribute->slug !!}">
+                                            {!! $attribute->name !!}
+                                        </label>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
@@ -91,23 +113,26 @@ $attributes=$attributesRepossitory->getAll();
         width: 80%;
         float: right;
     }
-    .tab-icon{
+
+    .tab-icon {
         background-color: transparent;
     }
-    .nav-pills>li>a{
+
+    .nav-pills > li > a {
         background-color: #b8b8b8;
     }
-    .child.nav-pills>li {
-         float: none !important;
-    }
 
+    .child.nav-pills > li {
+        float: none !important;
+    }
 
 
 </style>
 
 <script type="template" id="tab-menu">
     <li class="tab-icon" data-tab="{tab}"><a href="#tab_{tab}" data-toggle="pill">{title}</a>
-        <button type="button" data-id="{tab}" class="btn btn-info add-tab-menu-child attributes-modal" data-role="children"><i class="fa fa-plus"></i>
+        <button type="button" data-id="{tab}" class="btn btn-info add-tab-menu-child attributes-modal"
+                data-role="children"><i class="fa fa-plus"></i>
         </button>
         <ul class="nav tab-icon child nav-pills">
 
@@ -134,18 +159,7 @@ $attributes=$attributesRepossitory->getAll();
             <div class="panel-body" style="background-color: #70a98d">
                 <div class="col-md-12 attributes-main-area-{id}">
                     <div class="row">
-                        <div class="col-md-6">
-                            <label class="col-md-4 control-label" for="name-{id}">Option Name</label>
-                            <div class="col-md-8">
-                                <input id="name-{id}" name="{id}[optionName]" type="text" placeholder="placeholder" class="form-control input-md">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="col-md-4 control-label" for="price-{id}">Price</label>
-                            <div class="col-md-8">
-                                <input id="price-{id}" name="{id}[price]" type="number" min="0" placeholder="enter price" class="form-control input-md">
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>
@@ -288,24 +302,60 @@ $attributes=$attributesRepossitory->getAll();
     </div>
 </script>
 
+{{--form components--}}
+<script type="template" id="component-label">
+    <label class="col-md-4 control-label" for="{label-for}">{text}</label>
+</script>
+<script type="template" id="component-checkbox">
 
+    <div class="checkbox">
+        <label for="checkbox-{id}">
+            <input type="checkbox" name="checkboxes" id="checkbox-{id}" value="1">
+            Option one
+        </label>
+    </div>
+</script>
+<script type="template" id="component-select">
+    <select id="selectbasic" name="selectbasic" class="form-control">
+        {options}
+    </select>
+</script>
+<script type="template" id="component-select-options">
+    <option value="{value}">{text}</option>
+</script>
+<script type="template" id="component-radio">
+    <div class="radio">
+        <label for="radios-0">
+            <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+            Option one
+        </label>
+    </div>
+</script>
+{{--js functional--}}
 <script>
     $(function () {
-        $('body').on('click','.attributes-modal',function () {
-            var role=$(this).attr('data-role');
+        $('body').on('click', '.attributes-modal', function () {
+            var role = $(this).attr('data-role');
             $('#myModal').modal('toggle');
-            var Main_id=$(this).attr('data-id');
-            $('form').attr('data-depended',role);
-            $('form').attr('data-depended-id',Main_id);
+            var Main_id = $(this).attr('data-id');
+            $('form').attr('data-depended', role);
+            $('form').attr('data-depended-id', Main_id);
         });
         $('form').submit(function (e) {
-            console.log($(this).attr('data-depended'));
-            var role=$(this).attr('data-depended');
-            var Main_id=$(this).attr('data-depended-id');
-            var tContentId,tMenuId,menuSelector;
-            switch (role){
-                case 'master':tContentId='#tab-content'; tMenuId='#tab-menu';menuSelector='#tabMenuItems';break;
-                case 'children':tContentId='#tab-content-depended'; tMenuId='#tab-menu-child'; menuSelector= $('body').find('[data-tab='+Main_id+'] ul');break;
+            var role = $(this).attr('data-depended');
+            var Main_id = $(this).attr('data-depended-id');
+            var tContentId, tMenuId, menuSelector;
+            switch (role) {
+                case 'master':
+                    tContentId = '#tab-content';
+                    tMenuId = '#tab-menu';
+                    menuSelector = '#tabMenuItems';
+                    break;
+                case 'children':
+                    tContentId = '#tab-content-depended';
+                    tMenuId = '#tab-menu-child';
+                    menuSelector = $('body').find('[data-tab=' + Main_id + '] ul');
+                    break;
             }
 
             e.preventDefault();
@@ -319,6 +369,7 @@ $attributes=$attributesRepossitory->getAll();
                 tabContent = tabContent.replace(/{id}/g, id);
                 tabMenu = tabMenu.replace(/{tab}/g, id);
                 tabMenu = tabMenu.replace(/{title}/g, attr.value);
+                console.log($(attr).attr('data-type'));
                 $(menuSelector).append(tabMenu);
                 $('#tabContentItems').append(tabContent);
             });
