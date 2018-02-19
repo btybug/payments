@@ -201,6 +201,62 @@ $attributes=$attributesRepossitory->getAll();
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="lablename" class="col-sm-12 control-label text-left">Label
+                                name</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-address-book"></i></span>
+                                    {!! Form::text('label',null,['class' => 'form-control']) !!}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="placeholder" class="col-sm-12 control-label text-left ">Placeholder</label>
+
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-sliders"></i></span>
+                                    {!! Form::text('placeholder',null,['class' => 'form-control']) !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fieldicon" class="col-sm-12 control-label text-left">Field
+                                Icon</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-slack"></i></span>
+                                    {!!Form::text('icon',null,['class' => 'form-control icp','readonly'])  !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tooltip-icon" class="col-sm-12 control-label text-left">Tooltip
+                                Icon</label>
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-slack"></i></span>
+                                    {!!Form::text('tooltip_icon',null,['class' => 'form-control icp','readonly','id'=>'tooltip-icon'])  !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="help" class="col-sm-12 m-0 control-label text-left">Help</label>
+                            <div class="col-sm-12">
+                                {!! Form::textarea('help',null,['class'=>'form-control','id'=>'help']) !!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for='validation_message' class="col-sm-12 m-0 control-label text-left">Error
+                                Message</label>
+                            <div class="col-sm-12">
+                                {!! Form::textarea('validation_message',null,['class' => 'form-control','id'=>'validation_message']) !!}
+                            </div>
+                        </div>
 
                     </div>
                 </div>
