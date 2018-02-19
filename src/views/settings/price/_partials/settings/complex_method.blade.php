@@ -271,15 +271,6 @@ $attributes=$attributesRepossitory->getAll();
                 </div>
             </div>
         </div>
-        <div class="panel panel-default">
-            <div class="panel-heading" role="tab">
-                <h4 class="panel-title">
-                    Price options
-                </h4>
-            </div>
-            <div class="panel-body" style="background-color: #70a98d">
-            </div>
-        </div>
     </div>
 </script>
 <script type="template" id="tab-content-depended">
@@ -331,10 +322,12 @@ $attributes=$attributesRepossitory->getAll();
             </select>
         </div>
         <div class="col-md-6">
-            <select class="form-control condition-types" data-id="{id}">
-                <option value="always">Always display</option>
-                <option value="conditional">Conditional</option>
-            </select>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="price-{id}">Price</label>
+                <div class="col-md-8">
+                    <input id="price-{id}"  type="number" min="0"  class="form-control input-md">
+                </div>
+            </div>
         </div>
         <div class="row sub-attributes-{id}">
 
@@ -351,7 +344,22 @@ $attributes=$attributesRepossitory->getAll();
             </select>
         </div>
         <div class="col-md-6">
-            <button type="button" class="btn btn-info"><i class="fa fa-icon"></i></button>
+            <button type="button" class="btn btn-info add-master-option" data-id="{id}"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="row options-{id}"></div>
+    </div>
+</script>
+<script type="template" id="attributes-master-secondary">
+    <div class="col-md-12 row ">
+        <div class="col-md-6">
+            <select class=" form-control condition-option">
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Black</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-warning" data-id="{id}"><i class="fa fa-minus"></i></button>
         </div>
 
     </div>
@@ -424,10 +432,18 @@ $attributes=$attributesRepossitory->getAll();
     </div>
 </script>
 <script type="template" id="master-button">
-    <button class="btn btn-info attributes-modal" data-depended="master" data-id="{id}">Select Attribute</button>
+    <button class="btn btn-info attributes-modal" data-role="master" data-id="{id}">Select Attribute</button>
 </script>
 
 {{--form components--}}
+<script type="template" id="field-box">
+    <div class="form-group">
+        {label}
+        <div class="col-md-4">
+            {field}
+        </div>
+    </div>
+</script>
 <script type="template" id="component-label">
     <label class="col-md-4 control-label" for="{label-for}">{text}</label>
 </script>
@@ -459,19 +475,51 @@ $attributes=$attributesRepossitory->getAll();
 {{--js functional--}}
 <script>
     $(function () {
+        function fieldMaker(id) {
+            var masterPanel=$('body').find('#tab_'+id);
+            var type=masterPanel.find('.master-type').val();
+            var field_box=$('#field-box').html();
+            var html;
+           switch(type){
+               case 'radio': html=radio(id);
+                   break;
+               case 'checkbox': html=checkbox(id);
+                   break;
+               case 'select':html=select(id);
+                   break;
+           };
+
+        }
+        function radio() {
+
+        }
+        function select() {
+
+        }
+        function checkbox() {
+
+        }
+        $('body').on('click', '.add-master-option', function (){
+            var id=$(this).attr('data-id');
+            var tabContent = $('#attributes-master-secondary').html();
+            tabContent = tabContent.replace(/{id}/g, id);
+            $('body').find('.options-'+id).append(tabContent);
+        });
         $('body').on('click', '.crate-new-master', function () {
             var id = Date.now();
             var tabMenu = $('#tab-menu').html();
             var tabContent = $('#tab-content').html();
             var attrMain = $('#attributes-main').html();
-            tabContent = tabContent.replace('{content}', attrMain);
+            tabContent = tabContent.replace(/{content}/g, attrMain);
             tabContent = tabContent.replace(/{id}/g, id);
             tabMenu = tabMenu.replace(/{tab}/g, id);
             tabMenu = tabMenu.replace(/{title}/g, $('#master-name-input').val());
             $('#tabMenuItems').append(tabMenu);
             $('#tabContentItems').append(tabContent);
             $('#masterModal').modal('toggle');
+            fieldMaker(id);
         });
+
         $('body').on('change', '.master-type', function () {
             var value = $(this).val();
             var id=$(this).attr('data-id');
@@ -494,20 +542,21 @@ $attributes=$attributesRepossitory->getAll();
         $('form').submit(function (e) {
             var role = $(this).attr('data-depended');
             var Main_id = $(this).attr('data-depended-id');
-            var tContentId, tMenuId, menuSelector;
+            var tContentId, tMenuId, menuSelector,contentSelector;
             switch (role) {
                 case 'master':
-                    tContentId = '#tab-content';
+                    tContentId = '#attributes-master';
                     tMenuId = '#tab-menu';
                     menuSelector = '#tabMenuItems';
+                    contentSelector=$('body').find('[data-attributes='+Main_id+']');
                     break;
                 case 'children':
                     tContentId = '#tab-content-depended';
                     tMenuId = '#tab-menu-child';
                     menuSelector = $('body').find('[data-tab=' + Main_id + '] ul');
+                    contentSelector='#tabContentItems';
                     break;
             }
-
             e.preventDefault();
             var data = $(this).serializeArray();
             $.each(data, function (key, attr) {
@@ -515,13 +564,12 @@ $attributes=$attributesRepossitory->getAll();
                 var tabMenu = $(tMenuId).html();
                 var tabContent = $(tContentId).html();
                 var attrMain = $('#attributes-main').html();
-                tabContent = tabContent.replace('{content}', attrMain);
+                tabContent = tabContent.replace(/{content}/g, attrMain);
                 tabContent = tabContent.replace(/{id}/g, id);
                 tabMenu = tabMenu.replace(/{tab}/g, id);
                 tabMenu = tabMenu.replace(/{title}/g, attr.value);
-                console.log($(attr).attr('data-type'));
                 $(menuSelector).append(tabMenu);
-                $().append(tabContent);
+                $(contentSelector).append(tabContent);
             });
             $(this).find("input[type=checkbox]").attr('checked', false);
             $('#myModal').modal('toggle');
