@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3 p-20">
         <div class="panel panel-default custompanel m-t-20">
             <div class="panel-heading">General</div>
