@@ -159,7 +159,19 @@ $attributes=$attributesRepossitory->getAll();
             <div class="panel-body" style="background-color: #70a98d">
                 <div class="col-md-12 attributes-main-area-{id}">
                     <div class="row">
-                      
+                        <div class="col-md-6">
+                            <label class="col-md-6 control-label" for="name-{id}">Select Field Type</label>
+                            <div class="col-md-6">
+                                <select class=" form-control condition-option">
+                                    <option>Select Type</option>
+                                    <option>Radio</option>
+                                    <option>Checkbox</option>
+                                    <option>Select box</option>
+                                    <option>Text</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
