@@ -11,7 +11,7 @@ $attributes=$attributesRepossitory->getAll();
     <div class="col-md-9">
         <div class="col-md-12 m-t-15" style="    margin-bottom: 9px;
     margin-top: 7px;">
-            <button class="btn btn-success pull-left attributes-modal" data-role="master">Get Master attribute
+            <button class="btn btn-success pull-left" data-toggle="modal" data-target="#masterModal">Get Master attribute
             </button>
         </div>
         <div class="col-md-4">
@@ -81,6 +81,36 @@ $attributes=$attributesRepossitory->getAll();
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-success add-new-options-panel">Save
                     </button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="masterModal" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Panel Name</h4>
+            </div>
+            <form class="attributes-import">
+                <div class="modal-body">
+                    <div class="row ">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="master-name-input">Name</label>
+                            <div class="col-md-4">
+                                <input id="master-name-input" name="master_name" type="text" placeholder="" class="form-control input-md">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success add-new-options-panel crate-new-master">Save</button>
                 </div>
             </form>
         </div>
@@ -346,6 +376,20 @@ $attributes=$attributesRepossitory->getAll();
 {{--js functional--}}
 <script>
     $(function () {
+        $('body').on('click', '.crate-new-master', function () {
+            var id = Date.now();
+            var tabMenu = $('#tab-menu').html();
+            var tabContent = $('#tab-content').html();
+            var attrMain = $('#attributes-main').html();
+            tabContent = tabContent.replace('{content}', attrMain);
+            tabContent = tabContent.replace(/{id}/g, id);
+            tabMenu = tabMenu.replace(/{tab}/g, id);
+            tabMenu = tabMenu.replace(/{title}/g, $('#master-name-input').val());
+            $('#tabMenuItems').append(tabMenu);
+            $('#tabContentItems').append(tabContent);
+            $('#masterModal').modal('toggle');
+        });
+
         $('body').on('click', '.attributes-modal', function () {
             var role = $(this).attr('data-role');
             $('#myModal').modal('toggle');
