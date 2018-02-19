@@ -4,44 +4,71 @@
 <style>
     #locationField, #controls {
         position: relative;
-        width: 480px;
+        width: 100%;
+        height: 50px;
     }
     #autocomplete {
         position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px;
+        outline: none;
+        border: none;
+        height: 100%;
     }
     .label {
-        text-align: right;
+        text-align: left;
         font-weight: bold;
         width: 100px;
-        color: #303030;
+        color: #fff;
+        padding: 0 10px;
+        line-height: normal;
+        display: table-cell;
+        vertical-align: inherit;
     }
     #address {
-        border: 1px solid #000090;
-        background-color: #f0f0ff;
-        width: 480px;
+        background-color: #337ab7;
+        width: 100%;
         padding-right: 2px;
     }
     #address td {
         font-size: 10pt;
     }
     .field {
-        width: 99%;
+        width: 100%;
+        outline: none;
+        padding: 10px;
     }
     .slimField {
-        width: 80px;
+        width: 130px;
     }
     .wideField {
         width: 200px;
     }
     #locationField {
-        height: 20px;
-        margin-bottom: 2px;
+        width: 100%;
+    }
+    #locationField:after{
+        content: "";
+        clear: both;
+        display: table
     }
     .custom_hide{
         display:none;
+    }
+    #address+.form-group{
+        text-align: right;
+    }
+    #address+.form-group>button{
+        border-radius: 0;
+    }
+    .custom_for_google input:disabled{
+        background-color: #efefef;
+    }
+    .custom_for_google{
+        width: 700px;
+        box-shadow: 0px 0px 4px #6f6f6f;
     }
 </style>
 
